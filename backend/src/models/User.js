@@ -10,8 +10,18 @@ const schema = {
         required: [true, 'Last name is required']
     },
     dob: {
-        type: Date,
-        required: [true, 'Date of birth is required']
+        day: {
+            type: Number,
+            required: true
+        },
+        month: {
+            type: Number,
+            required: true
+        },
+        year: {
+            type: Number,
+            required: true
+        }
     },
     email: {
         type: String,

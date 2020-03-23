@@ -1,17 +1,17 @@
 import express from 'express';
 
-import Reservation from "../models/Reservation";
+import Company from "../models/Company";
 
 const router = new express.Router();
 
 router.post('/', async (req, res, next) => {
     try{
         const input = req.body;
-        const reservation = await Reservation.create({...input});
+        const company = await Company.create({...input});
         return res.status(202).json({
             status: "Success",
             data: {
-                reservation
+                company
             }
         })
     }
@@ -32,11 +32,11 @@ router.get('/:id', async (req, res, next) => {
         const id = req.params.id;
         
         if(id){
-            const reservation = await Reservation.findById(id);
-            return res.status(200).json({status: "Success", data: {reservation}})
+            const company = await Company.findById(id);
+            return res.status(200).json({status: "Success", data: {company}})
         }
-        const reservations = await Reservation.find({});
-        return res.status(200).json({status: "Success", data: {reservations}})
+        const companies = await Company.find({});
+        return res.status(200).json({status: "Success", data: {companies}})
     }
     catch(err){
         res.status(500).json({
@@ -56,8 +56,8 @@ router.put('/:id', async (req, res, next) => {
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const reservation = await Reservation.findByIdAndUpdate(id, {...input});
-        return res.status(200).json({status: "Success", data: {reservation}})
+        const company = await Company.findByIdAndUpdate(id, {...input});
+        return res.status(200).json({status: "Success", data: {company}})
     }
     catch(err){
         res.status(500).json({
@@ -76,8 +76,8 @@ router.delete('/:id', async (req, res, next) => {
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const reservation = await Reservation.findByIdAndDelete(id);
-        return res.status(200).json({status: "Success", data: {reservation}})
+        const company = await Company.findByIdAndDelete(id);
+        return res.status(200).json({status: "Success", data: {company}})
     }
     catch(err){
         res.status(500).json({

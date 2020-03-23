@@ -24,9 +24,12 @@ const schema = {
         type: {
             type: String, // Don't do `{ location: { type: String } }`
             enum: ['Point'], // 'location.type' must be 'Point'
-            required: [true, 'GPS location of the store must be provided'],
+            required: true
           },
-          required: [true, 'GPS location of the store must be provided'],
+          coordinates: {
+            type: [Number],
+            required: true
+          }
     },
     city: {
         type: String,

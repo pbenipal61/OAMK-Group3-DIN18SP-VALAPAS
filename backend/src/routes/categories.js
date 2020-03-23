@@ -1,17 +1,17 @@
 import express from 'express';
 
-import Reservation from "../models/Reservation";
+import Category from "../models/Category";
 
 const router = new express.Router();
 
 router.post('/', async (req, res, next) => {
     try{
         const input = req.body;
-        const reservation = await Reservation.create({...input});
+        const category = await Category.create({...input});
         return res.status(202).json({
             status: "Success",
             data: {
-                reservation
+                category
             }
         })
     }
@@ -32,11 +32,11 @@ router.get('/:id', async (req, res, next) => {
         const id = req.params.id;
         
         if(id){
-            const reservation = await Reservation.findById(id);
-            return res.status(200).json({status: "Success", data: {reservation}})
+            const category = await Category.findById(id);
+            return res.status(200).json({status: "Success", data: {category}})
         }
-        const reservations = await Reservation.find({});
-        return res.status(200).json({status: "Success", data: {reservations}})
+        const categories = await Category.find({});
+        return res.status(200).json({status: "Success", data: {categories}})
     }
     catch(err){
         res.status(500).json({
@@ -56,8 +56,8 @@ router.put('/:id', async (req, res, next) => {
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const reservation = await Reservation.findByIdAndUpdate(id, {...input});
-        return res.status(200).json({status: "Success", data: {reservation}})
+        const category = await Category.findByIdAndUpdate(id, {...input});
+        return res.status(200).json({status: "Success", data: {category}})
     }
     catch(err){
         res.status(500).json({
@@ -76,8 +76,8 @@ router.delete('/:id', async (req, res, next) => {
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const reservation = await Reservation.findByIdAndDelete(id);
-        return res.status(200).json({status: "Success", data: {reservation}})
+        const category = await Category.findByIdAndDelete(id);
+        return res.status(200).json({status: "Success", data: {category}})
     }
     catch(err){
         res.status(500).json({
