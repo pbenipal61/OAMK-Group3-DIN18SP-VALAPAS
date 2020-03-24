@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Customers.CustomerRegisterActivity"></activity>
+        <activity android:name=".Activities.Customers.CustomerHomeActivity"></activity>
+        <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
         <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
         <activity android:name=".Activities.RegisterTypeActivity" />
         <activity android:name=".Activities.LoginActivity" />
