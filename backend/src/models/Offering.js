@@ -10,6 +10,10 @@ const schema = {
         required: true,
         type: String
     },
+    description: {
+        type: String,
+        required: true,
+    },
     images: {
         type: [String]
     },
@@ -19,7 +23,17 @@ const schema = {
     },
     tags: {
         type: String
-    }
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    deposit:{
+        type: Number,
+    },
+    discounts: {
+        type: [String]
+    },
 }
 
 export default mongoose.model('Offering', schema);
