@@ -20,7 +20,7 @@ router.post('/', async (req, res, next) => {
             status: "Failed",
             data: {
                 message: 'Internal server error',
-                err
+                err: err.message
             }
         })
     }
@@ -43,7 +43,7 @@ router.get('/:id', async (req, res, next) => {
             status: "Failed",
             data: {
                 message: 'Internal server error',
-                err
+                err: err.message
             }
         })
     }
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res, next) => {
             status: "Failed",
             data: {
                 message: 'Internal server error',
-                err
+                err: err.message
             }
         })
     }
@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res, next) => {
             status: "Failed",
             data: {
                 message: 'Internal server error',
-                err
+                err: err.message
             }
         })
     }
