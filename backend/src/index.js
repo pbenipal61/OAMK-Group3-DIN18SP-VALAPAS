@@ -1,5 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import passport from 'passport';
+import passportConfig from "./config/passport";
 
 import routes from "./routes";
 
@@ -7,7 +9,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-
+app.use(passport.initialize());
+passportConfig(passport);
 mongoose
     .connect(
         `mongodb+srv://admin:i3f2YwP9iW@cluster0-990qj.mongodb.net/test?retryWrites=true&w=majority`,
