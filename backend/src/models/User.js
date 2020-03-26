@@ -1,6 +1,7 @@
-import mongoose, { model } from 'mongoose';
+import mongoose from 'mongoose';
 
-const schema = {
+
+const schema = new mongoose.Schema({
     firstName: {
         type: String,
         required: [true, 'First name is required']
@@ -9,19 +10,10 @@ const schema = {
         type: String,
         required: [true, 'Last name is required']
     },
-    dob: {
-        day: {
-            type: Number,
-            required: true
-        },
-        month: {
-            type: Number,
-            required: true
-        },
-        year: {
-            type: Number,
-            required: true
-        }
+    isAdult: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
     email: {
         type: String,
@@ -34,8 +26,10 @@ const schema = {
     },
     city: {
         type: String,
-        default: "Oulu"
+        default: "Oulu",
+        required: true,
     },
-}
+});
 
-export default mongoose.model('User', schema);
+const User = mongoose.model('User', schema);
+export default User;
