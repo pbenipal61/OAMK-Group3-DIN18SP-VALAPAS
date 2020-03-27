@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.raulbrumar.valapas.R;
+
 public class CompanyRegisterActivity extends AppCompatActivity {
 
     @Override
