@@ -112,7 +112,7 @@
             android:textColor="#FF2626"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileButton"
+            app:layout_constraintEnd_toStartOf="@+id/updateInfoButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -133,13 +133,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/favoritesButton"
+            app:layout_constraintStart_toEndOf="@+id/reviewsButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/profileButton"
+            android:id="@+id/updateInfoButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
@@ -150,7 +150,7 @@
             android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/favoritesButton"
+            app:layout_constraintEnd_toStartOf="@+id/reviewsButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:layout_constraintTop_toTopOf="parent"
@@ -158,7 +158,7 @@
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/favoritesButton"
+            android:id="@+id/reviewsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
@@ -171,7 +171,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bookingButton"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/profileButton"
+            app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />

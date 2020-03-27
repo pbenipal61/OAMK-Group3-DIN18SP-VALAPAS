@@ -4,35 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Customers.CustomerFavoritesActivity">
-
-    <EditText
-        android:id="@+id/searchEditText2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/radius"
-        android:drawableLeft="@drawable/ic_search_black_24dp"
-        android:drawablePadding="20dp"
-        android:drawableTint="#FFFF2626"
-        android:ems="10"
-        android:hint="Search your favorites"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        android:paddingLeft="10dp"
-        android:shadowColor="#00EEC5C5"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".Activities.Companies.CompanyReviewsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_gravity="bottom"
-        android:background="#FAFAFA"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +43,7 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
+            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +61,7 @@
             android:drawableTop="@drawable/ic_account_circle_black_24dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="My Profile"
+            android:text="Update Info"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/reviewsButton"
@@ -97,12 +76,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_favorite_black_24dp"
-            android:drawableTint="@color/colorRed"
+            android:drawableTop="@drawable/ic_stars_black_24dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Favorites"
-            android:textColor="@color/colorRed"
+            android:text="Reviews"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bookingButton"
@@ -110,29 +87,32 @@
             app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="#FFFF2626"
+            android:textColor="#FF2626" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="#EEEEEE"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintTop_toBottomOf="@+id/searchEditText2"
-        tools:layout_editor_absoluteX="41dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/white_button_round"
-        android:tint="@color/colorRed"
-        android:src="@drawable/ic_tune_black_24dp"
+        android:text="My reviews"
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/myReviewsListview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:layout_editor_absoluteX="92dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
