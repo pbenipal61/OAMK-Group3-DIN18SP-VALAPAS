@@ -8,14 +8,12 @@ import android.view.View;
 
 import com.raulbrumar.valapas.R;
 
-public class CustomerFavoritesActivity extends AppCompatActivity
-{
+public class CustomerReservationsActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_favorites);
+        setContentView(R.layout.activity_customer_reservations);
     }
 
     public void homeClicked(View view)
@@ -30,9 +28,9 @@ public class CustomerFavoritesActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void bookingsClicked(View view)
+    public void favoritesClicked(View view)
     {
-        Intent intent = new Intent(this, CustomerReservationsActivity.class);
+        Intent intent = new Intent(this, CustomerFavoritesActivity.class);
         startActivity(intent);
     }
 }
