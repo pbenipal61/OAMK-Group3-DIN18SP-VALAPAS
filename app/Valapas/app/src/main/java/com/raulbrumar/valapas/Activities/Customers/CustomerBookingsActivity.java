@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import com.raulbrumar.valapas.R;
 
-public class CustomerFavoritesActivity extends AppCompatActivity
+public class CustomerBookingsActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_favorites);
+        setContentView(R.layout.activity_customer_bookings);
     }
 
     public void customerSelectBrowse(View v)

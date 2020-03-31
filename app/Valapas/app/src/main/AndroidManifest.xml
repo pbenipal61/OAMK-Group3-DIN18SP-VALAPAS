@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Customers.CustomerFavoritesActivity"></activity>
+        <activity android:name=".Activities.BrowsePage"></activity>
+        <activity android:name=".Activities.Customers.CustomerBookingsActivity" />
+        <activity android:name=".Activities.Customers.CustomerFavoritesActivity" />
         <activity android:name=".Activities.Customers.CustomerProfileActivity" />
-        <activity android:name=".Activities.Customers.CustomerHomeActivity" />
+        <activity android:name=".Activities.Customers.CustomerBrowseActivity" />
         <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
         <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
         <activity android:name=".Activities.RegisterTypeActivity" />
@@ -23,6 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Customers.CustomerFavoritesActivity">
+    tools:context=".Activities.Customers.CustomerBookingsActivity">
 
     <EditText
         android:id="@+id/searchEditText2"
@@ -18,7 +18,7 @@
         android:drawablePadding="20dp"
         android:drawableTint="#FFFF2626"
         android:ems="10"
-        android:hint="Search your favorites"
+        android:hint="Search Your Current Reservations"
         android:imeOptions="actionSearch"
         android:inputType="text"
         android:paddingLeft="10dp"
@@ -71,12 +71,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/BookingsIconWhite"
+            android:drawableTop="@drawable/BookingsIconGold"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
             android:text="@string/user_bookings"
-            android:textColor="#FFFFFF"
+            android:textColor="#FFF2CC"
             android:textSize="9sp"
             android:textAlignment="center"
             android:textAllCaps="true"
@@ -125,12 +125,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/FavoritesIconGold"
+            android:drawableTop="@drawable/FavoritesIconWhite"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
             android:text="@string/my_favorites"
-            android:textColor="#FFF2CC"
+            android:textColor="#FFFFFF"
             android:textSize="9sp"
             android:textAlignment="center"
             android:textAllCaps="true"
