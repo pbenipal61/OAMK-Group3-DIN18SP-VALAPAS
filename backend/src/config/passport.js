@@ -16,15 +16,10 @@ export default (passport) => {
     passport.use(new Strategy(options, (payload, done) => {
 
         console.log('payload in middleware', payload);
-        User.findById(payload._id)
-            .then(user => {
+        if(payload.user){
+            return done(null, {user});
+        }
 
-                if(user){
-                    return done(null, {id: user.name, email: user.email});
-                }
-
-                return done(null, false);
-            })
-            .catch(err => console.log(err));
+        return done(null, false);
     }));
 };
