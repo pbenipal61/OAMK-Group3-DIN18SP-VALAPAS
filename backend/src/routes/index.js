@@ -10,6 +10,9 @@ const init = async (app) => {
     app.use("/offerings", offerings);
     app.use('/reservations', reservations);
     app.use('/users', users);
+    app.get('/status', async (req, res, next) => {
+        res.status(200).send("Green");
+    })
 }
 
 export default init;

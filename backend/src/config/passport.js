@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+dotenv.config();
 import ppJwt from 'passport-jwt';
 const Strategy = ppJwt.Strategy;
 const ExtractJwt = ppJwt.ExtractJwt;
@@ -15,7 +16,7 @@ export default (passport) => {
     passport.use(new Strategy(options, (payload, done) => {
 
         console.log('payload in middleware', payload);
-        User.findById(payload.id)
+        User.findById(payload._id)
             .then(user => {
 
                 if(user){
