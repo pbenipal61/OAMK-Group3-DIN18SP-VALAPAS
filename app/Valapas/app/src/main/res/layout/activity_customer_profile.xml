@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/BrowseIconWhite"
+            android:drawableTop="@drawable/browse_icon_white"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
@@ -110,7 +110,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/BookingsIconWhite"
+            android:drawableTop="@drawable/bookings_icon_white"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
@@ -137,7 +137,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/MyProfileIconGold"
+            android:drawableTop="@drawable/my_profile_icon_gold"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
@@ -164,7 +164,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#434343"
-            android:drawableTop="@drawable/FavoritesIconWhite"
+            android:drawableTop="@drawable/favorites_icon_white"
             android:paddingTop="15dp"
             android:paddingBottom="10dp"
 
