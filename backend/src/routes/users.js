@@ -5,6 +5,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 const secret = process.env.HASH_SECRET || "secret";
 import User from "../models/User";
+import passport from 'passport';
 
 const router = new express.Router();
 const saltRounds = 10;
@@ -115,7 +116,7 @@ router.post("/login", async (req, res, next)  => {
     }
 })
 
-router.get('/', async (req, res, next) => {
+router.get('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         
         if(Object.keys(req.query).length > 0){
@@ -136,7 +137,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         const input = req.body;
@@ -157,7 +158,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         if(!id){
