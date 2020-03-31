@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Valapas</string>
+    <string name="authToken">BearerToken</string>
+
 </resources>

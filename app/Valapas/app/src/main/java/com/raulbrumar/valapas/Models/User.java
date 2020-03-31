@@ -5,6 +5,7 @@ import java.util.HashMap;
 // User model
 public class User
 {
+    private String id;
     private String firstName;
     private String lastName;
     private Boolean isAdult;
@@ -14,8 +15,9 @@ public class User
 
     private String bearerToken;
 
-    public User(String firstName, String lastName, Boolean isAdult, String email, String password, String city)
+    public User(String id, String firstName, String lastName, Boolean isAdult, String email, String password, String city)
     {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isAdult = isAdult;
@@ -57,4 +59,15 @@ public class User
     {
         return city;
     }
+
+    public String getId() { return id; }
+
+    @Override
+    public String toString()
+    {
+        return "FirstName: " + firstName + ", LastName " + lastName
+                + ", Email: " + email + ", Password: " + password
+                + ", isAdult: " + isAdult + ", City: " + city;
+    }
+
 }
