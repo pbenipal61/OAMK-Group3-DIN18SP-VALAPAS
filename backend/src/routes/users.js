@@ -88,8 +88,7 @@ router.post("/login", async (req, res, next)  => {
 
         const jwtValidity = '30d';
         const jwtPayload = {
-            email: input.email,
-            _id: user._id,
+            user,
             validity: jwtValidity,
             timestamp : Date.now(),
         }
@@ -98,10 +97,10 @@ router.post("/login", async (req, res, next)  => {
             expiresIn: jwtValidity
         });
 
-        res.set({
-            token
-        }).status(200).json({
-            status: "Success"
+        res.status(200).json({
+            status: "Success",
+            token,
+            tokenAsHeader: `Bearer ${token}`
         })
 
     }
