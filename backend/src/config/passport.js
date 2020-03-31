@@ -17,7 +17,7 @@ export default (passport) => {
 
         console.log('payload in middleware', payload);
         if(payload.user){
-            return done(null, {user});
+            return done(null, {user: payload.user});
         }
 
         return done(null, false);
