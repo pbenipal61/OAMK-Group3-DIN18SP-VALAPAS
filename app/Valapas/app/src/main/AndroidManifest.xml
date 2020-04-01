@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.raulbrumar.valapas">
+    package="com.group3.valapas">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.BrowsePage"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".BrowseActivity" />
+        <activity android:name=".Activities.BrowsePage" />
         <activity android:name=".Activities.Customers.CustomerBookingsActivity" />
         <activity android:name=".Activities.Customers.CustomerFavoritesActivity" />
         <activity android:name=".Activities.Customers.CustomerProfileActivity" />
-        <activity android:name=".Activities.Customers.CustomerBrowseActivity" />
+        <activity android:name=".Activities.Customers.UserBrowseTab" />
         <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
         <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
         <activity android:name=".Activities.RegisterTypeActivity" />

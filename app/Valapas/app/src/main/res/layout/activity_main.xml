@@ -70,13 +70,12 @@
         >
 
         <Button
-            android:id="@+id/login_btn"
+            android:id="@+id/sign_in_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:onClick="selectLogin"
 
-            android:text="@string/home_page_login"
+            android:text="@string/home_page_sign_in"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="12sp"
@@ -141,7 +140,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="top"
             android:layout_margin="5dp"
-            android:onClick="selectSignup"
 
             android:text="@string/home_page_register"
             android:textAllCaps="true"
@@ -175,7 +173,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:onClick="selectBrowse"
 
             android:text="@string/home_page_browse"
             android:textAlignment="center"

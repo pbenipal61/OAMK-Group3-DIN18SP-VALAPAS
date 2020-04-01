@@ -2,7 +2,7 @@
 
     <string name="app_name">Valapas</string>
 
-    <string name="home_page_login">L O G I N</string>
+    <string name="home_page_sign_in">S I G N    I N</string>
     <string name="home_page_register">S I G N    U P</string>
     <string name="home_page_browse">B R O W S E</string>
 
@@ -52,5 +52,8 @@
     <string name="cheapest_first">Cheapest First</string>
     <string name="customerSignup">customer</string>
     <string name="companySignup">company</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
