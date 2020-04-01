@@ -10,6 +10,8 @@ import com.raulbrumar.valapas.Activities.Companies.CompanyHomeActivity;
 import com.raulbrumar.valapas.Activities.Customers.CustomerHomeActivity;
 import com.raulbrumar.valapas.Activities.LoginActivity;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
