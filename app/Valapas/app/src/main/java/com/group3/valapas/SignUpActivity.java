@@ -3,8 +3,9 @@ package com.group3.valapas;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
+import com.group3.valapas.SignUpFragments.SignUpCompany;
 import com.group3.valapas.SignUpFragments.SignUpGuide;
+import com.group3.valapas.SignUpFragments.SignUpUser;
 
 public class SignUpActivity extends AppCompatActivity
 {
@@ -18,7 +19,7 @@ public class SignUpActivity extends AppCompatActivity
         setContentView(R.layout.activity_sign_up);
 
         mValapasStatePagerAdapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.homepage);
+        mViewPager = (ViewPager) findViewById(R.id.signingup);
 
         setUpViewPager(mViewPager);
     }
@@ -26,8 +27,9 @@ public class SignUpActivity extends AppCompatActivity
     public void setUpViewPager(ViewPager viewPager)
     {
         ValapasStatePagerAdapter adapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SignInPageJava(), "SignInPage");
         adapter.addFragment(new SignUpGuide(), "SignUpGuide");
+        adapter.addFragment(new SignUpUser(), "SignUpUser");
+        adapter.addFragment(new SignUpCompany(), "SignUpCompany");
         viewPager.setAdapter(adapter);
     }
 

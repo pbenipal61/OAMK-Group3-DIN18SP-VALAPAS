@@ -13,6 +13,8 @@
     <string name="password">Password</string>
 
     <string name="browse">Browse</string>
+    <string name="browse_page">Browse Page</string>
+    <string name="open_map">Open Map</string>
     <string name="search">Search</string>
 
     <string name="back_button">Back to Search Menu</string>

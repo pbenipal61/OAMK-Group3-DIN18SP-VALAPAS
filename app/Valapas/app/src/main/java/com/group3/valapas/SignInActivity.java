@@ -18,7 +18,7 @@ public class SignInActivity extends AppCompatActivity
         setContentView(R.layout.activity_sign_in);
 
         mValapasStatePagerAdapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.homepage);
+        mViewPager = (ViewPager) findViewById(R.id.signingin);
 
         setUpViewPager(mViewPager);
     }
@@ -26,8 +26,8 @@ public class SignInActivity extends AppCompatActivity
     public void setUpViewPager(ViewPager viewPager)
     {
         ValapasStatePagerAdapter adapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SignInPageJava(), "SignInPage");
         adapter.addFragment(new SignUpGuide(), "SignUpGuide");
+
         viewPager.setAdapter(adapter);
     }
 

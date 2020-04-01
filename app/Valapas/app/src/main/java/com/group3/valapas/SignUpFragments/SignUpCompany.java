@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.group3.valapas.SignUpActivity;
 import com.group3.valapas.R;
 
-public class SignUpGuide extends Fragment
+public class SignUpCompany extends Fragment
 {
     private Button btnSignUpUser;
     private Button btnSignUpCompany;
@@ -20,10 +20,10 @@ public class SignUpGuide extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup signingin, @Nullable final Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.sign_up_guide, signingin, false);
+        View view = inflater.inflate(R.layout.sign_up_company, signingin, false);
 
-        btnSignUpUser = (Button) view.findViewById(R.id.sign_up_btn);
-        btnSignUpCompany = (Button) view.findViewById(R.id.sign_in_btn);
+        btnSignUpUser = (Button) view.findViewById(R.id.sign_up_user_btn);
+        btnSignUpCompany = (Button) view.findViewById(R.id.sign_up_company_btn);
 
         btnSignUpUser.setOnClickListener(new View.OnClickListener()
         {

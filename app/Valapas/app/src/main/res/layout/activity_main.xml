@@ -75,14 +75,15 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
 
+            android:background="#FFF2CC"
+            android:onClick="selectSignIn"
             android:text="@string/home_page_sign_in"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="12sp"
             android:textStyle="normal"
             android:visibility="visible"
-            app:fontFamily="@font/montserrat"
-            android:background="#FFF2CC" />
+            app:fontFamily="@font/montserrat" />
 
     </LinearLayout>
 
@@ -141,14 +142,15 @@
             android:layout_gravity="top"
             android:layout_margin="5dp"
 
+            android:background="#FFF2CC"
+            android:onClick="selectSignUp"
             android:text="@string/home_page_register"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="12sp"
             android:textStyle="normal"
             android:visibility="visible"
-            app:fontFamily="@font/montserrat"
-            android:background="#FFF2CC" />
+            app:fontFamily="@font/montserrat" />
 
     </LinearLayout>
 
@@ -174,6 +176,8 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
 
+            android:background="#FFF2CC"
+            android:onClick="selectBrowse"
             android:text="@string/home_page_browse"
             android:textAlignment="center"
             android:textAllCaps="true"
@@ -181,8 +185,7 @@
             android:textSize="12sp"
             android:textStyle="normal"
             android:visibility="visible"
-            app:fontFamily="@font/montserrat"
-            android:background="#FFF2CC"/>
+            app:fontFamily="@font/montserrat" />
 
     </LinearLayout>
 
