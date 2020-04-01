@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.group3.valapas.SignUpActivity;
 import com.group3.valapas.R;
+import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class SignUpCompany extends Fragment
 {

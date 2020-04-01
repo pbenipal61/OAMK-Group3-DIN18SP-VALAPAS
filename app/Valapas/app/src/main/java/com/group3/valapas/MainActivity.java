@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import com.group3.valapas.ValapasStatePagerAdapter;
 
 import com.group3.valapas.Activities.Customers.UserBrowseTab;
 

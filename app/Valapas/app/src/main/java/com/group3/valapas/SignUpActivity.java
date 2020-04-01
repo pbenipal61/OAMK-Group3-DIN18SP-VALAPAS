@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.group3.valapas.SignUpFragments.SignUpCompany;
 import com.group3.valapas.SignUpFragments.SignUpGuide;
 import com.group3.valapas.SignUpFragments.SignUpUser;
+import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class SignUpActivity extends AppCompatActivity
 {

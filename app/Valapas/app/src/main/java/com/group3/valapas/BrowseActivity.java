@@ -8,6 +8,7 @@ import com.group3.valapas.BrowseFragments.BrowseMap;
 import com.group3.valapas.BrowseFragments.BrowsePage;
 import com.group3.valapas.BrowseFragments.BrowsePopular;
 import com.group3.valapas.BrowseFragments.BrowsePrice;
+import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class BrowseActivity extends AppCompatActivity
 {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.group3.valapas.SignUpActivity;
 import com.group3.valapas.R;
+import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class SignUpUser extends Fragment
 {

@@ -12,7 +12,7 @@
     android:layout_marginBottom="40dp"
 
     android:orientation="vertical"
-    tools:context="Activities.BrowsePage">
+    tools:context="BrowseFragments.BrowsePage">
 
     <LinearLayout
         android:id="@+id/search_all_header"
