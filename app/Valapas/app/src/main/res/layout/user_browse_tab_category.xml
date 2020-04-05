@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
-    tools:context=".Activities.Customers.UserBrowseTab">
+    tools:context=".UserFragments.UserBrowseCategory">
 
     <LinearLayout
         android:id="@+id/search_all_header"

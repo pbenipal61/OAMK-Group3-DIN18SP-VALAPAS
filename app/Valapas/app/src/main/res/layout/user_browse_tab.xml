@@ -5,52 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
-    tools:context=".Activities.Customers.UserBrowseTab">
+    tools:context=".UserFragments.UserBrowse">
 
     <LinearLayout
         android:id="@+id/search_all_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/White"
         android:orientation="horizontal"
-
-        app:layout_constraintBottom_toTopOf="@id/search_options"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/search_options" >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_margin="20dp"
+
             android:background="@color/White"
             android:importantForAutofill="no"
-            android:textSize="20sp"
             android:inputType="text"
-            android:hint="Search..."
             tools:ignore="LabelFor" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/search_options"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_margin="10dp"
         android:orientation="horizontal"
-
-        app:layout_constraintBottom_toTopOf="@id/resultsListView"
-        app:layout_constraintTop_toBottomOf="@id/search_all_header">
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/search_all_header"
+        app:layout_constraintBottom_toTopOf="@id/resultsListView" >
 
         <Button
             android:id="@+id/browse_category_tabs_btn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
             android:text="@string/category"
@@ -61,8 +57,8 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
             android:text="@string/price"
@@ -74,7 +70,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
             android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
             android:text="@string/popular"

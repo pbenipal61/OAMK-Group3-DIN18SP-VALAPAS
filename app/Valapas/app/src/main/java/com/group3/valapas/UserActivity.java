@@ -10,7 +10,7 @@ import com.group3.valapas.BrowseFragments.BrowsePopular;
 import com.group3.valapas.BrowseFragments.BrowsePrice;
 import com.group3.valapas.ValapasStatePagerAdapter;
 
-public class SignInActivity extends AppCompatActivity
+public class UserActivity extends AppCompatActivity
 {
     public ValapasStatePagerAdapter mValapasStatePagerAdapter;
     public ViewPager mViewPager;
@@ -19,10 +19,10 @@ public class SignInActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_browse);
 
         mValapasStatePagerAdapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.signingin);
+        mViewPager = (ViewPager) findViewById(R.id.browsing);
 
         setUpViewPager(mViewPager);
     }
