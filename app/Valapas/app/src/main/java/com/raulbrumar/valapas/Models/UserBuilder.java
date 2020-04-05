@@ -49,8 +49,6 @@ public class UserBuilder
             user = buildUser();
         }
 
-        user.setBearerToken(token);
-
         return user;
     }
 

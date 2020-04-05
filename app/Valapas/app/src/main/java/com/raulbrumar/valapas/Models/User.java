@@ -13,8 +13,6 @@ public class User
     private String password;
     private String city;
 
-    private String bearerToken;
-
     public User(String id, String firstName, String lastName, Boolean isAdult, String email, String password, String city)
     {
         this.id = id;
@@ -25,10 +23,6 @@ public class User
         this.password = password;
         this.city = city;
     }
-
-    public void setBearerToken(String token) { this.bearerToken = token; }
-
-    public String getBearerToken() { return bearerToken; }
 
     public String getFirstName()
     {
