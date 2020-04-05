@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/homeButton"
+        android:id="@+id/user_browse_page"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#434343"
@@ -28,7 +28,7 @@
 
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/profileButton"
+        app:layout_constraintEnd_toStartOf="@+id/user_profile_page"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
         tools:ignore="SmallSp" />
 
     <Button
-        android:id="@+id/bookingButton"
+        android:id="@+id/user_bookings_page"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#434343"
@@ -57,14 +57,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/favoritesButton"
+        app:layout_constraintStart_toEndOf="@+id/user_favorites_page"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="75dp"
         tools:layout_conversion_absoluteWidth="103dp"
         tools:ignore="SmallSp" />
 
     <Button
-        android:id="@+id/profileButton"
+        android:id="@+id/user_profile_page"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#434343"
@@ -82,16 +82,16 @@
         app:fontFamily="@font/montserrat"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/favoritesButton"
+        app:layout_constraintEnd_toStartOf="@+id/user_favorites_page"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/homeButton"
+        app:layout_constraintStart_toEndOf="@+id/user_browse_page"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="75dp"
         tools:layout_conversion_absoluteWidth="103dp"
         tools:ignore="SmallSp" />
 
     <Button
-        android:id="@+id/favoritesButton"
+        android:id="@+id/user_favorites_page"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#434343"
@@ -109,9 +109,9 @@
         app:fontFamily="@font/montserrat"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bookingButton"
+        app:layout_constraintEnd_toStartOf="@+id/user_bookings_page"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/profileButton"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_page"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="75dp"
         tools:layout_conversion_absoluteWidth="103dp"

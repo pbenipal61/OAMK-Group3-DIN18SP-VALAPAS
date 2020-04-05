@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@id/search_all_results" >
 
         <Button
-            android:id="@+id/browse_category_tabs_btn"
+            android:id="@+id/user_browse_category"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textSize="10sp" />
 
         <Button
-            android:id="@+id/browse_price_tabs_btn"
+            android:id="@+id/user_browse_price"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:textSize="10sp" />
 
         <Button
-            android:id="@+id/browse_popular_tabs_btn"
+            android:id="@+id/user_browse_popular"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

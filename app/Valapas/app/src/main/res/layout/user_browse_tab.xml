@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@id/resultsListView" >
 
         <Button
-            android:id="@+id/browse_category_tabs_btn"
+            android:id="@+id/user_browse_category"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:textSize="10sp" />
 
         <Button
-            android:id="@+id/browse_price_tabs_btn"
+            android:id="@+id/user_browse_price"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:textSize="10sp" />
 
         <Button
-            android:id="@+id/browse_popular_tabs_btn"
+            android:id="@+id/user_browse_popular"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/homeButton"
+            android:id="@+id/user_browse_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/DarkGray"
@@ -123,7 +123,7 @@
 
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileButton"
+            app:layout_constraintEnd_toStartOf="@+id/user_profile_page"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -132,7 +132,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/bookingButton"
+            android:id="@+id/user_bookings_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/DarkGray"
@@ -152,14 +152,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/favoritesButton"
+            app:layout_constraintStart_toEndOf="@+id/user_favorites_page"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp"
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/profileButton"
+            android:id="@+id/user_profile_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/DarkGray"
@@ -177,16 +177,16 @@
             app:fontFamily="@font/montserrat"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/favoritesButton"
+            app:layout_constraintEnd_toStartOf="@+id/user_favorites_page"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintStart_toEndOf="@+id/user_browse_page"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SmallSp"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/favoritesButton"
+            android:id="@+id/user_favorites_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/DarkGray"
@@ -204,9 +204,9 @@
             app:fontFamily="@font/montserrat"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bookingButton"
+            app:layout_constraintEnd_toStartOf="@+id/user_bookings_page"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/profileButton"
+            app:layout_constraintStart_toEndOf="@+id/user_profile_page"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp"

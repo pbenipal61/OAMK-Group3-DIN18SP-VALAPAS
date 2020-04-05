@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.group3.valapas.BrowseActivity;
 import com.group3.valapas.R;
-import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class BrowsePrice extends Fragment
 {
@@ -26,9 +25,9 @@ public class BrowsePrice extends Fragment
         View view = inflater.inflate(R.layout.browse_price_tab, browsing, false);
 
         btnBrowsePage = (Button) view.findViewById(R.id.browse_page_btn);
-        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.browse_category_tabs_btn);
-        btnBrowsePriceTabs = (Button) view.findViewById(R.id.browse_price_tabs_btn);
-        btnBrowsePopularTabs = (Button) view.findViewById(R.id.browse_popular_tabs_btn);
+        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.user_browse_category);
+        btnBrowsePriceTabs = (Button) view.findViewById(R.id.user_browse_price);
+        btnBrowsePopularTabs = (Button) view.findViewById(R.id.user_browse_popular);
         btnOpenMap = (Button) view.findViewById(R.id.open_map_btn);
 
         btnBrowsePage.setOnClickListener(new View.OnClickListener()
