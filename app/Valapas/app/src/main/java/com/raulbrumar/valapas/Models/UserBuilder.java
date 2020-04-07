@@ -1,6 +1,7 @@
 package com.raulbrumar.valapas.Models;
 
 import android.util.Base64;
+import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -31,7 +32,9 @@ public class UserBuilder
 
             byte[] decodedBytes = Base64.decode(payload, Base64.URL_SAFE);
             decodedPayload = new String(decodedBytes, "UTF-8");
-            JSONObject userJSON = new JSONObject(decodedPayload);
+            JSONObject dataJSON = new JSONObject(decodedPayload);
+
+            JSONObject userJSON = dataJSON.getJSONObject("user");
 
             user = firstName(userJSON.getString("firstName"))
                     .id(userJSON.getString("_id"))
