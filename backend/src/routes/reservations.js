@@ -5,7 +5,7 @@ import Reservation from "../models/Reservation";
 
 const router = new express.Router();
 
-router.post('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try{
         const input = req.body;
         const reservation = await Reservation.create({...input});
