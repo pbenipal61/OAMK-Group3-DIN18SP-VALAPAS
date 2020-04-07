@@ -18,7 +18,7 @@ public class OfferingBuilder
 
     public Offering buildOffering()
     {
-        return new Offering(company, id, offeringType, description, images, quantity, tags, price, deposit, discounts);
+        return new Offering(id, company, offeringType, description, images, quantity, tags, price, deposit, discounts);
     }
 
 
@@ -28,49 +28,49 @@ public class OfferingBuilder
         return this;
     }
 
-    public OfferingBuilder company (Company company)
+    public OfferingBuilder company(Company company)
     {
         this.company = company;
         return this;
     }
 
-    public OfferingBuilder offeringType (String offeringType)
+    public OfferingBuilder offeringType(String offeringType)
     {
         this.offeringType = offeringType;
         return this;
     }
 
-    public OfferingBuilder description (String description)
+    public OfferingBuilder description(String description)
     {
         this.description = description;
         return this;
     }
 
-    public OfferingBuilder images (String[] images)
+    public OfferingBuilder images(String[] images)
     {
         this.images = images;
         return this;
     }
 
-    public OfferingBuilder quantity (int quantity)
+    public OfferingBuilder quantity(int quantity)
     {
         this.quantity = quantity;
         return this;
     }
 
-    public OfferingBuilder tags (String tags)
+    public OfferingBuilder tags(String tags)
     {
         this.tags = tags;
         return this;
     }
 
-    public OfferingBuilder deposit (String deposit)
+    public OfferingBuilder deposit(String deposit)
     {
         this.deposit = deposit;
         return this;
     }
 
-    public OfferingBuilder discounts (String[] discounts)
+    public OfferingBuilder discounts(String[] discounts)
     {
         this.discounts = discounts;
         return this;

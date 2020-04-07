@@ -2,8 +2,8 @@ package com.raulbrumar.valapas.Models;
 
 public class Offering
 {
-    private Company company;
     private String id;
+    private Company company;
     private String offeringType;
     private String description;
     private String[] images;
@@ -13,7 +13,7 @@ public class Offering
     private String deposit;
     private String[] discounts;
 
-    public Offering(Company company, String id, String offeringType, String description, String[] images, int quantity, String tags, String price, String deposit, String[] discounts)
+    public Offering(String id, Company company, String offeringType, String description, String[] images, int quantity, String tags, String price, String deposit, String[] discounts)
     {
         this.company = company;
         this.id = id;
