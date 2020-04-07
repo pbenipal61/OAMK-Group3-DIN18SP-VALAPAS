@@ -1,4 +1,4 @@
-package com.raulbrumar.valapas;
+package com.group3.valapas;
 
 import android.content.Context;
 
