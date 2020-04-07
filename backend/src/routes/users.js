@@ -113,7 +113,7 @@ router.post("/login", async (req, res, next)  => {
             }
         });
     }
-})
+});
 
 router.get('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
