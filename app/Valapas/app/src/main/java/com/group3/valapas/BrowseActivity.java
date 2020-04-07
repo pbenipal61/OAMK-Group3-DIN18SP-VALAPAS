@@ -32,12 +32,12 @@ public class BrowseActivity extends AppCompatActivity
     {
         ValapasStatePagerAdapter adapter = new ValapasStatePagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new BrowsePage(), "BrowsePage");
-        adapter.addFragment(new BrowseCategory(), "BrowseCategory");
-        adapter.addFragment(new BrowsePrice(), "BrowsePrice");
-        adapter.addFragment(new BrowsePopular(), "BrowsePopular");
         adapter.addFragment(new BrowseProfile(), "BrowseProfile");
         adapter.addFragment(new BrowseFavorites(), "BrowseFavorites");
         adapter.addFragment(new BrowseBookings(), "BrowseBookings");
+        adapter.addFragment(new BrowseCategory(), "BrowseCategory");
+        adapter.addFragment(new BrowsePrice(), "BrowsePrice");
+        adapter.addFragment(new BrowsePopular(), "BrowsePopular");
         viewPager.setAdapter(adapter);
     }
 

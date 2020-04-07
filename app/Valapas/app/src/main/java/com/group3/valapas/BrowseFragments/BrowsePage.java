@@ -27,13 +27,12 @@ public class BrowsePage extends Fragment
         View view = inflater.inflate(R.layout.browse, browsing, false);
 
         btnBrowsePage = (Button) view.findViewById(R.id.no_user_browse_page);
-        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.no_user_browse_category);
-        btnBrowsePriceTabs = (Button) view.findViewById(R.id.no_user_browse_price);
-        btnBrowsePopularTabs = (Button) view.findViewById(R.id.no_user_browse_popular);
         btnProfilePage = (Button) view.findViewById(R.id.no_user_profile_page);
         btnFavoritesPage = (Button) view.findViewById(R.id.no_user_favorites_page);
         btnBookingsPage = (Button) view.findViewById(R.id.no_user_bookings_page);
-
+        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.no_user_browse_category);
+        btnBrowsePriceTabs = (Button) view.findViewById(R.id.no_user_browse_price);
+        btnBrowsePopularTabs = (Button) view.findViewById(R.id.no_user_browse_popular);
 
         btnBrowsePage.setOnClickListener(new View.OnClickListener()
         {
