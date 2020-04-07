@@ -10,12 +10,9 @@ import android.widget.Button;
 import com.group3.valapas.BrowseActivity;
 import com.group3.valapas.R;
 
-public class BrowsePopular extends Fragment
+public class BrowseFavorites extends Fragment
 {
     private Button btnBrowsePage;
-    private Button btnBrowseCategoryTabs;
-    private Button btnBrowsePriceTabs;
-    private Button btnBrowsePopularTabs;
     private Button btnProfilePage;
     private Button btnFavoritesPage;
     private Button btnBookingsPage;
@@ -24,16 +21,12 @@ public class BrowsePopular extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup browsing, @Nullable final Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.browse_popular_tab, browsing, false);
+        View view = inflater.inflate(R.layout.browse_favorites, browsing, false);
 
         btnBrowsePage = (Button) view.findViewById(R.id.no_user_browse_page);
-        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.no_user_browse_category);
-        btnBrowsePriceTabs = (Button) view.findViewById(R.id.no_user_browse_price);
-        btnBrowsePopularTabs = (Button) view.findViewById(R.id.no_user_browse_popular);
         btnProfilePage = (Button) view.findViewById(R.id.no_user_profile_page);
         btnFavoritesPage = (Button) view.findViewById(R.id.no_user_favorites_page);
         btnBookingsPage = (Button) view.findViewById(R.id.no_user_bookings_page);
-
 
         btnBrowsePage.setOnClickListener(new View.OnClickListener()
         {
@@ -43,6 +36,7 @@ public class BrowsePopular extends Fragment
                 ((BrowseActivity) getActivity()).setViewPager(0);
             }
         });
+
 
         btnProfilePage.setOnClickListener(new View.OnClickListener()
         {
@@ -68,33 +62,6 @@ public class BrowsePopular extends Fragment
             public void onClick(View view)
             {
                 ((BrowseActivity) getActivity()).setViewPager(3);
-            }
-        });
-
-        btnBrowseCategoryTabs.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                ((BrowseActivity) getActivity()).setViewPager(4);
-            }
-        });
-
-        btnBrowsePriceTabs.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                ((BrowseActivity) getActivity()).setViewPager(5);
-            }
-        });
-
-        btnBrowsePopularTabs.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                ((BrowseActivity) getActivity()).setViewPager(6);
             }
         });
 

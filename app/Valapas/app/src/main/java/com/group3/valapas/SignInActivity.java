@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import com.group3.valapas.BrowseFragments.BrowseCategory;
-import com.group3.valapas.BrowseFragments.BrowseMap;
 import com.group3.valapas.BrowseFragments.BrowsePage;
 import com.group3.valapas.BrowseFragments.BrowsePopular;
 import com.group3.valapas.BrowseFragments.BrowsePrice;
-import com.group3.valapas.ValapasStatePagerAdapter;
 
 public class SignInActivity extends AppCompatActivity
 {
@@ -34,7 +32,6 @@ public class SignInActivity extends AppCompatActivity
         adapter.addFragment(new BrowseCategory(), "BrowseCategory");
         adapter.addFragment(new BrowsePrice(), "BrowsePrice");
         adapter.addFragment(new BrowsePopular(), "BrowsePopular");
-        adapter.addFragment(new BrowseMap(), "BrowseMap");
         viewPager.setAdapter(adapter);
     }
 

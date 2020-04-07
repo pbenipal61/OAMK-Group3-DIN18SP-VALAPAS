@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import com.group3.valapas.BrowseFragments.BrowseCategory;
-import com.group3.valapas.BrowseFragments.BrowseMap;
 import com.group3.valapas.BrowseFragments.BrowsePage;
 import com.group3.valapas.BrowseFragments.BrowsePopular;
 import com.group3.valapas.BrowseFragments.BrowsePrice;
-import com.group3.valapas.ValapasStatePagerAdapter;
+import com.group3.valapas.BrowseFragments.BrowseProfile;
+import com.group3.valapas.BrowseFragments.BrowseFavorites;
+import com.group3.valapas.BrowseFragments.BrowseBookings;
 
 public class BrowseActivity extends AppCompatActivity
 {
@@ -34,7 +35,9 @@ public class BrowseActivity extends AppCompatActivity
         adapter.addFragment(new BrowseCategory(), "BrowseCategory");
         adapter.addFragment(new BrowsePrice(), "BrowsePrice");
         adapter.addFragment(new BrowsePopular(), "BrowsePopular");
-        adapter.addFragment(new BrowseMap(), "BrowseMap");
+        adapter.addFragment(new BrowseProfile(), "BrowseProfile");
+        adapter.addFragment(new BrowseFavorites(), "BrowseFavorites");
+        adapter.addFragment(new BrowseBookings(), "BrowseBookings");
         viewPager.setAdapter(adapter);
     }
 

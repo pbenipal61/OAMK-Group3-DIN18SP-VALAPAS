@@ -16,7 +16,9 @@ public class BrowsePrice extends Fragment
     private Button btnBrowseCategoryTabs;
     private Button btnBrowsePriceTabs;
     private Button btnBrowsePopularTabs;
-    private Button btnOpenMap;
+    private Button btnProfilePage;
+    private Button btnFavoritesPage;
+    private Button btnBookingsPage;
 
     @Nullable
     @Override
@@ -24,11 +26,14 @@ public class BrowsePrice extends Fragment
     {
         View view = inflater.inflate(R.layout.browse_price_tab, browsing, false);
 
-        btnBrowsePage = (Button) view.findViewById(R.id.browse_page_btn);
-        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.user_browse_category);
-        btnBrowsePriceTabs = (Button) view.findViewById(R.id.user_browse_price);
-        btnBrowsePopularTabs = (Button) view.findViewById(R.id.user_browse_popular);
-        btnOpenMap = (Button) view.findViewById(R.id.open_map_btn);
+        btnBrowsePage = (Button) view.findViewById(R.id.no_user_browse_page);
+        btnBrowseCategoryTabs = (Button) view.findViewById(R.id.no_user_browse_category);
+        btnBrowsePriceTabs = (Button) view.findViewById(R.id.no_user_browse_price);
+        btnBrowsePopularTabs = (Button) view.findViewById(R.id.no_user_browse_popular);
+        btnProfilePage = (Button) view.findViewById(R.id.no_user_profile_page);
+        btnFavoritesPage = (Button) view.findViewById(R.id.no_user_favorites_page);
+        btnBookingsPage = (Button) view.findViewById(R.id.no_user_bookings_page);
+
 
         btnBrowsePage.setOnClickListener(new View.OnClickListener()
         {
@@ -39,7 +44,7 @@ public class BrowsePrice extends Fragment
             }
         });
 
-        btnBrowseCategoryTabs.setOnClickListener(new View.OnClickListener()
+        btnProfilePage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -48,7 +53,7 @@ public class BrowsePrice extends Fragment
             }
         });
 
-        btnBrowsePriceTabs.setOnClickListener(new View.OnClickListener()
+        btnFavoritesPage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -57,7 +62,7 @@ public class BrowsePrice extends Fragment
             }
         });
 
-        btnBrowsePopularTabs.setOnClickListener(new View.OnClickListener()
+        btnBookingsPage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -66,12 +71,30 @@ public class BrowsePrice extends Fragment
             }
         });
 
-        btnOpenMap.setOnClickListener(new View.OnClickListener()
+        btnBrowseCategoryTabs.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 ((BrowseActivity) getActivity()).setViewPager(4);
+            }
+        });
+
+        btnBrowsePriceTabs.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                ((BrowseActivity) getActivity()).setViewPager(5);
+            }
+        });
+
+        btnBrowsePopularTabs.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                ((BrowseActivity) getActivity()).setViewPager(6);
             }
         });
 

@@ -15,7 +15,6 @@ import com.group3.valapas.UserFragments.UserFavorites;
 import com.group3.valapas.UserFragments.UserFavoritesMostRecent;
 import com.group3.valapas.UserFragments.UserFavoritesMostUsed;
 import com.group3.valapas.UserFragments.UserFavoritesPrice;
-import com.group3.valapas.UserFragments.UserOpenMap;
 import com.group3.valapas.UserFragments.UserProfile;
 import com.group3.valapas.ValapasStatePagerAdapter;
 
@@ -52,7 +51,6 @@ public class UserActivity extends AppCompatActivity
         adapter.addFragment(new UserFavoritesMostRecent(), "UserFavoritesMostRecent");
         adapter.addFragment(new UserFavoritesMostUsed(), "UserFavoritesMostUsed");
         adapter.addFragment(new UserFavoritesPrice(), "UserFavoritesPrice");
-        adapter.addFragment(new UserOpenMap(), "UserOpenMap");
         adapter.addFragment(new UserProfile(), "UserProfile");
 
         viewPager.setAdapter(adapter);

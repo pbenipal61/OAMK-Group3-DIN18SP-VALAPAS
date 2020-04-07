@@ -24,7 +24,6 @@ public class UserFavoritesMostRecent extends Fragment
     private Button btnFavoritesMostRecent;
     private Button btnFavoritesMostUsed;
     private Button btnFavoritesPrice;
-    private Button btnOpenMap;
     private Button btnProfilePage;
 
     @Nullable
@@ -45,7 +44,6 @@ public class UserFavoritesMostRecent extends Fragment
         btnFavoritesMostRecent = (Button) view.findViewById(R.id.user_favorites_recent);
         btnFavoritesMostUsed = (Button) view.findViewById(R.id.user_favorites_used);
         btnFavoritesPrice = (Button) view.findViewById(R.id.user_favorites_price);
-        btnOpenMap = (Button) view.findViewById(R.id.open_map_btn);
         btnProfilePage = (Button) view.findViewById(R.id.user_profile_page);
 
         btnBookingsPage.setOnClickListener(new View.OnClickListener()
@@ -156,21 +154,12 @@ public class UserFavoritesMostRecent extends Fragment
             }
         });
 
-        btnOpenMap.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                ((UserActivity)getActivity()).setViewPager(12);
-            }
-        });
-
         btnProfilePage.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                ((UserActivity)getActivity()).setViewPager(13);
+                ((UserActivity)getActivity()).setViewPager(12);
             }
         });
 
