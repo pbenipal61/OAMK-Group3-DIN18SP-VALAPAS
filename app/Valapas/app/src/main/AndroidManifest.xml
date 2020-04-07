@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.raulbrumar.valapas">
+    package="com.group3.valapas">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Customers.CustomerReservationsActivity"></activity>
-        <activity android:name=".Activities.Companies.CompanyBookingsActivity" />
-        <activity android:name=".Activities.Companies.CompanyReviewsActivity" />
-        <activity android:name=".Activities.Companies.CompanyUpdateInfo" />
-        <activity android:name=".Activities.Companies.CompanyHomeActivity" />
+        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".BrowseActivity" />
+        <activity android:name=".Activities.BrowsePage" />
+        <activity android:name=".Activities.Customers.CustomerBookingsActivity" />
         <activity android:name=".Activities.Customers.CustomerFavoritesActivity" />
         <activity android:name=".Activities.Customers.CustomerProfileActivity" />
-        <activity android:name=".Activities.Customers.CustomerHomeActivity" />
+        <activity android:name=".Activities.Customers.UserBrowseTab" />
         <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
         <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
         <activity android:name=".Activities.RegisterTypeActivity" />
@@ -28,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

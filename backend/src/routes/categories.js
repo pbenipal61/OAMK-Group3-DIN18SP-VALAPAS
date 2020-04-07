@@ -57,7 +57,7 @@ router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, r
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const category = await Category.findByIdAndUpdate(id, {...input});
+        const category = await Category.findByIdAndUpdate(id, {...input}, { new: true});
         return res.status(200).json({status: "Success", data: {category}})
     }
     catch(err){

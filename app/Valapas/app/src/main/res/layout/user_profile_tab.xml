@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
-    tools:context=".Activities.Customers.CustomerProfileActivity">
+    tools:context=".UserFragments.UserProfile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -72,87 +72,119 @@
         android:layout_gravity="bottom"
         android:background="#FAFAFA"
         android:orientation="vertical"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/homeButton"
+            android:id="@+id/user_browse_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_home_black_24dp"
-            android:onClick="homeClicked"
+            android:background="#434343"
+            android:drawableTop="@drawable/browse_icon_white"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Home"
-            android:textSize="12sp"
+            android:paddingBottom="10dp"
+
+            android:text="@string/browse"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/updateInfoButton"
+            app:layout_constraintEnd_toStartOf="@+id/user_profile_page"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/bookingButton"
+            android:id="@+id/user_bookings_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_local_library_black_24dp"
-            android:onClick="bookingsClicked"
+            android:background="#434343"
+            android:drawableTop="@drawable/bookings_icon_white"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Bookings"
-            android:textSize="12sp"
+            android:paddingBottom="10dp"
+
+            android:text="@string/user_bookings"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/reviewsButton"
+            app:layout_constraintStart_toEndOf="@+id/user_favorites_page"
             app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="75dp"
+            tools:layout_conversion_absoluteWidth="103dp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_profile_page"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#434343"
+            android:drawableTop="@drawable/my_profile_icon_gold"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp"
+
+            android:text="@string/user_profile"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFF2CC"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/user_favorites_page"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/user_browse_page"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/updateInfoButton"
+            android:id="@+id/user_favorites_page"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_account_circle_black_24dp"
-            android:drawableTint="@color/colorRed"
+            android:background="#434343"
+            android:drawableTop="@drawable/favorites_icon_white"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="My Profile"
-            android:textColor="@color/colorRed"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/reviewsButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/homeButton"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            android:paddingBottom="10dp"
 
-        <Button
-            android:id="@+id/reviewsButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_favorite_black_24dp"
-            android:onClick="favoritesClicked"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Favorites"
-            android:textColor="#474646"
-            android:textSize="12sp"
+            android:text="@string/my_favorites"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bookingButton"
+            app:layout_constraintEnd_toStartOf="@+id/user_bookings_page"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
+            app:layout_constraintStart_toEndOf="@+id/user_profile_page"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            tools:ignore="SmallSp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
