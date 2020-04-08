@@ -34,5 +34,22 @@ public class UserBookings extends AppCompatActivity
         startActivity(i);
     }
 
+    public void selectMostRecent(View v)
+    {
+        Intent i = new Intent (this, UserBookingsMostRecent.class);
+        startActivity(i);
+    }
+
+    public void selectCurrent(View v)
+    {
+        Intent i = new Intent (this, UserBookingsCurrent.class);
+        startActivity(i);
+    }
+
+    public void selectMostUsed(View v)
+    {
+        Intent i = new Intent (this, UserBookingsMostUsed.class);
+        startActivity(i);
+    }
 
 }

@@ -33,4 +33,22 @@ public class UserFavorites extends AppCompatActivity
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
     }
+
+    public void selectMostRecent(View v)
+    {
+        Intent i = new Intent (this, UserFavoritesMostRecent.class);
+        startActivity(i);
+    }
+
+    public void selectPrice(View v)
+    {
+        Intent i = new Intent (this, UserFavoritesPrice.class);
+        startActivity(i);
+    }
+
+    public void selectMostUsed(View v)
+    {
+        Intent i = new Intent (this, UserFavoritesMostUsed.class);
+        startActivity(i);
+    }
 }

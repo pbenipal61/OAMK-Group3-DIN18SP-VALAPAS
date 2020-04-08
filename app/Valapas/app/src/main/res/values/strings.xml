@@ -38,7 +38,9 @@
     <string name="my_favorites">My Favorites</string>
     <string name="my_favoritesTitle">M Y    F A V O R I T E S</string>
 
-    <string name="most_recent">recent</string>
+    <string name="most_recent">most recent</string>
+    <string name="most_used">most used</string>
+    <string name="current">current</string>
     <string name="most_recentTitle">R E C E N T</string>
 
     <string name="add_to_favorites"> + </string>
@@ -54,8 +56,5 @@
     <string name="cheapest_first">Cheapest First</string>
     <string name="customerSignup">customer</string>
     <string name="companySignup">company</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

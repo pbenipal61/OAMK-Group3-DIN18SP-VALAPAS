@@ -24,19 +24,13 @@ public class UserBookingsCurrent extends AppCompatActivity
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
     }
 
     public void selectFavorites(View v)
     {
         Intent i = new Intent (this, UserFavorites.class);
-        startActivity(i);
-    }
-
-    public void selectBookings(View v)
-    {
-        Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
     }
 

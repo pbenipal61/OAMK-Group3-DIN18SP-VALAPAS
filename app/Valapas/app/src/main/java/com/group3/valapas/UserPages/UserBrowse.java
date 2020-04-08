@@ -34,4 +34,22 @@ public class UserBrowse extends AppCompatActivity
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
     }
+
+    public void selectCategory(View v)
+    {
+        Intent i = new Intent (this, UserProfile.class);
+        startActivity(i);
+    }
+
+    public void selectPopular(View v)
+    {
+        Intent i = new Intent (this, UserFavorites.class);
+        startActivity(i);
+    }
+
+    public void selectPrice(View v)
+    {
+        Intent i = new Intent (this, UserBookings.class);
+        startActivity(i);
+    }
 }
