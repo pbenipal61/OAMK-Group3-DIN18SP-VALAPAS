@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
+import com.group3.valapas.BrowsePages.BrowsePage;
+import com.group3.valapas.RegisterPages.RegisterGuide;
+import com.group3.valapas.UserPages.UserBrowse;
 
 
 public class MainActivity extends AppCompatActivity

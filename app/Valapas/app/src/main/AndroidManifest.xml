@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterGuide"></activity>
-        <activity android:name=".UserBrowse" />
-        <activity android:name=".BrowsePage" />
+        <activity android:name=".BrowsePages.BrowsePriceTab"></activity>
+        <activity android:name=".BrowsePages.BrowsePopularTab" />
+        <activity android:name=".BrowsePages.BrowseCategoryTab" />
+        <activity android:name=".BrowsePages.BrowseProfilePage" />
+        <activity android:name=".BrowsePages.BrowseFavoritesPage" />
+        <activity android:name=".BrowsePages.BrowseBookingsPage" />
+        <activity android:name=".RegisterPages.RegisterGuide" />
+        <activity android:name=".UserPages.UserBrowse" />
+        <activity android:name=".BrowsePages.BrowsePage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
