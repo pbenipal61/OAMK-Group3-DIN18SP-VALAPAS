@@ -7,14 +7,19 @@ import android.view.View;
 
 import com.group3.valapas.R;
 
-public class UserBrowse extends AppCompatActivity
+public class UserBookings extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse_page);
+        setContentView(R.layout.user_bookings_page);
+    }
+
+    public void selectBrowse(View v)
+    {
+        Intent i = new Intent (this, UserBrowse.class);
+        startActivity(i);
     }
 
     public void selectProfile(View v)
@@ -29,9 +34,5 @@ public class UserBrowse extends AppCompatActivity
         startActivity(i);
     }
 
-    public void selectBookings(View v)
-    {
-        Intent i = new Intent (this, UserBookings.class);
-        startActivity(i);
-    }
+
 }

@@ -4,22 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import android.widget.Toast;
 import com.group3.valapas.R;
 
-public class UserBrowse extends AppCompatActivity
+public class UserProfile extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse_page);
+        setContentView(R.layout.user_profile_page);
     }
 
-    public void selectProfile(View v)
+    public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserProfile.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
     }
 
