@@ -85,7 +85,7 @@ router.post("/login", async (req, res, next)  => {
 
         const jwtValidity = '30d';
         const jwtPayload = {
-            user,
+            company,
             validity: jwtValidity,
             timestamp : Date.now(),
         }
