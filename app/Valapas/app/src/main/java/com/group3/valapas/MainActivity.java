@@ -15,4 +15,23 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void selectLogin(View v)
+    {
+        Intent i = new Intent (this, UserBrowse.class);
+        startActivity(i);
+    }
+
+    public void selectRegister(View v)
+    {
+        Intent i = new Intent (this, RegisterGuide.class);
+        startActivity(i);
+    }
+
+    public void selectBrowse(View v)
+    {
+        Intent i = new Intent (this, BrowsePage.class);
+        startActivity(i);
+    }
+
 }
