@@ -9,19 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserActivity"></activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".BrowseActivity" />
-        <activity android:name=".Activities.BrowsePage" />
         <activity android:name=".Activities.Customers.CustomerBookingsActivity" />
         <activity android:name=".Activities.Customers.CustomerFavoritesActivity" />
         <activity android:name=".Activities.Customers.CustomerProfileActivity" />
         <activity android:name=".Activities.Customers.UserBrowseTab" />
         <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
-        <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
-        <activity android:name=".Activities.RegisterTypeActivity" />
-        <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
