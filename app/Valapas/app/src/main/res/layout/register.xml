@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.group3.valapas.RegisterPages.RegisterGuide">
+    android:background="@color/DarkGray"
+    android:orientation="vertical"
+    tools:context="com.group3.valapas.RegisterPages.Register">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

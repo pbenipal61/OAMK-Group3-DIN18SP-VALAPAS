@@ -29,7 +29,7 @@
         <activity android:name=".BrowsePages.BrowseProfilePage" />
         <activity android:name=".BrowsePages.BrowseFavoritesPage" />
         <activity android:name=".BrowsePages.BrowseBookingsPage" />
-        <activity android:name=".RegisterPages.RegisterGuide" />
+        <activity android:name=".RegisterPages.Register" />
         <activity android:name=".UserPages.UserBrowse" />
         <activity android:name=".BrowsePages.BrowsePage" />
         <activity android:name=".MainActivity">

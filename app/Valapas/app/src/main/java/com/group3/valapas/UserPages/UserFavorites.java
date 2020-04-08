@@ -13,7 +13,7 @@ public class UserFavorites extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_favorites_page);
+        setContentView(R.layout.user_favorites);
     }
 
     public void selectBrowse(View v)

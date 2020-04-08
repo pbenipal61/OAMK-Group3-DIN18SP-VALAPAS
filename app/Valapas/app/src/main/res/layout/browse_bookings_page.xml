@@ -4,6 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/DarkGray"
+    android:orientation="vertical"
     tools:context="com.group3.valapas.BrowsePages.BrowseBookingsPage">
+
+    <LinearLayout
+        android:id="@+id/no_user_browse_bookings_page_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/no_user_browse_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/browse_icon_white"
+            android:onClick="selectBrowse"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/browse"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/no_user_profile_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/my_profile_icon_white"
+            android:onClick="selectProfile"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_profile"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/no_user_favorites_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/favorites_icon_white"
+            android:onClick="selectFavorites"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/my_favorites"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/no_user_bookings_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/bookings_icon_gold"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_bookings"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/SelectedGold"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,22 +33,4 @@ public class BrowseProfilePage extends AppCompatActivity
         Intent i = new Intent (this, BrowseBookingsPage.class);
         startActivity(i);
     }
-
-    public void selectCategory(View v)
-    {
-        Intent i = new Intent (this, BrowseCategoryTab.class);
-        startActivity(i);
-    }
-
-    public void selectPopular(View v)
-    {
-        Intent i = new Intent (this, BrowsePopularTab.class);
-        startActivity(i);
-    }
-
-    public void selectPrice(View v)
-    {
-        Intent i = new Intent (this, BrowsePriceTab.class);
-        startActivity(i);
-    }
 }

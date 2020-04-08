@@ -14,7 +14,7 @@ public class UserBrowse extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse_page);
+        setContentView(R.layout.user_browse);
     }
 
     public void selectProfile(View v)

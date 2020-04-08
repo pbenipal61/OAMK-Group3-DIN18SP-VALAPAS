@@ -13,7 +13,7 @@ public class UserBookings extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_bookings_page);
+        setContentView(R.layout.user_bookings);
     }
 
     public void selectBrowse(View v)
