@@ -16,4 +16,16 @@ public class RegisterGuide extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_guide);
     }
+
+    public void selectUser(View v)
+    {
+        Intent i = new Intent (this, RegisterUser.class);
+        startActivity(i);
+    }
+
+    public void selectCompany(View v)
+    {
+        Intent i = new Intent (this, RegisterCompany.class);
+        startActivity(i);
+    }
 }

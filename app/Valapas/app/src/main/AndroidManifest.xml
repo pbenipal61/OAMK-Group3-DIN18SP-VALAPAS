@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BrowsePages.BrowsePriceTab"></activity>
+        <activity android:name=".RegisterPages.RegisterCompany"></activity>
+        <activity android:name=".RegisterPages.RegisterUser" />
+        <activity android:name=".BrowsePages.BrowsePriceTab" />
         <activity android:name=".BrowsePages.BrowsePopularTab" />
         <activity android:name=".BrowsePages.BrowseCategoryTab" />
         <activity android:name=".BrowsePages.BrowseProfilePage" />
