@@ -93,7 +93,7 @@
         android:layout_height="0dp"
         android:layout_weight="6"
         android:background="@color/White"
-        app:layout_constraintBottom_toTopOf="@+id/user_bookings_footer"
+        app:layout_constraintBottom_toTopOf="@+id/user_bookings_current_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_bookings_current_tabs">
@@ -107,7 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/user_browse"
+            android:id="@+id/user_browse_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_profile"
+            android:id="@+id/user_profile_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_favorites"
+            android:id="@+id/user_favorites_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_bookings"
+            android:id="@+id/user_bookings_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

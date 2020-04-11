@@ -24,7 +24,7 @@ public class UserFavoritesMostUsed extends AppCompatActivity
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
     }
 
@@ -44,11 +44,13 @@ public class UserFavoritesMostUsed extends AppCompatActivity
     {
         Intent i = new Intent (this, UserFavoritesMostRecent.class);
         startActivity(i);
+        finish();
     }
 
     public void selectPrice(View v)
     {
         Intent i = new Intent (this, UserFavoritesPrice.class);
         startActivity(i);
+        finish();
     }
 }

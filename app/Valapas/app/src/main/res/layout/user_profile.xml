@@ -9,6 +9,175 @@
     tools:context="com.group3.valapas.UserPages.UserProfile">
 
     <LinearLayout
+        android:id="@+id/user_profile_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_names">
+
+        <ImageView
+            android:id="@+id/user_profile_title_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/my_profile_icon_white" />
+
+        <TextView
+            android:id="@+id/user_profile_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textAlignment="center"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="25sp"
+            android:text="@string/user_profile_page_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_profile_names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/user_profile_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_email">
+
+        <EditText
+            android:id="@+id/user_profile_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:text="Katheryn" />
+
+        <EditText
+            android:id="@+id/user_profile_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:text="Janeway" />
+
+        <EditText
+            android:id="@+id/user_profile_adult_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:text="18+"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/user_profile_names"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_password">
+
+        <EditText
+            android:id="@+id/user_profile_user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:text="first.last@email.com"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_profile_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/user_profile_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_city">
+
+        <EditText
+            android:id="@+id/user_profile_user_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/White"
+            app:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:text="user_password"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_profile_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/user_profile_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_blank_space">
+
+        <EditText
+            android:id="@+id/user_profile_user_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:soundEffectsEnabled="false"
+            android:text="Oulu"
+            android:textColor="@color/White"
+            android:textSize="15sp"
+            app:fontFamily="@font/montserrat" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_profile_blank_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/user_profile_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_profile_footer"/>
+
+    <LinearLayout
         android:id="@+id/user_profile_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +185,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/user_browse"
+            android:id="@+id/user_browse_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -37,7 +206,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_profile"
+            android:id="@+id/user_profile_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -57,7 +226,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/browse_favorites_page"
+            android:id="@+id/user_favorites_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,7 +247,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_bookings"
+            android:id="@+id/user_bookings_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -99,6 +268,5 @@
             tools:ignore="SmallSp" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@ public class UserBrowsePrice extends AppCompatActivity
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
     }
 
@@ -44,12 +44,14 @@ public class UserBrowsePrice extends AppCompatActivity
     {
         Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
+        finish();
     }
 
     public void selectPopular(View v)
     {
         Intent i = new Intent (this, UserBrowsePopular.class);
         startActivity(i);
+        finish();
     }
 
 }

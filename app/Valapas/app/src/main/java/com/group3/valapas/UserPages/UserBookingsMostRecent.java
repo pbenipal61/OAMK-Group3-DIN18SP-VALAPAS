@@ -24,7 +24,7 @@ public class UserBookingsMostRecent extends AppCompatActivity
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
     }
 
@@ -44,11 +44,13 @@ public class UserBookingsMostRecent extends AppCompatActivity
     {
         Intent i = new Intent (this, UserBookingsCurrent.class);
         startActivity(i);
+        finish();
     }
 
     public void selectMostUsed(View v)
     {
         Intent i = new Intent (this, UserBookingsMostUsed.class);
         startActivity(i);
+        finish();
     }
 }

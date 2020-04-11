@@ -107,7 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/user_browse"
+            android:id="@+id/user_browse_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_profile"
+            android:id="@+id/user_profile_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -149,13 +149,14 @@
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_favorites"
+            android:id="@+id/user_favorites_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/DarkGray"
             android:drawableTop="@drawable/favorites_icon_white"
+            android:onClick="selectFavorites"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/my_favorites"
@@ -166,10 +167,10 @@
             android:textStyle="normal"
             android:visibility="visible"
             app:fontFamily="@font/montserrat"
-            tools:ignore="SmallSp"/>
+            tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_bookings"
+            android:id="@+id/user_bookings_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.group3.valapas.R;
 
 public class UserBrowse extends AppCompatActivity
@@ -37,19 +36,22 @@ public class UserBrowse extends AppCompatActivity
 
     public void selectCategory(View v)
     {
-        Intent i = new Intent (this, UserProfile.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
+        finish();
     }
 
     public void selectPopular(View v)
     {
-        Intent i = new Intent (this, UserFavorites.class);
+        Intent i = new Intent (this, UserBrowsePopular.class);
         startActivity(i);
+        finish();
     }
 
     public void selectPrice(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserBrowsePrice.class);
         startActivity(i);
+        finish();
     }
 }
