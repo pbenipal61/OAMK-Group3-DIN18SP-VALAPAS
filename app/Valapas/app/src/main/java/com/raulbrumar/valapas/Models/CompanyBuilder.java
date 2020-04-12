@@ -8,6 +8,8 @@ public class CompanyBuilder
 {
     private String id = "";
     private String name = "";
+    private String email = "";
+    private String password = "";
     private String description = "";
     private String[] images = new String[0];
     private String address = "";
@@ -23,7 +25,7 @@ public class CompanyBuilder
 
     public Company buildCompany()
     {
-        return new Company(id, name, description, images, address, postalCode, location, city, country, categories, openingHours, priceRange);
+        return new Company(id, email, password, name, description, images, address, postalCode, location, city, country, categories, openingHours, priceRange);
     }
 
     public Company buildCompany(String token)
@@ -71,6 +73,18 @@ public class CompanyBuilder
     public CompanyBuilder name (String name)
     {
         this.name = name;
+        return this;
+    }
+
+    public CompanyBuilder email(String email)
+    {
+        this.email = email;
+        return this;
+    }
+
+    public CompanyBuilder password(String password)
+    {
+        this.password = password;
         return this;
     }
 

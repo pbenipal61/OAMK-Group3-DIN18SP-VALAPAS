@@ -3,6 +3,8 @@ package com.raulbrumar.valapas.Models;
 public class Company
 {
     private String id;
+    private String email;
+    private String password;
     private String name;
     private String description;
     private String[] images;
@@ -15,9 +17,11 @@ public class Company
     private String[][] openingHours;
     private String[] priceRange;
 
-    public Company(String id, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String[] categories, String[][] openingHours, String[] priceRange)
+    public Company(String id, String email, String password, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String[] categories, String[][] openingHours, String[] priceRange)
     {
         this.id = id;
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.description = description;
         this.images = images;
@@ -31,8 +35,16 @@ public class Company
         this.priceRange = priceRange;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getName() {
