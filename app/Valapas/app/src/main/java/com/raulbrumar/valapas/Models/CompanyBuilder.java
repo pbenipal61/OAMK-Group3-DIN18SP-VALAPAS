@@ -18,7 +18,7 @@ public class CompanyBuilder
     private String city = "";
     private String country = "";
     private String[] categories = new String[0];
-    private String[][] openingHours = new String[0][0];
+    private int[][] openingHours = new int[0][0];
     private String[] priceRange = new String[0];
 
     public CompanyBuilder() {}
@@ -112,6 +112,12 @@ public class CompanyBuilder
         return this;
     }
 
+    public CompanyBuilder location(String location)
+    {
+        this.location = location;
+        return this;
+    }
+
     public CompanyBuilder city (String city)
     {
         this.city = city;
@@ -130,7 +136,7 @@ public class CompanyBuilder
         return this;
     }
 
-    public CompanyBuilder openingHours (String[][] openingHours)
+    public CompanyBuilder openingHours (int[][] openingHours)
     {
         this.openingHours = openingHours;
         return this;

@@ -10,6 +10,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedCompany;
 import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
 import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
@@ -18,6 +19,7 @@ import com.raulbrumar.valapas.Models.CompanyBuilder;
 import com.raulbrumar.valapas.Models.User;
 import com.raulbrumar.valapas.Models.UserBuilder;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -274,24 +276,7 @@ public class ApiHandler
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         String url = apiUrl + "/users/" + user.getId();
 
-        // Making the JSON
-        JSONObject js = new JSONObject();
-        try
-        {
-            js.put("firstName", user.getFirstName());
-            js.put("lastName", user.getLastName());
-            js.put("isAdult", user.getAdult());
-            js.put("email", user.getEmail());
-            js.put("password", user.getPassword());
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        Log.d("AAA", js.toString());
-
-        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, js,
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -300,27 +285,7 @@ public class ApiHandler
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
 
-                        User newUser;
-                        try
-                        {
-                            JSONObject dataJSON = response.getJSONObject("data");
-                            JSONObject userJSON = dataJSON.getJSONObject("user");
-
-                            newUser = new UserBuilder().firstName(userJSON.getString("firstName"))
-                                    .id(userJSON.getString("_id"))
-                                    .lastName(userJSON.getString("lastName"))
-                                    .isAdult(userJSON.getBoolean("isAdult"))
-                                    .email(userJSON.getString("email"))
-                                    .password(userJSON.getString("password"))
-                                    .city(userJSON.getString("city"))
-                                    .buildUser();
-
-                            callback.deletedDone();
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                        }
+                        callback.deletedDone();
                     }
                 },
                 new Response.ErrorListener()
@@ -343,7 +308,7 @@ public class ApiHandler
             {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlzQWR1bHQiOnRydWUsImNpdHkiOiJOZXcgWW9yayIsIl9pZCI6IjVlOGM3NDc2MzZhNTkxNzUyZjI3MjVmNCIsImZpcnN0TmFtZSI6IkpvaG5ueSIsImxhc3ROYW1lIjoiR2F0IiwiZW1haWwiOiJqb2hubnl5eXl5LmdhdEBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDVZY2dWbndralZCa1R6VXY3cWp3RE9wWXk4TldYNUJUeHhHWHJzckpFMjB4Nkt0dFFWWGVtIiwiX192IjowfSwidmFsaWRpdHkiOiIzMGQiLCJ0aW1lc3RhbXAiOjE1ODYyNjUwODAwMDYsImlhdCI6MTU4NjI2NTA4MCwiZXhwIjoxNTg4ODU3MDgwfQ.cUfdGbo9l3lr1eNrylXOcJVLV40vqavcuXIHp8JBtTc");
+                headers.put("Authorization", "Bearer " + bearerToken);
                 return headers;
             }
         };
@@ -426,6 +391,241 @@ public class ApiHandler
             }
         };
 
+        requestQueue.add(putRequest);
+    }
+
+    public static void loginCompany(final Context context, Company company, final IReturnCompanyCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies";
+
+        // Making the JSON
+        JSONObject js = new JSONObject();
+        try
+        {
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        Log.d("AAA", js.toString());
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.POST, url, js,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        Company newCompany;
+                        try
+                        {
+                            String token = response.getString("token");
+
+                            newCompany = new CompanyBuilder().buildCompany(token);
+
+                            bearerToken = token;
+                            callback.returnCompany(newCompany);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void editCompany(final Context context, Company company, final IReturnCompanyCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies/" + company.getId();
+
+        // Making the JSON
+        JSONObject js = new JSONObject();
+        try
+        {
+            js.put("name", company.getName());
+            js.put("description", company.getDescription());
+            js.put("images", company.getImages());
+            js.put("address", company.getAddress());
+            js.put("postalCode", company.getPostalCode());
+            js.put("location", company.getLocation());
+            js.put("city", company.getCity());
+            js.put("country", company.getCountry());
+            js.put("categories", company.getCategories());
+            js.put("openingHours", company.getOpeningHours());
+            js.put("priceRange", company.getPriceRange());
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        Log.d("AAA", js.toString());
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, js,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        Company newCompany;
+                        try
+                        {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONObject companyJSON = dataJSON.getJSONObject("company");
+
+                            JSONArray imagesArrayJSON = companyJSON.getJSONArray("images");
+                            String imagesArray[] = new String[imagesArrayJSON.length()];
+                            for(int i = 0; i < imagesArrayJSON.length(); i++)
+                                imagesArray[i] = imagesArrayJSON.getString(i);
+
+                            JSONArray categoriesArrayJSON = companyJSON.getJSONArray("categories");
+                            String categoriesArray[] = new String[categoriesArrayJSON.length()];
+                            for(int i = 0; i < categoriesArrayJSON.length(); i++)
+                                categoriesArray[i] = categoriesArrayJSON.getString(i);
+
+                            JSONArray openingHoursArrayJSON = companyJSON.getJSONArray("openingHours");
+                            int openingHoursArray[][] = new int[openingHoursArrayJSON.length()][2];
+                            for(int i = 0; i < openingHoursArrayJSON.length(); i++)
+                            {
+                                openingHoursArray[i][0] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(0));
+                                openingHoursArray[i][1] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(1));
+                            }
+
+                            JSONArray priceRangeArrayJSON = companyJSON.getJSONArray("categories");
+                            String priceRangeArray[] = new String[priceRangeArrayJSON.length()];
+                            for(int i = 0; i < priceRangeArrayJSON.length(); i++)
+                                priceRangeArray[i] = priceRangeArrayJSON.getString(i);
+
+                            newCompany = new CompanyBuilder().id(companyJSON.getString("_id"))
+                                    .email(companyJSON.getString("email"))
+                                    .password(companyJSON.getString("password"))
+                                    .name(companyJSON.getString("name"))
+                                    .description(companyJSON.getString("description"))
+                                    .images(imagesArray)
+                                    .address(companyJSON.getString("address"))
+                                    .postalCode(companyJSON.getString("postalCode"))
+                                    .location(companyJSON.getString("location"))
+                                    .city(companyJSON.getString("city"))
+                                    .country(companyJSON.getString("country"))
+                                    .categories(categoriesArray)
+                                    .openingHours(openingHoursArray)
+                                    .priceRange(priceRangeArray)
+                                    .buildCompany();
+
+                            callback.returnCompany(newCompany);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void deleteCompany(final Context context, Company company, final IDeletedCompany callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies/" + company.getId();
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        callback.deletedDone();
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
         requestQueue.add(putRequest);
     }
 }
