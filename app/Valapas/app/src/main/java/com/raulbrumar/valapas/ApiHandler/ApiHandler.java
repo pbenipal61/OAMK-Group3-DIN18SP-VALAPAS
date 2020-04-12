@@ -11,7 +11,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
+import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
+import com.raulbrumar.valapas.Models.Company;
+import com.raulbrumar.valapas.Models.CompanyBuilder;
 import com.raulbrumar.valapas.Models.User;
 import com.raulbrumar.valapas.Models.UserBuilder;
 
@@ -349,20 +352,18 @@ public class ApiHandler
 
     // requests for companies
 
-    public static void regusterCompany(final Context context, User user, final IReturnUserCallback callback)
+    public static void registerCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/users/" + user.getId();
+        String url = apiUrl + "/companies";
 
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
-            js.put("firstName", user.getFirstName());
-            js.put("lastName", user.getLastName());
-            js.put("isAdult", user.getAdult());
-            js.put("email", user.getEmail());
-            js.put("password", user.getPassword());
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
+            js.put("companyName", company.getName());
         }
         catch (Exception e)
         {
@@ -371,7 +372,7 @@ public class ApiHandler
 
         Log.d("AAA", js.toString());
 
-        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, js,
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.POST, url, js,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -380,22 +381,19 @@ public class ApiHandler
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
 
-                        User newUser;
+                        Company newCompany;
                         try
                         {
                             JSONObject dataJSON = response.getJSONObject("data");
-                            JSONObject userJSON = dataJSON.getJSONObject("user");
+                            JSONObject companyJSON = dataJSON.getJSONObject("company");
 
-                            newUser = new UserBuilder().firstName(userJSON.getString("firstName"))
-                                    .id(userJSON.getString("_id"))
-                                    .lastName(userJSON.getString("lastName"))
-                                    .isAdult(userJSON.getBoolean("isAdult"))
-                                    .email(userJSON.getString("email"))
-                                    .password(userJSON.getString("password"))
-                                    .city(userJSON.getString("city"))
-                                    .buildUser();
+                            newCompany = new CompanyBuilder().id(companyJSON.getString("_id"))
+                                    .email(companyJSON.getString("email"))
+                                    .name(companyJSON.getString("name"))
+                                    .password(companyJSON.getString("password"))
+                                    .buildCompany();
 
-                            callback.returnUser(newUser);
+                            callback.returnCompany(newCompany);
                         }
                         catch (Exception e)
                         {
