@@ -12,7 +12,6 @@
         <activity android:name=".CompanyPages.CompanyCustomerView"></activity>
         <activity android:name=".CompanyPages.CompanyInformation" />
         <activity android:name=".CompanyPages.CompanyProfile" />
-        <activity android:name=".CompanyPages.CompanyCoupons" />
         <activity android:name=".UserPages.UserBookingsMostRecent" />
         <activity android:name=".UserPages.UserBookingsMostUsed" />
         <activity android:name=".UserPages.UserBookingsCurrent" />
