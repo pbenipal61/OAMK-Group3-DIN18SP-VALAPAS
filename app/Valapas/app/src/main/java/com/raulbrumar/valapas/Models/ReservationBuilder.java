@@ -5,9 +5,9 @@ import java.text.SimpleDateFormat;
 public class ReservationBuilder
 {
     private String id = "";
-    private String customerId = null;
+    private String customerId = "";
     private String date = "";
-    private String offeringId = null;
+    private String offeringId = "";
     private int quantity = 0;
 
     public ReservationBuilder() {}
