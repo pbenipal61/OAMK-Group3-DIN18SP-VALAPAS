@@ -35,6 +35,38 @@ const upload = multer({
     limits: 1024*1024*5
 });
 
+
+
+router.get('/', async (req, res, next) => {
+    try{
+
+        const id = req.query.id;
+        
+        if(id){
+            const company = await Company.findById(id);
+            return res.status(200).json({status: "Success", data: {company}})
+        }
+
+        if(Object.keys(req.query).length > 0){
+            const company = await Company.find(req.query);
+            return res.status(200).json({status: "Success", data: {company}})
+        }
+
+        const companies = await Company.find({});
+        return res.status(200).json({status: "Success", data: {companies}})
+    }
+    catch(err){
+        res.status(500).json({
+            status: "Failed",
+            data: {
+                message: 'Internal server error',
+                err: err.message
+            }
+        })
+    }
+});
+
+
 router.post('/register', async (req, res, next) => {
     try{
         let input = req.body;
@@ -140,28 +172,6 @@ router.post("/login", async (req, res, next)  => {
     }
 });
 
-router.get('/:id', async (req, res, next) => {
-    try{
-
-        const id = req.params.id;
-        
-        if(id){
-            const company = await Company.findById(id);
-            return res.status(200).json({status: "Success", data: {company}})
-        }
-        const companies = await Company.find({});
-        return res.status(200).json({status: "Success", data: {companies}})
-    }
-    catch(err){
-        res.status(500).json({
-            status: "Failed",
-            data: {
-                message: 'Internal server error',
-                err: err.message
-            }
-        })
-    }
-});
 
 router.put("/images/:id", [passport.authenticate('jwt', {session: false}), upload.array('images', 12)], async (req, res, next) => {
 try{

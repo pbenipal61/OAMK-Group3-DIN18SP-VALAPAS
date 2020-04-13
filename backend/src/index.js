@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(__dirname + 'uploads'));
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(passport.initialize());
