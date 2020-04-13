@@ -3,19 +3,19 @@ package com.raulbrumar.valapas.Models;
 public class Offering
 {
     private String id;
-    private Company company;
+    private String companyId;
     private String offeringType;
     private String description;
     private String[] images;
     private int quantity;
     private String tags;
-    private String price;
-    private String deposit;
+    private int price;
+    private int deposit;
     private String[] discounts;
 
-    public Offering(String id, Company company, String offeringType, String description, String[] images, int quantity, String tags, String price, String deposit, String[] discounts)
+    public Offering(String id, String company, String offeringType, String description, String[] images, int quantity, String tags, int price, int deposit, String[] discounts)
     {
-        this.company = company;
+        this.companyId = companyId;
         this.id = id;
         this.offeringType = offeringType;
         this.description = description;
@@ -27,9 +27,9 @@ public class Offering
         this.discounts = discounts;
     }
 
-    public Company getCompany()
+    public String getCompany()
     {
-        return company;
+        return companyId;
     }
 
     public String getId()
@@ -62,12 +62,12 @@ public class Offering
         return tags;
     }
 
-    public String getPrice()
+    public int getPrice()
     {
         return price;
     }
 
-    public String getDeposit()
+    public int getDeposit()
     {
         return deposit;
     }

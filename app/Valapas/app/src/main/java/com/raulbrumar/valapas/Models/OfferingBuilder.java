@@ -3,22 +3,22 @@ package com.raulbrumar.valapas.Models;
 public class OfferingBuilder
 {
 
-    private Company company = new Company();
+    private String companyId = "";
     private String id = "";
     private String offeringType = "";
     private String description = "";
     private String[] images = new String[0];
     private int quantity = 0;
     private String tags = "";
-    private String price = "0 EUR";
-    private String deposit = "0 EUR";
+    private int price = 0;
+    private int deposit = 0;
     private String[] discounts = new String[0];
 
     public OfferingBuilder() {}
 
     public Offering buildOffering()
     {
-        return new Offering(id, company, offeringType, description, images, quantity, tags, price, deposit, discounts);
+        return new Offering(id, companyId, offeringType, description, images, quantity, tags, price, deposit, discounts);
     }
 
 
@@ -28,9 +28,9 @@ public class OfferingBuilder
         return this;
     }
 
-    public OfferingBuilder company(Company company)
+    public OfferingBuilder company(String companyId)
     {
-        this.company = company;
+        this.companyId = companyId;
         return this;
     }
 
@@ -64,7 +64,13 @@ public class OfferingBuilder
         return this;
     }
 
-    public OfferingBuilder deposit(String deposit)
+    public OfferingBuilder price(int price)
+    {
+        this.price = price;
+        return this;
+    }
+
+    public OfferingBuilder deposit(int deposit)
     {
         this.deposit = deposit;
         return this;
