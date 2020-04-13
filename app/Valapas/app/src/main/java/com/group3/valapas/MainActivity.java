@@ -8,6 +8,7 @@ import android.view.View;
 import com.group3.valapas.BrowsePages.BrowsePage;
 import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
+import com.group3.valapas.R;
 
 
 public class MainActivity extends AppCompatActivity

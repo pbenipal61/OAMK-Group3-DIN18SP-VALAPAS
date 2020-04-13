@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.BrowsePages.BrowseFavoritesPage">
+    tools:context=".BrowsePages.BrowseFavoritesPage">
 
     <LinearLayout
         android:id="@+id/browse_favorites_page_footer"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.RegisterPages.RegisterUser">
+    tools:context=".RegisterPages.RegisterUser">
 
     <LinearLayout
         android:id="@+id/register_user_header"

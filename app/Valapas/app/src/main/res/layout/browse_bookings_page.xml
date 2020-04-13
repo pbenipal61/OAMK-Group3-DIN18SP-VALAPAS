@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.BrowsePages.BrowseBookingsPage">
+    tools:context=".BrowsePages.BrowseBookingsPage">
 
     <LinearLayout
         android:id="@+id/browse_bookings_page_footer"
