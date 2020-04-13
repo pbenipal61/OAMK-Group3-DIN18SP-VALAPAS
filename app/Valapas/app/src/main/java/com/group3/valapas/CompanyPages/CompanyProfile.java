@@ -14,4 +14,17 @@ public class CompanyProfile extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.company_profile);
     }
+
+    public void selectCustomerView(View v)
+    {
+        Intent i = new Intent (this, CompanyCustomerView.class);
+        startActivity(i);
+    }
+
+    public void selectCompanyInformation(View v)
+    {
+        Intent i = new Intent (this, CompanyInformation.class);
+        startActivity(i);
+    }
+
 }

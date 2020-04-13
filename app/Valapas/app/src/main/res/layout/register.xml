@@ -8,4 +8,114 @@
     android:orientation="vertical"
     tools:context="com.group3.valapas.RegisterPages.Register">
 
+    <LinearLayout
+        android:id="@+id/register_header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/register_as_customer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/register_as_customer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/register_as_company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_header" >
+
+        <Button
+            android:id="@+id/customer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@color/SelectedGold"
+            android:onClick="selectUser"
+            android:text="Register as User"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/register_as_company"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/register_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_as_customer" >
+
+        <Button
+            android:id="@+id/company"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@color/LightGold"
+            android:onClick="selectCompany"
+            android:text="Register My Company"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/register_footer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_as_company" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
