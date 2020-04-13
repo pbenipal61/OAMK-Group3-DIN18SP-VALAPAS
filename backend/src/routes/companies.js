@@ -9,7 +9,7 @@ import multer from 'multer';
 const secret = process.env.HASH_SECRET || "secret";
 const router = new express.Router();
 const saltRounds = 10;
-
+import jwt from 'jsonwebtoken';
 
 //Multer storage config
 const storage = multer.diskStorage({
