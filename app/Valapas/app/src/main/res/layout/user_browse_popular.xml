@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.UserPages.UserBrowsePopular">
+    tools:context=".UserPages.UserBrowsePopular">
 
     <LinearLayout
         android:id="@+id/user_browse_popular_search"

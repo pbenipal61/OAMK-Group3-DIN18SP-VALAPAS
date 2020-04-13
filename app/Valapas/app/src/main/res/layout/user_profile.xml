@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.UserPages.UserProfile">
+    tools:context=".UserPages.UserProfile">
 
     <LinearLayout
         android:id="@+id/user_profile_title"

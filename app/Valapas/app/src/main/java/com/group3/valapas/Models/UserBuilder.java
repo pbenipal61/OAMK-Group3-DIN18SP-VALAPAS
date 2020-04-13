@@ -1,7 +1,6 @@
-package com.raulbrumar.valapas.Models;
+package com.group3.valapas.Models;
 
 import android.util.Base64;
-import android.util.Log;
 
 import org.json.JSONObject;
 

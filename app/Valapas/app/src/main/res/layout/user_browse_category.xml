@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.UserPages.UserBrowseCategory">
+    tools:context=".UserPages.UserBrowseCategory">
 
     <LinearLayout
         android:id="@+id/user_browse_category_search"

@@ -1,6 +1,4 @@
-package com.raulbrumar.valapas.Models;
-
-import java.text.SimpleDateFormat;
+package com.group3.valapas.Models;
 
 public class ReservationBuilder
 {
