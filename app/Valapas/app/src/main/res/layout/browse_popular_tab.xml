@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="BrowseFragments.BrowsePopular">
+    tools:context="com.group3.valapas.BrowsePages.BrowsePopularTab">
 
     <LinearLayout
-        android:id="@+id/search_all_header"
+        android:id="@+id/browse_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/search_options" >
+        app:layout_constraintBottom_toTopOf="@id/browse_tabs" >
 
         <EditText
             android:layout_width="match_parent"
@@ -29,18 +29,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/search_options"
+        android:id="@+id/browse_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintTop_toBottomOf="@id/search_all_header"
-        app:layout_constraintBottom_toTopOf="@id/search_all_results" >
+        app:layout_constraintTop_toBottomOf="@id/browse_search"
+        app:layout_constraintBottom_toTopOf="@id/browse_results" >
 
         <Button
-            android:id="@+id/user_browse_category"
+            android:id="@+id/browse_category_tab"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,23 +50,27 @@
             android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
+            android:onClick="selectCategory"
             android:text="@string/category"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_browse_price"
+            android:id="@+id/browse_price_tab"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
+            android:onClick="selectPrice"
             android:text="@string/price"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/user_browse_popular"
+            android:id="@+id/browse_popular_tab"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,58 +82,114 @@
             android:layout_weight="1"
             android:background="@color/SelectedGold"
             android:text="@string/popular"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/search_all_results"
+        android:id="@+id/browse_results"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
         android:background="@color/White"
-        app:layout_constraintBottom_toTopOf="@+id/browse_page_footer"
+        app:layout_constraintBottom_toTopOf="@+id/browse_popular_tab_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_options">
+        app:layout_constraintTop_toBottomOf="@+id/browse_tabs">
     </ListView>
 
     <LinearLayout
-        android:id="@+id/browse_page_footer"
+        android:id="@+id/browse_popular_tab_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/search_all_results"
+        app:layout_constraintTop_toBottomOf="@+id/browse_results"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/browse_page_btn"
+            android:id="@+id/browse_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:background="@color/LightGold"
-            android:text="@string/browse_page"
-            android:textSize="9sp" />
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/browse_icon_white"
+            android:onClick="selectBrowse"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/browse"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/open_map_btn"
+            android:id="@+id/browse_profile_page"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:background="@color/LightGold"
-            android:text="@string/open_map"
-            android:textSize="9sp" />
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/my_profile_icon_white"
+            android:onClick="selectProfile"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_profile"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/browse_favorites_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/favorites_icon_white"
+            android:onClick="selectFavorites"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/my_favorites"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/browse_bookings_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/bookings_icon_white"
+            android:onClick="selectBookings"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_bookings"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
 
     </LinearLayout>
 

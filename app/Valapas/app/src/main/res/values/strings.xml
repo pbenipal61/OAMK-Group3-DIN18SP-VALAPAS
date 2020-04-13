@@ -2,8 +2,8 @@
 
     <string name="app_name">Valapas</string>
 
-    <string name="home_page_sign_in">S I G N    I N</string>
-    <string name="home_page_register">S I G N    U P</string>
+    <string name="home_page_sign_in">L O G I N</string>
+    <string name="home_page_register">R E G I S T E R</string>
     <string name="home_page_browse">B R O W S E</string>
 
     <string name="login">Login</string>
@@ -12,50 +12,56 @@
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
 
-    <string name="browse">Browse</string>
-    <string name="browse_page">Browse Page</string>
-    <string name="open_map">Open Map</string>
-    <string name="search">Search</string>
+    <string name="browseTitle">B R O W S E</string>
+        <string name="browse">Browse</string>
+        <string name="search">Search</string>
 
-    <string name="back_button">Back to Search Menu</string>
-    <string name="back">back</string>
-
-    <string name="category">category</string>
     <string name="categoryTitle">C A T E G O R Y</string>
+        <string name="category">category</string>
 
-    <string name="price">price</string>
     <string name="priceTitle">P R I C E</string>
-    <string name="least"> $ </string>
-    <string name="middle"> $ $ </string>
-    <string name="most"> $ $ $ </string>
+        <string name="price">Price</string>
+        <string name="least"> $ </string>
+        <string name="middle"> $ $ </string>
+        <string name="most"> $ $ $ </string>
 
-    <string name="location">location</string>
-    <string name="locationTitle">L O C A T I O N</string>
+    <string name="popularTitle">P O P U L A R</string>
+        <string name="popular">Popular</string>
 
-    <string name="popular">popular</string>
-    <string name="popularTitle">P O P U LA R</string>
-
-    <string name="my_favorites">My Favorites</string>
     <string name="my_favoritesTitle">M Y    F A V O R I T E S</string>
+        <string name="my_favorites">My Favorites</string>
 
-    <string name="most_recent">recent</string>
     <string name="most_recentTitle">R E C E N T</string>
+        <string name="most_recent">Most Recent</string>
+        <string name="most_used">Most Used</string>
+        <string name="current">Current</string>
 
-    <string name="add_to_favorites"> + </string>
-    <string name="user_bookings">Bookings</string>
-    <string name="user_profile">My Profile</string>
-    <string name="create_reservation">reserve</string>
-    <string name="confirm_reservation">done</string>
-    <string name="restaurant_name">FOOD PLACE</string>
-    <string name="restaurant_address">Street 1, OULU 90130</string>
-    <string name="write_review">Leave a Review</string>
-    <string name="read_reviews">Read all reviews</string>
-    <string name="most_expensive_first">Most Expensive First</string>
-    <string name="cheapest_first">Cheapest First</string>
-    <string name="customerSignup">customer</string>
-    <string name="companySignup">company</string>
+    <string name="userBookingsTitle">B O O K I N G S</string>
+        <string name="user_bookings">My Bookings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_profile_page_title">P R O F I L E</string>
+        <string name="user_profile">My Profile</string>
+
+    <string name="create_reservation">R E S E R V E</string>
+
+
+    <string name="confirm_reservation">Done</string>
+    <string name="customerSignup">Customer</string>
+    <string name="companySignup">Company</string>
+
+    <string name="companyInformation">Company Information</string>
+    <string name="companyName">Change Company Name</string>
+    <string name="companyAddress">Change Company Address</string>
+    <string name="companyPostalCode">Change Company Postal Code</string>
+    <string name="companyHours">Change Company Hours</string>
+    <string name="companyDescription">Change Company Description</string>
+    <string name="companyImage">Change Company Image</string>
+    <string name="companyEmail">Change Company Email</string>
+    <string name="companyPassword">Change Company Password</string>
+    <string name="companyCity">Change Company City</string>
+    <string name="companyCountry">Change Company Country</string>
+    <string name="companyCategories">Change Company Categories</string>
+    <string name="companyPrices">Change Company Prices</string>
+    <string name="updateInformation">Update</string>
 
 </resources>

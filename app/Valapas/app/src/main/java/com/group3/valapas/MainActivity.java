@@ -1,15 +1,13 @@
 package com.group3.valapas;
 
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-import com.group3.valapas.ValapasStatePagerAdapter;
 
-import com.group3.valapas.Activities.Customers.UserBrowseTab;
+import com.group3.valapas.BrowsePages.BrowsePage;
+import com.group3.valapas.RegisterPages.Register;
+import com.group3.valapas.UserPages.UserBrowse;
 
 
 public class MainActivity extends AppCompatActivity
@@ -21,22 +19,22 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    public void selectSignIn(View view)
+    public void selectLogin(View v)
     {
-        Toast.makeText(this, "Signing In...", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, UserBrowseTab.class);
-        startActivity(intent);
+        Intent i = new Intent (this, UserBrowse.class);
+        startActivity(i);
     }
 
-    public void selectSignUp(View view)
+    public void selectRegister(View v)
     {
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
+        Intent i = new Intent (this, Register.class);
+        startActivity(i);
     }
 
-    public void selectBrowse(View view)
+    public void selectBrowse(View v)
     {
-        Intent intent = new Intent(this, BrowseActivity.class);
-        startActivity(intent);
+        Intent i = new Intent (this, BrowsePage.class);
+        startActivity(i);
     }
+
 }
