@@ -42,11 +42,13 @@ const schema = {
     },
     city: {
         type: String,
-        required: true
+        required: true,
+        default: "Oulu"
     },
     country: {
         type: String,
-        required: true
+        required: true,
+        default: "Finland"
     },
     categories: {
         type: [String],
