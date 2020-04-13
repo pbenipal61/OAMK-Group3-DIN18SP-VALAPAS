@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/DarkGray"
+    android:orientation="vertical"
+    tools:context="com.group3.valapas.UserPages.UserBrowsePopular">
+
+    <LinearLayout
+        android:id="@+id/user_browse_popular_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_browse_popular_tabs" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+
+            android:background="@color/White"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_browse_popular_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/user_browse_popular_search"
+        app:layout_constraintBottom_toTopOf="@id/user_browse_popular_options" >
+
+        <Button
+            android:id="@+id/user_browse_category_tab"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@color/LightGold"
+            android:onClick="selectCategory"
+            android:text="@string/category"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_browse_price_tab"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@color/LightGold"
+            android:onClick="selectPrice"
+            android:text="@string/price"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_browse_popular_tab"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@color/SelectedGold"
+            android:text="@string/popular"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_browse_popular_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/LightGray"
+        app:layout_constraintBottom_toTopOf="@+id/user_browse_popular_results"
+        app:layout_constraintTop_toBottomOf="@+id/user_browse_popular_tabs">
+
+        <Button
+            android:id="@+id/user_popular_one"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/LightGold"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_popular_two"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/LightGold"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_popular_three"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/LightGold"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_popular_four"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/LightGold"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_popular_five"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/LightGold"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/user_browse_popular_results"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/White"
+        app:layout_constraintBottom_toTopOf="@+id/user_browse_popular_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_browse_popular_options">
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/user_browse_popular_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/user_browse_popular_results"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/user_browse_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/browse_icon_white"
+            android:onClick="selectBrowse"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/browse"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_profile_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/my_profile_icon_white"
+            android:onClick="selectProfile"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_profile"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_favorites_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/favorites_icon_white"
+            android:onClick="selectFavorites"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/my_favorites"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_bookings_page"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/bookings_icon_white"
+            android:onClick="selectBookings"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_bookings"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

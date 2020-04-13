@@ -11,13 +11,32 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Customers.CustomerFavoritesActivity"></activity>
-        <activity android:name=".Activities.Customers.CustomerProfileActivity" />
-        <activity android:name=".Activities.Customers.CustomerHomeActivity" />
-        <activity android:name=".Activities.Customers.CustomerRegisterActivity" />
-        <activity android:name=".Activities.Companies.CompanyRegisterActivity" />
-        <activity android:name=".Activities.RegisterTypeActivity" />
-        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".CompanyPages.CompanyCustomerView"></activity>
+        <activity android:name=".CompanyPages.CompanyInformation" />
+        <activity android:name=".CompanyPages.CompanyProfile" />
+        <activity android:name=".UserPages.UserBookingsMostRecent" />
+        <activity android:name=".UserPages.UserBookingsMostUsed" />
+        <activity android:name=".UserPages.UserBookingsCurrent" />
+        <activity android:name=".UserPages.UserFavoritesMostRecent" />
+        <activity android:name=".UserPages.UserFavoritesMostUsed" />
+        <activity android:name=".UserPages.UserFavoritesPrice" />
+        <activity android:name=".UserPages.UserBrowsePrice" />
+        <activity android:name=".UserPages.UserBrowsePopular" />
+        <activity android:name=".UserPages.UserBrowseCategory" />
+        <activity android:name=".UserPages.UserBookings" />
+        <activity android:name=".UserPages.UserFavorites" />
+        <activity android:name=".UserPages.UserProfile" />
+        <activity android:name=".RegisterPages.RegisterCompany" />
+        <activity android:name=".RegisterPages.RegisterUser" />
+        <activity android:name=".BrowsePages.BrowsePriceTab" />
+        <activity android:name=".BrowsePages.BrowsePopularTab" />
+        <activity android:name=".BrowsePages.BrowseCategoryTab" />
+        <activity android:name=".BrowsePages.BrowseProfilePage" />
+        <activity android:name=".BrowsePages.BrowseFavoritesPage" />
+        <activity android:name=".BrowsePages.BrowseBookingsPage" />
+        <activity android:name=".RegisterPages.Register" />
+        <activity android:name=".UserPages.UserBrowse" />
+        <activity android:name=".BrowsePages.BrowsePage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

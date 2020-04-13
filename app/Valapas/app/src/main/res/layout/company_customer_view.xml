@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/DarkGray"
+    android:orientation="vertical"
+    tools:context="com.group3.valapas.CompanyPages.CompanyCustomerView">
+
+    <LinearLayout
+        android:id="@+id/company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/company_address" >
+
+        <TextView
+            android:id="@+id/CompanyName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:text="Company Name"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:fontFamily="@font/montserrat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/company_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        app:layout_constraintTop_toBottomOf="@id/company_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/company_hours" >
+
+        <TextView
+            android:id="@+id/CompanyAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="3141 Address, Oulu 90130"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:fontFamily="@font/montserrat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/company_hours"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/White"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/company_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/company_address">
+
+        <LinearLayout
+            android:id="@+id/company_hours_box"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/DarkGray"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_options_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp">
+
+            <Button
+                android:id="@+id/user_make_reservation"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:background="@color/LightGold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat"
+                android:text="@string/create_reservation"/>
+
+            <Button
+                android:id="@+id/user_add_to_favorites"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@color/SelectedGold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/company_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/company_hours" >
+
+        <TextView
+            android:id="@+id/CompanyDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="30dp"
+            android:text="Company description"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:fontFamily="@font/montserrat" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

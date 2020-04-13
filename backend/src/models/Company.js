@@ -1,12 +1,15 @@
 import mongoose from 'mongoose';
 
 const schema = {
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
     name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
         type: String,
         required: true
     },
@@ -29,7 +32,8 @@ const schema = {
         type: {
             type: String, // Don't do `{ location: { type: String } }`
             enum: ['Point'], // 'location.type' must be 'Point'
-            required: true
+            required: true,
+            default: 'Point',
           },
           coordinates: {
             type: [Number],
@@ -38,11 +42,13 @@ const schema = {
     },
     city: {
         type: String,
-        required: true
+        required: true,
+        default: "Oulu"
     },
     country: {
         type: String,
-        required: true
+        required: true,
+        default: "Finland"
     },
     categories: {
         type: [String],

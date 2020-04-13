@@ -1,10 +1,11 @@
 import express from 'express';
+import passport from 'passport';
 
 import Category from "../models/Category";
 
 const router = new express.Router();
 
-router.post('/', async (req, res, next) => {
+router.post('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const input = req.body;
         const category = await Category.create({...input});
@@ -49,14 +50,14 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         const input = req.body;
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const category = await Category.findByIdAndUpdate(id, {...input});
+        const category = await Category.findByIdAndUpdate(id, {...input}, { new: true});
         return res.status(200).json({status: "Success", data: {category}})
     }
     catch(err){
@@ -70,7 +71,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         if(!id){
