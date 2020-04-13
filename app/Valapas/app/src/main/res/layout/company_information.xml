@@ -8,6 +8,638 @@
     android:orientation="vertical"
     tools:context="com.group3.valapas.CompanyPages.CompanyInformation">
 
+        <LinearLayout
+            android:id="@+id/company_info_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <EditText
+                android:id="@+id/change_company_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_address"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_postal_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_name">
+
+            <EditText
+                android:id="@+id/change_company_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_postal_code"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_hours"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_address">
+
+            <EditText
+                android:id="@+id/change_company_postal_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_postal_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_hours"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_postal_code">
+
+            <EditText
+                android:id="@+id/change_company_hours"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_hours"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_hours">
+
+            <EditText
+                android:id="@+id/change_company_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_description">
+
+            <EditText
+                android:id="@+id/change_company_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_email"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_image">
+
+            <EditText
+                android:id="@+id/change_company_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_password"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_email">
+
+            <EditText
+                android:id="@+id/change_company_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_city"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_country"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_password">
+
+            <EditText
+                android:id="@+id/change_company_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_country"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_city">
+
+            <EditText
+                android:id="@+id/change_company_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_categories"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/company_info_prices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_country">
+
+            <EditText
+                android:id="@+id/change_company_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/company_info_prices"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/DarkGray"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_info_categories">
+
+            <EditText
+                android:id="@+id/change_company_prices"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:background="@color/White"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+            <Button
+                android:id="@+id/update_company_prices"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@color/LightGold"
+                android:text="@string/updateInformation"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/Black"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat" />
+
+        </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
