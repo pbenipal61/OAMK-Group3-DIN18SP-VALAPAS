@@ -5,6 +5,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 const secret = process.env.HASH_SECRET || "secret";
 import User from "../models/User";
+import passport from 'passport';
 
 const router = new express.Router();
 const saltRounds = 10;
@@ -87,8 +88,7 @@ router.post("/login", async (req, res, next)  => {
 
         const jwtValidity = '30d';
         const jwtPayload = {
-            email: input.email,
-            _id: user._id,
+            user,
             validity: jwtValidity,
             timestamp : Date.now(),
         }
@@ -97,10 +97,10 @@ router.post("/login", async (req, res, next)  => {
             expiresIn: jwtValidity
         });
 
-        res.set({
-            token
-        }).status(200).json({
-            status: "Success"
+        res.status(200).json({
+            status: "Success",
+            token,
+            tokenAsHeader: `Bearer ${token}`
         })
 
     }
@@ -113,9 +113,9 @@ router.post("/login", async (req, res, next)  => {
             }
         });
     }
-})
+});
 
-router.get('/', async (req, res, next) => {
+router.get('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         
         if(Object.keys(req.query).length > 0){
@@ -136,14 +136,14 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         const input = req.body;
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-        const user = await User.findByIdAndUpdate(id, {...input});
+        const user = await User.findByIdAndUpdate(id, {...input}, { new: true});
         return res.status(200).json({status: "Success", data: {user}})
     }
     catch(err){
@@ -157,7 +157,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
         if(!id){
