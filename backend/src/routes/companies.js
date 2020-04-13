@@ -38,7 +38,7 @@ const upload = multer({
 router.post('/register', async (req, res, next) => {
     try{
         let input = req.body;
-        if(!input.email || !input.password || !input.firstName){
+        if(!input.email || !input.password){
             return res.status(500).json({
                 status: "Failed",
                 data: {
@@ -142,6 +142,7 @@ router.post("/login", async (req, res, next)  => {
 
 router.get('/:id', async (req, res, next) => {
     try{
+
         const id = req.params.id;
         
         if(id){
