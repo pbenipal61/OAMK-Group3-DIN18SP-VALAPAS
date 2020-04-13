@@ -5,16 +5,22 @@ import java.text.SimpleDateFormat;
 public class ReservationBuilder
 {
     private String id = "";
-    private User customer = null;
+    private String customerId = null;
     private String date = "";
-    private Offering offering = null;
+    private String offeringId = null;
     private int quantity = 0;
 
     public ReservationBuilder() {}
 
     public Reservation buildReservation()
     {
-        return new Reservation(id, customer, date, offering, quantity);
+        return new Reservation(id, customerId, date, offeringId, quantity);
+    }
+
+    public ReservationBuilder date(String date)
+    {
+        this.date = date;
+        return this;
     }
 
     public ReservationBuilder id(String id)
@@ -23,15 +29,15 @@ public class ReservationBuilder
         return this;
     }
 
-    public ReservationBuilder customer(User customer)
+    public ReservationBuilder customer(String customerId)
     {
-        this.customer = customer;
+        this.customerId = customerId;
         return this;
     }
 
-    public ReservationBuilder offering(Offering offering)
+    public ReservationBuilder offering(String offeringId)
     {
-        this.offering = offering;
+        this.offeringId = offeringId;
         return this;
     }
 

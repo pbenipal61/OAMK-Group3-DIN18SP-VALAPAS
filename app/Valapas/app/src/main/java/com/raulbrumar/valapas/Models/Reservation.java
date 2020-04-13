@@ -3,23 +3,27 @@ package com.raulbrumar.valapas.Models;
 public class Reservation
 {
     private String id;
-    private User customer;
+    private String customerId;
     private String date;
-    private Offering offering;
+    private String offeringId;
     private int quantity;
 
-    public Reservation(String id, User customer, String date, Offering offering, int quantity)
+    public Reservation(String id, String customerId, String date, String offeringId, int quantity)
     {
         this.id = id;
-        this.customer = customer;
+        this.customerId = customerId;
         this.date = date;
-        this.offering = offering;
+        this.offeringId = offeringId;
         this.quantity = quantity;
     }
 
-    public User getCustomer()
+    public String getId() {
+        return id;
+    }
+
+    public String getCustomer()
     {
-        return customer;
+        return customerId;
     }
 
     public String getDate()
@@ -27,9 +31,9 @@ public class Reservation
         return date;
     }
 
-    public Offering getOffering()
+    public String getOffering()
     {
-        return offering;
+        return offeringId;
     }
 
     public int getQuantity()
