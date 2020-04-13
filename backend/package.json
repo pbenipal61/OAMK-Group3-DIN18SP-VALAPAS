@@ -9,12 +9,16 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "heroku": "^7.39.1",
+    "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.5",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "npm": "^6.14.4",
     "npm-run-all": "^4.1.5",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "uuid": "^7.0.3"
   },
   "scripts": {
     "start": "npm run prod",
