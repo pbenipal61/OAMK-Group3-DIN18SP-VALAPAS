@@ -1,11 +1,39 @@
 import express from 'express';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
+import {v4 as uuid} from 'uuid';
 import dotenv from 'dotenv';
 dotenv.config();
 import Company from "../models/Company";
+import multer from 'multer';
 const secret = process.env.HASH_SECRET || "secret";
 const router = new express.Router();
+const saltRounds = 10;
+
+
+//Multer storage config
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "uploads");
+    },
+    filename: (req, file, cb) => {
+        cb(null, uuid().toString() + "_"+ file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if(file.mimetype === "image/jpeg" || file.mimetype === "image/png"){
+        cb(null, true);
+    }else{
+        cb("Unsupported file type", false);
+    }
+};
+
+const upload = multer({
+    storage,
+    fileFilter,
+    limits: 1024*1024*5
+});
 
 router.post('/register', async (req, res, next) => {
     try{
@@ -132,6 +160,40 @@ router.get('/:id', async (req, res, next) => {
             }
         })
     }
+});
+
+router.put("/images/:id", [passport.authenticate('jwt', {session: false}), upload.array('images', 12)], async (req, res, next) => {
+try{
+
+    const files = req.files;
+    if(!files){
+        res.status(202).json({
+            status: "Failed",
+            data: {
+                message: 'No valid images passed',
+                err: err.message
+            }
+        });
+    }
+    const images = files.map(file => file.filename);
+
+    const company = await Company.findByIdAndUpdate(req.params.id, {
+        $push: {images}
+    }, {
+        new: true
+    });    
+    return res.status(200).json({status: "Success", data: {company}});
+
+}
+catch(err){
+    res.status(500).json({
+        status: "Failed",
+        data: {
+            message: 'Internal server error',
+            err: err.message
+        }
+    })
+}
 });
 
 router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
