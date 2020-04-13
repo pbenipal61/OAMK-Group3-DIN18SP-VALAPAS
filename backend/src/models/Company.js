@@ -33,7 +33,7 @@ const schema = {
             type: String, // Don't do `{ location: { type: String } }`
             enum: ['Point'], // 'location.type' must be 'Point'
             required: true,
-            default: 'Point'
+            default: 'Point',
           },
           coordinates: {
             type: [Number],
