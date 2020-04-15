@@ -1,6 +1,4 @@
-package com.raulbrumar.valapas.Models;
-
-import java.util.HashMap;
+package com.group3.valapas.Models;
 
 // User model
 public class User

@@ -1,4 +1,4 @@
-package com.raulbrumar.valapas.Models;
+package com.group3.valapas.Models;
 
 public class OfferingBuilder
 {

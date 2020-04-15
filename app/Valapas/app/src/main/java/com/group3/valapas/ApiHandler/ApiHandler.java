@@ -1,8 +1,7 @@
-package com.raulbrumar.valapas.ApiHandler;
+package com.group3.valapas.ApiHandler;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -10,22 +9,22 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedCompany;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
-import com.raulbrumar.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
-import com.raulbrumar.valapas.Models.Company;
-import com.raulbrumar.valapas.Models.CompanyBuilder;
-import com.raulbrumar.valapas.Models.Offering;
-import com.raulbrumar.valapas.Models.OfferingBuilder;
-import com.raulbrumar.valapas.Models.Reservation;
-import com.raulbrumar.valapas.Models.ReservationBuilder;
-import com.raulbrumar.valapas.Models.User;
-import com.raulbrumar.valapas.Models.UserBuilder;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedCompany;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
+import com.group3.valapas.Models.Company;
+import com.group3.valapas.Models.CompanyBuilder;
+import com.group3.valapas.Models.Offering;
+import com.group3.valapas.Models.OfferingBuilder;
+import com.group3.valapas.Models.Reservation;
+import com.group3.valapas.Models.ReservationBuilder;
+import com.group3.valapas.Models.User;
+import com.group3.valapas.Models.UserBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
