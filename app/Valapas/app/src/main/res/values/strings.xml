@@ -14,34 +14,34 @@
     <string name="password">Password</string>
 
     <string name="browseTitle">B R O W S E</string>
-        <string name="browse">Browse</string>
-        <string name="search">Search</string>
+    <string name="browse">Browse</string>
+    <string name="search">Search</string>
 
     <string name="categoryTitle">C A T E G O R Y</string>
-        <string name="category">category</string>
+    <string name="category">category</string>
 
     <string name="priceTitle">P R I C E</string>
-        <string name="price">Price</string>
-        <string name="least"> $ </string>
-        <string name="middle"> $ $ </string>
-        <string name="most"> $ $ $ </string>
+    <string name="price">Price</string>
+    <string name="least"> $ </string>
+    <string name="middle"> $ $ </string>
+    <string name="most"> $ $ $ </string>
 
     <string name="popularTitle">P O P U L A R</string>
-        <string name="popular">Popular</string>
+    <string name="popular">Popular</string>
 
     <string name="my_favoritesTitle">M Y    F A V O R I T E S</string>
-        <string name="my_favorites">My Favorites</string>
+    <string name="my_favorites">My Favorites</string>
 
     <string name="most_recentTitle">R E C E N T</string>
-        <string name="most_recent">Most Recent</string>
-        <string name="most_used">Most Used</string>
-        <string name="current">Current</string>
+    <string name="most_recent">Most Recent</string>
+    <string name="most_used">Most Used</string>
+    <string name="current">Current</string>
 
     <string name="userBookingsTitle">B O O K I N G S</string>
-        <string name="user_bookings">My Bookings</string>
+    <string name="user_bookings">My Bookings</string>
 
     <string name="user_profile_page_title">P R O F I L E</string>
-        <string name="user_profile">My Profile</string>
+    <string name="user_profile">My Profile</string>
 
     <string name="create_reservation">R E S E R V E</string>
 

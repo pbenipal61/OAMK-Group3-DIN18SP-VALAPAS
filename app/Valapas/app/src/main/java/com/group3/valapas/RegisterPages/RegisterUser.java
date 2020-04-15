@@ -37,7 +37,7 @@ public class RegisterUser extends AppCompatActivity implements IReturnUserCallba
         firstNameEditText = findViewById(R.id.firstName);
         lastNameEditText = findViewById(R.id.lastName);
         emailEditText = findViewById(R.id.email);
-        cityEditText = findViewById(R.id.city);
+        cityEditText = findViewById(R.id.name);
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
 
@@ -60,7 +60,7 @@ public class RegisterUser extends AppCompatActivity implements IReturnUserCallba
         }
         else if (!checkBox1.isChecked())
         {
-            Toast.makeText(this, "You must to the Terms and Conditions first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You must agree to the Terms and Conditions first", Toast.LENGTH_SHORT).show();
         }
         else
         {

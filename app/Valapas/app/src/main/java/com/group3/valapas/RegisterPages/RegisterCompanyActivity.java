@@ -15,7 +15,7 @@ import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.R;
 
-public class RegisterCompany extends AppCompatActivity implements IReturnCompanyCallback
+public class RegisterCompanyActivity extends AppCompatActivity implements IReturnCompanyCallback
 {
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -29,10 +29,9 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
     private CheckBox checkBox;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_company);
+        setContentView(R.layout.activity_register_company);
 
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
@@ -44,18 +43,9 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
         descriptionEditText = findViewById(R.id.description);
 
         checkBox = findViewById(R.id.checkBox);
-
-        Button registerButton = findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onRegisterClick();
-            }
-        });
-
     }
 
-    public void onRegisterClick()
+    public void onRegisterClick(View view)
     {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
@@ -68,11 +58,11 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
 
         if (!password.equals(confirmPassword))
         {
-            Toast.makeText(this, "Passwords must match!", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Passwords must match!", Toast.LENGTH_SHORT).show();
         }
         else if (!checkBox.isChecked())
         {
-            Toast.makeText(this, "You must agree to the Terms and Conditions first", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "You must agree to the Terms and Conditions first", Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -84,6 +74,6 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
     @Override
     public void returnCompany(Company company)
     {
-        Toast.makeText(this, "Company account created successfully!", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Company account created successfully!", Toast.LENGTH_SHORT).show();
     }
 }

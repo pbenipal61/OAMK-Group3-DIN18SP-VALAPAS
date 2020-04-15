@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.group3.valapas">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -9,32 +10,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.group3.valapas.CompanyPages.CompanyCustomerView"></activity>
-        <activity android:name="com.group3.valapas.CompanyPages.CompanyInformation" />
-        <activity android:name="com.group3.valapas.CompanyPages.CompanyProfile" />
-        <activity android:name="com.group3.valapas.UserPages.UserBookingsMostRecent" />
-        <activity android:name="com.group3.valapas.UserPages.UserBookingsCurrent" />
-        <activity android:name="com.group3.valapas.UserPages.UserFavoritesMostRecent" />
-        <activity android:name="com.group3.valapas.UserPages.UserFavoritesPrice" />
-        <activity android:name="com.group3.valapas.UserPages.UserBrowsePrice" />
-        <activity android:name="com.group3.valapas.UserPages.UserBrowsePopular" />
-        <activity android:name="com.group3.valapas.UserPages.UserBrowseCategory" />
-        <activity android:name="com.group3.valapas.UserPages.UserBookings" />
-        <activity android:name="com.group3.valapas.UserPages.UserFavorites" />
-        <activity android:name="com.group3.valapas.UserPages.UserProfile" />
-        <activity android:name="com.group3.valapas.RegisterPages.RegisterCompany" />
-        <activity android:name="com.group3.valapas.RegisterPages.RegisterUser" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowsePriceTab" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowsePopularTab" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowseCategoryTab" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowseProfilePage" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowseFavoritesPage" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowseBookingsPage" />
-        <activity android:name="com.group3.valapas.RegisterPages.Register" />
-        <activity android:name="com.group3.valapas.UserPages.UserBrowse" />
-        <activity android:name="com.group3.valapas.BrowsePages.BrowsePage" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".RegisterPages.RegisterCompanyActivity"></activity>
+        <activity android:name=".CompanyPages.CompanyCustomerView" />
+        <activity android:name=".CompanyPages.CompanyInformation" />
+        <activity android:name=".CompanyPages.CompanyProfile" />
+        <activity android:name=".UserPages.UserBookingsMostRecent" />
+        <activity android:name=".UserPages.UserBookingsCurrent" />
+        <activity android:name=".UserPages.UserFavoritesMostRecent" />
+        <activity android:name=".UserPages.UserFavoritesPrice" />
+        <activity android:name=".UserPages.UserBrowsePrice" />
+        <activity android:name=".UserPages.UserBrowsePopular" />
+        <activity android:name=".UserPages.UserBrowseCategory" />
+        <activity android:name=".UserPages.UserBookings" />
+        <activity android:name=".UserPages.UserFavorites" />
+        <activity android:name=".UserPages.UserProfile" />
+        <activity android:name=".RegisterPages.RegisterCompany" />
+        <activity android:name=".RegisterPages.RegisterUser" />
+        <activity android:name=".BrowsePages.BrowsePriceTab" />
+        <activity android:name=".BrowsePages.BrowsePopularTab" />
+        <activity android:name=".BrowsePages.BrowseCategoryTab" />
+        <activity android:name=".BrowsePages.BrowseProfilePage" />
+        <activity android:name=".BrowsePages.BrowseFavoritesPage" />
+        <activity android:name=".BrowsePages.BrowseBookingsPage" />
+        <activity android:name=".RegisterPages.Register" />
+        <activity android:name=".UserPages.UserBrowse" />
+        <activity android:name=".BrowsePages.BrowsePage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
