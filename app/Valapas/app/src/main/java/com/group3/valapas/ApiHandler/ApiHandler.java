@@ -441,7 +441,7 @@ public class ApiHandler
     public static void loginCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies";
+        String url = apiUrl + "/companies/login";
 
         // Making the JSON
         JSONObject js = new JSONObject();

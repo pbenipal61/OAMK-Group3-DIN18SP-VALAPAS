@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegisterPages.RegisterCompanyActivity"></activity>
+        <activity android:name=".CompanyPages.CompanyHomeActivity"></activity>
+        <activity android:name=".CompanyPages.CompanyBookingsActivity" />
+        <activity android:name=".CompanyPages.CompanyUpdateInfo" />
+        <activity android:name=".CompanyPages.CompanyReviewsActivity" />
+        <activity android:name=".RegisterPages.RegisterCompanyActivity" />
         <activity android:name=".CompanyPages.CompanyCustomerView" />
         <activity android:name=".CompanyPages.CompanyInformation" />
         <activity android:name=".CompanyPages.CompanyProfile" />
