@@ -109,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Bar"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -119,6 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Restaurant"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -129,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Venue"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -139,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Entertainment"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -149,6 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Modern"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -159,6 +164,51 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/LightGold"
+                android:text="Traditional"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <Button
+                android:id="@+id/user_category_seven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/LightGold"
+                android:text="Indoor"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <Button
+                android:id="@+id/user_category_eight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/LightGold"
+                android:text="Outdoor"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <Button
+                android:id="@+id/user_category_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/LightGold"
+                android:text="International"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <Button
+                android:id="@+id/user_category_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/LightGold"
+                android:text="Finnish"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
