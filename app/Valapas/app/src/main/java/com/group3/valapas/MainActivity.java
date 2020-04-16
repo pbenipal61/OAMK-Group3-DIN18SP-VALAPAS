@@ -4,34 +4,50 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
+import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.BrowsePages.BrowsePage;
+import com.group3.valapas.CompanyPages.CompanyHomeActivity;
 import com.group3.valapas.CompanyPages.CompanyInformation;
 import com.group3.valapas.CompanyPages.CompanyProfile;
+import com.group3.valapas.Models.Company;
+import com.group3.valapas.Models.CompanyBuilder;
+import com.group3.valapas.Models.User;
+import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
 import com.group3.valapas.R;
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback
 {
+    private EditText emailEditText;
+    private EditText passwordEditText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
     }
 
     public void selectLoginAsUser(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
-        startActivity(i);
+        User user = new UserBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildUser();
+        ApiHandler.loginUser(this, user, this);
     }
 
     public void selectLoginAsCompany(View v)
     {
-        Intent i = new Intent (this, CompanyInformation.class);
-        startActivity(i);
+        Company company = new CompanyBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildCompany();
+        ApiHandler.loginCompany(this, company, this);
     }
 
     public void selectRegister(View v)
@@ -46,4 +62,17 @@ public class MainActivity extends AppCompatActivity
         startActivity(i);
     }
 
+    @Override
+    public void returnCompany(Company company)
+    {
+        Intent i = new Intent (this, CompanyHomeActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public void returnUser(User user)
+    {
+        Intent i = new Intent (this, UserBrowse.class);
+        startActivity(i);
+    }
 }
