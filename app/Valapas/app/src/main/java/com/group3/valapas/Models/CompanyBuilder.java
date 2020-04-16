@@ -4,6 +4,8 @@ import android.util.Base64;
 
 import org.json.JSONObject;
 
+import java.io.File;
+
 public class CompanyBuilder
 {
     private String id = "";
@@ -11,7 +13,7 @@ public class CompanyBuilder
     private String email = "";
     private String password = "";
     private String description = "";
-    private String[] images = new String[0];
+    private File[] images = new File[0];
     private String address = "";
     private String postalCode = "";
     private String location = "";
@@ -94,7 +96,7 @@ public class CompanyBuilder
         return this;
     }
 
-    public CompanyBuilder images (String[] images)
+    public CompanyBuilder images (File[] images)
     {
         this.images = images;
         return this;
