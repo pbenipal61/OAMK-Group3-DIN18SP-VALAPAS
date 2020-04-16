@@ -76,7 +76,7 @@
 
             android:layout_weight="1"
             android:background="@color/LightGold"
-            android:onClick="selectLogin"
+            android:onClick="selectLoginAsUser"
             android:text="@string/home_page_sign_in_user"
             android:textAllCaps="true"
             android:textColor="@color/Black"
@@ -110,7 +110,7 @@
             android:layout_margin="5dp"
 
             android:background="@color/LightGold"
-            android:onClick="selectLogin"
+            android:onClick="selectLoginAsCompany"
             android:text="@string/home_page_sign_in_company"
             android:textAllCaps="true"
             android:textColor="@color/Black"

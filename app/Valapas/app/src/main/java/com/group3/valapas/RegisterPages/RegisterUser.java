@@ -58,9 +58,9 @@ public class RegisterUser extends AppCompatActivity implements IReturnUserCallba
         {
             Toast.makeText(this, "Passwords must match", Toast.LENGTH_SHORT).show();
         }
-        else if (!checkBox1.isChecked())
+        else if (!checkBox1.isChecked() || !checkBox2.isChecked())
         {
-            Toast.makeText(this, "You must agree to the Terms and Conditions first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You must agree to the Terms and Conditions first and be over 18 years old.", Toast.LENGTH_SHORT).show();
         }
         else
         {

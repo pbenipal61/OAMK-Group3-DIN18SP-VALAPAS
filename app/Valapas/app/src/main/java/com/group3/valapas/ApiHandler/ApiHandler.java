@@ -327,22 +327,25 @@ public class ApiHandler
     public static void registerCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies";
+        String url = apiUrl + "/companies/register";
 
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
             js.put("name", company.getName());
-            js.put("description", company.getDescription());
-            js.put("address", company.getAddress());
-            js.put("postalCode", company.getPostalCode());
-            js.put("location", company.getLocation());
-            js.put("city", company.getCity());
             js.put("country", company.getCountry());
-            js.put("categories", company.getCategories());
-            js.put("openingHours", company.getOpeningHours());
-            js.put("priceRange", company.getPriceRange());
+            js.put("city", company.getCity());
+            js.put("location", company.getLocation());
+            js.put("postalCode", company.getPostalCode());
+            js.put("address", company.getAddress());
+            js.put("description", company.getDescription());
+
+            // js.put("categories", company.getCategories());
+            // js.put("openingHours", company.getOpeningHours());
+            // js.put("priceRange", company.getPriceRange());
         }
         catch (Exception e)
         {
@@ -358,11 +361,12 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "raspuns: " + response.toString());
 
                         Company newCompany;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject companyJSON = dataJSON.getJSONObject("company");
 
@@ -398,8 +402,9 @@ public class ApiHandler
                                     .openingHours(openingHoursArray)
                                     .priceRange(priceRangeArray)
                                     .buildCompany();
+                            */
 
-                            callback.returnCompany(newCompany);
+                            callback.returnCompany(null);
                         }
                         catch (Exception e)
                         {
@@ -417,7 +422,6 @@ public class ApiHandler
                                 + "\nStatus Code " + error.networkResponse.statusCode
                                 + "\nCause " + error.getCause()
                                 + "\nmessage" + error.getMessage());
-
                     }
                 }
         )
@@ -427,7 +431,6 @@ public class ApiHandler
             {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Bearer " + bearerToken);
                 return headers;
             }
         };
