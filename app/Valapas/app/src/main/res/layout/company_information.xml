@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context="com.group3.valapas.CompanyPages.CompanyInformation">
+    tools:context=".CompanyPages.CompanyInformation">
 
         <LinearLayout
             android:id="@+id/company_info_name"

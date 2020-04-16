@@ -64,4 +64,6 @@
     <string name="companyPrices">Change Company Prices</string>
     <string name="updateInformation">Update</string>
 
+    <string name="authToken">BearerToken</string>
+
 </resources>
