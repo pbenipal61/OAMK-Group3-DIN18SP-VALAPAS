@@ -15,6 +15,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
@@ -30,6 +31,7 @@ import com.group3.valapas.Models.UserBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -692,6 +694,84 @@ public class ApiHandler
                 return headers;
             }
         };
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchByCompanyName(final Context context, String companyName, final IReturnCompanySearchResultsCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies?name=" + companyName;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        ArrayList<Company> companies = new ArrayList<Company>();
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray companiesArray = data.getJSONArray("company");
+                            for (int i = 0; i < companiesArray.length(); i++)
+                            {
+                                JSONObject companyJSON = companiesArray.getJSONObject(i);
+
+                                Company com = new CompanyBuilder()
+                                        // location
+                                        // images
+                                        .city(companyJSON.getString("city"))
+                                        .country(companyJSON.getString("country"))
+                                        // categories
+                                        // opening hours
+                                        // price range
+                                        .id(companyJSON.getString("_id"))
+                                        .name(companyJSON.getString("name"))
+                                        .email(companyJSON.getString("email"))
+                                        .password(companyJSON.getString("password"))
+                                        .description(companyJSON.getString("description"))
+                                        .address(companyJSON.getString("address"))
+                                        .postalCode(companyJSON.getString("postalCode"))
+                                        .buildCompany();
+                                companies.add(com);
+                            }
+
+                            callback.returnSearchResults(companies);
+                        }
+                        catch(Exception e)
+                        {
+
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
         requestQueue.add(putRequest);
     }
 
