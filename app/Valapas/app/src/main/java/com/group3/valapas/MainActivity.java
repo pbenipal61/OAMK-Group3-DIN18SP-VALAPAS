@@ -6,12 +6,15 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
@@ -30,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,12 +82,30 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
         startActivityForResult(intent, 1);
     }
 
+    public String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":")+1);
+        cursor.close();
+
+        cursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,null
+                , MediaStore.Images.Media._ID + " = ? ", new String[]{document_id}, null);
+        cursor.moveToFirst();
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+        cursor.close();
+
+        return path;
+    }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
         if (requestCode == 1 & resultCode == RESULT_OK)
         {
             List<Bitmap> bitmaps = new ArrayList<>();
+            List<File> files = new ArrayList<>();
 
             ClipData clipData =  data.getClipData();
 
@@ -93,6 +115,10 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
                 {
                     Uri imageUri = clipData.getItemAt(i).getUri();
 
+                    String path = getRealPathFromURI(getApplicationContext(), imageUri);
+
+                    files.add(new File(path));
+                    Log.d("AAA", path);
                     try {
                         InputStream is = getContentResolver().openInputStream(imageUri);
 
@@ -109,6 +135,11 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
             {
                 Uri imageUri = data.getData();
 
+                String path = getRealPathFromURI(getApplicationContext(), imageUri);
+
+                files.add(new File(path));
+                Log.d("AAA", path);
+
                 try {
                     InputStream is = getContentResolver().openInputStream(imageUri);
 
@@ -121,9 +152,8 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
 
             }
 
-            List<File> files = new ArrayList<>();
 
-            for (int i = 0; i < bitmaps.size(); i++) {
+            /*for (int i = 0; i < bitmaps.size(); i++) {
 
                 Log.d("AAA", "\nimage " + i);
                 //create a file to write bitmap data
@@ -157,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
 
             Log.d("AAA", "filesize: " + files.size());
             Log.d("AAA", files.get(0).getPath());
@@ -179,7 +209,13 @@ public class MainActivity extends AppCompatActivity implements IUploadedImagesCa
                     .country("abc")
                     .buildCompany();
 
-            ApiHandler.uploadImage(this, company, this);
+            try {
+                ApiHandler.uploadImage(this, company, this);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 

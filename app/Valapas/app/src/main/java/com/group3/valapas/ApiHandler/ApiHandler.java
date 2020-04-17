@@ -1,10 +1,12 @@
 package com.group3.valapas.ApiHandler;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,11 +30,15 @@ import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 
+import org.apache.http.entity.mime.MIME;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
@@ -667,8 +673,7 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-    public static void uploadImage(final Context context, Company company, final IUploadedImagesCallback callback)
-    {
+    public static void uploadImage(final Context context, Company company, final IUploadedImagesCallback callback) throws IOException {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         final String url = apiUrl + "/companies/images/" + company.getId();
 
@@ -680,13 +685,25 @@ public class ApiHandler
             images.put("images", files[i]);
         }
 
-        MultipartRequest<String> multiPartRequest =
-                new MultipartRequest<String>(Request.Method.PUT, url, null, images,
-                        new Response.Listener<String>()
+        HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-Type", "multipart/form-data; boundary= \"some boundary\"; charset=utf-8");
+        headers.put("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlzQWR1bHQiOmZhbHNlLCJjaXR5IjoiT3VsdSIsIl9pZCI6IjVlOTQ1Yjk3YzkzZjk0NWJlZTA5ZTc4MCIsImVtYWlsIjoiMTIzQHlhaG9vLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDdOMzFQMGxjSjBkeGl6eXVYM0FzRC5iRTVWNnZVQXYzTE1VUU0wQmFlcGRnNFMwZlc2WGttIiwiZmlyc3ROYW1lIjoiZ29ndSIsImxhc3ROYW1lIjoiR09HVSIsIl9fdiI6MH0sInZhbGlkaXR5IjoiMzBkIiwidGltZXN0YW1wIjoxNTg2OTQ1OTI4NzE5LCJpYXQiOjE1ODY5NDU5MjgsImV4cCI6MTU4OTUzNzkyOH0.pByZJii3CzPRN5Jms5JI75plJPqjhspyQ_0g8M2aMDk");
+
+
+
+        MultipartRequest multiPartRequest =
+                new MultipartRequest(Request.Method.PUT, url, headers,
+                        new Response.Listener<NetworkResponse>()
                         {
                             @Override
-                            public void onResponse(String response) {
-                                Log.i("AAA", "URL " + url + "\n Response : " + response);
+                            public void onResponse(NetworkResponse response) {
+
+                                try {
+                                    String body = new String(response.data,"UTF-8");
+                                    Log.i("AAA", "URL " + url + "\n Response : " + body);
+                                } catch (UnsupportedEncodingException e) {
+                                    e.printStackTrace();
+                                }
 
 
                                 callback.uploadedImages();
@@ -711,31 +728,24 @@ public class ApiHandler
                                 }
 
                             }
-                         }) {
+                         });
 
-                    @Override
-                    public Map<String, String> getHeaders() throws AuthFailureError {
-                        HashMap<String, String> headers = new HashMap<String, String>();
+        byte[] data = FileToBytesArray(files[0]);
 
-                        /*if (StringUtils.isNotEmpty(AppClass.preferences.getValueFromPreferance(Preferences.TOKEN))) {
-                            params.put("Authorization", AppClass.preferences.getValueFromPreferance(Preferences.TOKEN));
-                        }*/
+        multiPartRequest.addPart(new MultipartRequest.FilePart("images", MIME.CONTENT_TYPE, "image", data));
 
-                        headers.put("Content-Type", "multipart/form-data; boundary= abc; charset=utf-8");
-                        headers.put("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlzQWR1bHQiOmZhbHNlLCJjaXR5IjoiT3VsdSIsIl9pZCI6IjVlOTQ1Yjk3YzkzZjk0NWJlZTA5ZTc4MCIsImVtYWlsIjoiMTIzQHlhaG9vLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDdOMzFQMGxjSjBkeGl6eXVYM0FzRC5iRTVWNnZVQXYzTE1VUU0wQmFlcGRnNFMwZlc2WGttIiwiZmlyc3ROYW1lIjoiZ29ndSIsImxhc3ROYW1lIjoiR09HVSIsIl9fdiI6MH0sInZhbGlkaXR5IjoiMzBkIiwidGltZXN0YW1wIjoxNTg2OTQ1OTI4NzE5LCJpYXQiOjE1ODY5NDU5MjgsImV4cCI6MTU4OTUzNzkyOH0.pByZJii3CzPRN5Jms5JI75plJPqjhspyQ_0g8M2aMDk");
-
-                        return headers;
-                    }
-
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        return params;
-                    }
-                };
-
-        //multiPartRequest.setRetryPolicy(new DefaultRetryPolicy(0, 1, 2));//10000
         requestQueue.add(multiPartRequest);
+    }
+
+    private static byte[] FileToBytesArray(File file) throws IOException {
+        //init array with file length
+        byte[] bytesArray = new byte[(int) file.length()];
+
+        FileInputStream fis = new FileInputStream(file);
+        fis.read(bytesArray); //read file into bytes[]
+        fis.close();
+
+        return bytesArray;
     }
 
     //  requests for reservations

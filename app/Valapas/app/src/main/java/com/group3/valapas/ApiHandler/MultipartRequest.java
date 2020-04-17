@@ -2,6 +2,7 @@ package com.group3.valapas.ApiHandler;
 
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -15,96 +16,203 @@ import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-public class MultipartRequest<T> extends Request<T> {
+public class MultipartRequest extends Request<NetworkResponse> {
 
-    private final Map<String, String> mStringParts; // the string parameters
-    private final Map<String, File> mFileParts; // the file parameters
-    private MultipartEntityBuilder mBuilder;
-    private final Response.Listener<T> mListener;
+    private Map<String, String> headers;
+    private Response.Listener listener;
+    private Response.ErrorListener errorListener;
 
-    public MultipartRequest( int method,
-                             String url,
-                             Map<String, String> stringParts,
-                             Map<String, File> fileParts,
-                             Response.Listener<T> listener,
-                             Response.ErrorListener errorListener) {
-        super(method, url, errorListener);
-        mListener = listener;
-        mStringParts = stringParts;
-        mFileParts = fileParts;
-        buildMultipartEntity();
+    private final String boundary = Long.toHexString(System.currentTimeMillis());
+    private final String twoDashes = "--";
+    private final String newLine = "\r\n";
+
+    private List<MultiPart> parts = new ArrayList<MultiPart>();
+
+    /**
+     *
+     * @param url URL to make the POST to
+     * @param headers A Map containing any headers that should be added to the request
+     * @param listener A Volley Response.Listener to process any returned data
+     * @param errorListener A Volley Response.ErrorListener to handle errors
+     */
+    public MultipartRequest(String url, Map<String,String> headers,
+                            Response.Listener<NetworkResponse> listener,
+                            Response.ErrorListener errorListener) {
+        super(Method.POST, url, errorListener);
+        this.headers = headers;
+        this.listener = listener;
+        this.errorListener = errorListener;
+
     }
 
-    private void buildMultipartEntity() {
-        if (mBuilder != null) {
-            mBuilder = null;
-        }
-        mBuilder = MultipartEntityBuilder.create();
-        mBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        mBuilder.setBoundary("_____" + Long.toString(System.currentTimeMillis()) + "_____");
-        mBuilder.setCharset(Consts.UTF_8);
-        if (mStringParts != null) {
-            for (Map.Entry<String, String> entry : mStringParts.entrySet()) {
-                mBuilder.addTextBody(entry.getKey(), entry.getValue(), ContentType.create("text/plain", Charset.forName("UTF-8")));
-            }
-        }
+    public MultipartRequest(int method, String url, Map<String,String> headers,
+                            Response.Listener<NetworkResponse> listener,
+                            Response.ErrorListener errorListener) {
+        super(method,url,errorListener);
+        this.headers = headers;
+        this.listener = listener;
+        this.errorListener = errorListener;
 
-        Log.e("Size", "Size: " + mFileParts.size());
-        for (Map.Entry<String, File> entry : mFileParts.entrySet()) {
-            ContentType imageContentType = ContentType.create("image/*");//MULTIPART_FORM_DATA;
-            Log.d("ABC", "Key " + entry.getKey());
-            Log.d("ABC", "Value " + entry.getValue());
-            Log.d("ABC", "Name " + entry.getValue().getName());
-            //"userfile"
-            mBuilder.addBinaryBody(entry.getKey(), entry.getValue(), imageContentType, entry.getValue().getName());
+    }
+
+    /**
+     * Adds a new part to the request
+     *
+     * @param part
+     */
+    public void addPart(MultiPart part) {
+        if (part != null) {
+            parts.add(part);
         }
     }
 
     @Override
     public String getBodyContentType() {
-        return mBuilder.build().getContentType().getValue();
+        return "multipart/form-data;boundary=" + boundary;
     }
 
     @Override
-    public byte[] getBody() {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    public byte[] getBody() throws AuthFailureError {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(byteArrayOutputStream);
+
         try {
-            mBuilder.build().writeTo(bos);
+            for (MultiPart part: parts) {
+                dos.writeBytes(twoDashes + boundary + newLine);
+                if (part instanceof FormPart) {
+                    dos.writeBytes("Content-Disposition: form-data; name=\"" + part.getName() + "\"" + newLine);
+                    dos.writeBytes(newLine);
+                    dos.write(part.getData());
+                    dos.writeBytes(newLine);
+                } else if (part instanceof FilePart) {
+                    FilePart filePart = (FilePart) part;
+                    dos.writeBytes("Content-Disposition: form-data; name=\"" + part.getName()
+                            + "\"; filename=\"" + filePart.getFilename() + "\"" + newLine);
+                    dos.writeBytes("Content-type: " + filePart.getMimeType() + newLine);
+                    dos.writeBytes(newLine);
+                    dos.write(part.getData());
+                    dos.writeBytes(newLine);
+                }
+            }
+
+            //close out
+            dos.writeBytes(twoDashes + boundary + twoDashes + newLine);
+            return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return bos.toByteArray();
+        return null;
     }
 
-
-    public HttpEntity getEntity() {
-        return mBuilder.build();
-    }
-
-
-    @SuppressWarnings("unchecked")
     @Override
-    protected Response<T> parseNetworkResponse(NetworkResponse response) {
+    public Map<String, String> getHeaders() throws AuthFailureError {
+        if (headers != null) {
+            return headers;
+        } else {
+            return super.getHeaders();
+        }
+    }
+
+    @Override
+    protected Response<NetworkResponse> parseNetworkResponse(NetworkResponse response) {
         try {
-            String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-            return (Response<T>) Response.success(jsonString, HttpHeaderParser.parseCacheHeaders(response));
-        } catch (UnsupportedEncodingException e) {
+            return Response.success(
+                    response,
+                    HttpHeaderParser.parseCacheHeaders(response));
+        } catch (Exception e) {
             return Response.error(new ParseError(e));
         }
     }
 
     @Override
-    protected void deliverResponse(T response) {
-        mListener.onResponse(response);
-
+    protected void deliverResponse(NetworkResponse response) {
+        listener.onResponse(response);
     }
 
+    /**
+     * A generic part to add
+     */
+    protected static abstract class MultiPart {
 
+        private String name;
+        private String mimeType;
+
+        public MultiPart(String name, String mimeType) {
+            this.name = name;
+            this.mimeType = mimeType;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public abstract byte[] getData();
+    }
+
+    /**
+     * A class to represent a basic form field to be added to the request
+     */
+    public static class FormPart extends MultiPart {
+
+        private String value;
+
+        /**
+         * Creates a form part with the supplied name and value
+         * @param name form field name
+         * @param value form field value
+         */
+        public FormPart(String name, String value) {
+            super(name, "");
+            this.value = value;
+        }
+
+        @Override
+        public byte[] getData() {
+            return value.getBytes();
+        }
+    }
+
+    /**
+     * A class representing a file to be added to the request
+     */
+    public static class FilePart extends MultiPart {
+
+        private byte data[];
+        private String filename;
+
+        /**
+         * Creates a file with the given values to add to the request
+         * @param name form field name
+         * @param mimeType mime type for part
+         * @param filename filename (can be null)
+         * @param data the content of the file
+         */
+        public FilePart(String name, String mimeType, String filename, byte data[]){
+            super(name, mimeType);
+            this.data = data;
+            this.filename = filename;
+        }
+
+        public byte[] getData() {
+            return data;
+        }
+
+        public String getFilename() {
+            return filename;
+        }
+    }
 }
