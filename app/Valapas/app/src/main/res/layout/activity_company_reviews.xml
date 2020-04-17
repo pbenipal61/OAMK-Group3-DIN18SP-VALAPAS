@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/reviewsButton"
+            app:layout_constraintStart_toEndOf="@+id/favorites"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />
@@ -64,7 +64,7 @@
             android:text="Update Info"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/reviewsButton"
+            app:layout_constraintEnd_toStartOf="@+id/favorites"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:layout_constraintTop_toTopOf="parent"
@@ -72,7 +72,7 @@
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/reviewsButton"
+            android:id="@+id/favorites"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
