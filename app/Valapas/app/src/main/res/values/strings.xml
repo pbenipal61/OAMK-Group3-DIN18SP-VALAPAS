@@ -67,4 +67,11 @@
 
     <string name="authToken">BearerToken</string>
 
+    <string-array name="sortCategory">
+        <item>Recommended</item>
+        <item>Rating</item>
+        <item>Near Me</item>
+        <item>Price</item>
+    </string-array>
+
 </resources>

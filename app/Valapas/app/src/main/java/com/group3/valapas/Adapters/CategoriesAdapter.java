@@ -1,6 +1,5 @@
 package com.group3.valapas.Adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group3.valapas.R;
@@ -59,7 +57,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.category);
+            title = itemView.findViewById(R.id.companyCategory);
             //image = itemView.findViewById(R.id.imageVIew);
         }
     }

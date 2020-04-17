@@ -1,29 +1,43 @@
 package com.group3.valapas.UserPages;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.group3.valapas.Adapters.CategoriesAdapter;
+import com.group3.valapas.Adapters.CompanyAdapter;
+import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.CompanyPages.CompanyCustomerView;
+import com.group3.valapas.Dialogs.ISortSelected;
+import com.group3.valapas.Dialogs.SortDialog;
 import com.group3.valapas.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserBrowse extends AppCompatActivity
+public class UserBrowse extends AppCompatActivity implements ISortSelected
 {
     private RecyclerView categoriesView;
     private RecyclerView.LayoutManager layoutManager;
@@ -31,10 +45,22 @@ public class UserBrowse extends AppCompatActivity
 
     private EditText searchText;
 
+    private CompanyAdapter companyAdapter;
+    private ListView companiesListView;
+
     // the array of categories (might have a class later)
     private ArrayList<String> categories = new ArrayList<>();
 
+    // the data set of the search results
+    private ArrayList<String> companyNames = new ArrayList<>();
+    private ArrayList<String> companyCategories = new ArrayList<>(); // the first category from the list
+    private ArrayList<String> companyDescription = new ArrayList<>();
+    private ArrayList<String> companyImages = new ArrayList<>(); // the first image from the list
+
     private Context context;
+
+    private String sort;
+    private int sortIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,24 +93,54 @@ public class UserBrowse extends AppCompatActivity
                 return false;
             }
         });
+
+        companiesListView = findViewById(R.id.companiesListView);
+        companyAdapter = new CompanyAdapter(this, companyNames, companyCategories, companyDescription, companyImages);
+        companiesListView.setAdapter(companyAdapter);
+
+        companiesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(context, CompanyCustomerView.class);
+                startActivity(intent);
+            }
+        });
+
+        Button sortButton = findViewById(R.id.sortButton);
+        sortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeSort();
+            }
+        });
     }
 
     public void selectProfile(View v)
     {
         Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectFavorites(View v)
     {
         Intent i = new Intent (this, UserFavorites.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectBookings(View v)
     {
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void changeSort()
+    {
+        Log.d("AAA", "Button CLicked\n");
+        SortDialog sortDialog = new SortDialog(sortIndex, this);
+        sortDialog.show(getSupportFragmentManager(), "tag");
     }
 
     private void performSearch()
@@ -92,6 +148,14 @@ public class UserBrowse extends AppCompatActivity
         searchText.clearFocus();
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         in.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
+
+        //ApiHandler.search();
     }
 
+
+    @Override
+    public void sortSelected(String selection, int index) {
+        sort = selection;
+        sortIndex = index;
+    }
 }

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,7 +45,7 @@ public class RegisterCompanyActivity extends AppCompatActivity implements IRetur
         postalCodeEditText = findViewById(R.id.postalCode);
         locationEditText = findViewById(R.id.location);
         addressEditText = findViewById(R.id.address);
-        descriptionEditText = findViewById(R.id.description);
+        descriptionEditText = findViewById(R.id.companyDescription);
 
         checkBox = findViewById(R.id.checkBox);
     }
