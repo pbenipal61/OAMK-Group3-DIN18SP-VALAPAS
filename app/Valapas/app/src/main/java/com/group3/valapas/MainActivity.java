@@ -46,10 +46,16 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         else if (ApiHandler.readBearerToken(this) == 1) // customer is already logged in
         {
             Log.d("AAA", "Customer is logged in");
+
+            Intent i = new Intent (this, UserBrowse.class);
+            startActivity(i);
         }
         else if (ApiHandler.readBearerToken(this) == -1) // company is already logged in
         {
             Log.d("AAA", "Company is logged in");
+
+            Intent i = new Intent (this, CompanyHomeActivity.class);
+            startActivity(i);
         }
     }
 
@@ -73,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, BrowsePage.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
     }
 
