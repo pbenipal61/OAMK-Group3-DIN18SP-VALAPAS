@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.BrowsePages.BrowsePage;
@@ -23,8 +24,10 @@ import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
 import com.group3.valapas.R;
 
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback
+
+public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback
 {
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -61,8 +64,12 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectLoginAsUser(View v)
     {
+        /*
         User user = new UserBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildUser();
         ApiHandler.loginUser(this, user, this);
+        */
+
+        ApiHandler.searchByCompanyName(this, "Test company", this);
     }
 
     public void selectLoginAsCompany(View v)
@@ -99,5 +106,14 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
         Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
+    }
+
+    @Override
+    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
+        for(int i = 0; i < returnedCompanies.size(); i++)
+        {
+            Log.d("AAA", "Companies found by search: ");
+            Log.d("AAA", returnedCompanies.get(i).toString());
+        }
     }
 }

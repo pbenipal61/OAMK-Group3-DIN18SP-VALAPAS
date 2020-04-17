@@ -90,4 +90,9 @@ public class Company
     public String[] getPriceRange() {
         return priceRange;
     }
+
+    public String toString()
+    {
+        return "Name: " + name;
+    }
 }
