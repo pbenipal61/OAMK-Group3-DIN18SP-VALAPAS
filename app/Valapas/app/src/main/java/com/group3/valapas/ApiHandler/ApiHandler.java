@@ -1,6 +1,7 @@
 package com.group3.valapas.ApiHandler;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +33,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.content.Context.MODE_APPEND;
+import static android.content.Context.MODE_PRIVATE;
+
 // Handles every api route
 public class ApiHandler
 {
@@ -40,9 +44,35 @@ public class ApiHandler
     private static String bearerToken;
 
 
-    public static void readBearerToken()
+    public static int readBearerToken(Context context)
     {
-        // reading jwt token from shared prefs
+        SharedPreferences sh = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        bearerToken = sh.getString("bearer", "");
+
+        if (bearerToken.equals(""))
+                return 0;
+        else
+            return sh.getInt("company", 0); // -1 for company, 1 for customer
+    }
+
+    public static void writeBearerToken(Context context, boolean isCompany)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+        myEdit.putString("bearer", bearerToken);
+        myEdit.putInt("company", isCompany ? -1 : 1); // -1 for company, 1 for customer
+        myEdit.commit();
+    }
+
+    public static void logOut(Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+        myEdit.putString("bearer", "");
+        myEdit.putInt("company", 0);
+        myEdit.commit();
     }
 
     // requests for users
