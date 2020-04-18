@@ -20,10 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-
             android:background="@color/White"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:padding="5dp"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
             tools:ignore="LabelFor" />
 
     </LinearLayout>
