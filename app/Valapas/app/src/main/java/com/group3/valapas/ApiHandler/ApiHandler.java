@@ -716,16 +716,24 @@ public class ApiHandler
                         try {
                             JSONObject data = response.getJSONObject("data");
                             JSONArray companiesArray = data.getJSONArray("company");
+
+
+
                             for (int i = 0; i < companiesArray.length(); i++)
                             {
                                 JSONObject companyJSON = companiesArray.getJSONObject(i);
+
+                                JSONArray categoriesArrayJSON = companyJSON.getJSONArray("categories");
+                                String categoriesArray[] = new String[categoriesArrayJSON.length()];
+                                for(int j = 0; j < categoriesArrayJSON.length(); j++)
+                                    categoriesArray[j] = categoriesArrayJSON.getString(j);
 
                                 Company com = new CompanyBuilder()
                                         // location
                                         // images
                                         .city(companyJSON.getString("city"))
                                         .country(companyJSON.getString("country"))
-                                        // categories
+                                        .categories(categoriesArray)
                                         // opening hours
                                         // price range
                                         .id(companyJSON.getString("_id"))

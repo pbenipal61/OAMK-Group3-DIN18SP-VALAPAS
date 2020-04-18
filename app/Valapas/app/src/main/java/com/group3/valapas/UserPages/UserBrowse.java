@@ -3,22 +3,26 @@ package com.group3.valapas.UserPages;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -28,16 +32,18 @@ import android.widget.TextView;
 
 import com.group3.valapas.Adapters.CategoriesAdapter;
 import com.group3.valapas.Adapters.CompanyAdapter;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.CompanyPages.CompanyCustomerView;
 import com.group3.valapas.Dialogs.ISortSelected;
 import com.group3.valapas.Dialogs.SortDialog;
+import com.group3.valapas.Models.Company;
 import com.group3.valapas.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserBrowse extends AppCompatActivity implements ISortSelected
+public class UserBrowse extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback
 {
     private RecyclerView categoriesView;
     private RecyclerView.LayoutManager layoutManager;
@@ -54,8 +60,9 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected
     // the data set of the search results
     private ArrayList<String> companyNames = new ArrayList<>();
     private ArrayList<String> companyCategories = new ArrayList<>(); // the first category from the list
-    private ArrayList<String> companyDescription = new ArrayList<>();
+    private ArrayList<String> companyDescriptions = new ArrayList<>();
     private ArrayList<String> companyImages = new ArrayList<>(); // the first image from the list
+    private ArrayList<String> companyIds = new ArrayList<>();
 
     private Context context;
 
@@ -95,13 +102,14 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected
         });
 
         companiesListView = findViewById(R.id.companiesListView);
-        companyAdapter = new CompanyAdapter(this, companyNames, companyCategories, companyDescription, companyImages);
+        companyAdapter = new CompanyAdapter(this, companyNames, companyCategories, companyDescriptions, companyImages);
         companiesListView.setAdapter(companyAdapter);
 
         companiesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent intent = new Intent(context, CompanyCustomerView.class);
+                intent.putExtra("CompanyId", companyIds.get(position));
                 startActivity(intent);
             }
         });
@@ -149,7 +157,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         in.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
 
-        //ApiHandler.search();
+        ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this);
     }
 
 
@@ -157,5 +165,43 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected
     public void sortSelected(String selection, int index) {
         sort = selection;
         sortIndex = index;
+    }
+
+    @Override
+    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
+
+        // Reseting the lists
+        companyNames.clear();
+        companyCategories.clear();
+        companyDescriptions.clear();
+        companyImages.clear();
+        companyIds.clear();
+
+        Log.d("AAA", "callback reached");
+        for (Company c : returnedCompanies)
+        {
+            Log.d("AAA", "For1: ");
+            companyNames.add(c.getName());
+            Log.d("AAA", "For2: ");
+            companyCategories.add("sulea");
+            Log.d("AAA", "For3: ");
+            companyDescriptions.add(c.getDescription());
+            companyImages.add("imagine");
+            companyIds.add(c.getId());
+        }
+
+
+        //Log.d("AAA", "Name: " + companyNames.get(0));
+
+        UserBrowse.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) companiesListView.getLayoutParams();
+                lp.height = 600 * companyNames.size();
+                companiesListView.setLayoutParams(lp);
+
+                companyAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }

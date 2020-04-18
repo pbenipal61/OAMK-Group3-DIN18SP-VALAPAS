@@ -2,6 +2,7 @@ package com.group3.valapas.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,10 @@ public class CompanyAdapter extends ArrayAdapter<String>
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Log.d("AAA", "Updating view: ");
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_company, parent, false);
-        TextView companyName = row.findViewById(R.id.CompanyName);
+        TextView companyName = row.findViewById(R.id.companyName);
         TextView companyCategory = row.findViewById(R.id.companyCategory);
         TextView companyDescription = row.findViewById(R.id.companyDescription);
         ImageView companyImage = row.findViewById(R.id.companyImage);
@@ -47,11 +49,11 @@ public class CompanyAdapter extends ArrayAdapter<String>
         companyName.setText(rCompanyNames.get(position));
         companyCategory.setText(rCategories.get(position));
         companyDescription.setText(rCompanyDescriptions.get(position));
-        Picasso.get().load(rImages.get(position)).into(companyImage);
+        //Picasso.get().load(rImages.get(position)).into(companyImage);
 
-        if (position % 2 == 1)
+        /*if (position % 2 == 1)
             row.setBackgroundColor(Color.rgb(235, 235, 235));
-
+        */
         return row;
     }
 
