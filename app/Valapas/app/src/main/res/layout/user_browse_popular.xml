@@ -108,7 +108,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/interactive_button_light_gold"
             android:fontFamily="monospace"
-            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="15sp"
+            android:text="1"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_stars_black_24dp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -122,7 +127,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/interactive_button_light_gold"
             android:fontFamily="monospace"
-            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="15sp"
+            android:text="2"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_stars_black_24dp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -136,7 +146,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/interactive_button_light_gold"
             android:fontFamily="monospace"
-            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="15sp"
+            android:text="3"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_stars_black_24dp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -150,7 +165,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/interactive_button_light_gold"
             android:fontFamily="monospace"
-            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="15sp"
+            android:text="4"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_stars_black_24dp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -164,7 +184,12 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/interactive_button_light_gold"
             android:fontFamily="monospace"
-            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="15sp"
+            android:text="5"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_stars_black_24dp"
             tools:ignore="SmallSp" />
 
     </LinearLayout>
