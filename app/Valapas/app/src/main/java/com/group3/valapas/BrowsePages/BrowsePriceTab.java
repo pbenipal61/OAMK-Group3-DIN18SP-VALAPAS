@@ -45,11 +45,13 @@ public class BrowsePriceTab extends AppCompatActivity
     {
         Intent i = new Intent (this, BrowseCategoryTab.class);
         startActivity(i);
+        finish();
     }
 
     public void selectPopular(View v)
     {
         Intent i = new Intent (this, BrowsePopularTab.class);
         startActivity(i);
+        finish();
     }
 }
