@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/companyCategory"
+        android:id="@+id/offeringDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -75,7 +75,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/companyDescription"
+        android:id="@+id/offeringPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"

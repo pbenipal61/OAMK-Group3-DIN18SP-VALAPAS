@@ -83,7 +83,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/companyDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/offeringPrice" />
 
             <EditText
                 android:id="@+id/confirmPassword"
@@ -159,7 +159,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/city" />
 
             <EditText
-                android:id="@+id/location"
+                android:id="@+id/companyLocation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -186,10 +186,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/location" />
+                app:layout_constraintTop_toBottomOf="@+id/companyLocation" />
 
             <EditText
-                android:id="@+id/companyDescription"
+                android:id="@+id/offeringPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CompanyPages.CompanyHomeActivity"></activity>
+        <activity android:name=".UserPages.UserCompanyView"></activity>
+        <activity android:name=".CompanyPages.CompanyHomeActivity" />
         <activity android:name=".CompanyPages.CompanyBookingsActivity" />
         <activity android:name=".CompanyPages.CompanyUpdateInfo" />
         <activity android:name=".CompanyPages.CompanyReviewsActivity" />

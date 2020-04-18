@@ -43,9 +43,9 @@ public class RegisterCompanyActivity extends AppCompatActivity implements IRetur
         countryEditText = findViewById(R.id.country);
         cityEditText = findViewById(R.id.city);
         postalCodeEditText = findViewById(R.id.postalCode);
-        locationEditText = findViewById(R.id.location);
+        locationEditText = findViewById(R.id.companyLocation);
         addressEditText = findViewById(R.id.address);
-        descriptionEditText = findViewById(R.id.companyDescription);
+        descriptionEditText = findViewById(R.id.offeringPrice);
 
         checkBox = findViewById(R.id.checkBox);
     }

@@ -1,7 +1,6 @@
 package com.group3.valapas.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.group3.valapas.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,8 +40,8 @@ public class CompanyAdapter extends ArrayAdapter<String>
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_company, parent, false);
         TextView companyName = row.findViewById(R.id.companyName);
-        TextView companyCategory = row.findViewById(R.id.companyCategory);
-        TextView companyDescription = row.findViewById(R.id.companyDescription);
+        TextView companyCategory = row.findViewById(R.id.offeringDescription);
+        TextView companyDescription = row.findViewById(R.id.offeringPrice);
         ImageView companyImage = row.findViewById(R.id.companyImage);
 
         companyName.setText(rCompanyNames.get(position));

@@ -57,7 +57,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.companyCategory);
+            title = itemView.findViewById(R.id.offeringDescription);
             //image = itemView.findViewById(R.id.imageVIew);
         }
     }
