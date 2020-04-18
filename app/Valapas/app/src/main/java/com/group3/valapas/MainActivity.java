@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         ApiHandler.loginUser(this, user, this);
         */
 
-        ApiHandler.searchByCompanyName(this, "Test company", this);
+        // ApiHandler.searchByCompanyName(this, "Test company", this);
+        ApiHandler.searchByCompanyCategory(this, "Food", this);
     }
 
     public void selectLoginAsCompany(View v)

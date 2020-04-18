@@ -809,6 +809,105 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
+    public static void searchByCompanyCategory(final Context context, String companyCategory, final IReturnCompanySearchResultsCallback callback) {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies?categories=" + companyCategory;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        ArrayList<Company> companies = new ArrayList<Company>();
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray companiesArray = data.getJSONArray("company");
+
+
+                            for (int i = 0; i < companiesArray.length(); i++) {
+                                JSONObject companyJSON = companiesArray.getJSONObject(i);
+
+                                JSONArray imagesJSON = companyJSON.getJSONArray("images");
+                                String[] imagesArray = new String[imagesJSON.length()];
+                                for (int k = 0; k < imagesJSON.length(); k++) {
+                                    imagesArray[k] = imagesJSON.getString(k);
+                                }
+
+                                JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
+                                String[] categoriesArray = new String[categoriesJSON.length()];
+                                for (int k = 0; k < categoriesJSON.length(); k++) {
+                                    categoriesArray[k] = categoriesJSON.getString(k);
+                                }
+
+                                JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
+                                String[] priceRangeArray = new String[priceRangeJSON.length()];
+                                for (int k = 0; k < priceRangeJSON.length(); k++) {
+                                    priceRangeArray[k] = priceRangeJSON.getString(k);
+                                }
+
+                                JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
+                                int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
+                                for (int k = 0; k < openingHoursJSON.length(); k++) {
+                                    JSONArray openingHoursDayJSON = openingHoursJSON.getJSONArray(k);
+
+                                    openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
+                                    openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
+                                }
+
+                                Company com = new CompanyBuilder()
+                                        // location
+                                        .images(imagesArray)
+                                        .city(companyJSON.getString("city"))
+                                        .country(companyJSON.getString("country"))
+                                        .categories(categoriesArray)
+                                        .openingHours(openingHoursArray)
+                                        .priceRange(priceRangeArray)
+                                        .id(companyJSON.getString("_id"))
+                                        .name(companyJSON.getString("name"))
+                                        .email(companyJSON.getString("email"))
+                                        .password(companyJSON.getString("password"))
+                                        .description(companyJSON.getString("description"))
+                                        .address(companyJSON.getString("address"))
+                                        .postalCode(companyJSON.getString("postalCode"))
+                                        .buildCompany();
+                                companies.add(com);
+                            }
+
+                            callback.returnSearchResults(companies);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
     //  requests for reservations
     public static void createReservation(final Context context, Reservation reservation, final IReturnReservationCallback callback)
     {
