@@ -30,12 +30,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+            android:layout_marginBottom="4dp"
 
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:hint="@string/email_address"
             android:textSize="12sp"
+            android:padding="5dp"
+            android:background="@color/White"
             tools:ignore="LabelFor" />
 
         <EditText
@@ -43,12 +46,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+            android:layout_marginTop="4dp"
 
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:hint="@string/password"
             android:textSize="12sp"
+            android:padding="5dp"
+            android:background="@color/White"
             tools:ignore="LabelFor" />
 
     </LinearLayout>
@@ -72,9 +78,12 @@
             android:id="@+id/sign_in_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="3dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectLogin"
             android:text="@string/home_page_sign_in"
             android:textAllCaps="true"
@@ -141,7 +150,7 @@
             android:layout_gravity="top"
             android:layout_margin="5dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectRegister"
             android:text="@string/home_page_register"
             android:textAllCaps="true"
@@ -174,7 +183,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_selected_gold"
             android:onClick="selectBrowse"
             android:text="@string/home_page_browse"
             android:textAlignment="center"
