@@ -122,7 +122,7 @@
             android:text="@string/browse"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/SelectedGold"
+            android:textColor="@color/LightGold"
             android:textSize="9sp"
             android:textStyle="normal"
             android:visibility="visible"

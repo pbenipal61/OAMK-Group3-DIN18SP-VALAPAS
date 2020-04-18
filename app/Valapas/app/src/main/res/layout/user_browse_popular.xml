@@ -113,7 +113,8 @@
             android:textSize="15sp"
             android:text="1"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/ic_stars_black_24dp"
+            android:textColor="@color/SelectedGold"
+            android:drawableEnd="@drawable/favorites_icon_gold"
             tools:ignore="SmallSp" />
 
         <Button
@@ -132,7 +133,8 @@
             android:textSize="15sp"
             android:text="2"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/ic_stars_black_24dp"
+            android:textColor="@color/SelectedGold"
+            android:drawableEnd="@drawable/favorites_icon_gold"
             tools:ignore="SmallSp" />
 
         <Button
@@ -151,7 +153,8 @@
             android:textSize="15sp"
             android:text="3"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/ic_stars_black_24dp"
+            android:textColor="@color/SelectedGold"
+            android:drawableEnd="@drawable/favorites_icon_gold"
             tools:ignore="SmallSp" />
 
         <Button
@@ -170,7 +173,8 @@
             android:textSize="15sp"
             android:text="4"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/ic_stars_black_24dp"
+            android:textColor="@color/SelectedGold"
+            android:drawableEnd="@drawable/favorites_icon_gold"
             tools:ignore="SmallSp" />
 
         <Button
@@ -189,7 +193,8 @@
             android:textSize="15sp"
             android:text="5"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/ic_stars_black_24dp"
+            android:textColor="@color/SelectedGold"
+            android:drawableEnd="@drawable/favorites_icon_gold"
             tools:ignore="SmallSp" />
 
     </LinearLayout>
@@ -221,14 +226,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/DarkGray"
-            android:drawableTop="@drawable/browse_icon_white"
+            android:drawableTop="@drawable/browse_icon_gold"
             android:onClick="selectBrowse"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/browse"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/White"
+            android:textColor="@color/LightGold"
             android:textSize="9sp"
             android:textStyle="normal"
             android:visibility="visible"
