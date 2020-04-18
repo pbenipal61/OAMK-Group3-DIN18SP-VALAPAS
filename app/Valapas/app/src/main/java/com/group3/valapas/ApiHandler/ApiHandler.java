@@ -716,6 +716,9 @@ public class ApiHandler
                         try {
                             JSONObject data = response.getJSONObject("data");
                             JSONArray companiesArray = data.getJSONArray("company");
+
+
+
                             for (int i = 0; i < companiesArray.length(); i++)
                             {
                                 JSONObject companyJSON = companiesArray.getJSONObject(i);

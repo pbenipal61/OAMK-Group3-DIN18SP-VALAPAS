@@ -41,7 +41,7 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
         cityEditText = findViewById(R.id.city);
         locationEditText = findViewById(R.id.location);
         addressEditText = findViewById(R.id.address);
-        descriptionEditText = findViewById(R.id.description);
+        descriptionEditText = findViewById(R.id.companyDescription);
 
         checkBox = findViewById(R.id.checkBox);
 
