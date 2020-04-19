@@ -19,6 +19,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCal
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
@@ -990,6 +991,7 @@ public class ApiHandler
 
         requestQueue.add(putRequest);
     }
+
     public static void editReservation(final Context context, Reservation reservation, final IReturnReservationCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
@@ -1426,6 +1428,148 @@ public class ApiHandler
             }
         };
 
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByUser(final Context context, User user, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?customer=" + user.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                Reservation reservation = new ReservationBuilder()
+                                        .id(reservationJSON.getString("_id"))
+                                        .customer(reservationJSON.getString("customer"))
+                                        .date(reservationJSON.getString("date"))
+                                        .offering(reservationJSON.getString("offering"))
+                                        .quantity(reservationJSON.getInt("quantity"))
+                                        .buildReservation();
+                                reservationsList.add(reservation);
+                            }
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByCompany(final Context context, User user, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?company=" + user.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                Reservation reservation = new ReservationBuilder()
+                                        .id(reservationJSON.getString("_id"))
+                                        .customer(reservationJSON.getString("customer"))
+                                        .date(reservationJSON.getString("date"))
+                                        .offering(reservationJSON.getString("offering"))
+                                        .quantity(reservationJSON.getInt("quantity"))
+                                        .buildReservation();
+                                reservationsList.add(reservation);
+                            }
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
 
         requestQueue.add(putRequest);
     }
