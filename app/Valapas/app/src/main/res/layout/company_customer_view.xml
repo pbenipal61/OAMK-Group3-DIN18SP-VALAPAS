@@ -92,10 +92,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="15dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -109,10 +109,10 @@
             android:id="@+id/company_options_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="50dp">
 
             <Button
                 android:id="@+id/user_make_reservation"
@@ -120,7 +120,7 @@
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:background="@drawable/interactive_button_light_gold"
+                android:background="@color/LightGold"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:textAlignment="center"
@@ -129,7 +129,7 @@
                 android:textSize="15sp"
                 android:textStyle="normal"
                 app:fontFamily="@font/montserrat"
-                android:text="@string/create_reservation" />
+                android:text="@string/create_reservation"/>
 
             <Button
                 android:id="@+id/user_add_to_favorites"
@@ -137,7 +137,9 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:background="@drawable/interactive_button_selected_gold" />
+                android:background="@color/SelectedGold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
 
         </LinearLayout>
 

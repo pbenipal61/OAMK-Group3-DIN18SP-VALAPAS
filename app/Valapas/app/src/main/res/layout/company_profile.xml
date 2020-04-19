@@ -31,14 +31,13 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectCompanyInformation"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/Black"
             android:textSize="10sp"
             android:textStyle="normal"
-            android:text="Company Information"
             app:fontFamily="@font/montserrat"
             tools:ignore="SmallSp" />
 
@@ -82,14 +81,13 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectCustomerView"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/Black"
             android:textSize="10sp"
             android:textStyle="normal"
-            android:text="Customer View"
             app:fontFamily="@font/montserrat"
             tools:ignore="SmallSp" />
 

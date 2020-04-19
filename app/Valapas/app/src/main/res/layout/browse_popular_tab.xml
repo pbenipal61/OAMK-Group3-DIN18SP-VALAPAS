@@ -20,11 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
+
             android:background="@color/White"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:padding="5dp"
-            android:drawableLeft="@drawable/ic_search_black_24dp"
             tools:ignore="LabelFor" />
 
     </LinearLayout>
@@ -50,7 +49,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectCategory"
             android:text="@string/category"
             android:textSize="10sp"
@@ -64,7 +63,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectPrice"
             android:text="@string/price"
             android:textSize="10sp"
@@ -81,7 +80,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_selected_gold"
+            android:background="@color/SelectedGold"
             android:text="@string/popular"
             android:textSize="10sp"
             tools:ignore="SmallSp" />

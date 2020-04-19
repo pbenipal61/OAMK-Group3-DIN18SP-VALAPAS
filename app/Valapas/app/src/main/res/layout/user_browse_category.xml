@@ -20,11 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
+
             android:background="@color/White"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:padding="5dp"
-            android:drawableLeft="@drawable/ic_search_black_24dp"
             tools:ignore="LabelFor" />
 
     </LinearLayout>
@@ -50,7 +49,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_selected_gold"
+            android:background="@color/SelectedGold"
             android:text="@string/category"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -63,7 +62,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectPrice"
             android:text="@string/price"
             android:textSize="10sp"
@@ -80,7 +79,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectPopular"
             android:text="@string/popular"
             android:textSize="10sp"
@@ -109,8 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Bar"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -120,8 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Restaurant"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -131,8 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Venue"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -142,8 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Entertainment"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -153,8 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Modern"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -164,52 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Traditional"
-                android:fontFamily="monospace"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
-
-            <Button
-                android:id="@+id/user_category_seven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Indoor"
-                android:fontFamily="monospace"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
-
-            <Button
-                android:id="@+id/user_category_eight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Outdoor"
-                android:fontFamily="monospace"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
-
-            <Button
-                android:id="@+id/user_category_nine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="International"
-                android:fontFamily="monospace"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
-
-            <Button
-                android:id="@+id/user_category_ten"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:text="Finnish"
+                android:background="@color/LightGold"
                 android:fontFamily="monospace"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -245,14 +194,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/DarkGray"
-            android:drawableTop="@drawable/browse_icon_gold"
+            android:drawableTop="@drawable/browse_icon_white"
             android:onClick="selectBrowse"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/browse"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/SelectedGold"
+            android:textColor="@color/White"
             android:textSize="9sp"
             android:textStyle="normal"
             android:visibility="visible"

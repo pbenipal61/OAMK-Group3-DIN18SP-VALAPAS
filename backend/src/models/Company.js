@@ -61,11 +61,6 @@ const schema = {
     priceRange: {
         type: [Number], // [min, max]
         required: true
-    },
-    expenseLevel: {
-        type: String,
-        enum: ['Cheap', 'Average', 'Expensive'],
-        default: 'Cheap'
     }
     
 }
