@@ -71,9 +71,10 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectLoginAsUser(View v)
     {
+        /*
         User user = new UserBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildUser();
         ApiHandler.loginUser(this, user, this);
-
+        */
 
         // ApiHandler.searchByCompanyName(this, "Test company", this);
         // ApiHandler.searchByCompanyCategory(this, "Food", this);
@@ -92,6 +93,9 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         // Reservation reservation = new ReservationBuilder().id("5e9c3a90a688254bdde6f8ee").buildReservation();
         // ApiHandler.createReservation(this, reservation, this);
         // ApiHandler.deleteReservation(this, reservation, this);
+
+        Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
+        ApiHandler.searchOfferingByCompany(this, company, this);
     }
 
     public void selectLoginAsCompany(View v)
