@@ -62,8 +62,6 @@
 
     </LinearLayout>
 
-
-
     <LinearLayout
         android:id="@+id/register_as_company"
         android:layout_width="match_parent"

@@ -12,9 +12,9 @@
         android:id="@+id/register_company_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@color/White"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +39,7 @@
     <LinearLayout
         android:id="@+id/company_name_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -68,8 +67,7 @@
     <LinearLayout
         android:id="@+id/company_address_description_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -108,8 +106,7 @@
     <LinearLayout
         android:id="@+id/company_postalcode_city_country_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@color/White"
@@ -268,8 +265,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
         android:background="@color/White"
+        android:gravity="bottom"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/company_openinghours_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -279,6 +277,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
             android:textAllCaps="false"
             android:textColor="@color/Black"
             android:textAlignment="center"
@@ -349,6 +348,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@color/White"
+        android:gravity="bottom"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/company_price_options"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -372,8 +373,8 @@
     <LinearLayout
         android:id="@+id/company_categories_one"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -384,9 +385,9 @@
 
         <CheckBox
             android:id="@+id/Restaurant"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -397,9 +398,9 @@
 
         <CheckBox
             android:id="@+id/Venue"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -412,7 +413,7 @@
             android:id="@+id/Entertainment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -423,8 +424,7 @@
 
         <CheckBox
             android:id="@+id/Bar"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
@@ -439,8 +439,8 @@
     <LinearLayout
         android:id="@+id/company_categories_two"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -451,9 +451,9 @@
 
         <CheckBox
             android:id="@+id/Modern"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -464,9 +464,9 @@
 
         <CheckBox
             android:id="@+id/Indoor"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -477,9 +477,9 @@
 
         <CheckBox
             android:id="@+id/Finnish"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -493,8 +493,8 @@
     <LinearLayout
         android:id="@+id/company_categories_three"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -505,9 +505,9 @@
 
         <CheckBox
             android:id="@+id/Traditional"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -518,9 +518,9 @@
 
         <CheckBox
             android:id="@+id/Outdoor"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -531,9 +531,9 @@
 
         <CheckBox
             android:id="@+id/International"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textColor="@color/Black"
@@ -544,54 +544,56 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/company_email_password_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@color/White"
-        app:layout_constraintTop_toBottomOf="@id/company_categories_three"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/company_categories_three"
         app:layout_constraintBottom_toBottomOf="parent" >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="20dp"
+            android:hint="Email"
             android:textAllCaps="false"
             android:textColor="@color/Black"
             android:textSize="8sp"
             android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:hint="Email"/>
+            app:fontFamily="@font/montserrat" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Password"
             android:textAllCaps="false"
             android:textColor="@color/Black"
             android:textSize="8sp"
             android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:hint="Password"/>
+            app:fontFamily="@font/montserrat" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/interactive_button_light_gold"
+            android:text="Register"
             android:textAllCaps="true"
             android:textColor="@color/Black"
-            android:background="@drawable/interactive_button_light_gold"
             android:textSize="8sp"
             android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:text="Register"/>
+            app:fontFamily="@font/montserrat" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
