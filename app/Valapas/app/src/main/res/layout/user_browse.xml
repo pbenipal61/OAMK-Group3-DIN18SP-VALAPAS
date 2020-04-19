@@ -68,7 +68,7 @@
             <ListView
                 android:id="@+id/companiesListView"
                 android:layout_width="0dp"
-                android:layout_height="10000dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="8dp"
                 android:background="#EEEEEE"
                 app:layout_constraintBottom_toBottomOf="parent"

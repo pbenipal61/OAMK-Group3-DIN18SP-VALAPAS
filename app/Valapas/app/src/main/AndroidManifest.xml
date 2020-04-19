@@ -23,8 +23,6 @@
         <activity android:name=".CompanyPages.CompanyProfile" />
         <activity android:name=".UserPages.UserBookingsMostRecent" />
         <activity android:name=".UserPages.UserBookingsCurrent" />
-        <activity android:name=".UserPages.UserFavoritesMostRecent" />
-        <activity android:name=".UserPages.UserFavoritesPrice" />
         <activity android:name=".UserPages.UserBrowsePrice" />
         <activity android:name=".UserPages.UserBrowsePopular" />
         <activity android:name=".UserPages.UserMakeReservation" />

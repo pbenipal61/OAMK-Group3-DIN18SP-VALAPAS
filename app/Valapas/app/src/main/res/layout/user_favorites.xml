@@ -37,7 +37,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintTop_toBottomOf="@id/user_favorites_search"
-        app:layout_constraintBottom_toTopOf="@id/user_favorites_results" >
+        app:layout_constraintBottom_toTopOf="@id/companiesListView" >
 
         <Button
             android:id="@+id/user_favorites_most_recent_tab"
@@ -50,7 +50,6 @@
             android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
-            android:onClick="selectMostRecent"
             android:text="@string/most_recent"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -64,7 +63,6 @@
             android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
-            android:onClick="selectPrice"
             android:text="@string/price"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -81,7 +79,6 @@
             android:layout_marginRight="4dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
-            android:onClick="selectMostUsed"
             android:text="@string/most_used"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -89,7 +86,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/user_favorites_results"
+        android:id="@+id/companiesListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
