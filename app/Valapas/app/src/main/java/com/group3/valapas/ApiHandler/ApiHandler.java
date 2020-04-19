@@ -1,6 +1,7 @@
 package com.group3.valapas.ApiHandler;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -14,6 +15,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
@@ -29,8 +31,12 @@ import com.group3.valapas.Models.UserBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.Context.MODE_APPEND;
+import static android.content.Context.MODE_PRIVATE;
 
 // Handles every api route
 public class ApiHandler
@@ -40,9 +46,35 @@ public class ApiHandler
     private static String bearerToken;
 
 
-    public static void readBearerToken()
+    public static int readBearerToken(Context context)
     {
-        // reading jwt token from shared prefs
+        SharedPreferences sh = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        bearerToken = sh.getString("bearer", "");
+
+        if (bearerToken.equals(""))
+                return 0;
+        else
+            return sh.getInt("company", 0); // -1 for company, 1 for customer
+    }
+
+    public static void writeBearerToken(Context context, boolean isCompany)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+        myEdit.putString("bearer", bearerToken);
+        myEdit.putInt("company", isCompany ? -1 : 1); // -1 for company, 1 for customer
+        myEdit.commit();
+    }
+
+    public static void logOut(Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+        myEdit.putString("bearer", "");
+        myEdit.putInt("company", 0);
+        myEdit.commit();
     }
 
     // requests for users
@@ -327,22 +359,25 @@ public class ApiHandler
     public static void registerCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies";
+        String url = apiUrl + "/companies/register";
 
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
             js.put("name", company.getName());
-            js.put("description", company.getDescription());
-            js.put("address", company.getAddress());
-            js.put("postalCode", company.getPostalCode());
-            js.put("location", company.getLocation());
-            js.put("city", company.getCity());
             js.put("country", company.getCountry());
-            js.put("categories", company.getCategories());
-            js.put("openingHours", company.getOpeningHours());
-            js.put("priceRange", company.getPriceRange());
+            js.put("city", company.getCity());
+            js.put("location", company.getLocation());
+            js.put("postalCode", company.getPostalCode());
+            js.put("address", company.getAddress());
+            js.put("description", company.getDescription());
+
+            // js.put("categories", company.getCategories());
+            // js.put("openingHours", company.getOpeningHours());
+            // js.put("priceRange", company.getPriceRange());
         }
         catch (Exception e)
         {
@@ -358,11 +393,12 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "raspuns: " + response.toString());
 
                         Company newCompany;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject companyJSON = dataJSON.getJSONObject("company");
 
@@ -398,8 +434,9 @@ public class ApiHandler
                                     .openingHours(openingHoursArray)
                                     .priceRange(priceRangeArray)
                                     .buildCompany();
+                            */
 
-                            callback.returnCompany(newCompany);
+                            callback.returnCompany(null);
                         }
                         catch (Exception e)
                         {
@@ -417,7 +454,6 @@ public class ApiHandler
                                 + "\nStatus Code " + error.networkResponse.statusCode
                                 + "\nCause " + error.getCause()
                                 + "\nmessage" + error.getMessage());
-
                     }
                 }
         )
@@ -427,7 +463,6 @@ public class ApiHandler
             {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Bearer " + bearerToken);
                 return headers;
             }
         };
@@ -438,7 +473,7 @@ public class ApiHandler
     public static void loginCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies";
+        String url = apiUrl + "/companies/login";
 
         // Making the JSON
         JSONObject js = new JSONObject();
@@ -662,6 +697,217 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
+    public static void searchByCompanyName(final Context context, String companyName, final IReturnCompanySearchResultsCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies?name=" + companyName;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        ArrayList<Company> companies = new ArrayList<Company>();
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray companiesArray = data.getJSONArray("company");
+
+
+
+                            for (int i = 0; i < companiesArray.length(); i++)
+                            {
+                                JSONObject companyJSON = companiesArray.getJSONObject(i);
+
+                                JSONArray imagesJSON = companyJSON.getJSONArray("images");
+                                String[] imagesArray = new String[imagesJSON.length()];
+                                for(int k = 0; k < imagesJSON.length(); k++)
+                                {
+                                    imagesArray[k] = imagesJSON.getString(k);
+                                }
+
+                                JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
+                                String[] categoriesArray = new String[categoriesJSON.length()];
+                                for(int k = 0; k < categoriesJSON.length(); k++)
+                                {
+                                    categoriesArray[k] = categoriesJSON.getString(k);
+                                }
+
+                                JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
+                                String[] priceRangeArray = new String[priceRangeJSON.length()];
+                                for(int k = 0; k < priceRangeJSON.length(); k++)
+                                {
+                                    priceRangeArray[k] = priceRangeJSON.getString(k);
+                                }
+
+                                JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
+                                int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
+                                for(int k = 0; k < openingHoursJSON.length(); k++)
+                                {
+                                    JSONArray openingHoursDayJSON = openingHoursJSON.getJSONArray(k);
+
+                                    openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
+                                    openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
+                                }
+
+                                Company com = new CompanyBuilder()
+                                        // location
+                                        .images(imagesArray)
+                                        .city(companyJSON.getString("city"))
+                                        .country(companyJSON.getString("country"))
+                                        .categories(categoriesArray)
+                                        .openingHours(openingHoursArray)
+                                        .priceRange(priceRangeArray)
+                                        .id(companyJSON.getString("_id"))
+                                        .name(companyJSON.getString("name"))
+                                        .email(companyJSON.getString("email"))
+                                        .password(companyJSON.getString("password"))
+                                        .description(companyJSON.getString("description"))
+                                        .address(companyJSON.getString("address"))
+                                        .postalCode(companyJSON.getString("postalCode"))
+                                        .buildCompany();
+                                companies.add(com);
+                            }
+
+                            callback.returnSearchResults(companies);
+                        }
+                        catch(Exception e)
+                        {
+
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchByCompanyCategory(final Context context, String companyCategory, final IReturnCompanySearchResultsCallback callback) {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/companies?categories=" + companyCategory;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", response.toString());
+
+                        ArrayList<Company> companies = new ArrayList<Company>();
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray companiesArray = data.getJSONArray("company");
+
+
+                            for (int i = 0; i < companiesArray.length(); i++) {
+                                JSONObject companyJSON = companiesArray.getJSONObject(i);
+
+                                JSONArray imagesJSON = companyJSON.getJSONArray("images");
+                                String[] imagesArray = new String[imagesJSON.length()];
+                                for (int k = 0; k < imagesJSON.length(); k++) {
+                                    imagesArray[k] = imagesJSON.getString(k);
+                                }
+
+                                JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
+                                String[] categoriesArray = new String[categoriesJSON.length()];
+                                for (int k = 0; k < categoriesJSON.length(); k++) {
+                                    categoriesArray[k] = categoriesJSON.getString(k);
+                                }
+
+                                JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
+                                String[] priceRangeArray = new String[priceRangeJSON.length()];
+                                for (int k = 0; k < priceRangeJSON.length(); k++) {
+                                    priceRangeArray[k] = priceRangeJSON.getString(k);
+                                }
+
+                                JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
+                                int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
+                                for (int k = 0; k < openingHoursJSON.length(); k++) {
+                                    JSONArray openingHoursDayJSON = openingHoursJSON.getJSONArray(k);
+
+                                    openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
+                                    openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
+                                }
+
+                                Company com = new CompanyBuilder()
+                                        // location
+                                        .images(imagesArray)
+                                        .city(companyJSON.getString("city"))
+                                        .country(companyJSON.getString("country"))
+                                        .categories(categoriesArray)
+                                        .openingHours(openingHoursArray)
+                                        .priceRange(priceRangeArray)
+                                        .id(companyJSON.getString("_id"))
+                                        .name(companyJSON.getString("name"))
+                                        .email(companyJSON.getString("email"))
+                                        .password(companyJSON.getString("password"))
+                                        .description(companyJSON.getString("description"))
+                                        .address(companyJSON.getString("address"))
+                                        .postalCode(companyJSON.getString("postalCode"))
+                                        .buildCompany();
+                                companies.add(com);
+                            }
+
+                            callback.returnSearchResults(companies);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
     //  requests for reservations
     public static void createReservation(final Context context, Reservation reservation, final IReturnReservationCallback callback)
     {
@@ -691,11 +937,12 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "Response is: " + response.toString());
 
                         Reservation newReservation;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject reservationJSON = dataJSON.getJSONObject("reservation");
 
@@ -705,8 +952,8 @@ public class ApiHandler
                                     .offering(reservationJSON.getString("offering"))
                                     .quantity(reservationJSON.getInt("quantity"))
                                     .buildReservation();
-
-                            callback.returnReservation(newReservation);
+                            */
+                            callback.returnReservation(null/*newReservation*/);
                         }
                         catch (Exception e)
                         {
@@ -726,7 +973,7 @@ public class ApiHandler
                                 + "\nmessage" + error.getMessage());
 
                     }
-    }
+        }
         )
         {
             @Override
@@ -820,11 +1067,11 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-
     public static void deleteReservation(final Context context, Reservation reservation, final IDeletedReservation callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         String url = apiUrl + "/reservations/" + reservation.getId();
+        Log.d("AAA", "deleteReservation: " + url);
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>()
@@ -858,7 +1105,7 @@ public class ApiHandler
             {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Bearer " + bearerToken);
+                headers.put("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlzQWR1bHQiOmZhbHNlLCJjaXR5IjoiT3VsdSIsIl9pZCI6IjVlOTQ1Yjk3YzkzZjk0NWJlZTA5ZTc4MCIsImVtYWlsIjoiMTIzQHlhaG9vLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDdOMzFQMGxjSjBkeGl6eXVYM0FzRC5iRTVWNnZVQXYzTE1VUU0wQmFlcGRnNFMwZlc2WGttIiwiZmlyc3ROYW1lIjoiZ29ndSIsImxhc3ROYW1lIjoiR09HVSIsIl9fdiI6MH0sInZhbGlkaXR5IjoiMzBkIiwidGltZXN0YW1wIjoxNTg2OTQ1OTI4NzE5LCJpYXQiOjE1ODY5NDU5MjgsImV4cCI6MTU4OTUzNzkyOH0.pByZJii3CzPRN5Jms5JI75plJPqjhspyQ_0g8M2aMDk");
                 return headers;
             }
         };
@@ -883,16 +1130,13 @@ public class ApiHandler
             js.put("quantity", offering.getQuantity());
             js.put("tags", offering.getTags());
             js.put("price", offering.getPrice());
-            js.put("deposit", offering.getDeposit());
-            js.put("discounts", offering.getDiscounts());
-
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
 
-        Log.d("AAA", js.toString());
+        Log.d("AAA", "Request body is: " + js.toString());
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.POST, url, js,
                 new Response.Listener<JSONObject>()
@@ -901,18 +1145,19 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "Response is: " + response.toString());
 
                         Offering newOffering;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject offeringJSON = dataJSON.getJSONObject("offering");
 
-                            /*JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
+                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
                             String imagesArray[] = new String[imagesArrayJSON.length()];
                             for(int i = 0; i < imagesArrayJSON.length(); i++)
-                                imagesArray[i] = imagesArrayJSON.getString(i);*/
+                                imagesArray[i] = imagesArrayJSON.getString(i);
 
                             JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
                             String discountsArray[] = new String[discountsArrayJSON.length()];
@@ -929,8 +1174,8 @@ public class ApiHandler
                                     .deposit(offeringJSON.getInt("deposit"))
                                     .discounts(discountsArray)
                                     .buildOffering();
-
-                            callback.returnOffering(newOffering);
+                            */
+                            callback.returnOffering(null /*newOffering*/);
                         }
                         catch (Exception e)
                         {
@@ -963,27 +1208,24 @@ public class ApiHandler
             }
         };
 
+
         requestQueue.add(putRequest);
     }
 
     public static void editOffering(final Context context, Offering offering, final IReturnOfferingCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings" + offering.getId();
+        String url = apiUrl + "/offerings/" + offering.getCompany();
 
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
-            js.put("company", offering.getCompany());
             js.put("offeringType", offering.getOfferingType());
             js.put("description", offering.getDescription());
             js.put("quantity", offering.getQuantity());
             js.put("tags", offering.getTags());
             js.put("price", offering.getPrice());
-            js.put("deposit", offering.getDeposit());
-            js.put("discounts", offering.getDiscounts());
-
         }
         catch (Exception e)
         {
@@ -1004,13 +1246,14 @@ public class ApiHandler
                         Offering newOffering;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject offeringJSON = dataJSON.getJSONObject("offering");
 
-                            /*JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
+                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
                             String imagesArray[] = new String[imagesArrayJSON.length()];
                             for(int i = 0; i < imagesArrayJSON.length(); i++)
-                                imagesArray[i] = imagesArrayJSON.getString(i);*/
+                                imagesArray[i] = imagesArrayJSON.getString(i);
 
                             JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
                             String discountsArray[] = new String[discountsArrayJSON.length()];
@@ -1027,8 +1270,8 @@ public class ApiHandler
                                     .deposit(offeringJSON.getInt("deposit"))
                                     .discounts(discountsArray)
                                     .buildOffering();
-
-                            callback.returnOffering(newOffering);
+                            */
+                            callback.returnOffering(null/*newOffering*/);
                         }
                         catch (Exception e)
                         {
@@ -1067,7 +1310,7 @@ public class ApiHandler
     public static void deleteOffering(final Context context, Offering offering, final IDeletedOffering callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings" + offering.getId();
+        String url = apiUrl + "/offerings/" + offering.getCompany();
 
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, null,
@@ -1079,8 +1322,7 @@ public class ApiHandler
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
 
-                            callback.deletedOffering();
-
+                        callback.deletedOffering();
                     }
                 },
                 new Response.ErrorListener()

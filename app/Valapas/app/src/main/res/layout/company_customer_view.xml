@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toTopOf="@id/company_address" >
 
         <TextView
-            android:id="@+id/CompanyName"
+            android:id="@+id/companyName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -4,109 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".UserPages.UserBrowse">
+    tools:context=".UserPages.UserCompanyView">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#EEEEEE"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyLocation"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="-16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF">
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/companyImage"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ugandan_knuckled" />
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="225dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Locations (100)"
-                android:textAlignment="textStart"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/sortButton"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
-
-            <EditText
-                android:id="@+id/searchText"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/radius"
-                android:drawableLeft="@drawable/ic_search_black_24dp"
-                android:drawablePadding="20dp"
-                android:drawableTint="#FFFF2626"
-                android:ems="10"
-                android:hint="Search everything"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:paddingLeft="10dp"
-                android:shadowColor="#00EEC5C5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/categoriesView"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchText" />
-
-            <ListView
-                android:id="@+id/companiesListView"
-                android:layout_width="0dp"
-                android:layout_height="10000dp"
-                android:layout_marginTop="8dp"
-                android:background="#EEEEEE"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
-
-            </ListView>
-
-            <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/companyDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="What do you want to do today?"
-                android:textSize="24sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:lines="6"
+                android:maxLines="8"
+                android:text="Description of the company"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/companyImage" />
 
-            <Button
-                android:id="@+id/sortButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
+            <TextView
+                android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/white_button_round"
-                android:text="Sort by"
+                android:gravity="center"
+                android:text="Offers:"
+                android:textAlignment="textStart"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/companyDescription" />
+
+            <ListView
+                android:id="@+id/offeringsListView"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:layout_editor_absoluteX="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="Company Name"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/companyLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="3141 Address, Oulu 90130"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyName" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomBar"
@@ -200,5 +187,4 @@
             tools:layout_conversion_absoluteWidth="103dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

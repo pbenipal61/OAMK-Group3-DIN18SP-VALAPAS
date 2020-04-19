@@ -4,274 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DarkGray"
-    android:orientation="vertical"
     tools:context=".RegisterPages.RegisterUser">
 
-    <LinearLayout
-        android:id="@+id/register_user_header"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/DarkGray"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/register_user_form_title" >
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:padding="10dp"
-            android:textColor="@color/Black"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:text="Register User"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:background="@color/SelectedGold"
-            android:padding="10dp"
-            android:textColor="@color/Black"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:padding="10dp"
-            android:textColor="@color/Black"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
-    </LinearLayout>
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <LinearLayout
-        android:id="@+id/register_user_form_title"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:paddingTop="10dp"
-        android:background="@color/White"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/register_user_form"
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="onRegisterClick"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="I have read and I agree with the Terms and Conditions, the Privacy Policy and Usage of cookies and similar tehnologies. - read more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_user_header" >
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
-        <EditText
-            android:id="@+id/userFirstname"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:hint="First Name"/>
-
-        <EditText
-            android:id="@+id/userLastname"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:hint="Last Name"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/register_user_form"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@color/White"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/register_user_form_confirm"
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="I confirm that I am aged 18 years or over."
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_user_form_title" >
-
-        <EditText
-            android:id="@+id/companyCity"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat"
-            android:hint="City"/>
-
-        <CheckBox
-            android:id="@+id/isAdult"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat"
-            android:text="I am 18+" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/register_user_form_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:paddingBottom="10dp"
-        android:background="@color/White"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/register_user_footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_user_form" >
-
-        <EditText
-            android:id="@+id/userEmail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:hint="Email"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat" />
-
-        <EditText
-            android:id="@+id/usrPassword"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:hint="Password"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/register_user_footer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/DarkGray"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_user_form_confirm" >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:padding="10dp"
-            android:textColor="@color/Black"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:padding="10dp"
-            android:background="@drawable/interactive_button_light_gold"
-            android:text="Register"
-            android:textAllCaps="true"
-            android:textColor="@color/Black"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:padding="10dp"
-            android:textColor="@color/Black"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

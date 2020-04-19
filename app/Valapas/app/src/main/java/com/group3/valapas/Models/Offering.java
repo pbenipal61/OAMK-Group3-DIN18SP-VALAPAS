@@ -13,7 +13,7 @@ public class Offering
     private int deposit;
     private String[] discounts;
 
-    public Offering(String id, String company, String offeringType, String description, String[] images, int quantity, String tags, int price, int deposit, String[] discounts)
+    public Offering(String id, String companyId, String offeringType, String description, String[] images, int quantity, String tags, int price, int deposit, String[] discounts)
     {
         this.companyId = companyId;
         this.id = id;

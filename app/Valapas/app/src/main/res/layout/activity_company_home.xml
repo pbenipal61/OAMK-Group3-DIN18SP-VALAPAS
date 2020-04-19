@@ -4,79 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".UserPages.UserBrowse">
+    tools:context=".CompanyPages.CompanyHomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#EEEEEE"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF">
+            android:layout_marginBottom="8dp">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="225dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Locations (100)"
-                android:textAlignment="textStart"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/sortButton"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
-
-            <EditText
-                android:id="@+id/searchText"
+                android:id="@+id/textView12"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/radius"
-                android:drawableLeft="@drawable/ic_search_black_24dp"
-                android:drawablePadding="20dp"
-                android:drawableTint="#FFFF2626"
-                android:ems="10"
-                android:hint="Search everything"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:paddingLeft="10dp"
-                android:shadowColor="#00EEC5C5"
+                android:singleLine="false"
+                android:text="Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... "
+                android:textAlignment="center"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/categoriesView"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchText" />
-
-            <ListView
-                android:id="@+id/companiesListView"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="0dp"
-                android:layout_height="10000dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#EEEEEE"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="16dp"
+                android:singleLine="false"
+                android:text="Company name"
+                android:textAlignment="center"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
-            </ListView>
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/white_button_round"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:srcCompat="@drawable/eliminator" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -85,26 +69,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="What do you want to do today?"
-                android:textSize="24sp"
+                android:text="Company overview"
+                android:textAlignment="center"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/sortButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/white_button_round"
-                android:text="Sort by"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -113,7 +83,6 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_gravity="bottom"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +114,6 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_local_library_black_24dp"
-            android:onClick="selectBookings"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
@@ -165,10 +133,9 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_account_circle_black_24dp"
-            android:onClick="selectProfile"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="My Profile"
+            android:text="Update Info"
             android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -184,11 +151,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_favorite_black_24dp"
-            android:onClick="selectFavorites"
+            android:drawableTop="@drawable/ic_stars_black_24dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Favorites"
+            android:text="Reviews"
             android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
