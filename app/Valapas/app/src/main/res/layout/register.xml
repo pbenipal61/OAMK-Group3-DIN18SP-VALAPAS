@@ -49,7 +49,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:background="@color/SelectedGold"
+            android:background="@drawable/interactive_button_selected_gold"
             android:onClick="selectUser"
             android:text="Register as User"
             android:textAlignment="center"
@@ -61,8 +61,6 @@
             tools:ignore="SmallSp" />
 
     </LinearLayout>
-
-
 
     <LinearLayout
         android:id="@+id/register_as_company"
@@ -89,7 +87,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectCompany"
             android:text="Register My Company"
             android:textAlignment="center"
