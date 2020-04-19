@@ -17,11 +17,13 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedUser;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.Models.Offering;
+import com.group3.valapas.Models.OfferingBuilder;
 import com.group3.valapas.Models.Reservation;
 import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.Models.User;
@@ -1353,10 +1355,10 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-    public static void searchOfferingByCompany(final Context context, Company company, final IReturnOfferingCallback callback)
+    public static void searchOfferingsByCompany(final Context context, Company company, final IReturnOfferingsFromSearchCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings/" + company.getId();
+        String url = apiUrl + "/offerings?company=" + company.getId();
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
@@ -1367,35 +1369,31 @@ public class ApiHandler
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", "Response is: " + response.toString());
 
-                        Offering newOffering;
+                        ArrayList<Offering> offeringsList = new ArrayList<Offering>();
                         try
                         {
-                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
-                            JSONObject offeringJSON = dataJSON.getJSONObject("offering");
+                            JSONArray offeringsArray = dataJSON.getJSONArray("offerings");
 
-                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
-                            String imagesArray[] = new String[imagesArrayJSON.length()];
-                            for(int i = 0; i < imagesArrayJSON.length(); i++)
-                                imagesArray[i] = imagesArrayJSON.getString(i);
+                            for(int i = 0; i < offeringsArray.length(); i++)
+                            {
+                                JSONObject offeringJSON = offeringsArray.getJSONObject(i);
 
-                            JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
-                            String discountsArray[] = new String[discountsArrayJSON.length()];
-                            for(int i = 0; i < discountsArrayJSON.length(); i++)
-                                discountsArray[i] = discountsArrayJSON.getString(i);
+                                Offering offering = new OfferingBuilder()
+                                        // images
+                                        // discounts
+                                        .id(offeringJSON.getString("_id"))
+                                        .company(offeringJSON.getString("company"))
+                                        .offeringType(offeringJSON.getString("offeringType"))
+                                        .description(offeringJSON.getString("description"))
+                                        // tags
+                                        .price(Integer.parseInt(offeringJSON.getString("price")))
+                                        .quantity(Integer.parseInt(offeringJSON.getString("quantity")))
+                                        .buildOffering();
+                                offeringsList.add(offering);
+                            }
 
-                            newOffering = new OfferingBuilder().id(offeringJSON.getString("_id"))
-                                    .company(offeringJSON.getString("company"))
-                                    .offeringType(offeringJSON.getString("offeringType"))
-                                    .description(offeringJSON.getString("description"))
-                                    .quantity(offeringJSON.getInt("quantity"))
-                                    .tags(offeringJSON.getString("tags"))
-                                    .price(offeringJSON.getInt("price"))
-                                    .deposit(offeringJSON.getInt("deposit"))
-                                    .discounts(discountsArray)
-                                    .buildOffering();
-                            */
-                            callback.returnOffering(null /*newOffering*/);
+                            callback.returnOfferings(offeringsList);
                         }
                         catch (Exception e)
                         {
