@@ -22,7 +22,6 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.Models.Offering;
-import com.group3.valapas.Models.OfferingBuilder;
 import com.group3.valapas.Models.Reservation;
 import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.Models.User;
@@ -35,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.Context.MODE_APPEND;
 import static android.content.Context.MODE_PRIVATE;
 
 // Handles every api route
@@ -1351,5 +1349,10 @@ public class ApiHandler
         };
 
         requestQueue.add(putRequest);
+    }
+
+    public static String getBearerToken()
+    {
+        return bearerToken;
     }
 }

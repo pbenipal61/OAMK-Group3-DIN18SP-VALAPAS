@@ -36,6 +36,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
     private ArrayList<String> offeringNames = new ArrayList<>();
     private ArrayList<String> offeringDescriptions = new ArrayList<>();
     private ArrayList<String> offeringPrices = new ArrayList<>();
+    private ArrayList<String> offeringIds = new ArrayList<>();
 
     private Company company;
 
@@ -73,6 +74,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
                 intent.putExtra("OfferingName", offeringNames.get(position));
                 intent.putExtra("OfferingDescription", offeringDescriptions.get(position));
                 intent.putExtra("OfferingPrice", offeringPrices.get(position));
+                intent.putExtra("OfferingId", offeringIds.get(position));
 
                 startActivity(intent);
             }
@@ -138,6 +140,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
             offeringNames.add(offering.getOfferingType());
             offeringDescriptions.add("sulea");
             offeringPrices.add(getPrice(offering));
+            offeringIds.add(offering.getId());
         }
     }
 
