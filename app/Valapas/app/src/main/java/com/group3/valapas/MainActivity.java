@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         // ApiHandler.createReservation(this, reservation, this);
         // ApiHandler.deleteReservation(this, reservation, this);
 
-        // Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
-        // ApiHandler.searchOfferingsByCompany(this, company, this);
+        Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
+        ApiHandler.searchOfferingsByCompany(this, company, this);
 
-        User user = new UserBuilder().id("5e9c19e1a688254bdde6f8ea").buildUser();
-        ApiHandler.searchReservationsByUser(this, user, this);
+        // User user = new UserBuilder().id("5e9c19e1a688254bdde6f8ea").buildUser();
+        // ApiHandler.searchReservationsByUser(this, user, this);
     }
 
     public void selectLoginAsCompany(View v)
