@@ -73,6 +73,8 @@ public class ApiHandler
         myEdit.putString("bearer", "");
         myEdit.putInt("company", 0);
         myEdit.commit();
+
+        //maybe add here intent to take you to main activity and reset the activities stack
     }
 
     // requests for users
@@ -1347,6 +1349,85 @@ public class ApiHandler
                 return headers;
             }
         };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchOfferingByCompany(final Context context, Company company, final IReturnOfferingCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/offerings/" + company.getId();
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        Offering newOffering;
+                        try
+                        {
+                            /*
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONObject offeringJSON = dataJSON.getJSONObject("offering");
+
+                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
+                            String imagesArray[] = new String[imagesArrayJSON.length()];
+                            for(int i = 0; i < imagesArrayJSON.length(); i++)
+                                imagesArray[i] = imagesArrayJSON.getString(i);
+
+                            JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
+                            String discountsArray[] = new String[discountsArrayJSON.length()];
+                            for(int i = 0; i < discountsArrayJSON.length(); i++)
+                                discountsArray[i] = discountsArrayJSON.getString(i);
+
+                            newOffering = new OfferingBuilder().id(offeringJSON.getString("_id"))
+                                    .company(offeringJSON.getString("company"))
+                                    .offeringType(offeringJSON.getString("offeringType"))
+                                    .description(offeringJSON.getString("description"))
+                                    .quantity(offeringJSON.getInt("quantity"))
+                                    .tags(offeringJSON.getString("tags"))
+                                    .price(offeringJSON.getInt("price"))
+                                    .deposit(offeringJSON.getInt("deposit"))
+                                    .discounts(discountsArray)
+                                    .buildOffering();
+                            */
+                            callback.returnOffering(null /*newOffering*/);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
 
         requestQueue.add(putRequest);
     }
