@@ -2,9 +2,11 @@ package com.group3.valapas.UserPages;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,9 +22,12 @@ import com.group3.valapas.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserCompanyView extends AppCompatActivity implements IReturnCompanySearchResultsCallback
 {
+    private ImageButton favoriteButton;
 
     private TextView companyName;
     private TextView companyLocation;
@@ -42,6 +47,11 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     private Context context;
 
+    private boolean isFavorite;
+
+    private Set<String> favoriteCompanies = new HashSet<>();
+    private String companyId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -53,9 +63,11 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("CompanyName");
+        companyId = intent.getStringExtra("CompanyId");
 
         ApiHandler.searchByCompanyName(this, name, this);
 
+        favoriteButton = findViewById(R.id.favoriteButton);
         companyName = findViewById(R.id.offeringName);
         companyLocation = findViewById(R.id.companyLocation);
         companyDescription = findViewById(R.id.companyDescription);
@@ -79,6 +91,23 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
                 startActivity(intent);
             }
         });
+
+        // reading if song is favorite
+        SharedPreferences sh = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        favoriteCompanies = sh.getStringSet("favoriteCompanies", new HashSet<String>());
+
+        isFavorite = false;
+        favoriteButton.setColorFilter(R.color.Gray);
+
+        for (String s : favoriteCompanies)
+        {
+            if (s.equals(companyId))
+            {
+                isFavorite = true;
+                favoriteButton.setColorFilter(R.color.colorRed);
+                break;
+            }
+        }
     }
 
 
@@ -130,6 +159,30 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void favoriteButton(View v)
+    {
+        if (isFavorite)
+        {
+            isFavorite = false;
+            favoriteCompanies.remove(companyId);
+            favoriteButton.setColorFilter(R.color.Gray);
+
+        }
+        else
+        {
+            isFavorite = true;
+            favoriteCompanies.add(companyId);
+            favoriteButton.setColorFilter(R.color.colorRed);
+        }
+
+        // update the sharedPrefs
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+        myEdit.putStringSet("favoriteCompanies", favoriteCompanies);
+        myEdit.commit();
     }
 
     //@Override

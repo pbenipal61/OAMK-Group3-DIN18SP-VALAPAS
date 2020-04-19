@@ -98,6 +98,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent intent = new Intent(context, UserCompanyView.class);
                 intent.putExtra("CompanyName", companyNames.get(position));
+                intent.putExtra("CompanyId", companyIds.get(position));
                 startActivity(intent);
             }
         });
