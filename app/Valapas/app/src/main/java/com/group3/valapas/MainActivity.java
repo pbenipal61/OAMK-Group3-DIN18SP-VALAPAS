@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
@@ -34,7 +35,7 @@ import com.group3.valapas.R;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback {
+public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation {
     private EditText emailEditText;
     private EditText passwordEditText;
 
@@ -70,27 +71,27 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectLoginAsUser(View v)
     {
-        /*
         User user = new UserBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildUser();
         ApiHandler.loginUser(this, user, this);
-        */
+
 
         // ApiHandler.searchByCompanyName(this, "Test company", this);
         // ApiHandler.searchByCompanyCategory(this, "Food", this);
 
-        Offering offering = new OfferingBuilder()
-                .company("5e946541b8a68d1dd153398b")
-                .offeringType("Table of 29")
-                .description("Nice table near the window")
-                .quantity(10)
-                .tags("some tags")
-                .price(100)
-                .buildOffering();
+        // Offering offering = new OfferingBuilder()
+        //        .company("5e946541b8a68d1dd153398b")
+        //        .offeringType("Table of 29")
+        //        .description("Nice table near the window")
+        //        .quantity(10)
+        //        .tags("some tags")
+        //        .price(100)
+        //        .buildOffering();
         // ApiHandler.editOffering(this, offering, this);
         // ApiHandler.deleteOffering(this, offering, this);
 
-        Reservation reservation = new ReservationBuilder().customer("5e9c19e1a688254bdde6f8ea").date("12.11.2020").offering("5e9c18f0a688254bdde6f8e8").quantity(2).buildReservation();
-        ApiHandler.createReservation(this, reservation, this);
+        // Reservation reservation = new ReservationBuilder().id("5e9c3a90a688254bdde6f8ee").buildReservation();
+        // ApiHandler.createReservation(this, reservation, this);
+        // ApiHandler.deleteReservation(this, reservation, this);
     }
 
     public void selectLoginAsCompany(View v)
@@ -151,5 +152,10 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
     @Override
     public void returnReservation(Reservation reservation) {
         Log.d("AAA", "reservation created");
+    }
+
+    @Override
+    public void deletedReservation() {
+        Log.d("AAA", "reservation deleted");
     }
 }

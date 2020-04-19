@@ -1071,6 +1071,7 @@ public class ApiHandler
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         String url = apiUrl + "/reservations/" + reservation.getId();
+        Log.d("AAA", "deleteReservation: " + url);
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>()
@@ -1104,7 +1105,7 @@ public class ApiHandler
             {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Bearer " + bearerToken);
+                headers.put("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlzQWR1bHQiOmZhbHNlLCJjaXR5IjoiT3VsdSIsIl9pZCI6IjVlOTQ1Yjk3YzkzZjk0NWJlZTA5ZTc4MCIsImVtYWlsIjoiMTIzQHlhaG9vLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDdOMzFQMGxjSjBkeGl6eXVYM0FzRC5iRTVWNnZVQXYzTE1VUU0wQmFlcGRnNFMwZlc2WGttIiwiZmlyc3ROYW1lIjoiZ29ndSIsImxhc3ROYW1lIjoiR09HVSIsIl9fdiI6MH0sInZhbGlkaXR5IjoiMzBkIiwidGltZXN0YW1wIjoxNTg2OTQ1OTI4NzE5LCJpYXQiOjE1ODY5NDU5MjgsImV4cCI6MTU4OTUzNzkyOH0.pByZJii3CzPRN5Jms5JI75plJPqjhspyQ_0g8M2aMDk");
                 return headers;
             }
         };
