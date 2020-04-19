@@ -1,7 +1,6 @@
 package com.group3.valapas.RegisterPages;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,8 +8,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.R;
@@ -85,5 +87,8 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
     public void returnCompany(Company company)
     {
         Toast.makeText(this, "Company account created successfully!", Toast.LENGTH_SHORT);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

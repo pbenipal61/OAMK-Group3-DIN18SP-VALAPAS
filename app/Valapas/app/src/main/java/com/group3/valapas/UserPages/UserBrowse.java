@@ -159,7 +159,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
     @Override
     public void returnSearchResults(ArrayList<Company> returnedCompanies) {
 
-        // Reseting the lists
+        // Resetting the lists
         companyNames.clear();
         companyCategories.clear();
         companyDescriptions.clear();

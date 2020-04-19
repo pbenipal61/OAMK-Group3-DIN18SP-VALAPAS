@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -12,9 +13,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import com.group3.valapas.Adapters.OfferingAdapter;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.Offering;
@@ -25,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserCompanyView extends AppCompatActivity implements IReturnCompanySearchResultsCallback
+public class UserCompanyView extends AppCompatActivity implements IReturnCompanySearchResultsCallback, IReturnOfferingsFromSearchCallback
 {
     private ImageButton favoriteButton;
 
@@ -97,14 +101,14 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         favoriteCompanies = sh.getStringSet("favoriteCompanies", new HashSet<String>());
 
         isFavorite = false;
-        favoriteButton.setColorFilter(R.color.Gray);
+        favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_black_24dp));
 
         for (String s : favoriteCompanies)
         {
             if (s.equals(companyId))
             {
                 isFavorite = true;
-                favoriteButton.setColorFilter(R.color.colorRed);
+                favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_24dp));
                 break;
             }
         }
@@ -130,7 +134,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
                 }
             });
 
-            // ApiHandler.getOfferings()
+             ApiHandler.searchOfferingsByCompany(this, company, this);
         }
     }
 
@@ -163,18 +167,20 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     public void favoriteButton(View v)
     {
+        Log.d("AAA", "favoriteButton: clicked");
         if (isFavorite)
         {
             isFavorite = false;
             favoriteCompanies.remove(companyId);
-            favoriteButton.setColorFilter(R.color.Gray);
-
+            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_24dp));
+            Log.d("AAA", "isFavorite: " + isFavorite);
         }
         else
         {
             isFavorite = true;
             favoriteCompanies.add(companyId);
-            favoriteButton.setColorFilter(R.color.colorRed);
+            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_black_24dp));
+            Log.d("AAA", "isFavorite: " + isFavorite);
         }
 
         // update the sharedPrefs
@@ -185,16 +191,33 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         myEdit.commit();
     }
 
-    //@Override
+    @Override
     public void returnOfferings(ArrayList<Offering> returnedOfferings)
     {
+        // Resetting the lists
+        offeringNames.clear();
+        offeringDescriptions.clear();
+        offeringPrices.clear();
+        offeringIds.clear();
+
         for (Offering offering : returnedOfferings)
         {
             offeringNames.add(offering.getOfferingType());
-            offeringDescriptions.add("sulea");
+            offeringDescriptions.add(offering.getDescription());
             offeringPrices.add(getPrice(offering));
             offeringIds.add(offering.getId());
         }
+
+        UserCompanyView.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) offeringListView.getLayoutParams();
+                lp.height = 266 * offeringNames.size(); // don't change value or this breaks
+                offeringListView.setLayoutParams(lp);
+
+                offeringAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
 

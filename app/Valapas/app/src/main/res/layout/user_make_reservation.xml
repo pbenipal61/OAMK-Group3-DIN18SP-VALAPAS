@@ -49,14 +49,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="0dp" >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <TextView
                 android:id="@+id/date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -66,11 +67,13 @@
                 android:ems="10"
                 android:hint="10.10.2020"
                 android:inputType="date"
+                android:text="Select Date"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/additionalInfo" />
 
-            <TextView
+            <EditText
                 android:id="@+id/additionalInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -79,6 +82,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_with_border"
                 android:hint="Additional info..."
+                android:gravity="left"
                 android:lines="8"
                 android:maxLines="8"
                 android:padding="8dp"
@@ -106,9 +110,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
-                android:layout_width="410dp"
+                android:layout_width="0dp"
                 android:layout_height="86dp"
-                android:layout_marginStart="1dp"
                 android:layout_marginTop="8dp"
                 android:background="#EEEEEE"
                 app:layout_constraintEnd_toEndOf="parent"

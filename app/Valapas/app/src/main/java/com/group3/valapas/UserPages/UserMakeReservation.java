@@ -1,8 +1,10 @@
 package com.group3.valapas.UserPages;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +18,9 @@ import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.R;
 
-public class UserMakeReservation extends AppCompatActivity implements IReturnReservationCallback
+import java.util.Calendar;
+
+public class UserMakeReservation extends AppCompatActivity implements IReturnReservationCallback, DatePickerDialog.OnDateSetListener
 {
 
     private TextView countText;
@@ -57,12 +61,33 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
         offeringPrice = findViewById(R.id.offeringPrice);
         dateText = findViewById(R.id.date);
 
+        dateText.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                showDatePickedDialog();
+            }
+        });
+
         companyName.setText(companyNameString);
         companyLocation.setText(companyLocationString);
         offeringName.setText(offeringNameString);
         offeringDescription.setText(offeringDescriptionString);
         offeringPrice.setText(offeringPriceString);
 
+    }
+
+    private void showDatePickedDialog()
+    {
+        DatePickerDialog dialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                );
+        dialog.show();
     }
 
     public void selectBrowse(View v)
@@ -103,10 +128,22 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
 
     public void makeReservation(View v)
     {
+        if (count == 0)
+        {
+            Toast.makeText(this, "Please enter count.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (dateText.getText().toString().equals("Select Date"))
+        {
+            Toast.makeText(this, "Please enter a date.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         User user = new UserBuilder().buildUser(ApiHandler.getBearerToken());
 
         Reservation reservation = new ReservationBuilder()
-                .id(user.getId())
+                .customer(user.getId())
                 .date(dateText.getText().toString())
                 .offering(offeringId)
                 .quantity(count)
@@ -121,6 +158,15 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
     {
         Toast.makeText(this, "Reservation created.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, UserBrowse.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String date = month < 10 ? "0" + month + "/" : month + "/";
+        date += dayOfMonth < 10 ? "0" + dayOfMonth + "/" : dayOfMonth + "/";
+        date += year;
+        dateText.setText(date);
     }
 }
