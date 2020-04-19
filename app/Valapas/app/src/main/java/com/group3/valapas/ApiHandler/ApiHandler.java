@@ -937,11 +937,12 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "Response is: " + response.toString());
 
                         Reservation newReservation;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject reservationJSON = dataJSON.getJSONObject("reservation");
 
@@ -951,8 +952,8 @@ public class ApiHandler
                                     .offering(reservationJSON.getString("offering"))
                                     .quantity(reservationJSON.getInt("quantity"))
                                     .buildReservation();
-
-                            callback.returnReservation(newReservation);
+                            */
+                            callback.returnReservation(null/*newReservation*/);
                         }
                         catch (Exception e)
                         {
@@ -972,7 +973,7 @@ public class ApiHandler
                                 + "\nmessage" + error.getMessage());
 
                     }
-    }
+        }
         )
         {
             @Override
@@ -1066,7 +1067,6 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-
     public static void deleteReservation(final Context context, Reservation reservation, final IDeletedReservation callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
@@ -1129,16 +1129,13 @@ public class ApiHandler
             js.put("quantity", offering.getQuantity());
             js.put("tags", offering.getTags());
             js.put("price", offering.getPrice());
-            js.put("deposit", offering.getDeposit());
-            js.put("discounts", offering.getDiscounts());
-
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
 
-        Log.d("AAA", js.toString());
+        Log.d("AAA", "Request body is: " + js.toString());
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.POST, url, js,
                 new Response.Listener<JSONObject>()
@@ -1147,18 +1144,19 @@ public class ApiHandler
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
-                        Log.d("AAA", response.toString());
+                        Log.d("AAA", "Response is: " + response.toString());
 
                         Offering newOffering;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject offeringJSON = dataJSON.getJSONObject("offering");
 
-                            /*JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
+                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
                             String imagesArray[] = new String[imagesArrayJSON.length()];
                             for(int i = 0; i < imagesArrayJSON.length(); i++)
-                                imagesArray[i] = imagesArrayJSON.getString(i);*/
+                                imagesArray[i] = imagesArrayJSON.getString(i);
 
                             JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
                             String discountsArray[] = new String[discountsArrayJSON.length()];
@@ -1175,8 +1173,8 @@ public class ApiHandler
                                     .deposit(offeringJSON.getInt("deposit"))
                                     .discounts(discountsArray)
                                     .buildOffering();
-
-                            callback.returnOffering(newOffering);
+                            */
+                            callback.returnOffering(null /*newOffering*/);
                         }
                         catch (Exception e)
                         {
@@ -1209,27 +1207,24 @@ public class ApiHandler
             }
         };
 
+
         requestQueue.add(putRequest);
     }
 
     public static void editOffering(final Context context, Offering offering, final IReturnOfferingCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings" + offering.getId();
+        String url = apiUrl + "/offerings/" + offering.getCompany();
 
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
-            js.put("company", offering.getCompany());
             js.put("offeringType", offering.getOfferingType());
             js.put("description", offering.getDescription());
             js.put("quantity", offering.getQuantity());
             js.put("tags", offering.getTags());
             js.put("price", offering.getPrice());
-            js.put("deposit", offering.getDeposit());
-            js.put("discounts", offering.getDiscounts());
-
         }
         catch (Exception e)
         {
@@ -1250,13 +1245,14 @@ public class ApiHandler
                         Offering newOffering;
                         try
                         {
+                            /*
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject offeringJSON = dataJSON.getJSONObject("offering");
 
-                            /*JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
+                            JSONArray imagesArrayJSON = offeringJSON.getJSONArray("images");
                             String imagesArray[] = new String[imagesArrayJSON.length()];
                             for(int i = 0; i < imagesArrayJSON.length(); i++)
-                                imagesArray[i] = imagesArrayJSON.getString(i);*/
+                                imagesArray[i] = imagesArrayJSON.getString(i);
 
                             JSONArray discountsArrayJSON = offeringJSON.getJSONArray("discounts");
                             String discountsArray[] = new String[discountsArrayJSON.length()];
@@ -1273,8 +1269,8 @@ public class ApiHandler
                                     .deposit(offeringJSON.getInt("deposit"))
                                     .discounts(discountsArray)
                                     .buildOffering();
-
-                            callback.returnOffering(newOffering);
+                            */
+                            callback.returnOffering(null/*newOffering*/);
                         }
                         catch (Exception e)
                         {
@@ -1313,7 +1309,7 @@ public class ApiHandler
     public static void deleteOffering(final Context context, Offering offering, final IDeletedOffering callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings" + offering.getId();
+        String url = apiUrl + "/offerings/" + offering.getCompany();
 
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, null,
@@ -1325,8 +1321,7 @@ public class ApiHandler
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
 
-                            callback.deletedOffering();
-
+                        callback.deletedOffering();
                     }
                 },
                 new Response.ErrorListener()

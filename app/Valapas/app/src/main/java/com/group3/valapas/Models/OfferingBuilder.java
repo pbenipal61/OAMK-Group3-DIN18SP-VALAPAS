@@ -2,7 +2,6 @@ package com.group3.valapas.Models;
 
 public class OfferingBuilder
 {
-
     private String companyId = "";
     private String id = "";
     private String offeringType = "";
