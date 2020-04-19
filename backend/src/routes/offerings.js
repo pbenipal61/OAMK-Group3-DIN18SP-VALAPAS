@@ -28,9 +28,9 @@ router.post('/', passport.authenticate('jwt', {session: false}), async (req, res
 
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try{
-        const id = req.params.id;
+        const id = req.query.id;
         
         if(id){
             const offering = await Offering.findById(id);
