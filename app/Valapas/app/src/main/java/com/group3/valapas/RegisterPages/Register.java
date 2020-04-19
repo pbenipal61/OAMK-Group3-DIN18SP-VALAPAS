@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity
 
     public void selectCompany(View v)
     {
-        Intent i = new Intent (this, RegisterCompany.class);
+        Intent i = new Intent (this, RegisterCompanyActivity.class);
         startActivity(i);
     }
 }

@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@id/user_login" >
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -36,7 +36,7 @@
             tools:ignore="LabelFor" />
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/main_blank_1" >
 
         <Button
-            android:id="@+id/sign_in_btn"
+            android:id="@+id/sign_in_btn2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
@@ -71,8 +71,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="3dp"
             android:background="@drawable/interactive_button_light_gold"
-            android:onClick="selectLogin"
-            android:text="@string/home_page_sign_in"
+            android:text="@string/login"
             android:textAllCaps="true"
             android:textColor="@color/Black"
             android:textSize="12sp"
@@ -95,16 +94,12 @@
 
     <LinearLayout
         android:id="@+id/main_blank_2"
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-
         android:orientation="vertical"
-
         app:layout_constraintTop_toBottomOf="@id/main_blank_1"
         app:layout_constraintBottom_toTopOf="@id/user_register" />
 

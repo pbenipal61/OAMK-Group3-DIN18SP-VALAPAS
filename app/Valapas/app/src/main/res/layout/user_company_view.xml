@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context=".CompanyPages.CompanyCustomerView">
+    tools:context=".UserPages.UserCompanyView">
 
     <LinearLayout
-        android:id="@+id/company_name"
+        android:id="@+id/user_company_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/company_address" >
+        app:layout_constraintBottom_toTopOf="@id/user_company_address" >
 
         <TextView
             android:id="@+id/companyName"
@@ -43,7 +43,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/company_address"
+        android:id="@+id/user_company_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -52,10 +52,10 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
         android:background="@color/DarkGray"
-        app:layout_constraintTop_toBottomOf="@id/company_name"
+        app:layout_constraintTop_toBottomOf="@id/user_company_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/company_hours" >
+        app:layout_constraintBottom_toTopOf="@id/user_company_hours" >
 
         <TextView
             android:id="@+id/CompanyAddress"
@@ -77,18 +77,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/company_hours"
+        android:id="@+id/user_company_hours"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/White"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/company_description"
+        app:layout_constraintBottom_toTopOf="@id/user_company_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/company_address">
+        app:layout_constraintTop_toBottomOf="@id/user_company_address">
 
         <LinearLayout
-            android:id="@+id/company_hours_box"
+            android:id="@+id/user_company_hours_box"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -100,13 +100,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/DarkGray"
-                />
+                android:background="@color/DarkGray" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/company_options_bar"
+            android:id="@+id/user_company_options_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -144,7 +143,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/company_description"
+        android:id="@+id/user_company_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/DarkGray"
@@ -152,7 +151,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/company_hours" >
+        app:layout_constraintTop_toBottomOf="@id/user_company_hours" >
 
         <TextView
             android:id="@+id/CompanyDescription"
