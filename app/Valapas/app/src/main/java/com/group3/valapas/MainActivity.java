@@ -13,6 +13,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
@@ -35,7 +36,7 @@ import com.group3.valapas.R;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation {
+public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation, IReturnOfferingsFromSearchCallback {
     private EditText emailEditText;
     private EditText passwordEditText;
 
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         // ApiHandler.deleteReservation(this, reservation, this);
 
         Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
-        ApiHandler.searchOfferingByCompany(this, company, this);
+        ApiHandler.searchOfferingsByCompany(this, company, this);
     }
 
     public void selectLoginAsCompany(View v)
@@ -161,5 +162,10 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
     @Override
     public void deletedReservation() {
         Log.d("AAA", "reservation deleted");
+    }
+
+    @Override
+    public void returnOfferings(ArrayList<Offering> offerings) {
+        Log.d("AAA", "returnOfferings: " + offerings.get(0).getDescription() + " ::: " + offerings.get(1).getDescription());
     }
 }
