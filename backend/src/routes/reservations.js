@@ -28,14 +28,20 @@ router.post('/', async (req, res, next) => {
 
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try{
-        const id = req.params.id;
+        const id = req.query.id;
         
         if(id){
             const reservation = await Reservation.findById(id);
             return res.status(200).json({status: "Success", data: {reservation}})
         }
+
+        if(Object.keys(req.query).length > 0){
+            const reservations = await Reservation.find(req.query);
+            return res.status(200).json({status: "Success", data: {reservations}})
+        }
+
         const reservations = await Reservation.find({});
         return res.status(200).json({status: "Success", data: {reservations}})
     }
