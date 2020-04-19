@@ -36,6 +36,12 @@ router.get('/:id', async (req, res, next) => {
             const offering = await Offering.findById(id);
             return res.status(200).json({status: "Success", data: {offering}})
         }
+
+        if(Object.keys(req.query).length > 0){
+            const offerings = await Offering.find(req.query);
+            return res.status(200).json({status: "Success", data: {offerings}})
+        }
+
         const offerings = await Offering.find({});
         return res.status(200).json({status: "Success", data: {offerings}})
     }
