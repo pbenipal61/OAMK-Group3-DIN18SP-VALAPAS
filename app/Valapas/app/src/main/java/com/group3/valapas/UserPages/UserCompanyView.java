@@ -1,7 +1,10 @@
 package com.group3.valapas.UserPages;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,11 +39,15 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     private Company company;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_company_view);
+
+        context = this;
 
         Intent intent = getIntent();
 
@@ -48,7 +55,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
         ApiHandler.searchByCompanyName(this, name, this);
 
-        companyName = findViewById(R.id.companyName);
+        companyName = findViewById(R.id.offeringName);
         companyLocation = findViewById(R.id.companyLocation);
         companyDescription = findViewById(R.id.companyDescription);
         companyImage = findViewById(R.id.companyImage);
@@ -56,6 +63,20 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         offeringListView = findViewById(R.id.offeringsListView);
         offeringAdapter = new OfferingAdapter(this, offeringNames, offeringDescriptions, offeringPrices);
         offeringListView.setAdapter(offeringAdapter);
+
+        offeringListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(context, UserMakeReservation.class);
+                intent.putExtra("CompanyName", companyName.getText().toString());
+                intent.putExtra("CompanyLocation", companyLocation.getText().toString());
+                intent.putExtra("OfferingName", offeringNames.get(position));
+                intent.putExtra("OfferingDescription", offeringDescriptions.get(position));
+                intent.putExtra("OfferingPrice", offeringPrices.get(position));
+
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -80,6 +101,33 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
             // ApiHandler.getOfferings()
         }
+    }
+
+    public void selectBrowse(View v)
+    {
+        Intent i = new Intent (this, UserBrowse.class);
+        startActivity(i);
+    }
+
+    public void selectProfile(View v)
+    {
+        Intent i = new Intent (this, UserProfile.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void selectFavorites(View v)
+    {
+        Intent i = new Intent (this, UserFavorites.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void selectBookings(View v)
+    {
+        Intent i = new Intent (this, UserBookings.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     //@Override
