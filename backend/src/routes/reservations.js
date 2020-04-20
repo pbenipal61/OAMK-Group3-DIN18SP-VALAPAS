@@ -41,7 +41,7 @@ router.get('/', async (req, res, next) => {
                 populate: {
                     path: "company"
                 }
-            });
+            }).populate("customer");
             
             return res.status(200).json({status: "Success", data: {reservation}});
         }
@@ -60,7 +60,7 @@ router.get('/', async (req, res, next) => {
                 populate: {
                     path: "company"
                 }
-            });
+            }).populate("customer");;
 
             return res.status(200).json({status: "Success", data: {reservations}});
         }
@@ -77,7 +77,7 @@ router.get('/', async (req, res, next) => {
                 populate: {
                     path: "company"
                 }
-            });
+            }).populate("customer");;
             return res.status(200).json({status: "Success", data: {reservations}});
 
         }
@@ -89,7 +89,7 @@ router.get('/', async (req, res, next) => {
                 populate: {
                     path: "company"
                 }
-            });
+            }).populate("customer");;
             console.log(reservations);
             return res.status(200).json({status: "Success", data: {reservations}})
         }
@@ -99,7 +99,7 @@ router.get('/', async (req, res, next) => {
             populate: {
                 path: "company"
             }
-        });
+        }).populate("customer");;
         return res.status(200).json({status: "Success", data: {reservations}})
     }
     catch(err){
