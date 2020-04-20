@@ -9,11 +9,16 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.Adapters.BookingsAdapter;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationsFromSearchCallback;
+import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.Models.Reservation;
+import com.group3.valapas.Models.User;
+import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.R;
 
 import java.util.ArrayList;
 
-public class UserBookings extends AppCompatActivity
+public class UserBookings extends AppCompatActivity implements IReturnReservationsFromSearchCallback
 {
     private Button historyButton;
     private Button currentButton;
@@ -39,6 +44,10 @@ public class UserBookings extends AppCompatActivity
         bookingsListView = findViewById(R.id.user_bookings_results);
         bookingsAdapter = new BookingsAdapter(this, companyNames, offeringNames, offeringDescriptions, offeringPrices, dates);
         bookingsListView.setAdapter(bookingsAdapter);
+
+        User user = new UserBuilder().buildUser(ApiHandler.getBearerToken());
+
+        ApiHandler.searchReservationsByUser(this, user, this);
 
     }
 
@@ -71,4 +80,37 @@ public class UserBookings extends AppCompatActivity
     }
 
 
+    @Override
+    public void returnReservations(ArrayList<Reservation> reservations)
+    {
+        // clear the lists
+        companyNames.clear();
+        offeringNames.clear();
+        offeringDescriptions.clear();
+        offeringPrices.clear();
+        dates.clear();
+
+        for(Reservation reservation : reservations)
+        {
+            companyNames.add(reservation.getCompanyId());
+            offeringNames.add(reservation.getOffering());
+            offeringDescriptions.add(reservation.getQuantity() + "");
+            offeringPrices.add("10 EUR");
+            dates.add(getDate(reservation.getDate()));
+        }
+
+        UserBookings.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run()
+            {
+                bookingsAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private String getDate(String date)
+    {
+        String strings[] = date.split("T");
+        return strings[0];
+    }
 }
