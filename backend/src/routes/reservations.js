@@ -63,11 +63,21 @@ router.get('/', async (req, res, next) => {
         }
 
         if(Object.keys(req.query).length > 0){
-            const reservations = await Reservation.find(req.query);
+            const reservations = await Reservation.find(req.query).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
             return res.status(200).json({status: "Success", data: {reservations}})
         }
 
-        const reservations = await Reservation.find({});
+        const reservations = await Reservation.find({}).populate({
+            path: "offering",
+            populate: {
+                path: "company"
+            }
+        });
         return res.status(200).json({status: "Success", data: {reservations}})
     }
     catch(err){
