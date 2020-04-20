@@ -33,17 +33,31 @@ router.get('/', async (req, res, next) => {
         const id = req.query.id;
         
         if(id){
-            const reservation = await Reservation.findById(id).populate("offering").populate("offering.company");
+            let reservation = await Reservation.findById(id).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
+            
             return res.status(200).json({status: "Success", data: {reservation}});
         }
 
-        const ids = req.query.ids;
+        let ids = req.query.ids;
         if(ids){
+
+            ids = ids.split(",");
+            console.log(ids);
             const reservations = await Reservation.find({
                 _id: {
                     $in: ids
                 }
-            }).populate("offering").populate("offering.company");
+            }).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
 
             return res.status(200).json({status: "Success", data: {reservations}})
         }
