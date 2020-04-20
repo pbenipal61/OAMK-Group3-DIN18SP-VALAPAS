@@ -47,6 +47,20 @@ router.get('/', async (req, res, next) => {
             return res.status(200).json({status: "Success", data: {company}})
         }
 
+        let ids = req.query.ids;
+        if(ids){
+
+            ids = ids.split(",");
+            const companies = await Company.find({
+                _id: {
+                    $in: ids
+                }
+            });
+
+            return res.status(200).json({status: "Success", data: {companies}})
+        }
+
+
         if(Object.keys(req.query).length > 0){
             const company = await Company.find(req.query);
             return res.status(200).json({status: "Success", data: {company}})
