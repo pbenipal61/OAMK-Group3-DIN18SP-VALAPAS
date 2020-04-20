@@ -16,7 +16,9 @@ import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class UserBookings extends AppCompatActivity implements IReturnReservationsFromSearchCallback
 {
@@ -32,6 +34,9 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
     private ListView bookingsListView;
     private BookingsAdapter bookingsAdapter;
 
+    private User user;
+    private String today;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -45,7 +50,9 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
         bookingsAdapter = new BookingsAdapter(this, companyNames, offeringNames, offeringDescriptions, offeringPrices, dates);
         bookingsListView.setAdapter(bookingsAdapter);
 
-        User user = new UserBuilder().buildUser(ApiHandler.getBearerToken());
+        user = new UserBuilder().buildUser(ApiHandler.getBearerToken());
+
+        today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
         ApiHandler.searchReservationsByUser(this, user, this);
 
@@ -69,9 +76,11 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
         startActivity(i);
     }
 
-    public void selectMostRecent(View v)
+    public void selectHistory(View v)
     {
+
         // sort by date
+        ApiHandler.searchReservationsByUserBeforeDate(this, user, today, this);
     }
 
     public void selectCurrent(View v)

@@ -32,7 +32,7 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
-            android:onClick="selectMostRecent"
+            android:onClick="selectHistory"
             android:text="History"
             android:textSize="10sp"
             tools:ignore="SmallSp" />

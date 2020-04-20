@@ -33,7 +33,11 @@ import com.group3.valapas.Models.UserBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -1466,6 +1470,84 @@ public class ApiHandler
                                         .buildReservation();
                                 reservationsList.add(reservation);
                             }
+                            reservationsList = SortReservation(reservationsList);
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByUserBeforeDate(final Context context, User user,final String date, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?customer=" + user.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                String responseDate = reservationJSON.getString("date");
+
+                                if (format.parse(responseDate).before(format.parse(date))) {
+                                    Reservation reservation = new ReservationBuilder()
+                                            .id(reservationJSON.getString("_id"))
+                                            .customer(reservationJSON.getString("customer"))
+                                            .date(responseDate)
+                                            .offering(reservationJSON.getString("offering"))
+                                            .quantity(reservationJSON.getInt("quantity"))
+                                            .buildReservation();
+                                    reservationsList.add(reservation);
+                                }
+                            }
+                            reservationsList = SortReservation(reservationsList);
 
                             callback.returnReservations(reservationsList);
                         }
@@ -1537,6 +1619,7 @@ public class ApiHandler
                                         .buildReservation();
                                 reservationsList.add(reservation);
                             }
+                            reservationsList = SortReservation(reservationsList);
 
                             callback.returnReservations(reservationsList);
                         }
@@ -1577,5 +1660,17 @@ public class ApiHandler
     public static String getBearerToken()
     {
         return bearerToken;
+    }
+
+    private static ArrayList<Reservation> SortReservation(ArrayList<Reservation> reservations)
+    {
+        Collections.sort(reservations, new Comparator<Reservation>() {
+            DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+            @Override
+            public int compare(Reservation o1, Reservation o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        return reservations;
     }
 }

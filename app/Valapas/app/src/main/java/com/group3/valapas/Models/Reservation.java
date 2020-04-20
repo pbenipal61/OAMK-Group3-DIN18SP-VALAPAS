@@ -1,6 +1,9 @@
 package com.group3.valapas.Models;
 
-public class Reservation
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class Reservation implements Comparable<Reservation>
 {
     private String id;
     private String customerId;
@@ -46,5 +49,17 @@ public class Reservation
     public int getQuantity()
     {
         return quantity;
+    }
+
+
+    @Override
+    public int compareTo(Reservation o){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return sdf.parse(this.date).compareTo(sdf.parse(o.date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
