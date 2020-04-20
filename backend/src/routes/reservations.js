@@ -2,6 +2,7 @@ import express from 'express';
 import passport from 'passport';
 
 import Reservation from "../models/Reservation";
+import Offering from "../models/Offering";
 
 const router = new express.Router();
 
@@ -30,6 +31,8 @@ router.post('/', passport.authenticate('jwt', {session: false}), async (req, res
 
 router.get('/', async (req, res, next) => {
     try{
+
+        
         const id = req.query.id;
         
         if(id){
@@ -59,16 +62,35 @@ router.get('/', async (req, res, next) => {
                 }
             });
 
-            return res.status(200).json({status: "Success", data: {reservations}})
+            return res.status(200).json({status: "Success", data: {reservations}});
         }
 
+        let company = req.query.company;
+        if(company){
+            const offeringIds = await Offering.find({company }).select('_id');
+            const reservations = await Reservation.find({
+                offering: {
+                    $in: offeringIds
+                }
+            }).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
+            return res.status(200).json({status: "Success", data: {reservations}});
+
+        }
+        
         if(Object.keys(req.query).length > 0){
+
             const reservations = await Reservation.find(req.query).populate({
                 path: "offering",
                 populate: {
                     path: "company"
                 }
             });
+            console.log(reservations);
             return res.status(200).json({status: "Success", data: {reservations}})
         }
 
