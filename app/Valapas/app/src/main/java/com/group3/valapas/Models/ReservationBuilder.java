@@ -4,6 +4,7 @@ public class ReservationBuilder
 {
     private String id = "";
     private String customerId = "";
+    private String companyId = "";
     private String date = "";
     private String offeringId = "";
     private int quantity = 0;
@@ -12,7 +13,7 @@ public class ReservationBuilder
 
     public Reservation buildReservation()
     {
-        return new Reservation(id, customerId, date, offeringId, quantity);
+        return new Reservation(id, customerId, companyId, date, offeringId, quantity);
     }
 
     public ReservationBuilder date(String date)
@@ -24,6 +25,12 @@ public class ReservationBuilder
     public ReservationBuilder id(String id)
     {
         this.id = id;
+        return this;
+    }
+
+    public ReservationBuilder company(String id)
+    {
+        this.companyId = id;
         return this;
     }
 
