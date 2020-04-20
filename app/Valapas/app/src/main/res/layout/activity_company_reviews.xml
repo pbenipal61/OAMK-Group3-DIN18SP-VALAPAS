@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/DarkGray"
     tools:context=".CompanyPages.CompanyReviewsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +15,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/DarkGray">
 
         <Button
             android:id="@+id/homeButton"
@@ -22,6 +24,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_home_black_24dp"
+            android:onClick="onHomeClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Home"
@@ -32,7 +35,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White" />
 
         <Button
             android:id="@+id/bookingButton"
@@ -40,10 +45,10 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_local_library_black_24dp"
+            android:onClick="onBookingsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +56,9 @@
             app:layout_constraintStart_toEndOf="@+id/favorites"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/updateInfoButton"
@@ -59,6 +66,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:onClick="onUpdateInfoClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
@@ -69,7 +77,9 @@
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/favorites"
@@ -88,8 +98,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp"
-            android:drawableTint="#FFFF2626"
-            android:textColor="#FF2626" />
+            android:drawableTint="#ffcc00"
+            android:textColor="@color/SelectedGold"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -100,7 +110,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="My reviews"
+        android:text="My reviews\n\nFeature coming soon"
+        android:textColor="@color/SelectedGold"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,6 +124,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="92dp" />
+        tools:layout_editor_absoluteX="92dp"
+        android:background="@color/LightGray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

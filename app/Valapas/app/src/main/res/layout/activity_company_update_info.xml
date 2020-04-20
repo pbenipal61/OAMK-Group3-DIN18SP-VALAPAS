@@ -18,195 +18,547 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editText18"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Company name"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/editText19"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Description"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.52"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText18" />
-
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:width="150dp"
-                android:text="Button"
-                app:layout_constraintEnd_toStartOf="@+id/button15"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText19" />
-
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:width="150dp"
-                android:text="Button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button13"
-                app:layout_constraintTop_toBottomOf="@+id/editText19" />
-
-            <EditText
-                android:id="@+id/editText20"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Address"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagesListView" />
-
-            <EditText
-                android:id="@+id/editText21"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Postal code"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText20" />
-
-            <EditText
-                android:id="@+id/editText22"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Location"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText21" />
-
-            <EditText
-                android:id="@+id/editText23"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="City"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText22" />
-
-            <EditText
-                android:id="@+id/editText24"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Categories"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText23" />
-
-            <EditText
-                android:id="@+id/editText27"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Price range"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText25" />
-
-            <EditText
-                android:id="@+id/editText25"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:ems="10"
-                android:hint="Opens hh:mm"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/editText26"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText24" />
-
-            <EditText
-                android:id="@+id/editText26"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Closes hh:mm"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editText25"
-                app:layout_constraintTop_toBottomOf="@+id/editText24" />
-
-            <ListView
-                android:id="@+id/imagesListView"
+            <LinearLayout
+                android:id="@+id/company_information_header"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_name_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button13" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="COMPANY INFORMATION"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/SelectedGold"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_information_header">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Business Name"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_address_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_name_title">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_address_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_name">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Business Address"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_address"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_address_title">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_hours_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_hours"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_address">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Business Hours"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_hours"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_hours_title">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_description_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_hours">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Description"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_description_title">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_citycountry_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_citycountry"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_description">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="City"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Country"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_citycountry"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_citycountry_title">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_pricerange_title_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_pricerange_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_citycountry">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Price Range"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_pricerange_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/company_info_pricerange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_pricerange_title_main">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Minimum"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Maximum"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_pricerange"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_pricerange_title">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_info_update"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@color/LightGray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_info_pricerange">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Update"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -218,7 +570,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/DarkGray">
 
         <Button
             android:id="@+id/homeButton"
@@ -226,6 +579,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_home_black_24dp"
+            android:onClick="onHomeClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Home"
@@ -236,7 +590,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/bookingButton"
@@ -244,10 +600,10 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_local_library_black_24dp"
+            android:onClick="onBookingsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -255,7 +611,9 @@
             app:layout_constraintStart_toEndOf="@+id/favorites"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/updateInfoButton"
@@ -266,9 +624,8 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
-            android:drawableTint="#FFFF2626"
-            android:textColor="#FF2626"
-
+            android:drawableTint="#ffcc00"
+            android:textColor="@color/SelectedGold"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/favorites"
@@ -284,10 +641,10 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_stars_black_24dp"
+            android:onClick="onReviewsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Reviews"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bookingButton"
@@ -295,7 +652,9 @@
             app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
