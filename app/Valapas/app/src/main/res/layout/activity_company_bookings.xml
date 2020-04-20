@@ -154,7 +154,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toBottomOf="@+id/user_bookings_tabs"
-        android:background="@color/White"
-        tools:layout_editor_absoluteX="92dp" />
+        tools:layout_editor_absoluteX="92dp"
+        android:background="@color/LightGray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

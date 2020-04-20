@@ -110,7 +110,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="My reviews\n\n\nFeature coming soon"
+        android:text="My reviews\n\nFeature coming soon"
         android:textColor="@color/SelectedGold"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -125,6 +125,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         tools:layout_editor_absoluteX="92dp"
-        android:background="@color/White"/>
+        android:background="@color/LightGray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
