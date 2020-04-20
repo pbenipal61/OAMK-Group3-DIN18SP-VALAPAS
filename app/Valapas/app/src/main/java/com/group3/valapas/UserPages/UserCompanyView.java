@@ -101,7 +101,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         favoriteCompanies = sh.getStringSet("favoriteCompanies", new HashSet<String>());
 
         isFavorite = false;
-        favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_black_24dp));
+        favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_gray_24dp));
 
         for (String s : favoriteCompanies)
         {
@@ -172,14 +172,14 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         {
             isFavorite = false;
             favoriteCompanies.remove(companyId);
-            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_24dp));
+            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_gray_24dp));
             Log.d("AAA", "isFavorite: " + isFavorite);
         }
         else
         {
             isFavorite = true;
             favoriteCompanies.add(companyId);
-            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_black_24dp));
+            favoriteButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_24dp));
             Log.d("AAA", "isFavorite: " + isFavorite);
         }
 
