@@ -164,6 +164,7 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        month+=1;
         String date = month < 10 ? "0" + month + "/" : month + "/";
         date += dayOfMonth < 10 ? "0" + dayOfMonth + "/" : dayOfMonth + "/";
         date += year;

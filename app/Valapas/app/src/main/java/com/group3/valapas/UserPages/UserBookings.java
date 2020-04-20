@@ -54,8 +54,7 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
 
         today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
-        ApiHandler.searchReservationsByUser(this, user, this);
-
+        selectCurrent(null);
     }
 
     public void selectBrowse(View v)
@@ -78,14 +77,16 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
 
     public void selectHistory(View v)
     {
-
-        // sort by date
         ApiHandler.searchReservationsByUserBeforeDate(this, user, today, this);
+        historyButton.setBackgroundColor(getResources().getColor(R.color.SelectedGold));
+        currentButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
     }
 
     public void selectCurrent(View v)
     {
-        // sort by active reservation
+        ApiHandler.searchReservationsByUserFromDate(this, user, today, this);
+        historyButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+        currentButton.setBackgroundColor(getResources().getColor(R.color.SelectedGold));
     }
 
 
