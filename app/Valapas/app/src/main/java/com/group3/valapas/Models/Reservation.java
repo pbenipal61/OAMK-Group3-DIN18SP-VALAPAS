@@ -4,14 +4,16 @@ public class Reservation
 {
     private String id;
     private String customerId;
+    private String companyId;
     private String date;
     private String offeringId;
     private int quantity;
 
-    public Reservation(String id, String customerId, String date, String offeringId, int quantity)
+    public Reservation(String id, String customerId, String companyId, String date, String offeringId, int quantity)
     {
         this.id = id;
         this.customerId = customerId;
+        this.companyId = companyId;
         this.date = date;
         this.offeringId = offeringId;
         this.quantity = quantity;
@@ -24,6 +26,11 @@ public class Reservation
     public String getCustomer()
     {
         return customerId;
+    }
+
+    public String getCompanyId()
+    {
+        return companyId;
     }
 
     public String getDate()
