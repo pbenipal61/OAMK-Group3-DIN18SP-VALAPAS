@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/DarkGray"
     tools:context=".CompanyPages.CompanyBookingsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,6 +13,7 @@
         android:layout_height="75dp"
         android:layout_gravity="bottom"
         android:orientation="vertical"
+        android:background="@color/DarkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -22,6 +24,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_home_black_24dp"
+            android:onClick="onHomeClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Home"
@@ -32,7 +35,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/bookingButton"
@@ -51,8 +56,9 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp"
-            android:drawableTint="#FFFF2626"
-            android:textColor="#FF2626" />
+            android:drawableTint="#ffcc00"
+            android:textColor="@color/SelectedGold"
+            />
 
         <Button
             android:id="@+id/updateInfoButton"
@@ -60,6 +66,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:onClick="onUpdateInfoClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
@@ -70,7 +77,9 @@
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/favorites"
@@ -78,6 +87,7 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_stars_black_24dp"
+            android:onClick="onReviewsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Reviews"
@@ -88,30 +98,63 @@
             app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/user_bookings_tabs"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="My bookings"
-        android:textAlignment="center"
-        android:textSize="36sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/user_bookings_history_tab"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@color/LightGold"
+            android:text="History"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/user_bookings_current_tab"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@color/LightGold"
+            android:text="@string/current"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/myReviewsListview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/user_bookings_tabs"
+        android:background="@color/White"
         tools:layout_editor_absoluteX="92dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
