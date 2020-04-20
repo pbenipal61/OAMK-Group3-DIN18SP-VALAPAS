@@ -5,7 +5,7 @@ import Reservation from "../models/Reservation";
 
 const router = new express.Router();
 
-router.post('/', async (req, res, next) => {
+router.post('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const input = req.body;
         const reservation = await Reservation.create({...input});
@@ -33,8 +33,33 @@ router.get('/', async (req, res, next) => {
         const id = req.query.id;
         
         if(id){
-            const reservation = await Reservation.findById(id);
-            return res.status(200).json({status: "Success", data: {reservation}})
+            let reservation = await Reservation.findById(id).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
+            
+            return res.status(200).json({status: "Success", data: {reservation}});
+        }
+
+        let ids = req.query.ids;
+        if(ids){
+
+            ids = ids.split(",");
+            console.log(ids);
+            const reservations = await Reservation.find({
+                _id: {
+                    $in: ids
+                }
+            }).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            });
+
+            return res.status(200).json({status: "Success", data: {reservations}})
         }
 
         if(Object.keys(req.query).length > 0){
