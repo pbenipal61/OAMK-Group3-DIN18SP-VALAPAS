@@ -74,7 +74,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         favoriteButton = findViewById(R.id.favoriteButton);
         companyName = findViewById(R.id.offeringName);
         companyLocation = findViewById(R.id.companyLocation);
-        companyDescription = findViewById(R.id.companyDescription);
+        companyDescription = findViewById(R.id.company_description);
         companyImage = findViewById(R.id.companyImage);
 
         offeringListView = findViewById(R.id.offeringsListView);
