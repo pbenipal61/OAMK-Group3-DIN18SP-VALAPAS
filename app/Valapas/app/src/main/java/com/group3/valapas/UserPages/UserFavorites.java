@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,11 @@ import java.util.Set;
 
 public class UserFavorites extends AppCompatActivity implements IReturnCompanySearchResultsCallback
 {
+    private Button mostRecentButton;
+    private Button priceButton;
+    private Button mostUsedButton;
+
+
     private CompanyAdapter companyAdapter;
     private ListView companiesListView;
 
@@ -44,6 +50,10 @@ public class UserFavorites extends AppCompatActivity implements IReturnCompanySe
         setContentView(R.layout.user_favorites);
 
         context = this;
+
+        mostRecentButton = findViewById(R.id.user_favorites_most_recent_tab);
+        priceButton = findViewById(R.id.user_favorites_price_tab);
+        mostUsedButton = findViewById(R.id.user_favorites_most_used_tab);
 
         companiesListView = findViewById(R.id.companiesListView);
         companyAdapter = new CompanyAdapter(this, companyNames, companyCategories, companyDescriptions, companyImages);
@@ -81,6 +91,27 @@ public class UserFavorites extends AppCompatActivity implements IReturnCompanySe
     {
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
+    }
+
+    public void selectMostRecent(View v)
+    {
+        mostRecentButton.setBackgroundColor(getResources().getColor(R.color.SelectedGold));
+        priceButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+        mostUsedButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+    }
+
+    public void selectPrice(View v)
+    {
+        mostRecentButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+        priceButton.setBackgroundColor(getResources().getColor(R.color.SelectedGold));
+        mostUsedButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+    }
+
+    public void selectMostUsed(View v)
+    {
+        mostRecentButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+        priceButton.setBackgroundColor(getResources().getColor(R.color.LightGold));
+        mostUsedButton.setBackgroundColor(getResources().getColor(R.color.SelectedGold));
     }
 
     @Override
