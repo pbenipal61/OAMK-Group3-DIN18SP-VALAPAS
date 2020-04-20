@@ -11,8 +11,30 @@ public class Reservation implements Comparable<Reservation>
     private String date;
     private String offeringId;
     private int quantity;
+    private String companyName;
+    private String offeringName;
+    private String offeringDescription;
+    private int price;
+    private String customerName;
 
-    public Reservation(String id, String customerId, String companyId, String date, String offeringId, int quantity)
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getOfferingname() {
+        return offeringName;
+    }
+
+    public String getOfferingDescription() {
+        return offeringDescription;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+
+    public Reservation(String id, String customerId, String companyId, String date, String offeringId, int quantity, String companyName, String offeringName, String offeringDescription, int price, String customerName)
     {
         this.id = id;
         this.customerId = customerId;
@@ -20,6 +42,15 @@ public class Reservation implements Comparable<Reservation>
         this.date = date;
         this.offeringId = offeringId;
         this.quantity = quantity;
+        this.companyName = companyName;
+        this.offeringName = offeringName;
+        this.offeringDescription = offeringDescription;
+        this.price = price;
+        this.customerName = customerName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
     }
 
     public String getId() {
@@ -61,5 +92,11 @@ public class Reservation implements Comparable<Reservation>
             e.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Reservation: Company: " + companyName + ". Offering name: " + offeringName + ". Offering description: " + offeringDescription + ". Price: " + price;
     }
 }

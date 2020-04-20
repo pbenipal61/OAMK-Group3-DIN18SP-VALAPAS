@@ -1463,10 +1463,14 @@ public class ApiHandler
 
                                 Reservation reservation = new ReservationBuilder()
                                         .id(reservationJSON.getString("_id"))
-                                        .customer(reservationJSON.getString("customer"))
+                                        // .customer(reservationJSON.getString("customer"))
                                         .date(reservationJSON.getString("date"))
                                         .offering(reservationJSON.getString("offering"))
                                         .quantity(reservationJSON.getInt("quantity"))
+                                        .companyName(reservationJSON.getJSONObject("offering").getJSONObject("company").getString("name"))
+                                        .offeringName(reservationJSON.getJSONObject("offering").getString("offeringType"))
+                                        .offeringDescription(reservationJSON.getJSONObject("offering").getString("description"))
+                                        .price(Integer.parseInt(reservationJSON.getJSONObject("offering").getString("price")))
                                         .buildReservation();
                                 reservationsList.add(reservation);
                             }
