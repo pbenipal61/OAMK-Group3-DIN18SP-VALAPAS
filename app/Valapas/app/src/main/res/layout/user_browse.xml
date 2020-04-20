@@ -22,7 +22,7 @@
             android:background="#FFFFFF">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/locationsText"
                 android:layout_width="225dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/locationsText">
 
             </ListView>
 
@@ -103,7 +103,7 @@
                 android:text="Sort by"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/locationsText"
                 app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

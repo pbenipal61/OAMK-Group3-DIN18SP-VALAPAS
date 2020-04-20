@@ -31,7 +31,7 @@ import com.group3.valapas.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserBrowse extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback
+public class UserBrowse extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback, CategoriesAdapter.OnItemClickListener
 {
     private RecyclerView categoriesView;
     private RecyclerView.LayoutManager layoutManager;
@@ -41,6 +41,8 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
 
     private CompanyAdapter companyAdapter;
     private ListView companiesListView;
+
+    private TextView locations;
 
     // the array of categories (might have a class later)
     private ArrayList<String> categories = new ArrayList<>();
@@ -67,11 +69,12 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
 
         categories = new ArrayList<>(Arrays.asList("Restaurants", "Fast Food", "Sports", "Leisure", "Entertainment", "VR"));
 
+        locations = findViewById(R.id.locationsText);
         categoriesView = findViewById(R.id.categoriesView);
         categoriesView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         categoriesView.setLayoutManager(layoutManager);
-        categoriesAdapter = new CategoriesAdapter(categories);
+        categoriesAdapter = new CategoriesAdapter(categories, this);
         categoriesView.setAdapter(categoriesAdapter);
 
         searchText = findViewById(R.id.searchText);
@@ -146,6 +149,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         in.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
 
+        ((CategoriesAdapter)categoriesAdapter).resetIndex();
         ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this);
     }
 
@@ -154,6 +158,11 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
     public void sortSelected(String selection, int index) {
         sort = selection;
         sortIndex = index;
+    }
+
+    private void updateLocationsString()
+    {
+        locations.setText("Locations (" + companyNames.size() + ")");
     }
 
     @Override
@@ -172,7 +181,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
             Log.d("AAA", "For1: ");
             companyNames.add(c.getName());
             Log.d("AAA", "For2: ");
-            companyCategories.add("sulea");
+            companyCategories.add(c.getCategories()[0]);
             Log.d("AAA", "For3: ");
             companyDescriptions.add(c.getDescription());
             companyImages.add("imagine");
@@ -183,14 +192,25 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
         //Log.d("AAA", "Name: " + companyNames.get(0));
 
         UserBrowse.this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
+                @Override
+                public void run() {
                 ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) companiesListView.getLayoutParams();
                 lp.height = 600 * companyNames.size();
                 companiesListView.setLayoutParams(lp);
 
+                updateLocationsString();
+
                 companyAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
+        Log.d("AAA", "onItemClick: ");
+        ApiHandler.searchByCompanyCategory(this, categories.get(position), this);
+
+
     }
 }
