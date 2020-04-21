@@ -9,6 +9,7 @@
     <color name="oldDefaultBackground">#EEEEEE</color>
     <color name="DefaultBackground">#FAFAFA</color>
     <color name="defaultTextColor">#474646</color>
+    <color name="Gray">#BBBBBB</color>
 
     <color name="DarkGray">#434343</color>
     <color name="LightGray">#999999</color>

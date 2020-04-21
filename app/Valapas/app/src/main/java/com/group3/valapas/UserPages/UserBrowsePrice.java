@@ -42,7 +42,7 @@ public class UserBrowsePrice extends AppCompatActivity
 
     public void selectCategory(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserMakeReservation.class);
         startActivity(i);
         finish();
     }

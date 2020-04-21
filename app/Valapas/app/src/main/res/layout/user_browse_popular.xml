@@ -20,11 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
+
             android:background="@color/White"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:padding="5dp"
-            android:drawableLeft="@drawable/ic_search_black_24dp"
             tools:ignore="LabelFor" />
 
     </LinearLayout>
@@ -50,7 +49,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectCategory"
             android:text="@string/category"
             android:textSize="10sp"
@@ -64,7 +63,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectPrice"
             android:text="@string/price"
             android:textSize="10sp"
@@ -81,7 +80,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_selected_gold"
+            android:background="@color/SelectedGold"
             android:text="@string/popular"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -106,15 +105,9 @@
             android:layout_marginEnd="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:fontFamily="monospace"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:textSize="15sp"
-            android:text="1"
-            android:textStyle="bold"
-            android:textColor="@color/SelectedGold"
-            android:drawableEnd="@drawable/favorites_icon_gold"
+            android:textSize="10sp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -126,15 +119,9 @@
             android:layout_marginEnd="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:fontFamily="monospace"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:textSize="15sp"
-            android:text="2"
-            android:textStyle="bold"
-            android:textColor="@color/SelectedGold"
-            android:drawableEnd="@drawable/favorites_icon_gold"
+            android:textSize="10sp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -146,15 +133,9 @@
             android:layout_marginEnd="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:fontFamily="monospace"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:textSize="15sp"
-            android:text="3"
-            android:textStyle="bold"
-            android:textColor="@color/SelectedGold"
-            android:drawableEnd="@drawable/favorites_icon_gold"
+            android:textSize="10sp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -166,15 +147,9 @@
             android:layout_marginEnd="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:fontFamily="monospace"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:textSize="15sp"
-            android:text="4"
-            android:textStyle="bold"
-            android:textColor="@color/SelectedGold"
-            android:drawableEnd="@drawable/favorites_icon_gold"
+            android:textSize="10sp"
             tools:ignore="SmallSp" />
 
         <Button
@@ -186,15 +161,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:fontFamily="monospace"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:textSize="15sp"
-            android:text="5"
-            android:textStyle="bold"
-            android:textColor="@color/SelectedGold"
-            android:drawableEnd="@drawable/favorites_icon_gold"
+            android:textSize="10sp"
             tools:ignore="SmallSp" />
 
     </LinearLayout>
@@ -226,14 +195,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/DarkGray"
-            android:drawableTop="@drawable/browse_icon_gold"
+            android:drawableTop="@drawable/browse_icon_white"
             android:onClick="selectBrowse"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/browse"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/LightGold"
+            android:textColor="@color/White"
             android:textSize="9sp"
             android:textStyle="normal"
             android:visibility="visible"

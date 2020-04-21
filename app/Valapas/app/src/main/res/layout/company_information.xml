@@ -6,39 +6,39 @@
     android:layout_height="match_parent"
     android:background="@color/DarkGray"
     android:orientation="vertical"
-    tools:context=".CompanyPages.CompanyInformation" >
+    tools:context=".CompanyPages.CompanyInformation">
 
-        <LinearLayout
-            android:id="@+id/company_information_header"
+    <LinearLayout
+        android:id="@+id/company_information_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/company_info_name_title" >
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:background="@color/DarkGray"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/company_info_name_title" >
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:text="COMPANY INFORMATION"
+            android:textAllCaps="false"
+            android:textColor="@color/SelectedGold"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:textAlignment="center"
-                android:text="COMPANY INFORMATION"
-                android:textAllCaps="false"
-                android:textColor="@color/SelectedGold"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/montserrat"/>
-
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/company_info_name_title"
@@ -547,7 +547,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/interactive_button_light_gold"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textAlignment="center"

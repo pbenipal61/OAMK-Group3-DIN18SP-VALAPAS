@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompanyPages.CompanyUpdateInfo">
+    tools:context=".CompanyPages.CompanyUpdateInfo"
+    android:background="@color/LightGray">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,196 +19,628 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editText18"
+                android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Company name"
-                android:inputType="textPersonName"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:hint="Company Description"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/montserrat"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/company_postalcode_city_country_container" />
 
-            <EditText
-                android:id="@+id/editText19"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Description"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.52"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText18" />
-
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:width="150dp"
-                android:text="Button"
-                app:layout_constraintEnd_toStartOf="@+id/button15"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText19" />
-
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:width="150dp"
-                android:text="Button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button13"
-                app:layout_constraintTop_toBottomOf="@+id/editText19" />
-
-            <EditText
-                android:id="@+id/editText20"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Address"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagesListView" />
-
-            <EditText
-                android:id="@+id/editText21"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Postal code"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText20" />
-
-            <EditText
-                android:id="@+id/editText22"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Location"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText21" />
-
-            <EditText
-                android:id="@+id/editText23"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="City"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText22" />
-
-            <EditText
-                android:id="@+id/editText24"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Categories"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText23" />
-
-            <EditText
-                android:id="@+id/editText27"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Price range"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText25" />
-
-            <EditText
-                android:id="@+id/editText25"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:ems="10"
-                android:hint="Opens hh:mm"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/editText26"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText24" />
-
-            <EditText
-                android:id="@+id/editText26"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Closes hh:mm"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/editText25"
-                app:layout_constraintTop_toBottomOf="@+id/editText24" />
-
-            <ListView
-                android:id="@+id/imagesListView"
+            <LinearLayout
+                android:id="@+id/register_company_title"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button13" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/SelectedGold"
+                    android:padding="10dp"
+                    android:text="Register Business"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_name_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_company_title"
+                android:background="@color/LightGray">
+
+                <EditText
+                    android:id="@+id/companyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Company Name"
+                    android:paddingStart="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_address_description_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_name_container"
+                android:background="@color/LightGray">
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Address"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+                <EditText
+                    android:id="@+id/postalCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Postal Code"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_postalcode_city_country_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_address_description_container"
+                android:background="@color/LightGray">
+
+                <EditText
+                    android:id="@+id/companyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="City"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+                <EditText
+                    android:id="@+id/country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Country"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_openinghours_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Operating Hours MON - FRI"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Operating Hours SAT - SUN"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_openinghours_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/White"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/company_openinghours_title">
+
+                <EditText
+                    android:id="@+id/openingHours1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:hint="0630"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:id="@+id/openingHours2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:hint="2100"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:id="@+id/openingHours3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:hint="0900"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:id="@+id/openingHours4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:hint="2300"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_price_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/White"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_openinghours_container">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Price Range"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_price_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/White"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_price_container">
+
+                <CheckBox
+                    android:id="@+id/Cheap"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:text="My customers will spend less than 30 Euros."
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Average"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:text="My Customers will spend more than 30 Euros, but less than 100."
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Expensive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:text="My customers will spend more than 100 Euros."
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_categories_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/White"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_price_options">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Business Categories"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_categories_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_categories_container"
+                android:background="@color/White">
+
+                <CheckBox
+                    android:id="@+id/Restaurant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Restaurant"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Venue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Venue"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Entertainment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Entertainment"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Bar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_categories_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_categories_one"
+                android:background="@color/White">
+
+                <CheckBox
+                    android:id="@+id/Modern"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Modern"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Indoor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:text="Indoor"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Finnish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Finnish"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_categories_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_categories_two"
+                android:background="@color/White">
+
+                <CheckBox
+                    android:id="@+id/Traditional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Traditional"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/Outdoor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="Outdoor"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/International"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:text="International"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/company_email_password_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_categories_three"
+                android:background="@color/LightGray"
+                android:paddingTop="16dp">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:hint="Email"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:hint="Password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:hint="Confirm Password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/interactive_button_light_gold"
+                    android:padding="16dp"
+                    android:text="Update Info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -218,13 +651,16 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/DarkGray">
 
         <Button
             android:id="@+id/homeButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_home_black_24dp"
+            android:onClick="onHomeClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Home"
@@ -235,17 +671,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/bookingButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
+            android:drawableTop="@drawable/bookings_icon_white"
+            android:onClick="onBookingsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +692,9 @@
             app:layout_constraintStart_toEndOf="@+id/favorites"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/updateInfoButton"
@@ -263,9 +704,9 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
-            android:drawableTint="#FFFF2626"
-            android:textColor="#FF2626"
-
+            android:drawableTint="#ffcc00"
+            android:textColor="@color/SelectedGold"
+            android:drawableTop="@drawable/ic_account_circle_black_24dp"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/favorites"
@@ -281,10 +722,10 @@
             android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:drawableTop="@drawable/ic_stars_black_24dp"
+            android:onClick="onReviewsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Reviews"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bookingButton"
@@ -292,7 +733,9 @@
             app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

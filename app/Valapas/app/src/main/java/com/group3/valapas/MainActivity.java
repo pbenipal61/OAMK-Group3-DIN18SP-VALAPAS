@@ -1,38 +1,37 @@
 package com.group3.valapas;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
-import com.group3.valapas.BrowsePages.BrowsePage;
 import com.group3.valapas.CompanyPages.CompanyHomeActivity;
-import com.group3.valapas.CompanyPages.CompanyInformation;
-import com.group3.valapas.CompanyPages.CompanyProfile;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.Models.Offering;
-import com.group3.valapas.Models.OfferingBuilder;
 import com.group3.valapas.Models.Reservation;
-import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
-import com.group3.valapas.R;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation {
+
+public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation, IReturnOfferingsFromSearchCallback, IReturnReservationsFromSearchCallback {
     private EditText emailEditText;
     private EditText passwordEditText;
 
@@ -89,6 +88,12 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         // Reservation reservation = new ReservationBuilder().id("5e9c3a90a688254bdde6f8ee").buildReservation();
         // ApiHandler.createReservation(this, reservation, this);
         // ApiHandler.deleteReservation(this, reservation, this);
+
+        // Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
+        // ApiHandler.searchOfferingsByCompany(this, company, this);
+
+        // User user = new UserBuilder().id("5e9c19e1a688254bdde6f8ea").buildUser();
+        // ApiHandler.searchReservationsByUser(this, user, this);
     }
 
     public void selectLoginAsCompany(View v)
@@ -154,5 +159,15 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
     @Override
     public void deletedReservation() {
         Log.d("AAA", "reservation deleted");
+    }
+
+    @Override
+    public void returnOfferings(ArrayList<Offering> offerings) {
+        Log.d("AAA", "returnOfferings: " + offerings.get(0).getDescription() + " ::: " + offerings.get(1).getDescription());
+    }
+
+    @Override
+    public void returnReservations(ArrayList<Reservation> reservations) {
+        Log.d("AAA", "returnReservations: " + reservations.get(0).toString() + " ::: " + reservations.get(1).toString());
     }
 }

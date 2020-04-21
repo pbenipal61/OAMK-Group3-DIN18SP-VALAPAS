@@ -47,8 +47,29 @@ router.get('/', async (req, res, next) => {
             return res.status(200).json({status: "Success", data: {company}})
         }
 
+        let ids = req.query.ids;
+        if(ids){
+
+            ids = ids.split(",");
+            const companies = await Company.find({
+                _id: {
+                    $in: ids
+                }
+            });
+
+            return res.status(200).json({status: "Success", data: {companies}})
+        }
+
+
         if(Object.keys(req.query).length > 0){
-            const company = await Company.find(req.query);
+            const queryObj = Object.keys(req.query).reduce((acc, key) => {
+                let a = acc;
+                a[key] = new RegExp(`${req.query[key]}`, 'i');
+                return a;
+            }, {});
+
+            console.log(queryObj);
+            const company = await Company.find(queryObj);
             return res.status(200).json({status: "Success", data: {company}})
         }
 
