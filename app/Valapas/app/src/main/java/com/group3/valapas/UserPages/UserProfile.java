@@ -44,7 +44,7 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
@@ -90,7 +90,7 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
     {
         Toast.makeText(this, "User updated successfully!", Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, UserBrowse.class);
+        Intent intent = new Intent(this, UserBrowseCategory.class);
         startActivity(intent);
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.group3.valapas.R;
+import com.group3.valapas.RegisterPages.RegisterUser;
 
 public class BrowseProfilePage extends AppCompatActivity
 {
@@ -16,9 +17,15 @@ public class BrowseProfilePage extends AppCompatActivity
         setContentView(R.layout.browse_profile_page);
     }
 
+    public void selectUser(View v)
+    {
+        Intent i = new Intent (this, RegisterUser.class);
+        startActivity(i);
+    }
+
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, BrowsePage.class);
+        Intent i = new Intent (this, BrowseCategoryTab.class);
         startActivity(i);
     }
 

@@ -50,7 +50,7 @@
             android:background="@color/SelectedGold"
             android:padding="10dp"
             android:textColor="@color/Black"
-            android:textSize="15sp"
+            android:textSize="10sp"
             android:textStyle="normal"
             app:fontFamily="@font/montserrat" />
 

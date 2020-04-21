@@ -92,7 +92,7 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
     }
 
@@ -157,7 +157,7 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
     public void returnReservation(Reservation reservation)
     {
         Toast.makeText(this, "Reservation created.", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, UserBrowse.class);
+        Intent intent = new Intent(this, UserBrowseCategory.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
