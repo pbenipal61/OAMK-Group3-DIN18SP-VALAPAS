@@ -62,14 +62,7 @@ router.get('/', async (req, res, next) => {
 
 
         if(Object.keys(req.query).length > 0){
-            const queryObj = Object.keys(req.query).reduce((acc, key) => {
-                let a = acc;
-                a[key] = new RegExp(`${req.query[key]}`, 'i');
-                return a;
-            }, {});
-
-            console.log(queryObj);
-            const company = await Company.find(queryObj);
+            const company = await Company.find(req.query);
             return res.status(200).json({status: "Success", data: {company}})
         }
 

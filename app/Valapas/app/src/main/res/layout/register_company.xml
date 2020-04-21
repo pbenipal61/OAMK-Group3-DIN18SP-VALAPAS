@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="@color/LightGray"
     android:orientation="vertical"
     tools:context=".RegisterPages.RegisterCompany" >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,17 +25,18 @@
             <EditText
                 android:id="@+id/description"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:hint="Company Description"
                 android:textAllCaps="false"
                 android:textColor="@color/Black"
-                android:textSize="8sp"
-                android:textStyle="normal"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:fontFamily="@font/montserrat"
-                android:hint="Company Description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/company_postalcode_city_country_container" />
@@ -56,12 +57,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/SelectedGold"
-                    android:padding="20dp"
+                    android:padding="10dp"
                     android:text="Register Business"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -71,26 +72,27 @@
                 android:id="@+id/company_name_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_company_title"
-                android:background="@color/White">
+                android:background="@color/LightGray">
 
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:hint="Company Name"
                     android:paddingStart="5dp"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Company Name"/>
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -98,26 +100,40 @@
                 android:id="@+id/company_address_description_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_name_container"
-                android:background="@color/White">
+                android:background="@color/LightGray">
 
                 <EditText
                     android:id="@+id/address"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Address"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Company Address"/>
+                    android:background="@color/White"/>
+
+                <EditText
+                    android:id="@+id/postalCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Postal Code"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
             </LinearLayout>
 
@@ -125,49 +141,41 @@
                 android:id="@+id/company_postalcode_city_country_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_address_description_container"
-                android:background="@color/White">
-
-                <EditText
-                    android:id="@+id/postalCode"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Postal Code"/>
+                android:background="@color/LightGray">
 
                 <EditText
                     android:id="@+id/city"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="City"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat"
-                    android:hint="City"/>
+                    android:background="@color/White"/>
 
                 <EditText
                     android:id="@+id/country"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Country"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Country"/>
+                    android:background="@color/White"/>
 
             </LinearLayout>
 
@@ -175,9 +183,9 @@
                 android:id="@+id/company_openinghours_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -217,8 +225,8 @@
                 android:id="@+id/company_openinghours_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -227,62 +235,58 @@
                 <EditText
                     android:id="@+id/openingHours1"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
+                    android:layout_weight="1"
                     android:hint="0630"
-                    tools:ignore="SmallSp" />
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/openingHours2"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
+                    android:layout_weight="1"
                     android:hint="2100"
-                    tools:ignore="SmallSp" />
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/openingHours3"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
+                    android:layout_weight="1"
                     android:hint="0900"
-                    tools:ignore="SmallSp" />
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/openingHours4"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
+                    android:layout_weight="1"
                     android:hint="2300"
-                    tools:ignore="SmallSp" />
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -290,9 +294,9 @@
                 android:id="@+id/company_price_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 android:gravity="bottom"
                 android:orientation="vertical"
@@ -319,8 +323,8 @@
                 android:id="@+id/company_price_options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -335,7 +339,7 @@
                     android:text="My customers will spend less than 30 Euros."
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -348,7 +352,7 @@
                     android:text="My Customers will spend more than 30 Euros, but less than 100."
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -361,7 +365,7 @@
                     android:text="My customers will spend more than 100 Euros."
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -371,9 +375,9 @@
                 android:id="@+id/company_categories_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 android:gravity="bottom"
                 android:orientation="vertical"
@@ -400,8 +404,8 @@
                 android:id="@+id/company_categories_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -418,7 +422,7 @@
                     android:text="Restaurant"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -431,7 +435,7 @@
                     android:text="Venue"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -444,7 +448,7 @@
                     android:text="Entertainment"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -456,7 +460,7 @@
                     android:text="Bar"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -466,8 +470,8 @@
                 android:id="@+id/company_categories_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -484,7 +488,7 @@
                     android:text="Modern"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -497,7 +501,7 @@
                     android:text="Indoor"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -510,7 +514,7 @@
                     android:text="Finnish"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -520,8 +524,8 @@
                 android:id="@+id/company_categories_three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -538,7 +542,7 @@
                     android:text="Traditional"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -551,7 +555,7 @@
                     android:text="Outdoor"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -564,7 +568,7 @@
                     android:text="International"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -575,14 +579,14 @@
                 android:id="@+id/company_email_password_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_categories_three"
-                android:background="@color/White"
+                android:background="@color/LightGray"
                 android:paddingTop="16dp">
 
                 <EditText
@@ -590,67 +594,61 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="20dp"
+                    android:background="@color/White"
+                    android:hint="Email"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Email"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:background="@color/White"
+                    android:hint="Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Password"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/confirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:background="@color/White"
+                    android:hint="Confirm Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Confirm Password"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginTop="20dp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/Black"
-                    android:textSize="8sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:text="I have read and I agree with the Terms and Conditions, the Privacy Policy and Usage of cookies and similar technologies."
+                    android:text="I have read and I agree with the Terms and Conditions, the Privacy Policy and Usage of cookies and similar tehnologies. - read more"
                     android:background="@color/White"/>
 
                 <Button
                     android:id="@+id/registerButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/interactive_button_light_gold"
                     android:onClick="onRegisterClick"
                     android:padding="16dp"
                     android:text="Register"
                     android:textAllCaps="true"
                     android:textColor="@color/Black"
-                    android:textSize="15sp"
-                    android:textStyle="normal"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
             </LinearLayout>

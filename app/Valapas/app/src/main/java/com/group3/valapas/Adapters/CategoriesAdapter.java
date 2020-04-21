@@ -14,8 +14,7 @@ import com.group3.valapas.R;
 
 import java.util.ArrayList;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder>
-{
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
     private ArrayList<String> rCategories;
     private ArrayList<String> rImages; // not used right
@@ -38,8 +37,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.adapter_category, parent, false);
         ViewHolder viewHolder = new ViewHolder(view, onItemClickListener);
@@ -67,8 +65,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return rCategories.size();
     }
 
@@ -93,6 +90,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             this.onItemClickListener = onItemClickListener;
 
             title = itemView.findViewById(R.id.offeringDescription);
+            image = itemView.findViewById(R.id.imageView);
             layout = itemView.findViewById(R.id.categoryLayout);
 
             itemView.setOnClickListener(this);
@@ -101,6 +99,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         @Override
         public void onClick(View v) {
             onItemClickListener.onItemClick(getAdapterPosition());
+
+
         }
     }
 

@@ -111,8 +111,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response reached: " + response.toString());
 
@@ -142,8 +141,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -174,15 +172,12 @@ public class ApiHandler
 
         // Making the JSON
         JSONObject js = new JSONObject();
-        try
-        {
+        try {
 
             js.put("email", user.getEmail());
             js.put("password", user.getPassword());
 
-        }
-        catch (Exception e)
-        {
+        }catch (Exception e) {
             e.printStackTrace();
         }
         Log.d("AAA", js.toString());
@@ -191,8 +186,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -218,8 +212,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -269,8 +262,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -301,8 +293,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -336,8 +327,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -348,8 +338,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -418,8 +407,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", "raspuns: " + response.toString());
@@ -476,8 +464,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -523,8 +510,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -548,8 +534,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error

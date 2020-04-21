@@ -8,12 +8,10 @@ import android.view.View;
 
 import com.group3.valapas.R;
 
-public class CompanyReviewsActivity extends AppCompatActivity
-{
-    //Redundant File
+public class CompanyReviewsActivity extends AppCompatActivity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_reviews);
     }
