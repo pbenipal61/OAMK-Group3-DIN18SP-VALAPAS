@@ -2,10 +2,11 @@ import express from 'express';
 import passport from 'passport';
 
 import Reservation from "../models/Reservation";
+import Offering from "../models/Offering";
 
 const router = new express.Router();
 
-router.post('/', async (req, res, next) => {
+router.post('/', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const input = req.body;
         const reservation = await Reservation.create({...input});
@@ -28,15 +29,77 @@ router.post('/', async (req, res, next) => {
 
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try{
-        const id = req.params.id;
+
+        
+        const id = req.query.id;
         
         if(id){
-            const reservation = await Reservation.findById(id);
-            return res.status(200).json({status: "Success", data: {reservation}})
+            let reservation = await Reservation.findById(id).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            }).populate("customer");
+            
+            return res.status(200).json({status: "Success", data: {reservation}});
         }
-        const reservations = await Reservation.find({});
+
+        let ids = req.query.ids;
+        if(ids){
+
+            ids = ids.split(",");
+            console.log(ids);
+            const reservations = await Reservation.find({
+                _id: {
+                    $in: ids
+                }
+            }).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            }).populate("customer");;
+
+            return res.status(200).json({status: "Success", data: {reservations}});
+        }
+
+        let company = req.query.company;
+        if(company){
+            const offeringIds = await Offering.find({company }).select('_id');
+            const reservations = await Reservation.find({
+                offering: {
+                    $in: offeringIds
+                }
+            }).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            }).populate("customer");;
+            return res.status(200).json({status: "Success", data: {reservations}});
+
+        }
+        
+        if(Object.keys(req.query).length > 0){
+
+            const reservations = await Reservation.find(req.query).populate({
+                path: "offering",
+                populate: {
+                    path: "company"
+                }
+            }).populate("customer");;
+            console.log(reservations);
+            return res.status(200).json({status: "Success", data: {reservations}})
+        }
+
+        const reservations = await Reservation.find({}).populate({
+            path: "offering",
+            populate: {
+                path: "company"
+            }
+        }).populate("customer");;
         return res.status(200).json({status: "Success", data: {reservations}})
     }
     catch(err){

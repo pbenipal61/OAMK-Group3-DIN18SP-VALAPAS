@@ -122,16 +122,12 @@
 
     <LinearLayout
         android:id="@+id/main_blank_2"
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-
         android:orientation="vertical"
-
         app:layout_constraintTop_toBottomOf="@id/main_blank_1"
         app:layout_constraintBottom_toTopOf="@id/user_register"
         >
