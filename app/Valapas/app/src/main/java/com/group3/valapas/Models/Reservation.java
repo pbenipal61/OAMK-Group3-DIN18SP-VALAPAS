@@ -21,7 +21,7 @@ public class Reservation implements Comparable<Reservation>
         return companyName;
     }
 
-    public String getOfferingname() {
+    public String getOfferingName() {
         return offeringName;
     }
 

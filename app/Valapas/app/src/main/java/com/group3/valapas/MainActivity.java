@@ -1,12 +1,12 @@
 package com.group3.valapas;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
@@ -18,21 +18,15 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
-import com.group3.valapas.BrowsePages.BrowsePage;
 import com.group3.valapas.CompanyPages.CompanyHomeActivity;
-import com.group3.valapas.CompanyPages.CompanyInformation;
-import com.group3.valapas.CompanyPages.CompanyProfile;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.Models.Offering;
-import com.group3.valapas.Models.OfferingBuilder;
 import com.group3.valapas.Models.Reservation;
-import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
-import com.group3.valapas.R;
 
 import java.util.ArrayList;
 
@@ -73,10 +67,10 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectLoginAsUser(View v)
     {
-        /*
+
         User user = new UserBuilder().email(emailEditText.getText().toString()).password(passwordEditText.getText().toString()).buildUser();
         ApiHandler.loginUser(this, user, this);
-        */
+
 
         // ApiHandler.searchByCompanyName(this, "Test company", this);
         // ApiHandler.searchByCompanyCategory(this, "Food", this);
@@ -99,8 +93,8 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         // Company company = new CompanyBuilder().id("5e946541b8a68d1dd153398b").buildCompany();
         // ApiHandler.searchOfferingsByCompany(this, company, this);
 
-        User user = new UserBuilder().id("5e9c19e1a688254bdde6f8ea").buildUser();
-        ApiHandler.searchReservationsByUser(this, user, this);
+        /*User user = new UserBuilder().id("5e9c19e1a688254bdde6f8ea").buildUser();
+        ApiHandler.searchReservationsByUser(this, user, this);*/
     }
 
     public void selectLoginAsCompany(View v)
