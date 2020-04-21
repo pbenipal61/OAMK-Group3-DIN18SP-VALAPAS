@@ -4,80 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DarkGray"
-    android:orientation="vertical"
     tools:context=".UserPages.UserCompanyView">
 
-    <LinearLayout
-        android:id="@+id/user_company_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/DarkGray"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/user_company_address" >
-
-        <TextView
-            android:id="@+id/companyName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="10dp"
-            android:text="Company Name"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
-            android:textSize="25sp"
-            android:textStyle="normal"
-            app:fontFamily="@font/montserrat" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/user_company_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/DarkGray"
-        app:layout_constraintTop_toBottomOf="@id/user_company_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/user_company_hours" >
-
-        <TextView
-            android:id="@+id/CompanyAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
-            android:text="3141 Address, Oulu 90130"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/White"
-            android:textSize="15sp"
-            android:textStyle="italic"
-            app:fontFamily="@font/montserrat" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/user_company_hours"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -86,15 +15,9 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-8dp">
 
-        <LinearLayout
-            android:id="@+id/user_company_hours_box"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="10dp">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
@@ -146,19 +69,16 @@
             <TextView
                 android:id="@+id/company_description"
                 android:layout_width="0dp"
-                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/interactive_button_light_gold"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/Black"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                app:fontFamily="@font/montserrat"
-                android:text="@string/create_reservation" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:lines="6"
+                android:maxLines="8"
+                android:text="Description of the company"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/companyImage" />
 
             <ListView
                 android:id="@+id/offeringsListView"
@@ -186,9 +106,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/user_company_description"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/companyLocation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -199,8 +119,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/offeringName" />
 
-        <TextView
-            android:id="@+id/CompanyDescription"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/homeButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
@@ -220,6 +151,65 @@
             tools:layout_conversion_absoluteHeight="75dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/bookingButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_local_library_black_24dp"
+            android:onClick="selectBookings"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Bookings"
+            android:textColor="#474646"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/favorites"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="75dp"
+            tools:layout_conversion_absoluteWidth="103dp" />
 
+        <Button
+            android:id="@+id/updateInfoButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:onClick="selectProfile"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="My Profile"
+            android:textColor="#474646"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favorites"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="75dp"
+            tools:layout_conversion_absoluteWidth="103dp" />
+
+        <Button
+            android:id="@+id/favorites"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_favorite_black_24dp"
+            android:onClick="selectFavorites"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Favorites"
+            android:textColor="#474646"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bookingButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="75dp"
+            tools:layout_conversion_absoluteWidth="103dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
