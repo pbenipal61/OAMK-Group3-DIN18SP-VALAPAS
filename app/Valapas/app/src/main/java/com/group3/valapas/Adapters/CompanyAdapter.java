@@ -1,12 +1,12 @@
 package com.group3.valapas.Adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +24,8 @@ public class CompanyAdapter extends ArrayAdapter<String>
     ArrayList<String> rCompanyDescriptions = new ArrayList<String>();
     ArrayList<String> rImages = new ArrayList<String>();
 
+    int height;
+
     public CompanyAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> categories, ArrayList<String> companyDescriptions, ArrayList<String> images) {
         super(context, R.layout.adapter_company, R.id.offeringName, companyNames);
         this.context = context;
@@ -36,13 +38,15 @@ public class CompanyAdapter extends ArrayAdapter<String>
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Log.d("AAA", "Updating view: ");
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_company, parent, false);
         TextView companyName = row.findViewById(R.id.offeringName);
         TextView companyCategory = row.findViewById(R.id.offeringDescription);
         TextView companyDescription = row.findViewById(R.id.offeringPrice);
         ImageView companyImage = row.findViewById(R.id.companyImage);
+
+        LinearLayout l = row.findViewById(R.id.adapterCompanyLayout);
+        height = l.getHeight();
 
         companyName.setText(rCompanyNames.get(position));
         companyCategory.setText(rCategories.get(position));
@@ -55,4 +59,8 @@ public class CompanyAdapter extends ArrayAdapter<String>
         return row;
     }
 
+    public int getHeight()
+    {
+        return height;
+    }
 }
