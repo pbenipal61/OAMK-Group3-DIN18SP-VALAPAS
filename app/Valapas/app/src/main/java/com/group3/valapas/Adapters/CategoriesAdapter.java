@@ -93,7 +93,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             this.onItemClickListener = onItemClickListener;
 
             title = itemView.findViewById(R.id.offeringDescription);
-            image = itemView.findViewById(R.id.imageView);
             layout = itemView.findViewById(R.id.categoryLayout);
 
             itemView.setOnClickListener(this);
@@ -102,8 +101,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         @Override
         public void onClick(View v) {
             onItemClickListener.onItemClick(getAdapterPosition());
-
-
         }
     }
 
