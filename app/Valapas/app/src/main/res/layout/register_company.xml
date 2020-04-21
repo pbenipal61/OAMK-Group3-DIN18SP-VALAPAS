@@ -81,18 +81,18 @@
                 android:background="@color/LightGray">
 
                 <EditText
-                    android:id="@+id/city"
+                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@color/White"
                     android:hint="Company Name"
                     android:paddingStart="5dp"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White" />
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -606,6 +606,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/White"
                     android:hint="Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
@@ -618,6 +619,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/White"
                     android:hint="Confirm Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
@@ -632,11 +634,13 @@
                     android:background="@color/White"/>
 
                 <Button
+                    android:id="@+id/registerButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="onRegisterClick"
                     android:padding="16dp"
                     android:text="Register"
                     android:textAllCaps="true"
