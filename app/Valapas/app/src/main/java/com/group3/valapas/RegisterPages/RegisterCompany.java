@@ -36,7 +36,19 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
 
-    private CheckBox checkBox;
+    private CheckBox checkBox; // needs to be ticked
+
+    // checkboxes for categories
+    private CheckBox restaurantCheckBox;
+    private CheckBox venueCheckBox;
+    private CheckBox entertainmentCheckBox;
+    private CheckBox barCheckBox;
+    private CheckBox modernCheckBox;
+    private CheckBox indoorCheckBox;
+    private CheckBox finnishCheckBox;
+    private CheckBox traditionalCheckBox;
+    private CheckBox outdoorCheckBox;
+    private CheckBox internationalCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,6 +73,17 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
 
         checkBox = findViewById(R.id.checkBox);
+
+        restaurantCheckBox = findViewById(R.id.Restaurant);
+        venueCheckBox = findViewById(R.id.Venue);
+        entertainmentCheckBox = findViewById(R.id.Entertainment);
+        barCheckBox = findViewById(R.id.Bar);
+        modernCheckBox = findViewById(R.id.Modern);
+        indoorCheckBox = findViewById(R.id.Indoor);
+        finnishCheckBox = findViewById(R.id.Finnish);
+        traditionalCheckBox = findViewById(R.id.Traditional);
+        outdoorCheckBox = findViewById(R.id.Outdoor);
+        internationalCheckBox = findViewById(R.id.International);
     }
 
     public void onRegisterClick(View view)
@@ -81,6 +104,54 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
+        String categoriesString = "[";
+        if (restaurantCheckBox.isChecked())
+        {
+            categoriesString += "Restaurant,";
+        }
+        if (venueCheckBox.isChecked())
+        {
+            categoriesString += "Venue,";
+        }
+        if (entertainmentCheckBox.isChecked())
+        {
+            categoriesString += "Entertainment,";
+        }
+        if (barCheckBox.isChecked())
+        {
+            categoriesString += "Bar,";
+        }
+        if (modernCheckBox.isChecked())
+        {
+            categoriesString += "Modern,";
+        }
+        if (indoorCheckBox.isChecked())
+        {
+            categoriesString += "Indoor,";
+        }
+        if (finnishCheckBox.isChecked())
+        {
+            categoriesString += "Finnish,";
+        }
+        if (traditionalCheckBox.isChecked())
+        {
+            categoriesString += "Traditional,";
+        }
+        if (outdoorCheckBox.isChecked())
+        {
+            categoriesString += "Outdoor,";
+        }
+        if (internationalCheckBox.isChecked())
+        {
+            categoriesString += "International,";
+        }
+
+        categoriesString = categoriesString.substring(0, categoriesString.length() - 1);
+        if (!categoriesString.equals(""))
+            categoriesString += "]";
+
+        Log.d("AAA", "categoriesString: " + categoriesString);
+
         if (!password.equals(confirmPassword))
         {
             Toast.makeText(this, "Passwords must match!", Toast.LENGTH_SHORT).show();
@@ -91,7 +162,20 @@ public class RegisterCompany extends AppCompatActivity implements IReturnCompany
         }
         else
         {
-            Company company = new CompanyBuilder().email(email).password(password).country(country).city(city).location("").address(address).description(description).name(name).postalCode(postalCode).buildCompany();
+            String hours = "[" + openingHours1 + "," + openingHours2 + "],[" + openingHours3 + "," + openingHours4 + "]";
+
+            Company company = new CompanyBuilder()
+                    .email(email).password(password)
+                    .country(country)
+                    .city(city)
+                    .location("")
+                    .address(address)
+                    .description(description)
+                    .name(name)
+                    .postalCode(postalCode)
+                    .openingHours(hours)
+                    .categories(categoriesString)
+                    .buildCompany();
             ApiHandler.registerCompany(this, company, this);
         }
     }
