@@ -114,23 +114,21 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
         });
     }
 
-    public void selectProfile(View v)
+    public void selectCategory(View v)
     {
-        Intent i = new Intent (this, UserProfile.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void selectFavorites(View v)
+    public void selectPrice(View v)
     {
-        Intent i = new Intent (this, UserFavorites.class);
+        Intent i = new Intent (this, UserBrowsePrice.class);
         startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void selectBookings(View v)
+    public void selectPopular(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
+        Intent i = new Intent (this, UserBrowsePopular.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
