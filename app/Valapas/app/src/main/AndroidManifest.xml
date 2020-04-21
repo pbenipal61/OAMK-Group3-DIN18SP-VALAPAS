@@ -20,7 +20,6 @@
         <activity android:name=".RegisterPages.RegisterCompanyActivity" />
         <activity android:name=".CompanyPages.CompanyCustomerView" />
         <activity android:name=".CompanyPages.CompanyInformation" />
-        <activity android:name=".CompanyPages.CompanyProfile" />
         <activity android:name=".UserPages.UserBrowsePrice" />
         <activity android:name=".UserPages.UserBrowsePopular" />
         <activity android:name=".UserPages.UserMakeReservation" />

@@ -4,30 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="@color/LightGray"
     android:orientation="vertical"
     tools:context=".RegisterPages.RegisterCompany" >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/company_description"
+                android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
+                android:background="@color/White"
                 android:hint="Company Description"
                 android:textAllCaps="false"
                 android:textColor="@color/Black"
@@ -72,13 +75,13 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/register_company_title">
+                app:layout_constraintTop_toBottomOf="@+id/register_company_title"
+                android:background="@color/LightGray">
 
                 <EditText
-                    android:id="@+id/companyName"
+                    android:id="@+id/city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -88,7 +91,8 @@
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White" />
 
             </LinearLayout>
 
@@ -99,14 +103,14 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_name_container">
+                app:layout_constraintTop_toBottomOf="@id/company_name_container"
+                android:background="@color/LightGray">
 
                 <EditText
-                    android:id="@+id/companyAddress"
+                    android:id="@+id/address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -115,10 +119,11 @@
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
                 <EditText
-                    android:id="@+id/companyPostalCode"
+                    android:id="@+id/postalCode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -127,7 +132,8 @@
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
             </LinearLayout>
 
@@ -138,13 +144,13 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_address_description_container">
+                app:layout_constraintTop_toBottomOf="@id/company_address_description_container"
+                android:background="@color/LightGray">
 
                 <EditText
-                    android:id="@+id/companyCity"
+                    android:id="@+id/city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,10 +159,11 @@
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
                 <EditText
-                    android:id="@+id/companyCountry"
+                    android:id="@+id/country"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -165,7 +172,8 @@
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
             </LinearLayout>
 
@@ -179,7 +187,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_description">
+                app:layout_constraintTop_toBottomOf="@id/description">
 
                 <TextView
                     android:layout_width="0dp"
@@ -192,7 +200,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -205,7 +214,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    android:background="@color/White"/>
 
             </LinearLayout>
 
@@ -221,6 +231,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/company_openinghours_title">
 
                 <EditText
+                    android:id="@+id/openingHours1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -234,6 +245,7 @@
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
+                    android:id="@+id/openingHours2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -247,6 +259,7 @@
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
+                    android:id="@+id/openingHours3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -260,6 +273,7 @@
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
+                    android:id="@+id/openingHours4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -394,7 +408,8 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_container">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_container"
+                android:background="@color/White">
 
                 <CheckBox
                     android:id="@+id/Restaurant"
@@ -459,7 +474,8 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_one">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_one"
+                android:background="@color/White">
 
                 <CheckBox
                     android:id="@+id/Modern"
@@ -512,7 +528,8 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_two">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_two"
+                android:background="@color/White">
 
                 <CheckBox
                     android:id="@+id/Traditional"
@@ -562,17 +579,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_three">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_three"
+                android:background="@color/LightGray"
+                android:paddingTop="16dp">
 
                 <EditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:background="@color/White"
                     android:hint="Email"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -581,8 +601,10 @@
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/White"
                     android:hint="Password"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -590,13 +612,32 @@
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:hint="Confirm Password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I have read and I agree with the Terms and Conditions, the Privacy Policy and Usage of cookies and similar tehnologies. - read more"
+                    android:background="@color/White"/>
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/interactive_button_light_gold"
-                    android:padding="10dp"
+                    android:padding="16dp"
                     android:text="Register"
                     android:textAllCaps="true"
                     android:textColor="@color/Black"

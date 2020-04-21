@@ -26,7 +26,7 @@ public class BookingsAdapter extends ArrayAdapter<String>
     private ArrayList<String> rDates = new ArrayList<>();
 
     public BookingsAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> offeringNames, ArrayList<String> offeringDescriptions, ArrayList<String> offeringPrices, ArrayList<String> dates) {
-        super(context, R.layout.adapter_reservation, R.id.companyName, companyNames);
+        super(context, R.layout.adapter_reservation, R.id.name, companyNames);
         this.context = context;
         this.rCompanyNames = companyNames;
         this.rOfferingNames = offeringNames;
@@ -42,7 +42,7 @@ public class BookingsAdapter extends ArrayAdapter<String>
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_reservation, parent, false);
 
-        TextView companyName = row.findViewById(R.id.companyName);
+        TextView companyName = row.findViewById(R.id.name);
         TextView offeringName = row.findViewById(R.id.offeringName);
         TextView offeringDescription = row.findViewById(R.id.offeringDescription);
         TextView offeringPrice = row.findViewById(R.id.offeringPrice);

@@ -28,14 +28,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@color/White"
         android:ems="10"
         android:hint="New Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:background="@color/White"/>
+        app:layout_constraintTop_toBottomOf="@+id/city" />
 
     <TextView
         android:id="@+id/textView5"
@@ -116,20 +116,20 @@
         android:background="@color/White" />
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/city"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@color/White"
         android:ems="10"
         android:hint="City"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        android:background="@color/White" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <LinearLayout
         android:id="@+id/user_profile_footer"
@@ -224,13 +224,15 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/updateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Button"
+        android:background="@color/LightGold"
+        android:onClick="updateInfoClicked"
+        android:text="Update Info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
