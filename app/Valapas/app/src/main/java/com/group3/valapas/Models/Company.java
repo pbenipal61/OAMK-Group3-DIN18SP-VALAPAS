@@ -13,11 +13,11 @@ public class Company
     private String location;
     private String city;
     private String country;
-    private String[] categories;
-    private int[][] openingHours;
+    private String categories;
+    private String openingHours;
     private String[] priceRange;
 
-    public Company(String id, String email, String password, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String[] categories, int[][] openingHours, String[] priceRange)
+    public Company(String id, String email, String password, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String categories, String openingHours, String[] priceRange)
     {
         this.id = id;
         this.email = email;
@@ -79,11 +79,11 @@ public class Company
         return country;
     }
 
-    public String[] getCategories() {
+    public String getCategories() {
         return categories;
     }
 
-    public int[][] getOpeningHours() {
+    public String getOpeningHours() {
         return openingHours;
     }
 
