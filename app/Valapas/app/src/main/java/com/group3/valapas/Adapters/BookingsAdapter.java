@@ -42,7 +42,7 @@ public class BookingsAdapter extends ArrayAdapter<String>
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_reservation, parent, false);
 
-        TextView companyName = row.findViewById(R.id.name);
+        TextView companyName = row.findViewById(R.id.companyName);
         TextView offeringName = row.findViewById(R.id.offeringName);
         TextView offeringDescription = row.findViewById(R.id.offeringDescription);
         TextView offeringPrice = row.findViewById(R.id.offeringPrice);

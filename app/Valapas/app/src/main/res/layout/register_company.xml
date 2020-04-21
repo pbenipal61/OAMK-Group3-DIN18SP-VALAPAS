@@ -150,7 +150,7 @@
                 android:background="@color/LightGray">
 
                 <EditText
-                    android:id="@+id/city"
+                    android:id="@+id/companyName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
