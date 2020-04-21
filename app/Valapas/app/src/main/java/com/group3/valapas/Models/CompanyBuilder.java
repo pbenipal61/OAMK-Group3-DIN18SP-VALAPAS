@@ -50,12 +50,15 @@ public class CompanyBuilder
                 imagesArray[k] = imagesJSON.getString(k);
             }
 
+            /*
             JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
             String[] categoriesArray = new String[categoriesJSON.length()];
             for (int k = 0; k < categoriesJSON.length(); k++) {
                 categoriesArray[k] = categoriesJSON.getString(k);
             }
+            */
 
+            /*
             JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
             int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
             for (int k = 0; k < openingHoursJSON.length(); k++) {
@@ -64,6 +67,7 @@ public class CompanyBuilder
                 openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
                 openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
             }
+            */
 
             JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
             String[] priceRangeArray = new String[priceRangeJSON.length()];
@@ -76,8 +80,8 @@ public class CompanyBuilder
                     .images(imagesArray)
                     .city(companyJSON.getString("city"))
                     .country(companyJSON.getString("country"))
-                    .categories(categoriesArray)
-                    .openingHours(openingHoursArray)
+                    .categories(companyJSON.getString("categories"))
+                    .openingHours(companyJSON.getString("openingHours"))
                     .priceRange(priceRangeArray)
                     .id(companyJSON.getString("_id"))
                     .name(companyJSON.getString("name"))
