@@ -18,6 +18,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnReservationsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.BrowsePages.BrowseCategoryTab;
 import com.group3.valapas.CompanyPages.CompanyHomeActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
@@ -26,7 +27,7 @@ import com.group3.valapas.Models.Reservation;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.RegisterPages.Register;
-import com.group3.valapas.UserPages.UserBrowse;
+import com.group3.valapas.UserPages.UserBrowseCategory;
 
 import java.util.ArrayList;
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
         {
             Log.d("AAA", "Customer is logged in");
 
-            Intent i = new Intent (this, UserBrowse.class);
+            Intent i = new Intent (this, UserBrowseCategory.class);
             startActivity(i);
         }
         else if (ApiHandler.readBearerToken(this) == -1) // company is already logged in
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, BrowseCategoryTab.class);
         startActivity(i);
     }
 
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements IReturnCompanyCal
     {
         ApiHandler.writeBearerToken(this, false);
 
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
     }
 

@@ -140,7 +140,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
     }
 
