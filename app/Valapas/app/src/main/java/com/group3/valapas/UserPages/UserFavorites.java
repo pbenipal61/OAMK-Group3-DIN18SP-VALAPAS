@@ -79,18 +79,22 @@ public class UserFavorites extends AppCompatActivity implements IReturnCompanySe
     {
         Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectProfile(View v)
     {
         Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectBookings(View v)
     {
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
     }
 
     public void selectMostRecent(View v)

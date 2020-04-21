@@ -1,12 +1,12 @@
 package com.group3.valapas.UserPages;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
@@ -40,18 +40,21 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
     {
         Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectFavorites(View v)
     {
         Intent i = new Intent (this, UserFavorites.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectBookings(View v)
     {
         Intent i = new Intent (this, UserBookings.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void updateInfoClicked(View view)

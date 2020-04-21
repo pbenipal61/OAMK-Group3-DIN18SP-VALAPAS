@@ -61,18 +61,21 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
     {
         Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectProfile(View v)
     {
         Intent i = new Intent (this, UserProfile.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectFavorites(View v)
     {
         Intent i = new Intent (this, UserFavorites.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void selectHistory(View v)
