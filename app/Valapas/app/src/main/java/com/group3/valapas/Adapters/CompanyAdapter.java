@@ -24,7 +24,8 @@ public class CompanyAdapter extends ArrayAdapter<String>
     ArrayList<String> rCompanyDescriptions = new ArrayList<String>();
     ArrayList<String> rImages = new ArrayList<String>();
 
-    public CompanyAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> categories, ArrayList<String> companyDescriptions, ArrayList<String> images) {
+    public CompanyAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> categories, ArrayList<String> companyDescriptions, ArrayList<String> images)
+    {
         super(context, R.layout.adapter_company, R.id.companyName, companyNames);
         this.context = context;
         this.rCompanyNames = companyNames;
@@ -35,7 +36,8 @@ public class CompanyAdapter extends ArrayAdapter<String>
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         Log.d("AAA", "Updating view: ");
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_company, parent, false);

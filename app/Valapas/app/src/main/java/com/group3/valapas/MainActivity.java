@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedReservation;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanyCallback;
@@ -31,9 +30,7 @@ import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.RegisterPages.Register;
 import com.group3.valapas.UserPages.UserBrowse;
 import com.group3.valapas.R;
-
 import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity implements IReturnCompanyCallback, IReturnUserCallback, IReturnCompanySearchResultsCallback, IReturnOfferingCallback, IDeletedOffering, IReturnReservationCallback, IDeletedReservation {
     private EditText emailEditText;

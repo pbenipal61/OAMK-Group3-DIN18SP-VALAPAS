@@ -26,5 +26,4 @@ public class CompanyProfile extends AppCompatActivity
         Intent i = new Intent (this, CompanyInformation.class);
         startActivity(i);
     }
-
 }

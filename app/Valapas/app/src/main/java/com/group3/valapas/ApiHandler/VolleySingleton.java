@@ -1,7 +1,6 @@
 package com.group3.valapas.ApiHandler;
 
 import android.content.Context;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 

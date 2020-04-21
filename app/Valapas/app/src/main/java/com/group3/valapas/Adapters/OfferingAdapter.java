@@ -22,7 +22,8 @@ public class OfferingAdapter extends ArrayAdapter<String>
     ArrayList<String> rOfferingDescriptions = new ArrayList<String>();
     ArrayList<String> rOfferingPrices = new ArrayList<String>();
 
-    public OfferingAdapter(Context context, ArrayList<String> offeringNames, ArrayList<String> offeringDescriptions, ArrayList<String> offeringPrices) {
+    public OfferingAdapter(Context context, ArrayList<String> offeringNames, ArrayList<String> offeringDescriptions, ArrayList<String> offeringPrices)
+    {
         super(context, R.layout.adapter_company, R.id.companyName, offeringNames);
         this.context = context;
         this.rOfferingNames = offeringNames;
@@ -32,7 +33,8 @@ public class OfferingAdapter extends ArrayAdapter<String>
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         Log.d("AAA", "Updating view: ");
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_offering, parent, false);

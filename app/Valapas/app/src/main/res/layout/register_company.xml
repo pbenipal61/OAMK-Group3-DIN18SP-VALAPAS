@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/White"
     android:orientation="vertical"
-    tools:context=".RegisterPages.RegisterCompany">
+    tools:context=".RegisterPages.RegisterCompany" >
 
     <LinearLayout
         android:id="@+id/register_company_title"

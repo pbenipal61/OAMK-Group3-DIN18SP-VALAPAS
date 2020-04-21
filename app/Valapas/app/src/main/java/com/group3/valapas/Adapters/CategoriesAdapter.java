@@ -13,7 +13,8 @@ import com.group3.valapas.R;
 
 import java.util.ArrayList;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder>
+{
 
     ArrayList<String> rCategories;
     ArrayList<String> rImages; // not used right now
@@ -31,7 +32,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.adapter_category, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
@@ -39,12 +41,14 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    {
         holder.title.setText(rCategories.get(position));
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return rCategories.size();
     }
 

@@ -1,15 +1,15 @@
 package com.group3.valapas.CompanyPages;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.group3.valapas.R;
 
-public class CompanyUpdateInfo extends AppCompatActivity {
-
+public class CompanyUpdateInfo extends AppCompatActivity
+{
+    //Redundant File
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_update_info);
     }
