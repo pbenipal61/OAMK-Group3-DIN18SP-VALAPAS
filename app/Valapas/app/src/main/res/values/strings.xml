@@ -2,8 +2,8 @@
 
     <string name="app_name">Valapas</string>
 
-    <string name="home_page_sign_in_user">LOGIN as a user</string>
-    <string name="home_page_sign_in_company">LOGIN as a company</string>
+    <string name="home_page_sign_in_user">USER LOGIN</string>
+    <string name="home_page_sign_in_company">COMPANY LOGIN</string>
     <string name="home_page_register">R E G I S T E R</string>
     <string name="home_page_browse">B R O W S E</string>
 
