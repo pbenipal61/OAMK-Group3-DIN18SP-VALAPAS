@@ -114,30 +114,6 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         }
     }
 
-
-    @Override
-    public void returnSearchResults(ArrayList<Company> returnedCompanies)
-    {
-        if (returnedCompanies.size() != 0)
-        {
-            company = returnedCompanies.get(0);
-
-            // Loading the data
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run()
-                {
-                    companyName.setText(company.getName());
-                    companyLocation.setText(getLocation(company));
-                    companyDescription.setText(company.getDescription());
-                    Picasso.get().load(company.getImages()[0]).into(companyImage);
-                }
-            });
-
-             ApiHandler.searchOfferingsByCompany(this, company, this);
-        }
-    }
-
     public void selectBrowse(View v)
     {
         Intent i = new Intent (this, UserBrowse.class);
@@ -192,8 +168,34 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
     }
 
     @Override
+    public void returnSearchResults(ArrayList<Company> returnedCompanies)
+    {
+        if (returnedCompanies.size() != 0)
+        {
+            company = returnedCompanies.get(0);
+
+            // Loading the data
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    companyName.setText(company.getName());
+                    companyLocation.setText(getLocation(company));
+                    companyDescription.setText(company.getDescription());
+                    if (company.getImages().length != 0)
+                        Picasso.get().load(company.getImages()[0]).into(companyImage);
+                }
+            });
+
+            Log.d("AAA", "calling search offerings");
+            ApiHandler.searchOfferingsByCompany(this, company, this);
+        }
+    }
+
+    @Override
     public void returnOfferings(ArrayList<Offering> returnedOfferings)
     {
+        Log.d("AAA", "returnOfferings: Offerings callback reached");
         // Resetting the lists
         offeringNames.clear();
         offeringDescriptions.clear();

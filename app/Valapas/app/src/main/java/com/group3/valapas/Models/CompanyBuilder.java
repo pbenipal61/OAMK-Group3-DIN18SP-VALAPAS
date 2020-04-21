@@ -1,6 +1,8 @@
 package com.group3.valapas.Models;
 
 import android.util.Base64;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CompanyBuilder
@@ -10,15 +12,15 @@ public class CompanyBuilder
     private String email = "";
     private String password = "";
     private String description = "";
-    private String[] images = new String[0];
+    private String[] images = null;
     private String address = "";
     private String postalCode = "";
     private String location = "";
     private String city = "";
     private String country = "";
-    private String[] categories = new String[0];
-    private int[][] openingHours = new int[0][0];
-    private String[] priceRange = new String[0];
+    private String categories = "";
+    private String openingHours = "";
+    private String[] priceRange = null;
 
     public CompanyBuilder() {}
 
@@ -26,6 +28,7 @@ public class CompanyBuilder
     {
         return new Company(id, email, password, name, description, images, address, postalCode, location, city, country, categories, openingHours, priceRange);
     }
+
 
     public Company buildCompany(String token)
     {
@@ -39,19 +42,56 @@ public class CompanyBuilder
             decodedPayload = new String(decodedBytes, "UTF-8");
             JSONObject dataJSON = new JSONObject(decodedPayload);
 
-            JSONObject userJSON = dataJSON.getJSONObject("company"); // MAKE SURE YOU UPDATE THIS AFTER SEEING EXACTLY WHAT THE API GIVES INSIDE THE TOKEN FOR COMPANIES
+            JSONObject companyJSON = dataJSON.getJSONObject("company"); // MAKE SURE YOU UPDATE THIS AFTER SEEING EXACTLY WHAT THE API GIVES INSIDE THE TOKEN FOR COMPANIES
 
-            company = new CompanyBuilder().buildCompany();
+            JSONArray imagesJSON = companyJSON.getJSONArray("images");
+            String[] imagesArray = new String[imagesJSON.length()];
+            for (int k = 0; k < imagesJSON.length(); k++) {
+                imagesArray[k] = imagesJSON.getString(k);
+            }
+
             /*
-            company = firstName(userJSON.getString("firstName"))
-                    .id(userJSON.getString("_id"))
-                    .lastName(userJSON.getString("lastName"))
-                    .isAdult(userJSON.getBoolean("isAdult"))
-                    .email(userJSON.getString("email"))
-                    .password(userJSON.getString("password"))
-                    .city(userJSON.getString("city"))
+            JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
+            String[] categoriesArray = new String[categoriesJSON.length()];
+            for (int k = 0; k < categoriesJSON.length(); k++) {
+                categoriesArray[k] = categoriesJSON.getString(k);
+            }
+            */
+
+            /*
+            JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
+            int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
+            for (int k = 0; k < openingHoursJSON.length(); k++) {
+                JSONArray openingHoursDayJSON = openingHoursJSON.getJSONArray(k);
+
+                openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
+                openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
+            }
+            */
+
+            JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
+            String[] priceRangeArray = new String[priceRangeJSON.length()];
+            for (int k = 0; k < priceRangeJSON.length(); k++) {
+                priceRangeArray[k] = priceRangeJSON.getString(k);
+            }
+
+            company = new CompanyBuilder()
+                    // location
+                    .images(imagesArray)
+                    .city(companyJSON.getString("city"))
+                    .country(companyJSON.getString("country"))
+                    .categories(companyJSON.getString("categories"))
+                    .openingHours(companyJSON.getString("openingHours"))
+                    .priceRange(priceRangeArray)
+                    .id(companyJSON.getString("_id"))
+                    .name(companyJSON.getString("name"))
+                    .email(companyJSON.getString("email"))
+                    .password(companyJSON.getString("password"))
+                    .description(companyJSON.getString("description"))
+                    .address(companyJSON.getString("address"))
+                    .postalCode(companyJSON.getString("postalCode"))
                     .buildCompany();
-        */
+
         }
         catch (Exception e)
         {
@@ -129,13 +169,13 @@ public class CompanyBuilder
         return this;
     }
 
-    public CompanyBuilder categories (String[] categories)
+    public CompanyBuilder categories (String categories)
     {
         this.categories = categories;
         return this;
     }
 
-    public CompanyBuilder openingHours (int[][] openingHours)
+    public CompanyBuilder openingHours (String openingHours)
     {
         this.openingHours = openingHours;
         return this;

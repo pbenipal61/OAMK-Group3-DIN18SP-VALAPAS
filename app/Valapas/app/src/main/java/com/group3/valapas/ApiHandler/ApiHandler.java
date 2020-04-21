@@ -384,6 +384,12 @@ public class ApiHandler
         JSONObject js = new JSONObject();
         try
         {
+            // openingHours not working correctly. Works only for monday-friday
+            JSONArray openingHours = new JSONArray(company.getOpeningHours());
+
+            // Log.d("AAA", "openingHours as String: " + company.getOpeningHours());
+            // Log.d("AAA", "openingHours as JSONArray: " + openingHours);
+
             js.put("email", company.getEmail());
             js.put("password", company.getPassword());
             js.put("name", company.getName());
@@ -393,6 +399,9 @@ public class ApiHandler
             js.put("postalCode", company.getPostalCode());
             js.put("address", company.getAddress());
             js.put("description", company.getDescription());
+            js.put("openingHours", openingHours);
+            if (!company.getCategories().equals(""))
+                js.put("categories", new JSONArray(company.getCategories()));
 
             // js.put("categories", company.getCategories());
             // js.put("openingHours", company.getOpeningHours());
@@ -607,11 +616,14 @@ public class ApiHandler
                             JSONObject dataJSON = response.getJSONObject("data");
                             JSONObject companyJSON = dataJSON.getJSONObject("company");
 
+                            /*
                             JSONArray categoriesArrayJSON = companyJSON.getJSONArray("categories");
                             String categoriesArray[] = new String[categoriesArrayJSON.length()];
                             for(int i = 0; i < categoriesArrayJSON.length(); i++)
                                 categoriesArray[i] = categoriesArrayJSON.getString(i);
+                            */
 
+                            /*
                             JSONArray openingHoursArrayJSON = companyJSON.getJSONArray("openingHours");
                             int openingHoursArray[][] = new int[openingHoursArrayJSON.length()][2];
                             for(int i = 0; i < openingHoursArrayJSON.length(); i++)
@@ -619,6 +631,7 @@ public class ApiHandler
                                 openingHoursArray[i][0] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(0));
                                 openingHoursArray[i][1] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(1));
                             }
+                            */
 
                             JSONArray priceRangeArrayJSON = companyJSON.getJSONArray("categories");
                             String priceRangeArray[] = new String[priceRangeArrayJSON.length()];
@@ -635,8 +648,8 @@ public class ApiHandler
                                     .location(companyJSON.getString("location"))
                                     .city(companyJSON.getString("city"))
                                     .country(companyJSON.getString("country"))
-                                    .categories(categoriesArray)
-                                    .openingHours(openingHoursArray)
+                                    .categories(companyJSON.getString("categories"))
+                                    .openingHours(companyJSON.getString("openingHours"))
                                     .priceRange(priceRangeArray)
                                     .buildCompany();
 
@@ -753,12 +766,14 @@ public class ApiHandler
                                     imagesArray[k] = imagesJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
                                 String[] categoriesArray = new String[categoriesJSON.length()];
                                 for(int k = 0; k < categoriesJSON.length(); k++)
                                 {
                                     categoriesArray[k] = categoriesJSON.getString(k);
                                 }
+                                */
 
                                 JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
                                 String[] priceRangeArray = new String[priceRangeJSON.length()];
@@ -767,6 +782,7 @@ public class ApiHandler
                                     priceRangeArray[k] = priceRangeJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
                                 int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
                                 for(int k = 0; k < openingHoursJSON.length(); k++)
@@ -776,14 +792,15 @@ public class ApiHandler
                                     openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
                                     openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
                                 }
+                                */
 
                                 Company com = new CompanyBuilder()
                                         // location
                                         .images(imagesArray)
                                         .city(companyJSON.getString("city"))
                                         .country(companyJSON.getString("country"))
-                                        .categories(categoriesArray)
-                                        .openingHours(openingHoursArray)
+                                        .categories(companyJSON.getString("categories"))
+                                        .openingHours(companyJSON.getString("openingHours"))
                                         .priceRange(priceRangeArray)
                                         .id(companyJSON.getString("_id"))
                                         .name(companyJSON.getString("name"))
@@ -861,11 +878,13 @@ public class ApiHandler
                                     imagesArray[k] = imagesJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
                                 String[] categoriesArray = new String[categoriesJSON.length()];
                                 for (int k = 0; k < categoriesJSON.length(); k++) {
                                     categoriesArray[k] = categoriesJSON.getString(k);
                                 }
+                                */
 
                                 JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
                                 String[] priceRangeArray = new String[priceRangeJSON.length()];
@@ -873,6 +892,7 @@ public class ApiHandler
                                     priceRangeArray[k] = priceRangeJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
                                 int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
                                 for (int k = 0; k < openingHoursJSON.length(); k++) {
@@ -881,14 +901,15 @@ public class ApiHandler
                                     openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
                                     openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
                                 }
+                                */
 
                                 Company com = new CompanyBuilder()
                                         // location
                                         .images(imagesArray)
                                         .city(companyJSON.getString("city"))
                                         .country(companyJSON.getString("country"))
-                                        .categories(categoriesArray)
-                                        .openingHours(openingHoursArray)
+                                        .categories(companyJSON.getString("categories"))
+                                        .openingHours(companyJSON.getString("openingHours"))
                                         .priceRange(priceRangeArray)
                                         .id(companyJSON.getString("_id"))
                                         .name(companyJSON.getString("name"))
@@ -966,11 +987,13 @@ public class ApiHandler
                                     imagesArray[k] = imagesJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray categoriesJSON = companyJSON.getJSONArray("categories");
                                 String[] categoriesArray = new String[categoriesJSON.length()];
                                 for (int k = 0; k < categoriesJSON.length(); k++) {
                                     categoriesArray[k] = categoriesJSON.getString(k);
                                 }
+                                */
 
                                 JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
                                 String[] priceRangeArray = new String[priceRangeJSON.length()];
@@ -978,6 +1001,7 @@ public class ApiHandler
                                     priceRangeArray[k] = priceRangeJSON.getString(k);
                                 }
 
+                                /*
                                 JSONArray openingHoursJSON = companyJSON.getJSONArray("openingHours");
                                 int[][] openingHoursArray = new int[openingHoursJSON.length()][2];
                                 for (int k = 0; k < openingHoursJSON.length(); k++) {
@@ -986,14 +1010,15 @@ public class ApiHandler
                                     openingHoursArray[k][0] = Integer.parseInt(openingHoursDayJSON.getString(0));
                                     openingHoursArray[k][1] = Integer.parseInt(openingHoursDayJSON.getString(1));
                                 }
+                                */
 
                                 Company com = new CompanyBuilder()
                                         // location
                                         .images(imagesArray)
                                         .city(companyJSON.getString("city"))
                                         .country(companyJSON.getString("country"))
-                                        .categories(categoriesArray)
-                                        .openingHours(openingHoursArray)
+                                        .categories(companyJSON.getString("categories"))
+                                        .openingHours(companyJSON.getString("openingHours"))
                                         .priceRange(priceRangeArray)
                                         .id(companyJSON.getString("_id"))
                                         .name(companyJSON.getString("name"))
@@ -1525,6 +1550,7 @@ public class ApiHandler
                         catch (Exception e)
                         {
                             e.printStackTrace();
+                            Log.d("AAA", "onResponse: ERROR");
                         }
                     }
                 },
@@ -1661,10 +1687,12 @@ public class ApiHandler
 
                                 String responseDate = reservationJSON.getString("date");
 
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
                                 if (format.parse(responseDate).before(format.parse(date))) {
                                     Reservation reservation = new ReservationBuilder()
                                             .id(reservationJSON.getString("_id"))
-                                            // .customer(reservationJSON.getString("customer"))
+                                            .customerName(customerName)
                                             .date(reservationJSON.getString("date"))
                                             .offering(reservationJSON.getString("offering"))
                                             .quantity(reservationJSON.getInt("quantity"))
@@ -1795,10 +1823,10 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-    public static void searchReservationsByCompany(final Context context, User user, final IReturnReservationsFromSearchCallback callback)
+    public static void searchReservationsByCompany(final Context context, Company company, final IReturnReservationsFromSearchCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/reservations?company=" + user.getId();
+        String url = apiUrl + "/reservations?company=" + company.getId();
 
         Log.d("AAA", "searchReservationsByUser: " + url);;
 
@@ -1835,6 +1863,171 @@ public class ApiHandler
                         }
                         catch (Exception e)
                         {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByCompanyBeforeDate(final Context context, Company company,final String date, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?company=" + company.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                String responseDate = reservationJSON.getString("date");
+
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
+                                if (format.parse(responseDate).before(format.parse(date))) {
+                                    Reservation reservation = new ReservationBuilder()
+                                            .id(reservationJSON.getString("_id"))
+                                            .customer(customerName)
+                                            .date(reservationJSON.getString("date"))
+                                            .offering(reservationJSON.getString("offering"))
+                                            .quantity(reservationJSON.getInt("quantity"))
+                                            .companyName(reservationJSON.getJSONObject("offering").getJSONObject("company").getString("name"))
+                                            .offeringName(reservationJSON.getJSONObject("offering").getString("offeringType"))
+                                            .offeringDescription(reservationJSON.getJSONObject("offering").getString("description"))
+                                            .price(Integer.parseInt(reservationJSON.getJSONObject("offering").getString("price")))
+                                            .buildReservation();
+                                    reservationsList.add(reservation);
+                                }
+                            }
+                            reservationsList = SortReservation(reservationsList);
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByCompanyFromDate(final Context context, Company company, final String date, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?company=" + company.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
+                                String responseDate = reservationJSON.getString("date");
+                                Log.d("AAA", "onResponse: " + responseDate);
+                                if (!format.parse(responseDate).before(format.parse(date))) {
+                                    Reservation reservation = new ReservationBuilder()
+                                            .id(reservationJSON.getString("_id"))
+                                            .customerName(customerName)
+                                            .date(reservationJSON.getString("date"))
+                                            .quantity(reservationJSON.getInt("quantity"))
+                                            .offeringName(reservationJSON.getJSONObject("offering").getString("offeringType"))
+                                            .offeringDescription(reservationJSON.getJSONObject("offering").getString("description"))
+                                            .price(Integer.parseInt(reservationJSON.getJSONObject("offering").getString("price")))
+                                            .buildReservation();
+                                    reservationsList.add(reservation);
+                                }
+                            }
+                            reservationsList = SortReservation(reservationsList);
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            Log.d("AAA", "onResponse: Parse Error");;
                             e.printStackTrace();
                         }
                     }

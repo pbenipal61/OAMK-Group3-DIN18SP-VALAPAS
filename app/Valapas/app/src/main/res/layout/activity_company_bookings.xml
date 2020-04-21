@@ -129,6 +129,7 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
+            android:onClick="selectHistory"
             android:text="History"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -142,6 +143,7 @@
             android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/LightGold"
+            android:onClick="selectCurrent"
             android:text="@string/current"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -149,12 +151,12 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/myReviewsListview"
+        android:id="@+id/companyReviewsListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/White"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toBottomOf="@+id/user_bookings_tabs"
-        tools:layout_editor_absoluteX="92dp"
-        android:background="@color/LightGray"/>
+        tools:layout_editor_absoluteX="92dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
