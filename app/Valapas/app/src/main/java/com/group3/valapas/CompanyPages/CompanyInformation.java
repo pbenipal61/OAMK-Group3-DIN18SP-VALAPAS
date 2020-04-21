@@ -1,9 +1,7 @@
 package com.group3.valapas.CompanyPages;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.group3.valapas.R;
 
 public class CompanyInformation extends AppCompatActivity

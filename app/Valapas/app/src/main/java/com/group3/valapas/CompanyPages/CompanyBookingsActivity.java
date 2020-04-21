@@ -38,7 +38,8 @@ public class CompanyBookingsActivity extends AppCompatActivity implements IRetur
     private Company company;
     private String today;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_bookings);
 
