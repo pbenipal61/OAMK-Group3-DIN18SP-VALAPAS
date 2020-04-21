@@ -8,17 +8,16 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/companyName"
+        android:id="@+id/offeringName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp
-"
         android:gravity="center"
-        android:maxLength="35"
-        android:text="Company Name"
+        android:maxLength="40"
+        android:text="Offering Name"
         android:textColor="#494646"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -31,22 +30,22 @@
 
         android:lines="3"
         android:maxLines="3"
-        android:text="Category"
-        android:textSize="12dp" />
+        android:text="Description"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/offeringPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:lines="1"
         android:text="10,00 EUR"
         android:textColor="#FF2626"
-        android:textSize="12dp"
+        android:textSize="14dp"
         android:textStyle="bold" />
 
 </LinearLayout>

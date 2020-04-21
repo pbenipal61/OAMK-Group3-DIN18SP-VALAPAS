@@ -25,7 +25,7 @@ public class CompanyAdapter extends ArrayAdapter<String>
     ArrayList<String> rImages = new ArrayList<String>();
 
     public CompanyAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> categories, ArrayList<String> companyDescriptions, ArrayList<String> images) {
-        super(context, R.layout.adapter_company, R.id.companyName, companyNames);
+        super(context, R.layout.adapter_company, R.id.offeringName, companyNames);
         this.context = context;
         this.rCompanyNames = companyNames;
         this.rCategories = categories;
@@ -39,7 +39,7 @@ public class CompanyAdapter extends ArrayAdapter<String>
         Log.d("AAA", "Updating view: ");
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.adapter_company, parent, false);
-        TextView companyName = row.findViewById(R.id.companyName);
+        TextView companyName = row.findViewById(R.id.offeringName);
         TextView companyCategory = row.findViewById(R.id.offeringDescription);
         TextView companyDescription = row.findViewById(R.id.offeringPrice);
         ImageView companyImage = row.findViewById(R.id.companyImage);

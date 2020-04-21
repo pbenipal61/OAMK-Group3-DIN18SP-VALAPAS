@@ -12,7 +12,8 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/LightGray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -85,18 +86,19 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/DarkGray">
 
         <Button
             android:id="@+id/homeButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
-            android:drawableTint="#FFFF2626"
+            android:drawableTop="@drawable/ic_home_black_24dp"
+            android:onClick="onHomeClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Home"
-            android:textColor="#FF2626"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/updateInfoButton"
@@ -104,17 +106,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="#ffcc00"
+            android:textColor="@color/SelectedGold"
+            />
 
         <Button
             android:id="@+id/bookingButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_local_library_black_24dp"
+            android:onClick="onBookingsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Bookings"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,17 +128,20 @@
             app:layout_constraintStart_toEndOf="@+id/favorites"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/updateInfoButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:onClick="onUpdateInfoClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/favorites"
@@ -140,17 +149,20 @@
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
         <Button
             android:id="@+id/favorites"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_stars_black_24dp"
+            android:onClick="onReviewsClick"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Reviews"
-            android:textColor="#474646"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bookingButton"
@@ -158,7 +170,9 @@
             app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            tools:layout_conversion_absoluteWidth="103dp"
+            android:drawableTint="@color/White"
+            android:textColor="@color/White"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

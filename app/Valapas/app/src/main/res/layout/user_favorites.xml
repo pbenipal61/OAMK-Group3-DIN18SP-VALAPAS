@@ -9,36 +9,16 @@
     tools:context=".UserPages.UserFavorites">
 
     <LinearLayout
-        android:id="@+id/user_favorites_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/user_favorites_tabs" >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/White"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:padding="5dp"
-            android:drawableLeft="@drawable/ic_search_black_24dp"
-            tools:ignore="LabelFor" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/user_favorites_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintTop_toBottomOf="@id/user_favorites_search"
-        app:layout_constraintBottom_toTopOf="@id/user_favorites_results" >
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/user_favorites_most_recent_tab"
@@ -49,8 +29,9 @@
             android:layout_marginLeft="4dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectMostRecent"
             android:text="@string/most_recent"
             android:textSize="10sp"
@@ -64,7 +45,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectPrice"
             android:text="@string/price"
             android:textSize="10sp"
@@ -81,7 +62,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            android:background="@drawable/interactive_button_light_gold"
+            android:background="@color/LightGold"
             android:onClick="selectMostUsed"
             android:text="@string/most_used"
             android:textSize="10sp"
@@ -90,7 +71,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/user_favorites_results"
+        android:id="@+id/companiesListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -98,8 +79,7 @@
         app:layout_constraintBottom_toTopOf="@+id/user_favorites_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_favorites_tabs">
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/user_favorites_tabs"></ListView>
 
     <LinearLayout
         android:id="@+id/user_favorites_footer"
@@ -163,7 +143,7 @@
             android:text="@string/my_favorites"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/LightGold"
+            android:textColor="@color/SelectedGold"
             android:textSize="9sp"
             android:textStyle="normal"
             android:visibility="visible"
