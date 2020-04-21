@@ -102,10 +102,10 @@ public class UserBookings extends AppCompatActivity implements IReturnReservatio
 
         for(Reservation reservation : reservations)
         {
-            companyNames.add(reservation.getCompanyId());
-            offeringNames.add(reservation.getOffering());
-            offeringDescriptions.add(reservation.getQuantity() + "");
-            offeringPrices.add("10 EUR");
+            companyNames.add(reservation.getCompanyName());
+            offeringNames.add(reservation.getOfferingName());
+            offeringDescriptions.add(reservation.getOfferingDescription());
+            offeringPrices.add(reservation.getPrice() + " EUR");
             dates.add(getDate(reservation.getDate()));
         }
 
