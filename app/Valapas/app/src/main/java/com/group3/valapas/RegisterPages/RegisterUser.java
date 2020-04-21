@@ -37,7 +37,7 @@ public class RegisterUser extends AppCompatActivity implements IReturnUserCallba
         firstNameEditText = findViewById(R.id.firstName);
         lastNameEditText = findViewById(R.id.lastName);
         emailEditText = findViewById(R.id.email);
-        cityEditText = findViewById(R.id.name);
+        cityEditText = findViewById(R.id.city);
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
 

@@ -54,7 +54,7 @@ public class UserMakeReservation extends AppCompatActivity implements IReturnRes
         offeringId = intent.getStringExtra("OfferingId");
 
         countText = findViewById(R.id.count);
-        companyName = findViewById(R.id.companyName);
+        companyName = findViewById(R.id.name);
         companyLocation = findViewById(R.id.companyLocation);
         offeringName = findViewById(R.id.offeringName);
         offeringDescription = findViewById(R.id.offeringDescription);
