@@ -11,15 +11,15 @@ public class CompanyBuilder
     private String email = "";
     private String password = "";
     private String description = "";
-    private String[] images = new String[0];
+    private String[] images = null;
     private String address = "";
     private String postalCode = "";
     private String location = "";
     private String city = "";
     private String country = "";
-    private String[] categories = new String[0];
-    private int[][] openingHours = new int[0][0];
-    private String[] priceRange = new String[0];
+    private String[] categories = null;
+    private int[][] openingHours = null;
+    private String[] priceRange = null;
 
     public CompanyBuilder() {}
 

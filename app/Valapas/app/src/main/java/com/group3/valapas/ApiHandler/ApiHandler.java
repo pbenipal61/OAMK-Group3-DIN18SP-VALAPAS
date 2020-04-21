@@ -1510,6 +1510,7 @@ public class ApiHandler
                         catch (Exception e)
                         {
                             e.printStackTrace();
+                            Log.d("AAA", "onResponse: ERROR");
                         }
                     }
                 },
@@ -1646,10 +1647,12 @@ public class ApiHandler
 
                                 String responseDate = reservationJSON.getString("date");
 
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
                                 if (format.parse(responseDate).before(format.parse(date))) {
                                     Reservation reservation = new ReservationBuilder()
                                             .id(reservationJSON.getString("_id"))
-                                            // .customer(reservationJSON.getString("customer"))
+                                            .customer(customerName)
                                             .date(reservationJSON.getString("date"))
                                             .offering(reservationJSON.getString("offering"))
                                             .quantity(reservationJSON.getInt("quantity"))
