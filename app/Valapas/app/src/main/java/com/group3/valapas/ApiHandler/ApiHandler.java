@@ -1652,7 +1652,7 @@ public class ApiHandler
                                 if (format.parse(responseDate).before(format.parse(date))) {
                                     Reservation reservation = new ReservationBuilder()
                                             .id(reservationJSON.getString("_id"))
-                                            .customer(customerName)
+                                            .customerName(customerName)
                                             .date(reservationJSON.getString("date"))
                                             .offering(reservationJSON.getString("offering"))
                                             .quantity(reservationJSON.getInt("quantity"))
@@ -1783,10 +1783,10 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-    public static void searchReservationsByCompany(final Context context, User user, final IReturnReservationsFromSearchCallback callback)
+    public static void searchReservationsByCompany(final Context context, Company company, final IReturnReservationsFromSearchCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/reservations?company=" + user.getId();
+        String url = apiUrl + "/reservations?company=" + company.getId();
 
         Log.d("AAA", "searchReservationsByUser: " + url);;
 
@@ -1823,6 +1823,171 @@ public class ApiHandler
                         }
                         catch (Exception e)
                         {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByCompanyBeforeDate(final Context context, Company company,final String date, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?company=" + company.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                String responseDate = reservationJSON.getString("date");
+
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
+                                if (format.parse(responseDate).before(format.parse(date))) {
+                                    Reservation reservation = new ReservationBuilder()
+                                            .id(reservationJSON.getString("_id"))
+                                            .customer(customerName)
+                                            .date(reservationJSON.getString("date"))
+                                            .offering(reservationJSON.getString("offering"))
+                                            .quantity(reservationJSON.getInt("quantity"))
+                                            .companyName(reservationJSON.getJSONObject("offering").getJSONObject("company").getString("name"))
+                                            .offeringName(reservationJSON.getJSONObject("offering").getString("offeringType"))
+                                            .offeringDescription(reservationJSON.getJSONObject("offering").getString("description"))
+                                            .price(Integer.parseInt(reservationJSON.getJSONObject("offering").getString("price")))
+                                            .buildReservation();
+                                    reservationsList.add(reservation);
+                                }
+                            }
+                            reservationsList = SortReservation(reservationsList);
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        error.printStackTrace();
+                        Log.d("AAA", "Error: " + error
+                                + "\nStatus Code " + error.networkResponse.statusCode
+                                + "\nCause " + error.getCause()
+                                + "\nmessage" + error.getMessage());
+
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Bearer " + bearerToken);
+                return headers;
+            }
+        };
+
+        requestQueue.add(putRequest);
+    }
+
+    public static void searchReservationsByCompanyFromDate(final Context context, Company company, final String date, final IReturnReservationsFromSearchCallback callback)
+    {
+        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
+        String url = apiUrl + "/reservations?company=" + company.getId();
+
+        Log.d("AAA", "searchReservationsByUser: " + url);;
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("AAA", "Response Reached");
+                        Log.d("AAA", "Response is: " + response.toString());
+
+                        ArrayList<Reservation> reservationsList = new ArrayList<>();
+                        try {
+                            JSONObject dataJSON = response.getJSONObject("data");
+                            JSONArray reservationsArray = dataJSON.getJSONArray("reservations");
+
+                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            for (int i = 0; i < reservationsArray.length(); i++)
+                            {
+                                JSONObject reservationJSON = reservationsArray.getJSONObject(i);
+
+                                String customerName = reservationJSON.getJSONObject("customer").getString("firstName") + " " + reservationJSON.getJSONObject("customer").getString("lastName");
+
+                                String responseDate = reservationJSON.getString("date");
+                                Log.d("AAA", "onResponse: " + responseDate);
+                                if (!format.parse(responseDate).before(format.parse(date))) {
+                                    Reservation reservation = new ReservationBuilder()
+                                            .id(reservationJSON.getString("_id"))
+                                            .customerName(customerName)
+                                            .date(reservationJSON.getString("date"))
+                                            .quantity(reservationJSON.getInt("quantity"))
+                                            .offeringName(reservationJSON.getJSONObject("offering").getString("offeringType"))
+                                            .offeringDescription(reservationJSON.getJSONObject("offering").getString("description"))
+                                            .price(Integer.parseInt(reservationJSON.getJSONObject("offering").getString("price")))
+                                            .buildReservation();
+                                    reservationsList.add(reservation);
+                                }
+                            }
+                            reservationsList = SortReservation(reservationsList);
+
+                            callback.returnReservations(reservationsList);
+                        }
+                        catch (Exception e)
+                        {
+                            Log.d("AAA", "onResponse: Parse Error");;
                             e.printStackTrace();
                         }
                     }
