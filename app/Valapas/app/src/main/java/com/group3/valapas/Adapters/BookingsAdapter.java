@@ -26,7 +26,7 @@ public class BookingsAdapter extends ArrayAdapter<String>
     private ArrayList<String> rDates = new ArrayList<>();
 
     public BookingsAdapter(Context context, ArrayList<String> companyNames, ArrayList<String> offeringNames, ArrayList<String> offeringDescriptions, ArrayList<String> offeringPrices, ArrayList<String> dates) {
-        super(context, R.layout.adapter_reservation, R.id.name, companyNames);
+        super(context, R.layout.adapter_reservation, R.id.companyName, companyNames);
         this.context = context;
         this.rCompanyNames = companyNames;
         this.rOfferingNames = offeringNames;
