@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -194,10 +193,6 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
         UserBrowse.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) companiesListView.getLayoutParams();
-                lp.height = 600 * companyNames.size();
-                companiesListView.setLayoutParams(lp);
-
                 updateLocationsString();
 
                 companyAdapter.notifyDataSetChanged();
