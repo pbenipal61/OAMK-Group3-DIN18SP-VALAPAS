@@ -34,6 +34,12 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
         cityEditText = findViewById(R.id.city);
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
+
+        User user = new UserBuilder().buildUser(ApiHandler.getBearerToken());
+        firstNameEditText.setText(user.getFirstName());
+        lastnameEditText.setText(user.getLastName());
+        emailEditText.setText(user.getEmail());
+        cityEditText.setText(user.getCity());
     }
 
     public void selectBrowse(View v)
