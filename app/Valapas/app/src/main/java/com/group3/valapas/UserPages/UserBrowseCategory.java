@@ -180,7 +180,8 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
     }
 
     @Override
-    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
+    public void returnSearchResults(ArrayList<Company> returnedCompanies)
+    {
 
         // Resetting the lists
         companyNames.clear();

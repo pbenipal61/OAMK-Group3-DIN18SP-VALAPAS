@@ -181,7 +181,8 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
     }
 
     @Override
-    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
+    public void returnSearchResults(ArrayList<Company> returnedCompanies)
+    {
 
         // Resetting the lists
         companyNames.clear();
