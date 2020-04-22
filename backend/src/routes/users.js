@@ -139,10 +139,17 @@ router.get('/', passport.authenticate('jwt', {session: false}), async (req, res,
 router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
-        const input = req.body;
+        let input = req.body;
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
+
+        if(input.password){
+            const salt = await bcrypt.genSaltSync(saltRounds);
+            const hash = bcrypt.hashSync(input.password, salt);
+            input.password = hash;
+        }
+        
         const user = await User.findByIdAndUpdate(id, {...input}, { new: true});
         return res.status(200).json({status: "Success", data: {user}})
     }
