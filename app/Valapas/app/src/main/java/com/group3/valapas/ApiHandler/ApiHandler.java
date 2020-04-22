@@ -1318,6 +1318,7 @@ public class ApiHandler
                         }
                         catch (Exception e)
                         {
+                            Log.d("AAA", "error: ");;
                             e.printStackTrace();
                         }
                     }

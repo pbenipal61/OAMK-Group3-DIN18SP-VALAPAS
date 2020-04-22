@@ -1,5 +1,6 @@
 package com.group3.valapas.Adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
     private ArrayList<String> rCategories;
-    private ArrayList<String> rImages; // not used right
 
     private OnItemClickListener onItemClickListener;
 
@@ -29,10 +29,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         this.rCategories = categories;
     }
 
-    public CategoriesAdapter(ArrayList<String> categories, ArrayList<String> images)
+    public CategoriesAdapter(ArrayList<String> categories)
     {
         this.rCategories = categories;
-        this.rImages = images;
     }
 
     @NonNull
@@ -51,12 +50,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             @Override
             public void onClick(View v) {
                 itemIndex = position;
+                onItemClickListener.onItemClick(position);
                 notifyDataSetChanged();
             }
         });
         if(itemIndex == position)
         {
-            holder.layout.setBackgroundResource(R.drawable.red_border_button_round);
+            holder.layout.setBackgroundResource(R.drawable.gold_border_button_round);
         }
         else
         {
@@ -86,11 +86,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
         public ViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
-
+            Log.d("AAA", "ViewHolder: ");
             this.onItemClickListener = onItemClickListener;
 
             title = itemView.findViewById(R.id.offeringDescription);
-            image = itemView.findViewById(R.id.imageView);
             layout = itemView.findViewById(R.id.categoryLayout);
 
             itemView.setOnClickListener(this);
@@ -98,6 +97,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
         @Override
         public void onClick(View v) {
+            Log.d("AAA", "Clicked: ");
             onItemClickListener.onItemClick(getAdapterPosition());
 
 
