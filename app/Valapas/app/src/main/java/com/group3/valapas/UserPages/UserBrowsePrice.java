@@ -1,9 +1,10 @@
 package com.group3.valapas.UserPages;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.R;
 
@@ -18,7 +19,7 @@ public class UserBrowsePrice extends AppCompatActivity
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
     }
 
@@ -42,7 +43,7 @@ public class UserBrowsePrice extends AppCompatActivity
 
     public void selectCategory(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
         finish();
     }

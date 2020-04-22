@@ -1,5 +1,6 @@
 package com.group3.valapas.Adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,9 @@ import com.group3.valapas.R;
 
 import java.util.ArrayList;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder>
-{
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
     private ArrayList<String> rCategories;
-    private ArrayList<String> rImages; // not used right
 
     private OnItemClickListener onItemClickListener;
 
@@ -30,16 +29,14 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         this.rCategories = categories;
     }
 
-    public CategoriesAdapter(ArrayList<String> categories, ArrayList<String> images)
+    public CategoriesAdapter(ArrayList<String> categories)
     {
         this.rCategories = categories;
-        this.rImages = images;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.adapter_category, parent, false);
         ViewHolder viewHolder = new ViewHolder(view, onItemClickListener);
@@ -53,12 +50,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             @Override
             public void onClick(View v) {
                 itemIndex = position;
+                onItemClickListener.onItemClick(position);
                 notifyDataSetChanged();
             }
         });
         if(itemIndex == position)
         {
-            holder.layout.setBackgroundResource(R.drawable.red_border_button_round);
+            holder.layout.setBackgroundResource(R.drawable.gold_border_button_round);
         }
         else
         {
@@ -67,8 +65,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return rCategories.size();
     }
 
@@ -89,7 +86,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
         public ViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
-
+            Log.d("AAA", "ViewHolder: ");
             this.onItemClickListener = onItemClickListener;
 
             title = itemView.findViewById(R.id.offeringDescription);
@@ -100,7 +97,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
         @Override
         public void onClick(View v) {
+            Log.d("AAA", "Clicked: ");
             onItemClickListener.onItemClick(getAdapterPosition());
+
+
         }
     }
 

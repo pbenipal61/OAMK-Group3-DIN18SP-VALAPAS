@@ -197,7 +197,7 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
             Log.d("AAA", "For1: ");
             companyNames.add(c.getName());
             Log.d("AAA", "For2: ");
-            companyCategories.add(c.getCategories()[0]);
+            companyCategories.add(c.getCategories());
             Log.d("AAA", "For3: ");
             companyDescriptions.add(c.getDescription());
             companyImages.add("imagine");

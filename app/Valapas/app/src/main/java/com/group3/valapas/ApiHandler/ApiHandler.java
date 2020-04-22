@@ -49,7 +49,7 @@ public class ApiHandler
 {
     public static final String apiUrl = "http://ec2-54-93-188-113.eu-central-1.compute.amazonaws.com:3000";
 
-    private static String bearerToken;
+    private static String bearerToken = "";
 
 
     public static int readBearerToken(Context context)
@@ -111,8 +111,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response reached: " + response.toString());
 
@@ -142,8 +141,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -174,15 +172,12 @@ public class ApiHandler
 
         // Making the JSON
         JSONObject js = new JSONObject();
-        try
-        {
+        try {
 
             js.put("email", user.getEmail());
             js.put("password", user.getPassword());
 
-        }
-        catch (Exception e)
-        {
+        }catch (Exception e) {
             e.printStackTrace();
         }
         Log.d("AAA", js.toString());
@@ -191,8 +186,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -218,8 +212,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -269,8 +262,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -301,8 +293,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -336,8 +327,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -348,8 +338,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -418,8 +407,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", "raspuns: " + response.toString());
@@ -476,8 +464,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -523,8 +510,7 @@ public class ApiHandler
                 new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(JSONObject response)
-                    {
+                    public void onResponse(JSONObject response) {
                         // response
                         Log.d("AAA", "Response Reached");
                         Log.d("AAA", response.toString());
@@ -548,8 +534,7 @@ public class ApiHandler
                 new Response.ErrorListener()
                 {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
                         // error
                         error.printStackTrace();
                         Log.d("AAA", "Error: " + error
@@ -579,20 +564,34 @@ public class ApiHandler
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         String url = apiUrl + "/companies/" + company.getId();
 
+        Log.d("AAA", "editCompany: " + url);
+
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
+            // openingHours not working correctly. Works only for monday-friday
+            JSONArray openingHours = new JSONArray(company.getOpeningHours());
+
+            // Log.d("AAA", "openingHours as String: " + company.getOpeningHours());
+            // Log.d("AAA", "openingHours as JSONArray: " + openingHours);
+
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
             js.put("name", company.getName());
-            js.put("description", company.getDescription());
-            js.put("address", company.getAddress());
-            js.put("postalCode", company.getPostalCode());
-            js.put("location", company.getLocation());
-            js.put("city", company.getCity());
             js.put("country", company.getCountry());
-            js.put("categories", company.getCategories());
-            js.put("openingHours", company.getOpeningHours());
-            js.put("priceRange", company.getPriceRange());
+            js.put("city", company.getCity());
+            js.put("location", company.getLocation());
+            js.put("postalCode", company.getPostalCode());
+            js.put("address", company.getAddress());
+            js.put("description", company.getDescription());
+            js.put("openingHours", openingHours);
+            if (!company.getCategories().equals(""))
+                js.put("categories", new JSONArray(company.getCategories()));
+
+            // js.put("categories", company.getCategories());
+            // js.put("openingHours", company.getOpeningHours());
+            // js.put("priceRange", company.getPriceRange());
         }
         catch (Exception e)
         {
@@ -613,8 +612,8 @@ public class ApiHandler
                         Company newCompany;
                         try
                         {
-                            JSONObject dataJSON = response.getJSONObject("data");
-                            JSONObject companyJSON = dataJSON.getJSONObject("company");
+                            // JSONObject dataJSON = response.getJSONObject("data");
+                            // JSONObject companyJSON = dataJSON.getJSONObject("company");
 
                             /*
                             JSONArray categoriesArrayJSON = companyJSON.getJSONArray("categories");
@@ -632,7 +631,7 @@ public class ApiHandler
                                 openingHoursArray[i][1] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(1));
                             }
                             */
-
+                            /*
                             JSONArray priceRangeArrayJSON = companyJSON.getJSONArray("categories");
                             String priceRangeArray[] = new String[priceRangeArrayJSON.length()];
                             for(int i = 0; i < priceRangeArrayJSON.length(); i++)
@@ -652,8 +651,8 @@ public class ApiHandler
                                     .openingHours(companyJSON.getString("openingHours"))
                                     .priceRange(priceRangeArray)
                                     .buildCompany();
-
-                            callback.returnCompany(newCompany);
+                            */
+                            callback.returnCompany(null/*newCompany*/);
                         }
                         catch (Exception e)
                         {
@@ -1333,6 +1332,7 @@ public class ApiHandler
                         }
                         catch (Exception e)
                         {
+                            Log.d("AAA", "error: ");;
                             e.printStackTrace();
                         }
                     }
@@ -1464,10 +1464,10 @@ public class ApiHandler
     public static void deleteOffering(final Context context, Offering offering, final IDeletedOffering callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings/" + offering.getCompany();
+        String url = apiUrl + "/offerings/" + offering.getId();
 
 
-        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, null,
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override

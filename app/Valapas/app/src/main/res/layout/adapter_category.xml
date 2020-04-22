@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/categoryLayout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@drawable/interactive_button_light_gold"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/radius"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -15,16 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="@string/category"
-            android:textColor="@color/Black"
-            android:textAllCaps="true"
-            android:fontFamily="@font/montserrat"
-            android:textStyle="normal"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:textSize="14sp" />
 
 </LinearLayout>

@@ -35,11 +35,9 @@ public class SortDialog extends AppCompatDialogFragment
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("Sort");
-            builder.setSingleChoiceItems(R.array.sortCategory, selectionIndex, new DialogInterface.OnClickListener()
-            {
+            builder.setSingleChoiceItems(R.array.sortCategory, selectionIndex, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
+                public void onClick(DialogInterface dialog, int which) {
                     selection = choices[which];
                     selectionIndex = which;
                     sortSelected.sortSelected(selection, selectionIndex);

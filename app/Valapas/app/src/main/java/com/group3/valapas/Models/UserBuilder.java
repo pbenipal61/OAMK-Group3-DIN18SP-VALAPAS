@@ -1,6 +1,7 @@
 package com.group3.valapas.Models;
 
 import android.util.Base64;
+
 import org.json.JSONObject;
 
 public class UserBuilder
