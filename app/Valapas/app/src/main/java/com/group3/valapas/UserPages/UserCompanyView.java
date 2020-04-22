@@ -213,10 +213,6 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         UserCompanyView.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) offeringListView.getLayoutParams();
-                lp.height = 266 * offeringNames.size(); // don't change value or this breaks
-                offeringListView.setLayoutParams(lp);
-
                 offeringAdapter.notifyDataSetChanged();
             }
         });

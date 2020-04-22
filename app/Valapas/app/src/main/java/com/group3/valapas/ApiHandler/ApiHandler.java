@@ -1464,10 +1464,10 @@ public class ApiHandler
     public static void deleteOffering(final Context context, Offering offering, final IDeletedOffering callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/offerings/" + offering.getCompany();
+        String url = apiUrl + "/offerings/" + offering.getId();
 
 
-        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, null,
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override

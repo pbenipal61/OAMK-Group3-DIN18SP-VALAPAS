@@ -1,30 +1,64 @@
 package com.group3.valapas.CompanyPages;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.group3.valapas.Adapters.OfferingAdapter;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
+import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnOfferingsFromSearchCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
+import com.group3.valapas.Models.Offering;
+import com.group3.valapas.Models.OfferingBuilder;
+import com.group3.valapas.Models.Reservation;
+import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.R;
+import com.group3.valapas.UserPages.UserCompanyView;
 
 import org.w3c.dom.Text;
 
-public class CompanyHomeActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class CompanyHomeActivity extends AppCompatActivity implements IReturnOfferingsFromSearchCallback, IDeletedOffering
+{
 
     private TextView companyNameTextView;
     private TextView companyDetailsTextView;
+
+    // the data set of the search offerings
+    private ArrayList<String> offeringNames = new ArrayList<>();
+    private ArrayList<String> offeringDescriptions = new ArrayList<>();
+    private ArrayList<String> offeringPrices = new ArrayList<>();
+    private ArrayList<String> offeringIds = new ArrayList<>();
+
+    private OfferingAdapter offeringAdapter;
+    private ListView offeringListView;
+
+    Company company;
+    Context context;
+    IDeletedOffering callback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_home);
 
-        Company company = new CompanyBuilder().buildCompany(ApiHandler.getBearerToken());
+        context = this;
+        company = new CompanyBuilder().buildCompany(ApiHandler.getBearerToken());
+        callback = this;
 
         companyNameTextView = findViewById(R.id.name);
         companyDetailsTextView = findViewById(R.id.details);
@@ -41,6 +75,46 @@ public class CompanyHomeActivity extends AppCompatActivity {
 
         companyNameTextView.setText(company.getName());
         companyDetailsTextView.setText(details);
+
+        offeringListView = findViewById(R.id.offeringsListView);
+        offeringAdapter = new OfferingAdapter(this, offeringNames, offeringDescriptions, offeringPrices);
+        offeringListView.setAdapter(offeringAdapter);
+
+        offeringListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Delete reservation");
+                builder.setMessage("Are you sure?");
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Offering offering = new OfferingBuilder().id(offeringIds.get(position)).buildOffering();
+                        // Do nothing but close the dialog
+                        ApiHandler.deleteOffering(context, offering, callback);
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+
+        ApiHandler.searchOfferingsByCompany(this, company, this);
     }
 
     public void onHomeClick(View view)
@@ -71,5 +145,45 @@ public class CompanyHomeActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this, CompanyCreateOffering.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void returnOfferings(ArrayList<Offering> returnedOfferings)
+    {
+        Log.d("AAA", "returnOfferings: Offerings callback reached");
+        // Resetting the lists
+        offeringNames.clear();
+        offeringDescriptions.clear();
+        offeringPrices.clear();
+        offeringIds.clear();
+
+        for (Offering offering : returnedOfferings)
+        {
+            offeringNames.add(offering.getOfferingType());
+            offeringDescriptions.add(offering.getDescription());
+            offeringPrices.add(getPrice(offering));
+            offeringIds.add(offering.getId());
+        }
+
+        CompanyHomeActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                offeringAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private String getPrice(Offering offering)
+    {
+        return offering.getPrice() + " EUR";
+    }
+
+    @Override
+    public void deletedOffering() {
+        Log.d("AAA", "deletedOffering");
+
+        Toast.makeText(this, "Reservation deleted", Toast.LENGTH_SHORT).show();
+
+        ApiHandler.searchOfferingsByCompany(this, company, this);
     }
 }
