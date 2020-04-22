@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.group3.valapas.Adapters.OfferingAdapter;
@@ -116,7 +115,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
     }
 
