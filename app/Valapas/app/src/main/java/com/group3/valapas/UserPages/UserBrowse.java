@@ -66,7 +66,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
 
         context = this;
 
-        categories = new ArrayList<>(Arrays.asList("Restaurants", "Fast Food", "Sports", "Leisure", "Entertainment", "VR"));
+        categories = new ArrayList<>(Arrays.asList("Restaurant", "Venue", "Entertainment", "Bar", "Modern", "Indoor", "Finnish", "Traditional", "Outdoor", "International"));
 
         locations = findViewById(R.id.locationsText);
         categoriesView = findViewById(R.id.categoriesView);
@@ -112,6 +112,20 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
                 changeSort();
             }
         });
+    }
+
+    public void selectPrice(View v)
+    {
+        Intent i = new Intent (this, UserBrowsePrice.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void selectPopular(View v)
+    {
+        Intent i = new Intent (this, UserBrowsePopular.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectProfile(View v)

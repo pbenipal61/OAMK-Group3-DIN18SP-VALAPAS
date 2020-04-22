@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".CompanyPages.CompanyCreateOffering"></activity>
         <activity android:name=".UserPages.UserCompanyView" />
         <activity android:name=".CompanyPages.CompanyHomeActivity" />
         <activity android:name=".CompanyPages.CompanyBookingsActivity" />

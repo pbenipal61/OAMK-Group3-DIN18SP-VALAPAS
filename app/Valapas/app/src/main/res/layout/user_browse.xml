@@ -8,31 +8,33 @@
     tools:context=".UserPages.UserBrowse">
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#EEEEEE"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF">
+            android:background="@color/DarkGray">
 
             <TextView
                 android:id="@+id/locationsText"
-                android:layout_width="225dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:background="#EEEEEE"
                 android:gravity="center"
                 android:text="Locations (100)"
-                android:textAlignment="textStart"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/sortButton"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:textAllCaps="true"
+                android:textColor="@color/SelectedGold"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:fontFamily="@font/montserrat"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
 
@@ -43,33 +45,35 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/radius"
+                android:background="@drawable/white_button_less_round"
                 android:drawableLeft="@drawable/ic_search_black_24dp"
                 android:drawablePadding="20dp"
-                android:drawableTint="#FFFF2626"
                 android:ems="10"
                 android:hint="Search everything"
                 android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:shadowColor="#00EEC5C5"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sortButton"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoriesView"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@color/LightGray"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchText" />
+                app:layout_constraintTop_toBottomOf="@+id/user_browse_category_tabs" />
 
             <ListView
                 android:id="@+id/companiesListView"
                 android:layout_width="0dp"
                 android:layout_height="10000dp"
-                android:layout_marginTop="8dp"
                 android:background="#EEEEEE"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,127 +82,179 @@
 
             </ListView>
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="0dp"
+            <Button
+                android:id="@+id/sortButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="91dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/interactive_button_selected_gold"
+                android:text="Sort by"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/searchText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/user_browse_category_tabs"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="What do you want to do today?"
-                android:textSize="24sp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/searchText">
 
-            <Button
-                android:id="@+id/sortButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/white_button_round"
-                android:text="Sort by"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/locationsText"
-                app:layout_constraintTop_toBottomOf="@+id/categoriesView" />
+                <Button
+                    android:id="@+id/browse_category_tab"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/interactive_button_selected_gold"
+                    android:text="@string/category"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    android:id="@+id/browse_price_tab"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="selectPrice"
+                    android:text="@string/price"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    android:id="@+id/browse_popular_tab"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="selectPopular"
+                    android:text="@string/popular"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+            </LinearLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_gravity="bottom"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/browse_category_results"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/homeButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_home_black_24dp"
-            android:drawableTint="#FFFF2626"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/browse_icon_gold"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Home"
-            android:textColor="#FF2626"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/updateInfoButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
-
-        <Button
-            android:id="@+id/bookingButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_local_library_black_24dp"
-            android:onClick="selectBookings"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="Bookings"
-            android:textColor="#474646"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/favorites"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            android:text="@string/browse"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/SelectedGold"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/updateInfoButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/my_profile_icon_white"
             android:onClick="selectProfile"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="My Profile"
-            android:textColor="#474646"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/favorites"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/homeButton"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            android:text="@string/user_profile"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/favorites"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#00FFFFFF"
-            android:drawableTop="@drawable/ic_favorite_black_24dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/favorites_icon_white"
             android:onClick="selectFavorites"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Favorites"
-            android:textColor="#474646"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bookingButton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/updateInfoButton"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="75dp"
-            tools:layout_conversion_absoluteWidth="103dp" />
+            android:text="@string/my_favorites"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/bookingButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/DarkGray"
+            android:drawableTop="@drawable/bookings_icon_white"
+            android:onClick="selectBookings"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/user_bookings"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="9sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

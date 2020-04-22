@@ -20,6 +20,19 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp">
 
+            <Button
+                android:id="@+id/createOffering"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="selectCreateOffering"
+                android:text="Create Offering"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image" />
+
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="0dp"
@@ -49,7 +62,7 @@
                 android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image" />
+                app:layout_constraintTop_toBottomOf="@+id/createOffering" />
 
             <ImageView
                 android:id="@+id/image"

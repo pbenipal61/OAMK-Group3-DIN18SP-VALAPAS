@@ -28,7 +28,7 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="5dp"
-            android:background="@drawable/radius"
+            android:background="@drawable/white_button_round"
             android:drawableLeft="@drawable/ic_search_black_24dp"
             tools:ignore="LabelFor" />
 

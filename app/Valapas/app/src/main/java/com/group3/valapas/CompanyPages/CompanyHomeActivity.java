@@ -1,10 +1,10 @@
 package com.group3.valapas.CompanyPages;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.R;
 
@@ -37,6 +37,12 @@ public class CompanyHomeActivity extends AppCompatActivity {
     public void onBookingsClick(View view)
     {
         Intent intent = new Intent(this, CompanyBookingsActivity.class);
+        startActivity(intent);
+    }
+
+    public void selectCreateOffering(View view)
+    {
+        Intent intent = new Intent(this, CompanyCreateOffering.class);
         startActivity(intent);
     }
 }
