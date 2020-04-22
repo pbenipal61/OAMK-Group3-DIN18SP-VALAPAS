@@ -65,7 +65,7 @@
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name"
-                app:srcCompat="@color/DefaultBackground" />
+                app:srcCompat="@drawable/restaurant_chocolat" />
 
             <ListView
                 android:id="@+id/offeringsListView"
