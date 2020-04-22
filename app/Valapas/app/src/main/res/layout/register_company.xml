@@ -605,24 +605,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:hint="Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Password"/>
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/confirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:hint="Confirm Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat"
-                    android:hint="Confirm Password"/>
+                    app:fontFamily="@font/montserrat" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
