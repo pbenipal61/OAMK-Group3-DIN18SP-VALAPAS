@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@id/company_hours" >
 
         <TextView
-            android:id="@+id/CompanyAddress"
+            android:id="@+id/companyLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
         android:layout_height="0dp"
         android:background="@color/White"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/company_description"
+        app:layout_constraintBottom_toTopOf="@id/company_description_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/company_address">
@@ -120,7 +120,7 @@
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:background="@color/LightGold"
+                android:background="@drawable/interactive_button_light_gold"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:textAlignment="center"
@@ -137,7 +137,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:background="@color/SelectedGold"
+                android:background="@drawable/interactive_button_selected_gold"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"/>
 
@@ -146,7 +146,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/company_description"
+        android:id="@+id/company_description_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/DarkGray"
@@ -157,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@id/company_hours" >
 
         <TextView
-            android:id="@+id/CompanyDescription"
+            android:id="@+id/company_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
