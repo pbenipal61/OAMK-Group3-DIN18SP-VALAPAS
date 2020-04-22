@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CompanyPages.CompanyUpdateInfo"
-    android:background="@color/LightGray">
+    android:background="@color/White">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,11 +29,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
-                android:background="@color/White"
                 android:hint="Company Description"
                 android:textAllCaps="false"
-                android:textColor="@color/Black"
-                android:textSize="20sp"
+                android:textColor="@color/White"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/montserrat"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,12 +56,12 @@
                     android:layout_height="wrap_content"
                     android:background="@color/SelectedGold"
                     android:padding="10dp"
-                    android:text="Register Business"
+                    android:text="Update Info"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/Black"
                     android:textSize="15sp"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
@@ -76,8 +75,7 @@
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/register_company_title"
-                android:background="@color/LightGray">
+                app:layout_constraintTop_toBottomOf="@+id/register_company_title" >
 
                 <EditText
                     android:id="@+id/companyName"
@@ -88,10 +86,9 @@
                     android:paddingStart="5dp"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White" />
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -105,8 +102,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_name_container"
-                android:background="@color/LightGray">
+                app:layout_constraintTop_toBottomOf="@id/company_name_container" >
 
                 <EditText
                     android:id="@+id/address"
@@ -116,10 +112,9 @@
                     android:hint="Address"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/postalCode"
@@ -129,10 +124,9 @@
                     android:hint="Postal Code"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -145,21 +139,19 @@
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_address_description_container"
-                android:background="@color/LightGray">
+                app:layout_constraintTop_toBottomOf="@id/company_address_description_container" >
 
                 <EditText
-                    android:id="@+id/companyName"
+                    android:id="@+id/city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="City"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
 
                 <EditText
                     android:id="@+id/country"
@@ -169,10 +161,9 @@
                     android:hint="Country"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -199,8 +190,7 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    app:fontFamily="@font/montserrat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -213,8 +203,7 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat"
-                    android:background="@color/White"/>
+                    app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
 
@@ -224,7 +213,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/company_openinghours_title">
@@ -240,7 +228,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
@@ -254,7 +242,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
@@ -268,7 +256,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
                 <EditText
@@ -282,7 +270,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
             </LinearLayout>
@@ -294,7 +282,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -322,7 +309,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_price_container">
@@ -375,7 +361,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/White"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -407,8 +392,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_container"
-                android:background="@color/White">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_container" >
 
                 <CheckBox
                     android:id="@+id/Restaurant"
@@ -419,7 +403,7 @@
                     android:text="Restaurant"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -432,9 +416,10 @@
                     android:text="Venue"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Entertainment"
@@ -445,9 +430,10 @@
                     android:text="Entertainment"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Bar"
@@ -457,9 +443,10 @@
                     android:text="Bar"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -473,8 +460,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_one"
-                android:background="@color/White">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_one" >
 
                 <CheckBox
                     android:id="@+id/Modern"
@@ -485,9 +471,10 @@
                     android:text="Modern"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Indoor"
@@ -498,9 +485,10 @@
                     android:text="Indoor"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Finnish"
@@ -511,9 +499,10 @@
                     android:text="Finnish"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -527,8 +516,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_two"
-                android:background="@color/White">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_two" >
 
                 <CheckBox
                     android:id="@+id/Traditional"
@@ -539,9 +527,10 @@
                     android:text="Traditional"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Outdoor"
@@ -551,8 +540,8 @@
                     android:layout_marginEnd="8dp"
                     android:text="Outdoor"
                     android:textAllCaps="false"
-                    android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textColor="@color/White"
+                    android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
 
@@ -565,9 +554,10 @@
                     android:text="International"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="12sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -583,7 +573,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_categories_three"
-                android:background="@color/LightGray"
                 android:paddingTop="16dp">
 
                 <EditText
@@ -591,11 +580,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@color/White"
                     android:hint="Email"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
@@ -603,11 +591,10 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/White"
                     android:hint="Password"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
@@ -615,25 +602,24 @@
                     android:id="@+id/confirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/White"
                     android:hint="Confirm Password"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/interactive_button_light_gold"
                     android:padding="16dp"
-                    android:text="Update Info"
+                    android:text="U P D A T E"
                     android:textAllCaps="true"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
@@ -658,7 +644,7 @@
             android:id="@+id/homeButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
+            android:background="@color/DarkGray"
             android:drawableTop="@drawable/ic_home_black_24dp"
             android:onClick="onHomeClick"
             android:paddingTop="15dp"
@@ -679,7 +665,7 @@
             android:id="@+id/bookingButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
+            android:background="@color/DarkGray"
             android:drawableTop="@drawable/bookings_icon_white"
             android:onClick="onBookingsClick"
             android:paddingTop="15dp"
@@ -700,7 +686,7 @@
             android:id="@+id/updateInfoButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
+            android:background="@color/DarkGray"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="Update Info"
@@ -720,7 +706,7 @@
             android:id="@+id/favorites"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#00FFFFFF"
+            android:background="@color/DarkGray"
             android:drawableTop="@drawable/ic_stars_black_24dp"
             android:onClick="onReviewsClick"
             android:paddingTop="15dp"
