@@ -264,4 +264,13 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
         Intent intent = new Intent(this, CompanyBookingsActivity.class);
         startActivity(intent);
     }
+
+    public void onLogoutClick(View view)
+    {
+        ApiHandler.logOut(this);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
 }

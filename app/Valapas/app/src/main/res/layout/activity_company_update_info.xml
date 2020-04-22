@@ -626,6 +626,19 @@
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="onLogoutClick"
+                    android:text="L o g o u t"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

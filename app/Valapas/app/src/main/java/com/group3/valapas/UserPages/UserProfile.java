@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.R;
@@ -83,6 +84,15 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
             User user = new UserBuilder().id(userForGettingId.getId()).firstName(firstName).lastName(lastName).email(email).city(city).password(password).isAdult(userForGettingId.getAdult()).buildUser();
             ApiHandler.editUser(this, user, this);
         }
+    }
+
+    public void onLogoutClick(View view)
+    {
+        ApiHandler.logOut(this);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
