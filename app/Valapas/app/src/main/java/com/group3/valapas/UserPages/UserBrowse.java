@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCal
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Dialogs.ISortSelected;
 import com.group3.valapas.Dialogs.SortDialog;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.R;
 
@@ -98,10 +100,18 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
         companiesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(context, UserCompanyView.class);
-                intent.putExtra("CompanyName", companyNames.get(position));
-                intent.putExtra("CompanyId", companyIds.get(position));
-                startActivity(intent);
+                if (ApiHandler.getBearerToken().equals(""))
+                {
+                    Toast.makeText(context, "You need to login first.", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(context, MainActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Intent intent = new Intent(context, UserCompanyView.class);
+                    intent.putExtra("CompanyName", companyNames.get(position));
+                    intent.putExtra("CompanyId", companyIds.get(position));
+                    startActivity(intent);
+                }
             }
         });
 
@@ -130,23 +140,47 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserProfile.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserProfile.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     public void selectFavorites(View v)
     {
-        Intent i = new Intent (this, UserFavorites.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserFavorites.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     public void selectBookings(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserBookings.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     private void changeSort()

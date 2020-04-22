@@ -49,7 +49,7 @@ public class ApiHandler
 {
     public static final String apiUrl = "http://ec2-54-93-188-113.eu-central-1.compute.amazonaws.com:3000";
 
-    private static String bearerToken;
+    private static String bearerToken = "";
 
 
     public static int readBearerToken(Context context)
