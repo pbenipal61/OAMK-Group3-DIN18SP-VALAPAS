@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserPages.UserCompanyView">
+    tools:context=".UserPages.UserCompanyView" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -291,7 +291,7 @@
             <ListView
                 android:id="@+id/offeringsListView"
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/offerings_title"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
