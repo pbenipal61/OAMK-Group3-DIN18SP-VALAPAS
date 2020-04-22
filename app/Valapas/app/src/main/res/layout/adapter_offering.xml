@@ -44,7 +44,7 @@
         android:gravity="center"
         android:lines="1"
         android:text="10,00 EUR"
-        android:textColor="#FF2626"
+        android:textColor="@color/SelectedGold"
         android:textSize="14dp"
         android:textStyle="bold" />
 
