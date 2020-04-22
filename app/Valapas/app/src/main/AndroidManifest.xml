@@ -21,12 +21,15 @@
         <activity android:name=".RegisterPages.RegisterCompanyActivity" />
         <activity android:name=".CompanyPages.CompanyCustomerView" />
         <activity android:name=".CompanyPages.CompanyInformation" />
-        <activity android:name=".UserPages.UserBrowsePrice" />
-        <activity android:name=".UserPages.UserBrowsePopular" />
+        <activity android:name=".UserPages.UserBrowsePrice"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".UserPages.UserBrowsePopular"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".UserPages.UserMakeReservation" />
         <activity android:name=".UserPages.UserBookings" />
         <activity android:name=".UserPages.UserFavorites" />
-        <activity android:name=".UserPages.UserProfile" />
+        <activity android:name=".UserPages.UserProfile"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".RegisterPages.RegisterCompany" />
         <activity android:name=".RegisterPages.RegisterUser" />
         <activity android:name=".BrowsePages.BrowsePriceTab" />
@@ -36,7 +39,8 @@
         <activity android:name=".BrowsePages.BrowseFavoritesPage" />
         <activity android:name=".BrowsePages.BrowseBookingsPage" />
         <activity android:name=".RegisterPages.Register" />
-        <activity android:name=".UserPages.UserBrowse" />
+        <activity android:name=".UserPages.UserBrowse"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".BrowsePages.BrowsePage" />
         <activity android:name=".MainActivity">
             <intent-filter>
