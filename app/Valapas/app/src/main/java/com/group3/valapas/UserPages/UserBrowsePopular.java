@@ -19,7 +19,7 @@ public class UserBrowsePopular extends AppCompatActivity
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
     }
 

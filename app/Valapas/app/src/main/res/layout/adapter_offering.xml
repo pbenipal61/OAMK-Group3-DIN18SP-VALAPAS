@@ -16,7 +16,7 @@
         android:gravity="center"
         android:maxLength="40"
         android:text="Offering Name"
-        android:textColor="#494646"
+        android:textColor="@color/Black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -27,11 +27,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-
         android:lines="3"
         android:maxLines="3"
         android:text="Description"
-        android:textSize="14dp" />
+        android:textStyle="italic"
+        android:textSize="8dp" />
 
     <TextView
         android:id="@+id/offeringPrice"

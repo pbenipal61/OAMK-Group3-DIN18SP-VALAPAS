@@ -18,7 +18,7 @@ public class BrowsePopularTab extends AppCompatActivity
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, BrowsePage.class);
+        Intent i = new Intent (this, BrowseCategoryTab.class);
         startActivity(i);
     }
 
