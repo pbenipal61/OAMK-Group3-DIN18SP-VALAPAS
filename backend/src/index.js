@@ -17,7 +17,7 @@ app.use(passport.initialize());
 passportConfig(passport);
 mongoose
     .connect(
-        `mongodb+srv://admin:i3f2YwP9iW@cluster0-990qj.mongodb.net/test?retryWrites=true&w=majority`,
+        `mongodb+srv://admin:i3f2YwP9iW@cluster0-990qj.mongodb.net/valapas?retryWrites=true&w=majority`,
         {
             useUnifiedTopology: true,
             useNewUrlParser: true,
