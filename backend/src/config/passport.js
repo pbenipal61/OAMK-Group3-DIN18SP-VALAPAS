@@ -20,6 +20,10 @@ export default (passport) => {
             return done(null, {user: payload.user});
         }
 
+        if(payload.company){
+            return done(null, {company: payload.company});
+        }
+
         return done(null, false);
     }));
 };
