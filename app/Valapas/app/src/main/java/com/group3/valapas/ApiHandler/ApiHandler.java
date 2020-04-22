@@ -564,20 +564,34 @@ public class ApiHandler
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
         String url = apiUrl + "/companies/" + company.getId();
 
+        Log.d("AAA", "editCompany: " + url);
+
         // Making the JSON
         JSONObject js = new JSONObject();
         try
         {
+            // openingHours not working correctly. Works only for monday-friday
+            JSONArray openingHours = new JSONArray(company.getOpeningHours());
+
+            // Log.d("AAA", "openingHours as String: " + company.getOpeningHours());
+            // Log.d("AAA", "openingHours as JSONArray: " + openingHours);
+
+            js.put("email", company.getEmail());
+            js.put("password", company.getPassword());
             js.put("name", company.getName());
-            js.put("description", company.getDescription());
-            js.put("address", company.getAddress());
-            js.put("postalCode", company.getPostalCode());
-            js.put("location", company.getLocation());
-            js.put("city", company.getCity());
             js.put("country", company.getCountry());
-            js.put("categories", company.getCategories());
-            js.put("openingHours", company.getOpeningHours());
-            js.put("priceRange", company.getPriceRange());
+            js.put("city", company.getCity());
+            js.put("location", company.getLocation());
+            js.put("postalCode", company.getPostalCode());
+            js.put("address", company.getAddress());
+            js.put("description", company.getDescription());
+            js.put("openingHours", openingHours);
+            if (!company.getCategories().equals(""))
+                js.put("categories", new JSONArray(company.getCategories()));
+
+            // js.put("categories", company.getCategories());
+            // js.put("openingHours", company.getOpeningHours());
+            // js.put("priceRange", company.getPriceRange());
         }
         catch (Exception e)
         {
@@ -598,8 +612,8 @@ public class ApiHandler
                         Company newCompany;
                         try
                         {
-                            JSONObject dataJSON = response.getJSONObject("data");
-                            JSONObject companyJSON = dataJSON.getJSONObject("company");
+                            // JSONObject dataJSON = response.getJSONObject("data");
+                            // JSONObject companyJSON = dataJSON.getJSONObject("company");
 
                             /*
                             JSONArray categoriesArrayJSON = companyJSON.getJSONArray("categories");
@@ -617,7 +631,7 @@ public class ApiHandler
                                 openingHoursArray[i][1] = Integer.parseInt(openingHoursArrayJSON.getJSONArray(i).getString(1));
                             }
                             */
-
+                            /*
                             JSONArray priceRangeArrayJSON = companyJSON.getJSONArray("categories");
                             String priceRangeArray[] = new String[priceRangeArrayJSON.length()];
                             for(int i = 0; i < priceRangeArrayJSON.length(); i++)
@@ -637,8 +651,8 @@ public class ApiHandler
                                     .openingHours(companyJSON.getString("openingHours"))
                                     .priceRange(priceRangeArray)
                                     .buildCompany();
-
-                            callback.returnCompany(newCompany);
+                            */
+                            callback.returnCompany(null/*newCompany*/);
                         }
                         catch (Exception e)
                         {

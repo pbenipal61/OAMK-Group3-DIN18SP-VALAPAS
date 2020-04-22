@@ -31,7 +31,7 @@
                 android:layout_weight="1"
                 android:hint="Company Description"
                 android:textAllCaps="false"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/montserrat"
@@ -78,7 +78,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/register_company_title" >
 
                 <EditText
-                    android:id="@+id/companyName"
+                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -540,7 +540,7 @@
                     android:layout_marginEnd="8dp"
                     android:text="Outdoor"
                     android:textAllCaps="false"
-                    android:textColor="@color/White"
+                    android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat" />
@@ -592,6 +592,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="12sp"
@@ -603,6 +604,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Confirm Password"
+                    android:password="true"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="12sp"
@@ -615,6 +617,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="onUpdateClick"
                     android:padding="16dp"
                     android:text="U P D A T E"
                     android:textAllCaps="true"
