@@ -75,9 +75,9 @@
             android:layout_margin="5dp"
 
             android:layout_weight="1"
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectLoginAsUser"
-            android:text="@string/home_page_sign_in_user"
+            android:text="User Login"
             android:textAllCaps="true"
             android:textColor="@color/Black"
             android:textSize="12sp"
@@ -109,9 +109,9 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectLoginAsCompany"
-            android:text="@string/home_page_sign_in_company"
+            android:text="Company Login"
             android:textAllCaps="true"
             android:textColor="@color/Black"
             android:textSize="12sp"
@@ -154,7 +154,7 @@
             android:layout_gravity="top"
             android:layout_margin="5dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_light_gold"
             android:onClick="selectRegister"
             android:text="@string/home_page_register"
             android:textAllCaps="true"
@@ -187,7 +187,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
 
-            android:background="@color/LightGold"
+            android:background="@drawable/interactive_button_selected_gold"
             android:onClick="selectBrowse"
             android:text="@string/home_page_browse"
             android:textAlignment="center"
