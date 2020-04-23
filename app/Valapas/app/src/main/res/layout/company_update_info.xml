@@ -33,7 +33,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/Black"
                 android:textSize="12sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 app:fontFamily="@font/montserrat"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -231,9 +231,10 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/openingHours2"
@@ -245,9 +246,10 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/openingHours3"
@@ -259,9 +261,10 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/openingHours4"
@@ -273,9 +276,10 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
+                    android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -303,7 +307,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -382,7 +387,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -409,7 +415,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Venue"
@@ -561,7 +568,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/International"
@@ -606,7 +614,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
 
                 <EditText
@@ -620,7 +629,8 @@
                     android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Seperate tags with commas"/>
+                    android:hint="Seperate tags with commas"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -646,7 +656,8 @@
                     android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Email"/>
+                    android:hint="Email"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/password"

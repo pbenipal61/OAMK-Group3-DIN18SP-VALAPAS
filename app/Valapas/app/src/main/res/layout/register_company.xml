@@ -313,7 +313,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
 
             </LinearLayout>
@@ -340,7 +341,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Average"
@@ -353,7 +355,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Expensive"
@@ -366,7 +369,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -395,7 +399,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -423,7 +428,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Venue"
@@ -436,7 +442,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -465,7 +472,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Bar"
@@ -477,7 +485,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -505,7 +514,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Indoor"
@@ -518,7 +528,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Finnish"
@@ -531,7 +542,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -559,7 +571,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/Outdoor"
@@ -572,7 +585,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/International"
@@ -585,7 +599,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
             </LinearLayout>
 
@@ -615,7 +630,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
 
                 <EditText
@@ -629,7 +645,8 @@
                     android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Seperate tags with commas"/>
+                    android:hint="Seperate tags with commas"
+                    tools:ignore="SmallSp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -642,7 +659,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/email"
@@ -655,7 +673,8 @@
                     android:textSize="8sp"
                     android:textStyle="normal"
                     app:fontFamily="@font/montserrat"
-                    android:hint="Email"/>
+                    android:hint="Email"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/password"
@@ -668,7 +687,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <EditText
                     android:id="@+id/confirmPassword"
@@ -681,7 +701,8 @@
                     android:textColor="@color/Black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/montserrat" />
+                    app:fontFamily="@font/montserrat"
+                    tools:ignore="SmallSp" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
@@ -696,7 +717,8 @@
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat"
                     android:text="I have read and I agree with the Terms and Conditions, the Privacy Policy and Usage of cookies and similar technologies."
-                    android:background="@color/White"/>
+                    android:background="@color/White"
+                    tools:ignore="SmallSp" />
 
                 <Button
                     android:id="@+id/registerButton"
