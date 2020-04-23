@@ -41,6 +41,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="3141 Address, Oulu 90130"
+            android:textColor="@color/White"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/offeringName" />
