@@ -62,7 +62,14 @@ router.get('/', async (req, res, next) => {
 
 
         if(Object.keys(req.query).length > 0){
-            const company = await Company.find(req.query);
+            const queryObj = Object.keys(req.query).reduce((acc, key) => {
+                let a = acc;
+                a[key] = new RegExp(`${req.query[key]}`, 'i');
+                return a;
+            }, {});
+
+            console.log(queryObj);
+            const company = await Company.find(queryObj);
             return res.status(200).json({status: "Success", data: {company}})
         }
 
@@ -224,17 +231,10 @@ catch(err){
 router.put('/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
     try{
         const id = req.params.id;
-        let input = req.body;
+        const input = req.body;
         if(!id){
             return res.status(400).json({status: "Failed", data: {message: "Please provide an id"}})
         }
-
-        if(input.password){
-            const salt = await bcrypt.genSaltSync(saltRounds);
-            const hash = bcrypt.hashSync(input.password, salt);
-            input.password = hash;
-        }
-        
         const company = await Company.findByIdAndUpdate(id, {...input}, { new: true});
         return res.status(200).json({status: "Success", data: {company}})
     }
