@@ -35,7 +35,7 @@
         android:layout_marginBottom="0dp"
         android:background="@color/DarkGray"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/register_footer"
+        app:layout_constraintBottom_toTopOf="@id/login_as_customer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_header" >
@@ -63,6 +63,44 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/login_as_customer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/DarkGray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/register_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_as_customer" >
+
+        <Button
+            android:id="@+id/customer_login"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/interactive_button_light_gold"
+            android:onClick="selectLogin"
+            android:text="L o g i n"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:fontFamily="@font/montserrat"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/register_footer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -76,7 +114,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_as_customer" />
+        app:layout_constraintTop_toBottomOf="@id/login_as_customer" />
 
     <LinearLayout
         android:id="@+id/bottomBar"
