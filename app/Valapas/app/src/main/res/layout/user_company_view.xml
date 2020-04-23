@@ -271,7 +271,7 @@
                 app:layout_constraintEnd_toStartOf="@id/favoriteButton"
                 app:layout_constraintBottom_toTopOf="@id/offeringsListView"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/favoriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

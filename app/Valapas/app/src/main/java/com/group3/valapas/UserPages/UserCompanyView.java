@@ -42,9 +42,9 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     // the data set of the search offerings
     private ArrayList<String> offeringNames = new ArrayList<>();
-    private ArrayList<String> offeringDescriptions = new ArrayList<>();
     private ArrayList<String> offeringPrices = new ArrayList<>();
     private ArrayList<String> offeringIds = new ArrayList<>();
+    private ArrayList<String> offeringDescriptions = new ArrayList<>();
 
     private Company company;
 
@@ -115,7 +115,7 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowse.class);
+        Intent i = new Intent (this, UserBrowseCategory.class);
         startActivity(i);
     }
 

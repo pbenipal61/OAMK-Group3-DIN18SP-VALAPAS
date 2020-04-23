@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.R;
 import com.group3.valapas.RegisterPages.RegisterUser;
 
@@ -20,6 +21,12 @@ public class BrowseBookingsPage extends AppCompatActivity
     public void selectUser(View v)
     {
         Intent i = new Intent (this, RegisterUser.class);
+        startActivity(i);
+    }
+
+    public void selectLogin(View v)
+    {
+        Intent i = new Intent (this, MainActivity.class);
         startActivity(i);
     }
 

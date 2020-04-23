@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,8 +25,11 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCal
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Dialogs.ISortSelected;
 import com.group3.valapas.Dialogs.SortDialog;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.R;
+import com.group3.valapas.UserPages.UserBrowsePopular;
+import com.group3.valapas.UserPages.UserBrowsePrice;
 import com.group3.valapas.UserPages.UserCompanyView;
 
 import java.util.ArrayList;
@@ -62,11 +67,11 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.browse_category_tab);
+        setContentView(R.layout.user_browse);
 
         context = this;
 
-        categories = new ArrayList<>(Arrays.asList("Restaurants", "Fast Food", "Sports", "Leisure", "Entertainment", "VR"));
+        categories = new ArrayList<>(Arrays.asList("Restaurant", "Venue", "Entertainment", "Bar", "Modern", "Indoor", "Finnish", "Traditional", "Outdoor", "International"));
 
         locations = findViewById(R.id.locationsText);
         categoriesView = findViewById(R.id.categoriesView);
@@ -98,10 +103,17 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
         companiesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(context, UserCompanyView.class);
-                intent.putExtra("CompanyName", companyNames.get(position));
-                intent.putExtra("CompanyId", companyIds.get(position));
-                startActivity(intent);
+                if (ApiHandler.getBearerToken().equals(""))
+                {
+                    Intent i = new Intent(context, BrowseProfilePage.class);
+                    startActivity(i);
+                }
+                else {
+                    Intent intent = new Intent(context, UserCompanyView.class);
+                    intent.putExtra("CompanyName", companyNames.get(position));
+                    intent.putExtra("CompanyId", companyIds.get(position));
+                    startActivity(intent);
+                }
             }
         });
 
@@ -119,7 +131,6 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
         Intent i = new Intent (this, BrowsePriceTab.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     public void selectPopular(View v)
@@ -127,26 +138,25 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
         Intent i = new Intent (this, BrowsePopularTab.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, BrowseProfilePage.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            Intent i = new Intent(this, BrowseProfilePage.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectFavorites(View v)
     {
-        Intent i = new Intent (this, BrowseFavoritesPage.class);
+        Intent i = new Intent(this, BrowseFavoritesPage.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void selectBookings(View v)
     {
-        Intent i = new Intent (this, BrowseBookingsPage.class);
+        Intent i = new Intent(this, BrowseBookingsPage.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
@@ -181,8 +191,7 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
     }
 
     @Override
-    public void returnSearchResults(ArrayList<Company> returnedCompanies)
-    {
+    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
 
         // Resetting the lists
         companyNames.clear();

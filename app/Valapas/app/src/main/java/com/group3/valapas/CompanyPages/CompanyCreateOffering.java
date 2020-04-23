@@ -31,7 +31,7 @@ public class CompanyCreateOffering extends AppCompatActivity implements IReturnO
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_create_offering);
+        setContentView(R.layout.company_create_offering);
 
         offeringName = findViewById(R.id.offeringName);
         offeringDescription = findViewById(R.id.createOfferingDescription);
