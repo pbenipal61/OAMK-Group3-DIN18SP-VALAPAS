@@ -738,10 +738,10 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
-    public static void searchByCompanyName(final Context context, String companyName, final IReturnCompanySearchResultsCallback callback)
+    public static void searchByCompanyName(final Context context, String companyName, final IReturnCompanySearchResultsCallback callback, final String prop)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies?tags=" + companyName;
+        String url = apiUrl + "/companies?" + prop + "=" + companyName;
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()

@@ -60,12 +60,15 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
     private String sort;
     private int sortIndex = 0;
 
+    private static final String TAG = "UserBrowseCategory";
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_browse_category);
 
+        Log.d(TAG, "onCreate: here");
         context = this;
 
         categories = new ArrayList<>(Arrays.asList("Restaurant", "Venue", "Entertainment", "Bar", "Modern", "Indoor", "Finnish", "Traditional", "Outdoor", "International"));
@@ -109,6 +112,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
                 else {
                     Intent intent = new Intent(context, UserCompanyView.class);
                     intent.putExtra("CompanyName", companyNames.get(position));
+                    Log.d(TAG, "onItemClick: "+ companyNames.get(position));
                     intent.putExtra("CompanyId", companyIds.get(position));
                     startActivity(intent);
                 }
@@ -197,7 +201,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
         in.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
 
         ((CategoriesAdapter)categoriesAdapter).resetIndex();
-        ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this);
+        ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this, "tags");
     }
 
 
