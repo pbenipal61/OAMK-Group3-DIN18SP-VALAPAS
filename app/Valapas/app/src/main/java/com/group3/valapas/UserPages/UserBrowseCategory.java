@@ -64,7 +64,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse);
+        setContentView(R.layout.user_browse_category);
 
         context = this;
 

@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,11 +24,8 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCal
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Dialogs.ISortSelected;
 import com.group3.valapas.Dialogs.SortDialog;
-import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.R;
-import com.group3.valapas.UserPages.UserBrowsePopular;
-import com.group3.valapas.UserPages.UserBrowsePrice;
 import com.group3.valapas.UserPages.UserCompanyView;
 
 import java.util.ArrayList;
@@ -67,7 +63,7 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse);
+        setContentView(R.layout.user_browse_category);
 
         context = this;
 
