@@ -40,7 +40,7 @@ public class CompanyBookingsActivity extends AppCompatActivity implements IRetur
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_bookings);
+        setContentView(R.layout.company_bookings);
 
         historyButton = findViewById(R.id.user_bookings_history_tab);
         currentButton = findViewById(R.id.user_bookings_current_tab);
