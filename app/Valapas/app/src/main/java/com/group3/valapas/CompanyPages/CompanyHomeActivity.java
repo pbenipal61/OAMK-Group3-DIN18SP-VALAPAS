@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.group3.valapas.Adapters.OfferingAdapter;
 import com.group3.valapas.ApiHandler.ApiCallbacks.IDeletedOffering;
@@ -23,12 +22,7 @@ import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.Models.Offering;
 import com.group3.valapas.Models.OfferingBuilder;
-import com.group3.valapas.Models.Reservation;
-import com.group3.valapas.Models.ReservationBuilder;
 import com.group3.valapas.R;
-import com.group3.valapas.UserPages.UserCompanyView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -54,7 +48,7 @@ public class CompanyHomeActivity extends AppCompatActivity implements IReturnOff
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_home);
+        setContentView(R.layout.company_home);
 
         context = this;
         company = new CompanyBuilder().buildCompany(ApiHandler.getBearerToken());

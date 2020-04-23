@@ -52,7 +52,7 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_update_info);
+        setContentView(R.layout.company_update_info);
 
         companyNameEditText = findViewById(R.id.name);
         addressEditText = findViewById(R.id.address);

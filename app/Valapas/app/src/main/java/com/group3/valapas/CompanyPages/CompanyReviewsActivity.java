@@ -13,7 +13,7 @@ public class CompanyReviewsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_reviews);
+        setContentView(R.layout.company_reviews);
     }
 
     public void onHomeClick(View view)

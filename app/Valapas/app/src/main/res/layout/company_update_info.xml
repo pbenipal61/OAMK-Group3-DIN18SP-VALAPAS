@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/SelectedGold"
-                    android:padding="10dp"
+                    android:padding="20dp"
                     android:text="Update Info"
                     android:textAlignment="center"
                     android:textAllCaps="true"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +109,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingEnd="10dp"
                     android:hint="Address"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -121,6 +122,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingEnd="10dp"
                     android:hint="Postal Code"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -146,6 +148,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingEnd="10dp"
                     android:hint="City"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -158,6 +161,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingEnd="10dp"
                     android:hint="Country"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -421,6 +425,20 @@
                     app:fontFamily="@font/montserrat"
                     tools:ignore="SmallSp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/company_categories_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_categories_one" >
+
                 <CheckBox
                     android:id="@+id/Entertainment"
                     android:layout_width="wrap_content"
@@ -451,7 +469,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/company_categories_two"
+                android:id="@+id/company_categories_three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -460,7 +478,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_one" >
+                app:layout_constraintTop_toBottomOf="@id/company_categories_two" >
 
                 <CheckBox
                     android:id="@+id/Modern"
@@ -507,7 +525,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/company_categories_three"
+                android:id="@+id/company_categories_four"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -516,7 +534,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_two" >
+                app:layout_constraintTop_toBottomOf="@id/company_categories_three" >
 
                 <CheckBox
                     android:id="@+id/Traditional"
@@ -566,6 +584,7 @@
                 android:id="@+id/company_email_password_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="100dp"
@@ -581,6 +600,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:paddingTop="20dp"
                     android:hint="Email"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
@@ -592,6 +612,7 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
                     android:hint="Password"
                     android:password="true"
                     android:textAllCaps="false"
@@ -604,6 +625,7 @@
                     android:id="@+id/confirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
                     android:hint="Confirm Password"
                     android:password="true"
                     android:textAllCaps="false"
@@ -615,7 +637,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/interactive_button_selected_gold"
                     android:onClick="onUpdateClick"
@@ -631,7 +653,7 @@
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="40dp"
                     android:background="@drawable/interactive_button_light_gold"
                     android:onClick="onLogoutClick"
                     android:text="L o g o u t"
