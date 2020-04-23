@@ -16,8 +16,9 @@ public class Company
     private String categories;
     private String openingHours;
     private String[] priceRange;
+    private String[] tags;
 
-    public Company(String id, String email, String password, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String categories, String openingHours, String[] priceRange)
+    public Company(String id, String email, String password, String name, String description, String[] images, String address, String postalCode, String location, String city, String country, String categories, String openingHours, String[] priceRange, String[] tags)
     {
         this.id = id;
         this.email = email;
@@ -33,6 +34,7 @@ public class Company
         this.categories = categories;
         this.openingHours = openingHours;
         this.priceRange = priceRange;
+        this.tags = tags;
     }
 
     public String getId() {
@@ -90,6 +92,10 @@ public class Company
     public String[] getPriceRange() {
         return priceRange;
     }
+
+    public String[] getTags() {
+        return this.tags;
+}
 
     public String toString()
     {

@@ -17,6 +17,8 @@ import com.group3.valapas.Models.Company;
 import com.group3.valapas.Models.CompanyBuilder;
 import com.group3.valapas.R;
 
+import java.util.Arrays;
+
 public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompanyCallback
 {
     private EditText companyNameEditText;
@@ -25,6 +27,7 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
     private EditText cityEditText;
     private EditText countryEditText;
     private EditText descriptionEditText;
+    private EditText tagsET;
 
     private EditText openingHours1EditText;
     private EditText openingHours2EditText;
@@ -49,6 +52,8 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
     private CheckBox outdoorCheckBox;
     private CheckBox internationalCheckBox;
 
+    private static final String TAG = "CompanyUpdateInfo";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,7 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
         cityEditText = findViewById(R.id.city);
         countryEditText = findViewById(R.id.country);
         descriptionEditText = findViewById(R.id.description);
+        tagsET = (EditText) findViewById(R.id.tags);
 
         openingHours1EditText = findViewById(R.id.openingHours1);
         openingHours2EditText = findViewById(R.id.openingHours2);
@@ -137,98 +143,107 @@ public class CompanyUpdateInfo extends AppCompatActivity implements IReturnCompa
 
     public void onUpdateClick(View view)
     {
-        String name = companyNameEditText.getText().toString();
-        String address = addressEditText.getText().toString();
-        String postalCode = postalCodeEditText.getText().toString();
-        String city = cityEditText.getText().toString();
-        String country = countryEditText.getText().toString();
-        String description = descriptionEditText.getText().toString();
+        try{
+            String[] tags = tagsET.getText().toString().split(",");
+            Log.d(TAG, "onUpdateClick: "+ Arrays.toString(tags));
+            String name = companyNameEditText.getText().toString();
+            String address = addressEditText.getText().toString();
+            String postalCode = postalCodeEditText.getText().toString();
+            String city = cityEditText.getText().toString();
+            String country = countryEditText.getText().toString();
+            String description = descriptionEditText.getText().toString();
 
-        String openingHours1 = openingHours1EditText.getText().toString();
-        String openingHours2 = openingHours2EditText.getText().toString();
-        String openingHours3 = openingHours3EditText.getText().toString();
-        String openingHours4 = openingHours4EditText.getText().toString();
+            String openingHours1 = openingHours1EditText.getText().toString();
+            String openingHours2 = openingHours2EditText.getText().toString();
+            String openingHours3 = openingHours3EditText.getText().toString();
+            String openingHours4 = openingHours4EditText.getText().toString();
 
-        String email = emailEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
-        String confirmPassword = confirmPasswordEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
+            String confirmPassword = confirmPasswordEditText.getText().toString();
 
-        String categoriesString = "[";
-        if (restaurantCheckBox.isChecked())
-        {
-            categoriesString += "Restaurant,";
-        }
-        if (venueCheckBox.isChecked())
-        {
-            categoriesString += "Venue,";
-        }
-        if (entertainmentCheckBox.isChecked())
-        {
-            categoriesString += "Entertainment,";
-        }
-        if (barCheckBox.isChecked())
-        {
-            categoriesString += "Bar,";
-        }
-        if (modernCheckBox.isChecked())
-        {
-            categoriesString += "Modern,";
-        }
-        if (indoorCheckBox.isChecked())
-        {
-            categoriesString += "Indoor,";
-        }
-        if (finnishCheckBox.isChecked())
-        {
-            categoriesString += "Finnish,";
-        }
-        if (traditionalCheckBox.isChecked())
-        {
-            categoriesString += "Traditional,";
-        }
-        if (outdoorCheckBox.isChecked())
-        {
-            categoriesString += "Outdoor,";
-        }
-        if (internationalCheckBox.isChecked())
-        {
-            categoriesString += "International,";
-        }
+            String categoriesString = "[";
+            if (restaurantCheckBox.isChecked())
+            {
+                categoriesString += "Restaurant,";
+            }
+            if (venueCheckBox.isChecked())
+            {
+                categoriesString += "Venue,";
+            }
+            if (entertainmentCheckBox.isChecked())
+            {
+                categoriesString += "Entertainment,";
+            }
+            if (barCheckBox.isChecked())
+            {
+                categoriesString += "Bar,";
+            }
+            if (modernCheckBox.isChecked())
+            {
+                categoriesString += "Modern,";
+            }
+            if (indoorCheckBox.isChecked())
+            {
+                categoriesString += "Indoor,";
+            }
+            if (finnishCheckBox.isChecked())
+            {
+                categoriesString += "Finnish,";
+            }
+            if (traditionalCheckBox.isChecked())
+            {
+                categoriesString += "Traditional,";
+            }
+            if (outdoorCheckBox.isChecked())
+            {
+                categoriesString += "Outdoor,";
+            }
+            if (internationalCheckBox.isChecked())
+            {
+                categoriesString += "International,";
+            }
 
-        categoriesString = categoriesString.substring(0, categoriesString.length() - 1);
-        if (!categoriesString.equals(""))
-            categoriesString += "]";
+            categoriesString = categoriesString.substring(0, categoriesString.length() - 1);
+            if (!categoriesString.equals(""))
+                categoriesString += "]";
 
-        Log.d("AAA", "categoriesString: " + categoriesString);
+            Log.d("AAA", "categoriesString: " + categoriesString);
 
-        if (!password.equals(confirmPassword))
-        {
-            Toast.makeText(this, "Passwords must match!", Toast.LENGTH_SHORT).show();
-        }
-        // else if (!checkBox.isChecked())
-        // {
+            if (!password.equals(confirmPassword))
+            {
+                Toast.makeText(this, "Passwords must match!", Toast.LENGTH_SHORT).show();
+            }
+            // else if (!checkBox.isChecked())
+            // {
             // Toast.makeText(this, "You must agree to the Terms and Conditions first", Toast.LENGTH_SHORT).show();
-        // }
-        else
-        {
-            String hours = "[" + openingHours1 + "," + openingHours2 + "],[" + openingHours3 + "," + openingHours4 + "]";
+            // }
+            else
+            {
+                String hours = "[" + openingHours1 + "," + openingHours2 + "],[" + openingHours3 + "," + openingHours4 + "]";
 
-            Company companyForId = new CompanyBuilder().buildCompany(ApiHandler.getBearerToken());
+                Company companyForId = new CompanyBuilder().buildCompany(ApiHandler.getBearerToken());
 
-            Company company = new CompanyBuilder()
-                    .id(companyForId.getId())
-                    .email(email).password(password)
-                    .country(country)
-                    .city(city)
-                    .location("")
-                    .address(address)
-                    .description(description)
-                    .name(name)
-                    .postalCode(postalCode)
-                    .openingHours(hours)
-                    .categories(categoriesString)
-                    .buildCompany();
-            ApiHandler.editCompany(this, company, this);
+                Company company = new CompanyBuilder()
+                        .id(companyForId.getId())
+                        .email(email).password(password)
+                        .country(country)
+                        .city(city)
+                        .location("")
+                        .address(address)
+                        .description(description)
+                        .name(name)
+                        .postalCode(postalCode)
+                        .openingHours(hours)
+                        .categories(categoriesString)
+                        .tags(tags)
+                        .buildCompany();
+                ApiHandler.editCompany(this, company, this);
+            }
+
+        }
+        catch (Exception ex){
+            Log.d(TAG, "onUpdateClick: " + ex.getMessage());
         }
     }
 
