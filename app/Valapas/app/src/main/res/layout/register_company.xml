@@ -315,6 +315,7 @@
                     android:textStyle="bold"
                     app:fontFamily="@font/montserrat" />
 
+
             </LinearLayout>
 
             <LinearLayout
@@ -445,12 +446,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
+                android:background="@color/White"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/company_categories_one"
-                android:background="@color/White">
+                app:layout_constraintTop_toBottomOf="@id/company_categories_one">
 
                 <CheckBox
                     android:id="@+id/Entertainment"
@@ -602,12 +604,52 @@
                 android:background="@color/White"
                 android:paddingTop="16dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="You want people to find your business, don't you? Add as many tags as you can to help people find your business!"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+
+                <EditText
+                    android:id="@+id/tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="normal"
+                    app:fontFamily="@font/montserrat"
+                    android:hint="Seperate tags with commas"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Valapas Account Information"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Black"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:textAllCaps="false"
                     android:textColor="@color/Black"
                     android:textSize="8sp"
