@@ -77,7 +77,7 @@ public class UserFavorites extends AppCompatActivity implements IReturnCompanySe
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }

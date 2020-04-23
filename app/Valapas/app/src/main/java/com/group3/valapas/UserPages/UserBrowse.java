@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,13 +25,14 @@ import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnCompanySearchResultsCal
 import com.group3.valapas.ApiHandler.ApiHandler;
 import com.group3.valapas.Dialogs.ISortSelected;
 import com.group3.valapas.Dialogs.SortDialog;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.Company;
 import com.group3.valapas.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserBrowseCategory extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback, CategoriesAdapter.OnItemClickListener
+public class UserBrowse extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback, CategoriesAdapter.OnItemClickListener
 {
     private RecyclerView categoriesView;
     private RecyclerView.LayoutManager layoutManager;
@@ -61,11 +64,11 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_browse_category);
+        setContentView(R.layout.user_browse);
 
         context = this;
 
-        categories = new ArrayList<>(Arrays.asList("Restaurants", "Fast Food", "Sports", "Leisure", "Entertainment", "VR"));
+        categories = new ArrayList<>(Arrays.asList("Restaurant", "Venue", "Entertainment", "Bar", "Modern", "Indoor", "Finnish", "Traditional", "Outdoor", "International"));
 
         locations = findViewById(R.id.locationsText);
         categoriesView = findViewById(R.id.categoriesView);
@@ -97,10 +100,18 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
         companiesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(context, UserCompanyView.class);
-                intent.putExtra("CompanyName", companyNames.get(position));
-                intent.putExtra("CompanyId", companyIds.get(position));
-                startActivity(intent);
+                if (ApiHandler.getBearerToken().equals(""))
+                {
+                    Toast.makeText(context, "You need to login first.", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(context, MainActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Intent intent = new Intent(context, UserCompanyView.class);
+                    intent.putExtra("CompanyName", companyNames.get(position));
+                    intent.putExtra("CompanyId", companyIds.get(position));
+                    startActivity(intent);
+                }
             }
         });
 
@@ -118,7 +129,6 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
         Intent i = new Intent (this, UserBrowsePrice.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     public void selectPopular(View v)
@@ -126,28 +136,51 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
         Intent i = new Intent (this, UserBrowsePopular.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     public void selectProfile(View v)
     {
-        Intent i = new Intent (this, UserProfile.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserProfile.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     public void selectFavorites(View v)
     {
-        Intent i = new Intent (this, UserFavorites.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserFavorites.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     public void selectBookings(View v)
     {
-        Intent i = new Intent (this, UserBookings.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if (ApiHandler.getBearerToken().equals(""))
+        {
+            Toast.makeText(this, "You need to login first.", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
+        else {
+            Intent i = new Intent(this, UserBookings.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     private void changeSort()
@@ -180,8 +213,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
     }
 
     @Override
-    public void returnSearchResults(ArrayList<Company> returnedCompanies)
-    {
+    public void returnSearchResults(ArrayList<Company> returnedCompanies) {
 
         // Resetting the lists
         companyNames.clear();
@@ -196,7 +228,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
             Log.d("AAA", "For1: ");
             companyNames.add(c.getName());
             Log.d("AAA", "For2: ");
-            companyCategories.add(c.getCategories()[0]);
+            companyCategories.add(c.getCategories());
             Log.d("AAA", "For3: ");
             companyDescriptions.add(c.getDescription());
             companyImages.add("imagine");
@@ -206,7 +238,7 @@ public class UserBrowseCategory extends AppCompatActivity implements ISortSelect
 
         //Log.d("AAA", "Name: " + companyNames.get(0));
 
-        UserBrowseCategory.this.runOnUiThread(new Runnable() {
+        UserBrowse.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                 updateLocationsString();

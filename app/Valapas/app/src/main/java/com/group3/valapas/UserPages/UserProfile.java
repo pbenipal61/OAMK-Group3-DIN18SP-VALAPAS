@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.group3.valapas.ApiHandler.ApiCallbacks.IReturnUserCallback;
 import com.group3.valapas.ApiHandler.ApiHandler;
+import com.group3.valapas.MainActivity;
 import com.group3.valapas.Models.User;
 import com.group3.valapas.Models.UserBuilder;
 import com.group3.valapas.R;
@@ -44,7 +45,7 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
 
     public void selectBrowse(View v)
     {
-        Intent i = new Intent (this, UserBrowseCategory.class);
+        Intent i = new Intent (this, UserBrowse.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
@@ -85,12 +86,21 @@ public class UserProfile extends AppCompatActivity implements IReturnUserCallbac
         }
     }
 
+    public void onLogoutClick(View view)
+    {
+        ApiHandler.logOut(this);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
     @Override
     public void returnUser(User user)
     {
         Toast.makeText(this, "User updated successfully!", Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, UserBrowseCategory.class);
+        Intent intent = new Intent(this, UserBrowse.class);
         startActivity(intent);
     }
 }

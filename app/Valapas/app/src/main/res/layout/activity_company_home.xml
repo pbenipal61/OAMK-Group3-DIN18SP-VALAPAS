@@ -13,69 +13,108 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/LightGray">
+        android:background="@color/White">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/LightGray">
+
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:singleLine="false"
-                android:text="Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... Company details... "
+                android:text="Company Details"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:singleLine="false"
                 android:text="Company name"
                 android:textAlignment="center"
                 android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
-                app:srcCompat="@drawable/eliminator" />
-
-            <TextView
-                android:id="@+id/textView6"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Company overview"
-                android:textAlignment="center"
-                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:srcCompat="@drawable/restaurant_chocolat" />
+
+            <ListView
+                android:id="@+id/offeringsListView"
+                android:layout_width="match_parent"
+                android:layout_height="5000dp"
+                android:background="@color/White"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/DarkGray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/details">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Offers:"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/White"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/interactive_button_light_gold"
+                    android:onClick="selectCreateOffering"
+                    android:text="Create Offering"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
