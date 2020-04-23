@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@color/LightGray">
+            android:background="@color/White">
 
 
             <TextView
@@ -107,6 +107,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
                     android:background="@drawable/interactive_button_light_gold"
                     android:onClick="selectCreateOffering"
                     android:text="Create Offering"
