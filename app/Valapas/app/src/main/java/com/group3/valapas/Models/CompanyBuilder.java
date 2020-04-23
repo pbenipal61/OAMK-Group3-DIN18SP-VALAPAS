@@ -21,12 +21,13 @@ public class CompanyBuilder
     private String categories = "";
     private String openingHours = "";
     private String[] priceRange = null;
+    private String[] tags = null;
 
     public CompanyBuilder() {}
 
     public Company buildCompany()
     {
-        return new Company(id, email, password, name, description, images, address, postalCode, location, city, country, categories, openingHours, priceRange);
+        return new Company(id, email, password, name, description, images, address, postalCode, location, city, country, categories, openingHours, priceRange, tags);
     }
 
 
@@ -70,11 +71,16 @@ public class CompanyBuilder
             */
 
             JSONArray priceRangeJSON = companyJSON.getJSONArray("priceRange");
+            JSONArray tagsJSON = companyJSON.getJSONArray("tags");
             String[] priceRangeArray = new String[priceRangeJSON.length()];
             for (int k = 0; k < priceRangeJSON.length(); k++) {
                 priceRangeArray[k] = priceRangeJSON.getString(k);
             }
 
+            String[] tagsArray = new String[tagsJSON.length()];
+            for (int k = 0; k < tagsJSON.length(); k++) {
+                tagsArray[k] = tagsJSON.getString(k);
+            }
             company = new CompanyBuilder()
                     // location
                     .images(imagesArray)
@@ -90,6 +96,7 @@ public class CompanyBuilder
                     .description(companyJSON.getString("description"))
                     .address(companyJSON.getString("address"))
                     .postalCode(companyJSON.getString("postalCode"))
+                    .tags(tagsArray)
                     .buildCompany();
 
         }
@@ -184,6 +191,11 @@ public class CompanyBuilder
     public CompanyBuilder priceRange (String[] priceRange)
     {
         this.priceRange = priceRange;
+        return this;
+    }
+
+    public CompanyBuilder tags (String[] tags){
+        this.tags = tags;
         return this;
     }
 }

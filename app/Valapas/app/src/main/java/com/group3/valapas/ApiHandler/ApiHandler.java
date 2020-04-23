@@ -2,7 +2,10 @@ package com.group3.valapas.ApiHandler;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -559,6 +562,7 @@ public class ApiHandler
         requestQueue.add(putRequest);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void editCompany(final Context context, Company company, final IReturnCompanyCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
@@ -572,6 +576,7 @@ public class ApiHandler
         {
             // openingHours not working correctly. Works only for monday-friday
             JSONArray openingHours = new JSONArray(company.getOpeningHours());
+            JSONArray tagsJSON = new JSONArray(company.getTags());
 
             // Log.d("AAA", "openingHours as String: " + company.getOpeningHours());
             // Log.d("AAA", "openingHours as JSONArray: " + openingHours);
@@ -586,6 +591,7 @@ public class ApiHandler
             js.put("address", company.getAddress());
             js.put("description", company.getDescription());
             js.put("openingHours", openingHours);
+            js.put("tags", tagsJSON);
             if (!company.getCategories().equals(""))
                 js.put("categories", new JSONArray(company.getCategories()));
 
@@ -735,7 +741,7 @@ public class ApiHandler
     public static void searchByCompanyName(final Context context, String companyName, final IReturnCompanySearchResultsCallback callback)
     {
         RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        String url = apiUrl + "/companies?name=" + companyName;
+        String url = apiUrl + "/companies?tags=" + companyName;
 
         JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
