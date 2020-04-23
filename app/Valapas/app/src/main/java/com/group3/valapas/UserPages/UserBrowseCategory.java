@@ -32,7 +32,7 @@ import com.group3.valapas.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserBrowse extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback, CategoriesAdapter.OnItemClickListener
+public class UserBrowseCategory extends AppCompatActivity implements ISortSelected, IReturnCompanySearchResultsCallback, CategoriesAdapter.OnItemClickListener
 {
     private RecyclerView categoriesView;
     private RecyclerView.LayoutManager layoutManager;
@@ -238,7 +238,7 @@ public class UserBrowse extends AppCompatActivity implements ISortSelected, IRet
 
         //Log.d("AAA", "Name: " + companyNames.get(0));
 
-        UserBrowse.this.runOnUiThread(new Runnable() {
+        UserBrowseCategory.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                 updateLocationsString();
