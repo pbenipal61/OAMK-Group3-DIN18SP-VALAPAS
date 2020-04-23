@@ -61,6 +61,9 @@ const schema = {
     priceRange: {
         type: [Number], // [min, max]
         required: true
+    },
+    tags: {
+        type: [String]
     }
     
 }
