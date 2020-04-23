@@ -171,7 +171,7 @@ public class BrowseCategoryTab extends AppCompatActivity implements ISortSelecte
         in.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
 
         ((CategoriesAdapter)categoriesAdapter).resetIndex();
-        ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this);
+        ApiHandler.searchByCompanyName(this, searchText.getText().toString(), this, "name");
     }
 
 

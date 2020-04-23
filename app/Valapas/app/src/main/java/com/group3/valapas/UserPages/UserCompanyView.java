@@ -55,12 +55,14 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
     private Set<String> favoriteCompanies = new HashSet<>();
     private String companyId;
 
+    private static final String TAG = "UserCompanyView";
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_company_view);
-
+        Log.d(TAG, "onCreate: here");
         context = this;
 
         Intent intent = getIntent();
@@ -68,10 +70,12 @@ public class UserCompanyView extends AppCompatActivity implements IReturnCompany
         String name = intent.getStringExtra("CompanyName");
         companyId = intent.getStringExtra("CompanyId");
 
-        ApiHandler.searchByCompanyName(this, name, this);
+        Log.d(TAG, "onCreate: "+ companyName + " " + companyId);
+        ApiHandler.searchByCompanyName(this, name, this, "name");
 
         favoriteButton = findViewById(R.id.favoriteButton);
         companyName = findViewById(R.id.offeringName);
+        companyName.setText(name);
         companyLocation = findViewById(R.id.companyLocation);
         companyDescription = findViewById(R.id.company_description);
         companyImage = findViewById(R.id.companyImage);
