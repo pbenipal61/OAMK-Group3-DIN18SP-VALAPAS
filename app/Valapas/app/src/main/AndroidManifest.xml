@@ -19,7 +19,6 @@
         <activity android:name=".CompanyPages.CompanyUpdateInfo" />
         <activity android:name=".CompanyPages.CompanyReviewsActivity" />
         <activity android:name=".CompanyPages.CompanyCustomerView" />
-        <activity android:name=".CompanyPages.CompanyInformation" />
         <activity android:name=".UserPages.UserBrowsePrice"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".UserPages.UserBrowsePopular"
