@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/categoryLayout"
-    android:layout_width="100dp"
-    android:layout_height="50dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    android:background="@drawable/radius"
+    android:background="@drawable/interactive_button_light_gold"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -14,10 +14,16 @@
             android:id="@+id/offeringDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:padding="12dp"
             android:gravity="center"
             android:text="@string/category"
-            android:textSize="14sp" />
+            android:textStyle="normal"
+            android:background="@drawable/interactive_button_light_gold"
+            android:fontFamily="@font/montserrat"
+            android:textSize="10sp"
+            android:textColor="@color/Black"
+            tools:ignore="SmallSp" />
 
 </LinearLayout>
